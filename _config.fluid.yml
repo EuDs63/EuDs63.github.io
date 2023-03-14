@@ -102,4 +102,7 @@ theme: fluid
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
-  type: ''
+  type: 'git'
+  repr:
+    github:https://github.com/EuDs63/EuDs63.github.io.git
+  branch: main
