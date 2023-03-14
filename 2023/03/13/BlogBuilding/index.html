@@ -24,7 +24,7 @@
 <meta property="og:description" content="过程记录博客搭建的过程  框架是选用的Hexo,主题选用的是Fluid,本地部署十分顺利，跟着教程来就行。 调整配置的时候遇到了问题，我刚开始是直接使用npm install --save hexo-theme-fluid，但改配置的时候虽然有文档，但各项配置的位置不知道是怎么嵌套的，就选择了方式二。 本地配置好之后，要部署到Github Pages上。Hexo所提供的教程中，所使用的是Githu">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-03-12T18:16:12.000Z">
-<meta property="article:modified_time" content="2023-03-14T16:10:19.229Z">
+<meta property="article:modified_time" content="2023-03-14T16:19:17.353Z">
 <meta property="article:author" content="EuDs">
 <meta property="article:tag" content="记录">
 <meta name="twitter:card" content="summary_large_image">
@@ -220,7 +220,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          665 字
+          661 字
         
       </span>
     
@@ -278,9 +278,10 @@
 <ol>
 <li>框架是选用的<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/">Hexo</a>,主题选用的是<a target="_blank" rel="noopener" href="https://hexo.fluid-dev.com/docs">Fluid</a>,本地部署十分顺利，跟着教程来就行。</li>
 <li>调整配置的时候遇到了问题，我刚开始是直接使用<code>npm install --save hexo-theme-fluid</code>，但改配置的时候虽然有文档，但各项配置的位置不知道是怎么嵌套的，就选择了方式二。</li>
-<li>本地配置好之后，要部署到Github Pages上。<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/github-pages">Hexo所提供的教程</a>中，所使用的是<code>Github Action</code> 内置的 token 变量<code>GITHUB_TOKEN</code>。</li>
+<li>本地配置好之后，要部署到Github Pages上。<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/github-pages">Hexo所提供的教程</a>中，所使用的是<code>Github Action</code> 内置的 token 变量<code>GITHUB_TOKEN</code>。根据<a target="_blank" rel="noopener" href="https://docs.github.com/en/actions/security-guidesautomatic-token-authentication?query=PA#using-the-github_token-in-a-workflow">官方源文档的描述</a>,为了防止递归构建发生，使用<code>GITHUB_TOKEN</code>推送的代码不会再次触发任何action。而考虑到我希望后续能进一步触发和进一步了解<code>Github Action</code>,我选择自己设置key。</li>
+<li>这个花的时间最多。走了不少弯路，最终是参考了<a target="_blank" rel="noopener" href="https://vuepress-theme-reco.recoluan.com/views/other/github-actions.html">使用 GitHub Actions 自动部署博客</a>。</li>
+<li>action已经跑成功了，但访问时却发现还是404，检查后发现是自己未<a target="_blank" rel="noopener" href="https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site">Configuring a publishing source for your GitHub Pages site</a>。</li>
 </ol>
-<p>根据<a target="_blank" rel="noopener" href="https://docs.github.com/en/actions/security-guides/automatic-token-authentication?query=PA#using-the-github_token-in-a-workflow">官方源文档的描述</a>,为了防止递归构建发生，使用<code>GITHUB_TOKEN</code>推送的代码不会再次触发任何action。而考虑到我希望后续能进一步触发和进一步了解<code>Github Action</code>,我选择自己设置key。<br>4. 这个花的时间最多。走了不少弯路，最终是参考了<a target="_blank" rel="noopener" href="https://vuepress-theme-reco.recoluan.com/views/other/github-actions.html">使用 GitHub Actions 自动部署博客</a>。<br>5. action已经跑成功了，但访问时却发现还是404，检查后发现是自己未<a target="_blank" rel="noopener" href="https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site">Configuring a publishing source for your GitHub Pages site</a>。</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure>
 
 <p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
@@ -366,8 +367,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/03/08/RssTossing/" title="rsstossing">
-                        <span class="hidden-mobile">rsstossing</span>
+                      <a href="/2023/03/08/RssTossing/" title="RSS折腾记">
+                        <span class="hidden-mobile">RSS折腾记</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
