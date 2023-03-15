@@ -14,7 +14,7 @@ date: 2023-03-15 00:19:16
 主题：[Fluid](https://hexo.fluid-dev.com/)
 
 ## Todo
-- [ ] 图床
+- [x] 图床
 - [ ] 提供RSS订阅
 - [ ] 谷歌收录
 - [ ] 更换域名
