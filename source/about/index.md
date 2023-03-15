@@ -1,5 +1,6 @@
 ---
 title: about
+layout: about
 date: 2023-03-15 00:19:16
 ---
 
