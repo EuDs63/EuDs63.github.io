@@ -7,15 +7,20 @@ date: 2023-03-15 00:19:16
 ## About Me
 
 - A student
+  - study at Southeast University
+  - major in Software Engineering
 
 ## About EuDs’s Blog
 
-框架：[Hexo](https://hexo.io/)
-主题：[Fluid](https://hexo.fluid-dev.com/)
-
+- 框架：[Hexo](https://hexo.io/)
+- 主题：[Fluid](https://hexo.fluid-dev.com/)
+- 内容：本博客的内容包括但不限于：
+  - 阅读时的感受和摘抄
+  - 记录遇到的问题和解决方式
+  - 笔记
 ## Todo
 - [x] 图床
-- [ ] 提供RSS订阅
+- [x] 提供RSS订阅
 - [ ] 谷歌收录
 - [ ] 更换域名
 - [ ] 缩短网站打开所需时间

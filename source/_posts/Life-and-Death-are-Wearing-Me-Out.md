@@ -1,7 +1,7 @@
 ---
 title: 读《生死疲劳》
 tags:
-  - 作家
+  - 人物
   - 感想
   - 书评
 categories:
