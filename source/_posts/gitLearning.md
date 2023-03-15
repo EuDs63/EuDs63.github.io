@@ -1,0 +1,72 @@
+---
+title: git学习笔记
+tags:
+  - 笔记
+  - git
+categories:
+  - 学习
+date: 2022-09-04 12:31:47
+---
+# git学习笔记
+
+## add
+- `git add .` 会根据。gitignore做过滤
+- `git add *` 会忽略。gitignore把任何文件都加入
+---
+## push报错
+`git congig --global http.proxy 'http://127.0.0.1:7890'`
+
+`git congig --global https.proxy 'http://127.0.0.1:7890'`
+
+---
+## 项目内搜索
+在仓库页面上按 T ，然后直接输入文件名
+---
+## 配置
+因为有个项目是用gitee作托管，所以今天试着配置了下Gitee，还是花了些时间的，记录如下：
+1. 主要参考的是[Git同时配置Gitee和GitHub](https://cloud.tencent.com/developer/article/1774890),但它上面第一步就是让清除git的全局设置，有点不敢，因为怕清除后自己之前设置的一些东西出错。
+2. 又看了几个教程，发现[Github 与 Gitee 共存配置](https://blog.csdn.net/weixin_43894513/article/details/104550377)上并没有说要清楚全局设置，于是就跟着上面的一步步走，很顺利地就设置好了。
+3. 一个收获是`config`,`id_rsa`都是可以用记事本打开并编辑的。
+---
+## 报错：Updates were rejected because the remote contains work that you donot have locally.
+- **场景**:在尝试gitee的时候，先是建了个远程仓库。然后在本地新建了个同名的文件夹，然后
+```
+git init 
+git remote add origin https://gitee.com/spike23187/hello-gitee.git
+```
+在文件夹里新建了个文件，`push`的时候报的错
+- **解决**: 根据下方的提示，是我没有先`pull`，本地文件不是最新的。
+---
+## 报错：Updates were rejected because the tip of your current branch is behind its remote counterpart
+- **场景**：上述那个场景中，`git pull origin master`后报的错
+- **解决**：`git pull origin master --rebase`
+- **参考链接**：[Git常见报错：Updates were rejected because the tip of your current branch is behind](https://blog.csdn.net/weixin_42310154/article/details/118676936)
+- **收获**：虽然使用GitHub托管代码有段时间了，但一直是用插件简化操作的。这次算是第一次用git bash，就报了两个错，感觉git要用好，还是有段路要走的。
+---
+## 推送
+将文件推送的三个步骤：
+```
+git add 
+git commit -m"输入想说的话"
+git push
+```
+---
+
+## 查看状况
+`git status`
+
+## 分支
+- 转到另一个分支 `git checkout {分支名}
+
+- 查看本地分支 `git branch`
+- 查看远程分支 `git branch -r`
+- 查看本地和远程分支 `git branch -a`
+
+- 删除本地分支 `git branch -d {本地分支名}`
+- 强制删除本地分支`git branch -D {本地分支名}`
+- 删除远程分支 `git push origin --delete {远程分支名}`
+---
+
+## 参考链接
+- [git教程](https://www.yiibai.com/git)
+- [【杂】git学习](http://blog.ch3nyang.top/miscellaneous/git%E5%AD%A6%E4%B9%A0/)

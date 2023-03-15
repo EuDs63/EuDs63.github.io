@@ -1,4 +1,13 @@
-# EuDs’s Blog
+---
+title: about
+date: 2023-03-15 00:19:16
+---
+
+## About Me
+
+- A student
+
+## About EuDs’s Blog
 
 框架：[Hexo](https://hexo.io/)
 主题：[Fluid](https://hexo.fluid-dev.com/)
