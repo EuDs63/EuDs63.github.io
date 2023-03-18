@@ -15,7 +15,7 @@ date: 2023-03-05 23:53:40
 
 ## 歌
 歌的话，对他的讲爱情的，没什么感觉。比较喜欢的是这几首：
-[《热河》](https://www.youtube.com/watch?v=K2QE-FRAP0o&ab_channel=%E6%9D%8E%E5%BF%97Lizhi)，[《他们》](https://www.youtube.com/watch?v=fOHpIDVVYxo&list=RD2n52uYI7eII&index=10&ab_channel=sghgpwt),[《人民不需要自由](https://www.youtube.com/watch?v=buxL8RZ4gpA&list=RD2n52uYI7eII&index=27&ab_channel=%E8%80%BF%E7%82%8E%E6%97%B6%E9%97%B4)。喜欢这几首的原因，可能倒不是因为什么政治，因为华语歌情情爱爱的比例太高了，相比来说，这几首就感觉很好。简单分别说下感受。
+[《热河》](https://www.youtube.com/watch?v=K2QE-FRAP0o&ab_channel=%E6%9D%8E%E5%BF%97Lizhi)，[《他们》](https://www.youtube.com/watch?v=fOHpIDVVYxo&list=RD2n52uYI7eII&index=10&ab_channel=sghgpwt),[《人民不需要自由》](https://www.youtube.com/watch?v=buxL8RZ4gpA&list=RD2n52uYI7eII&index=27&ab_channel=%E8%80%BF%E7%82%8E%E6%97%B6%E9%97%B4)。喜欢这几首的原因，可能倒不是因为什么政治，因为华语歌情情爱爱的比例太高了，相比来说，这几首就感觉很好。简单分别说下感受。
 
 - [《热河》](https://www.youtube.com/watch?v=K2QE-FRAP0o&ab_channel=%E6%9D%8E%E5%BF%97Lizhi)
 
@@ -25,7 +25,7 @@ date: 2023-03-05 23:53:40
   
 可能是目前最喜欢的一首李志的歌了。歌词很简单，旋律好像也是，不懂。很容易唱出来。但歌词却很辛辣。
 
-- [《人民不需要自由](https://www.youtube.com/watch?v=buxL8RZ4gpA&list=RD2n52uYI7eII&index=27&ab_channel=%E8%80%BF%E7%82%8E%E6%97%B6%E9%97%B4)
+- [《人民不需要自由》](https://www.youtube.com/watch?v=buxL8RZ4gpA&list=RD2n52uYI7eII&index=27&ab_channel=%E8%80%BF%E7%82%8E%E6%97%B6%E9%97%B4)
 这首歌的歌词同样也是比较地简单，但现场表演却十分地棒。通过合唱反复地唱“人民不需要自由，这是最好的年代。”但李志却用将近一半的时间给他乐队里的成员独立的表现时间。一个个点名过去，这还是我第一次见这种表演，觉得很惊艳。说是人民不需要自由，但有了自由的人民（乐队队员），却能有很棒的表现。
 
 ## 人

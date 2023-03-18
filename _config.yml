@@ -102,6 +102,9 @@ theme: fluid
 # Extensions
 plugins:
   hexo-generator-feed
+#google search
+sitemap:
+    path: sitemap.xml
 #Feed Atom
 feed:
   type: atom
