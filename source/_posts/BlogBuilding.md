@@ -6,7 +6,7 @@ tags:
  - 折腾
 categories:
  - 学习
-
+excerpt: 记录博客搭建的过程,及途中遇到的问题和解决方式
 ---
 ## 过程
 *记录博客搭建的过程*
@@ -16,6 +16,16 @@ categories:
 3. 本地配置好之后，要部署到Github Pages上。[Hexo所提供的教程](https://hexo.io/zh-cn/docs/github-pages)中，所使用的是`Github Action` 内置的 token 变量`GITHUB_TOKEN`。根据[官方源文档的描述](https://docs.github.com/en/actions/security-guidesautomatic-token-authentication?query=PA#using-the-github_token-in-a-workflow),为了防止递归构建发生，使用`GITHUB_TOKEN`推送的代码不会再次触发任何action。而考虑到我希望后续能进一步触发和进一步了解`Github Action`,我选择自己设置key。
 4. 这个花的时间最多。走了不少弯路，最终是参考了[使用 GitHub Actions 自动部署博客](https://vuepress-theme-reco.recoluan.com/views/other/github-actions.html)。
 5. action已经跑成功了，但访问时却发现还是404，检查后发现是自己未[Configuring a publishing source for your GitHub Pages site](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)。
+6. 添加谷歌验证：
+    参考了[让Google搜索到搭建在Github Pages上的博客](https://jactorsue.github.io/blog/2018/04/how-blog-on-githubpages-can-be-searched-by-google.html)
+    1. （前略）验证网站所有权时，选择使用HTML标记方式来验证。fluid主题的head路径为`\themes\fluid\layout\_partials\head.ejs`
+7. 减少加载时间，尚未实操，先记录几篇看到的好文
+   - [Hexo加速访问](https://www.voidking.com/dev-hexo-accelerate/)
+   - [Hexo使用Gulp压缩静态资源](https://www.voidking.com/dev-hexo-gulp/)
+8. 插入图片，这篇写得挺完整的：
+   [在Hexo博客中插入图片的各种方式](https://fuhailin.github.io/Hexo-images/)
+9. 添加最后修改时间:
+    将主题配置文件`_config.yml`中的`post:copyright:update_date:enable:`设置为`enable`即可
 
 ## Quick Start
 

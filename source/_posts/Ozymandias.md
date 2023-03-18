@@ -7,6 +7,7 @@ tags:
 categories:
   - 什锦
 date: 2022-11-15 23:15:48
+excerpt: 废墟四周，唯余黄沙莽莽，寂寞荒凉，伸展四方
 ---
 # Ozymandias
 
