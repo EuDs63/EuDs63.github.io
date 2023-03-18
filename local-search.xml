@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>收藏夹的使用</title>
+    <link href="/2023/03/18/the-use-of-Favorites/"/>
+    <url>/2023/03/18/the-use-of-Favorites/</url>
+    
+    <content type="html"><![CDATA[<h1 id="收藏夹的使用"><a href="#收藏夹的使用" class="headerlink" title="收藏夹的使用"></a>收藏夹的使用</h1><p class="note note-info">偶然发现可以在url中使用JavaScript，这是前提。日常使用时，有些功能特意为此写个拓展有点小题大作，这时候使用收藏夹即可，方便的同时也增加了可迁移性</p><h2 id="Bing转Google搜索"><a href="#Bing转Google搜索" class="headerlink" title="Bing转Google搜索"></a>Bing转Google搜索</h2><ul><li>描述：我日常搜索引擎是使用bing，但有些时候bing的内容我不是很满意，需要在Google上再次搜索；由于new bing的存在，我不想更换默认搜索引擎，但打开Google，再次搜索这个操作又很麻烦，所以就添加了一条收藏夹</li><li>代码详解：  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs JavaScript"><span class="hljs-keyword">var</span> currentUrl = <span class="hljs-variable language_">window</span>.<span class="hljs-property">location</span>.<span class="hljs-property">href</span>; <span class="hljs-comment">//获取当前连接</span><br><span class="hljs-keyword">var</span> reg = <span class="hljs-regexp">/q=([^&amp;]+)/</span>;<br><span class="hljs-keyword">var</span> res = currentUrl.<span class="hljs-title function_">match</span>(reg); <span class="hljs-comment">//使用正则表达式进行匹配</span><br><span class="hljs-keyword">var</span> googleUrl = <span class="hljs-string">&quot;https://www.google.com/search?q=&quot;</span>;<br><span class="hljs-keyword">var</span> resultUrl = googleUrl+res[<span class="hljs-number">1</span>]; <span class="hljs-comment">//拼接</span><br><span class="hljs-variable language_">window</span>.<span class="hljs-title function_">open</span>(resultUrl,<span class="hljs-string">&#x27;_self&#x27;</span>).<span class="hljs-title function_">close</span>();<span class="hljs-comment">//打开新网站，并关闭原网站</span><br></code></pre></td></tr></table></figure></li><li>书签URL  <div class="note note-success">            <p><code>javascript:var currentUrl = window.location.href;var reg = /q=([^&amp;]+)/;var res = currentUrl.match(reg);var googleUrl = &quot;https://www.google.com/search?q=&quot;;var resultUrl = googleUrl+res[1];window.open(resultUrl,&#39;_self&#39;).close();</code></p>          </div></li><li>注：正则表达式是让new bing写的，感觉有种ntr的美</li></ul><h2 id="网易云解除歌单限制"><a href="#网易云解除歌单限制" class="headerlink" title="网易云解除歌单限制"></a>网易云解除歌单限制</h2><ul><li>描述：网易云音乐网页端对歌单显示数量有限制，只显示20条，而我不希望因此下载客户端，于是添加了该书签。</li><li>代码：  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs JavaScript"><span class="hljs-variable language_">document</span>.<span class="hljs-property">cookie</span>=<span class="hljs-string">&quot;os=pc&quot;</span>;<br><span class="hljs-variable language_">window</span>.<span class="hljs-property">location</span>.<span class="hljs-title function_">reload</span>();<span class="hljs-comment">//重新加载网页</span><br></code></pre></td></tr></table></figure></li><li>收藏夹URL<div class="note note-success">            <p><code>javascript:document.cookie=&quot;os=pc&quot;;window.location.reload();</code></p>          </div></li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>学习</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>折腾</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>《窄门》摘录</title>
     <link href="/2023/03/15/excerpt-of-Strait-is-the-Gate/"/>
     <url>/2023/03/15/excerpt-of-Strait-is-the-Gate/</url>
