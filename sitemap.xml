@@ -56,6 +56,15 @@
   </url>
   
   <url>
+    <loc>http://euds63.github.io/2023/02/17/ai/</loc>
+    
+    <lastmod>2023-03-30</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://euds63.github.io/2023/03/09/excerpt-of-Life-and-Death-are-Wearing-Me-Out/</loc>
     
     <lastmod>2023-03-30</lastmod>
@@ -66,6 +75,15 @@
   
   <url>
     <loc>http://euds63.github.io/2023/03/15/excerpt-of-Strait-is-the-Gate/</loc>
+    
+    <lastmod>2023-03-30</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://euds63.github.io/2023/03/30/formLearning/</loc>
     
     <lastmod>2023-03-30</lastmod>
     
@@ -184,6 +202,20 @@
   </url>
   
   <url>
+    <loc>http://euds63.github.io/tags/web/</loc>
+    <lastmod>2023-03-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://euds63.github.io/tags/%E5%89%8D%E7%AB%AF/</loc>
+    <lastmod>2023-03-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>http://euds63.github.io/tags/%E7%AC%94%E8%AE%B0/</loc>
     <lastmod>2023-03-30</lastmod>
     <changefreq>weekly</changefreq>
@@ -215,6 +247,13 @@
   
   <url>
     <loc>http://euds63.github.io/categories/%E4%BB%80%E9%94%A6/</loc>
+    <lastmod>2023-03-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://euds63.github.io/categories/%E6%83%B3%E6%B3%95/</loc>
     <lastmod>2023-03-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
