@@ -17,23 +17,24 @@
   <meta name="keywords" content="">
   <meta name="google-site-verification" content="nKjFqoYLgKx6sOplaHtjoG319whSAx6ERTIdXhM3v5s" />
   
-    <meta name="description" content="记录博客搭建的过程,及途中遇到的问题和解决方式">
+    <meta name="description" content="我和谁都不争">
 <meta property="og:type" content="article">
-<meta property="og:title" content="博客搭建">
-<meta property="og:url" content="http://euds63.github.io/2023/03/13/BlogBuilding/index.html">
+<meta property="og:title" content="I Strove with None">
+<meta property="og:url" content="http://euds63.github.io/2023/04/10/I-strove-with-none/index.html">
 <meta property="og:site_name" content="EuDs&#39;s blog">
-<meta property="og:description" content="记录博客搭建的过程,及途中遇到的问题和解决方式">
+<meta property="og:description" content="我和谁都不争">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-03-12T18:16:12.000Z">
+<meta property="article:published_time" content="2023-04-10T12:44:40.000Z">
 <meta property="article:modified_time" content="2023-04-10T12:47:38.599Z">
 <meta property="article:author" content="EuDs">
-<meta property="article:tag" content="记录">
-<meta property="article:tag" content="折腾">
+<meta property="article:tag" content="摘抄">
+<meta property="article:tag" content="感想">
+<meta property="article:tag" content="翻译">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>博客搭建 - EuDs&#39;s blog</title>
+  <title>I Strove with None - EuDs&#39;s blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -200,7 +201,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="博客搭建"></span>
+            <span id="subtitle" data-typed-text="I Strove with None"></span>
           
         </div>
 
@@ -211,8 +212,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-03-13 02:16" pubdate>
-          2023年3月13日 凌晨
+        <time datetime="2023-04-10 20:44" pubdate>
+          2023年4月10日 晚上
         </time>
       </span>
     
@@ -223,7 +224,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          933 字
+          643 字
         
       </span>
     
@@ -234,7 +235,7 @@
         
         
         
-          8 分钟
+          6 分钟
         
       </span>
     
@@ -272,42 +273,36 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">博客搭建</h1>
+            <h1 style="display: none">I Strove with None</h1>
             
             
               <div class="markdown-body">
                 
-                <h2 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h2><p><em>记录博客搭建的过程</em></p>
-<ol>
-<li>框架是选用的<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/">Hexo</a>,主题选用的是<a target="_blank" rel="noopener" href="https://hexo.fluid-dev.com/docs">Fluid</a>,本地部署十分顺利，跟着教程来就行。</li>
-<li>调整配置的时候遇到了问题，我刚开始是直接使用<code>npm install --save hexo-theme-fluid</code>，但改配置的时候虽然有文档，但各项配置的位置不知道是怎么嵌套的，就选择了方式二。</li>
-<li>本地配置好之后，要部署到Github Pages上。<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/github-pages">Hexo所提供的教程</a>中，所使用的是<code>Github Action</code> 内置的 token 变量<code>GITHUB_TOKEN</code>。根据<a target="_blank" rel="noopener" href="https://docs.github.com/en/actions/security-guidesautomatic-token-authentication?query=PA#using-the-github_token-in-a-workflow">官方源文档的描述</a>,为了防止递归构建发生，使用<code>GITHUB_TOKEN</code>推送的代码不会再次触发任何action。而考虑到我希望后续能进一步触发和进一步了解<code>Github Action</code>,我选择自己设置key。</li>
-<li>这个花的时间最多。走了不少弯路，最终是参考了<a target="_blank" rel="noopener" href="https://vuepress-theme-reco.recoluan.com/views/other/github-actions.html">使用 GitHub Actions 自动部署博客</a>。</li>
-<li>action已经跑成功了，但访问时却发现还是404，检查后发现是自己未<a target="_blank" rel="noopener" href="https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site">Configuring a publishing source for your GitHub Pages site</a>。</li>
-<li>添加谷歌验证：<br> 参考了<a target="_blank" rel="noopener" href="https://jactorsue.github.io/blog/2018/04/how-blog-on-githubpages-can-be-searched-by-google.html">让Google搜索到搭建在Github Pages上的博客</a><ol>
-<li>（前略）验证网站所有权时，选择使用HTML标记方式来验证。fluid主题的head路径为<code>\themes\fluid\layout\_partials\head.ejs</code></li>
-</ol>
-</li>
-<li>减少加载时间，尚未实操，先记录几篇看到的好文<ul>
-<li><a target="_blank" rel="noopener" href="https://www.voidking.com/dev-hexo-accelerate/">Hexo加速访问</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.voidking.com/dev-hexo-gulp/">Hexo使用Gulp压缩静态资源</a></li>
-</ul>
-</li>
-<li>插入图片，这篇写得挺完整的：<br><a target="_blank" rel="noopener" href="https://fuhailin.github.io/Hexo-images/">在Hexo博客中插入图片的各种方式</a></li>
-<li>添加最后修改时间:<br> 将主题配置文件<code>_config.yml</code>中的<code>post:copyright:update_date:enable:</code>设置为<code>enable</code>即可</li>
-</ol>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo server<br></code></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo generate<br></code></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo deploy<br></code></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+                <h1 id="I-Strove-with-None"><a href="#I-Strove-with-None" class="headerlink" title="I Strove with None"></a>I Strove with None</h1><h2 id="原文-–Walter-Landor"><a href="#原文-–Walter-Landor" class="headerlink" title="原文    –Walter Landor"></a>原文    –Walter Landor</h2><p>I strove with none , </p>
+<p>for none was worth my strife ;</p>
+<p>Nature I lov’d ,</p>
+<p>and next to Nature , Art:</p>
+<p>I warmed both hands before the fire of Life;</p>
+<p>It sinks; and I am ready to depart . </p>
+<h2 id="杨绛译本："><a href="#杨绛译本：" class="headerlink" title="杨绛译本："></a>杨绛译本：</h2><p>我和谁都不争，</p>
+<p>和谁争我都不屑；</p>
+<p>我爱大自然，</p>
+<p>其次是艺术；</p>
+<p>我双手烤着，</p>
+<p>生命之火取暖；</p>
+<p>火萎了，</p>
+<p>我也准备走了。</p>
+<h2 id="王佐良译本："><a href="#王佐良译本：" class="headerlink" title="王佐良译本："></a>王佐良译本：</h2><p>不与人争，</p>
+<p>也无人值得我争，</p>
+<p>爱的是自然，</p>
+<p>其次是艺术。</p>
+<p>生命之火前我把双手烤烘，</p>
+<p>火焰低落了，</p>
+<p>我准备离去。</p>
+<h2 id="一些感受"><a href="#一些感受" class="headerlink" title="一些感受"></a>一些感受</h2><p>读《刀锋》的时候看到这首诗，但有种似曾相识的感觉，应该不是第一次读到了。书中出现这首诗是艾略特在谈到自己的死亡时引用的。关于艾略特，关于《刀锋》，我想我会另写一篇。这里主要谈谈对这首诗和其译本的一些感受。</p>
+<p>我蛮佩服，也欣赏诗中所描述的这种心境。我有时候会提醒自己，没必要去和别人去争。但我也记得自己在哪处看到过这样的一句话，“人是靠自我认同活着的”。类似这种句式的论断很多，但唯独这句我倒是记得很清楚。而要获取自我认同，常常是要靠与他人若有若无，有意无意的比较所获得的。至少现在的我是这样的。我觉得这并不好。所以自己还有待提高。</p>
+<p>除了心境，我还喜欢这个比喻。<code>I warmed both hadns before the fire of life.</code></p>
+<p>而上面所摘录的两种译本，我更喜欢杨绛的译本，尤其是<code>火萎了</code>这一句。我觉得译出了生命逝去的倏忽即逝。</p>
 
                 
               </div>
@@ -326,7 +321,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E5%AD%A6%E4%B9%A0/" class="category-chain-item">学习</a>
+  <a href="/categories/%E4%BB%80%E9%94%A6/" class="category-chain-item">什锦</a>
   
   
 
@@ -341,9 +336,11 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E8%AE%B0%E5%BD%95/">#记录</a>
+        <a href="/tags/%E6%91%98%E6%8A%84/">#摘抄</a>
       
-        <a href="/tags/%E6%8A%98%E8%85%BE/">#折腾</a>
+        <a href="/tags/%E6%84%9F%E6%83%B3/">#感想</a>
+      
+        <a href="/tags/%E7%BF%BB%E8%AF%91/">#翻译</a>
       
     </div>
   
@@ -355,8 +352,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>博客搭建</div>
-      <div>http://euds63.github.io/2023/03/13/BlogBuilding/</div>
+      <div>I Strove with None</div>
+      <div>http://euds63.github.io/2023/04/10/I-strove-with-none/</div>
     </div>
     <div class="license-meta">
       
@@ -368,7 +365,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年3月13日</div>
+          <div>2023年4月10日</div>
         </div>
       
       
@@ -405,18 +402,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/03/15/Strait-is-the-Gate/" title="读《窄门》">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">读《窄门》</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/03/11/network/" title="network">
-                        <span class="hidden-mobile">network</span>
+                      <a href="/2023/03/30/formLearning/" title="表单学习">
+                        <span class="hidden-mobile">表单学习</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
