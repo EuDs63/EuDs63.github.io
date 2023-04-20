@@ -25,12 +25,13 @@ excerpt: 记录git学习
 ### 多人协作时的流程
 这次小组项目用的是华为云，所以流程也都是基于华为云来说的。
 ```bash
+# 注：代码中的中文请根据实际情况进行替换
 #确定好本次代码开发所要完成的任务，开好远程分支x，相关信息(分支名称，描述，关联工作项）要注明好
 git pull #确保代码、分支是最新的
-git checkout -b 本地分支名 origin/远程分支名x   #检出远程的x分支到本地
+git checkout -b 本地分支名 origin/远程分支名   #检出远程分支到本地
 # 代码开发
 git add .
-git commit -m"{$适当的批注}"
+git commit -m"适当的批注"
 git push #将代码推送到远程分支，开发过程中这个操作可以频繁点，好处是：代码备份和版本管理
 # 完成本次代码开发所要完成的任务后（请确定功能实现，本地调试没问题）
 # 接下来进行分支的合并 
@@ -38,7 +39,7 @@ git push #将代码推送到远程分支，开发过程中这个操作可以频�
 # 合并完成后（默认设置是分支合并后，源分支是删除的）
 git remote prune origin #当华为云上显示远程分支已经删除，但git branch -r仍然看到所删除的分支，执行该命令
 git checkout master #切回master分支（一次任务完成后，建议切回master分支，这样pull的时候可以避免自己写的代码丢失的问题）
-git branch -d {$本地分支名} #删除本次任务所用的本地分支（也可以不删，当作备份）
+git branch -d 本地分支名 #删除本次任务所用的本地分支（也可以不删，当作备份）
 ```
 ### 对remote branch的认识
 There are potentially three versions of every remote branch:
