@@ -17,23 +17,23 @@
   <meta name="keywords" content="">
   <meta name="google-site-verification" content="nKjFqoYLgKx6sOplaHtjoG319whSAx6ERTIdXhM3v5s" />
   
-    <meta name="description" content="网络配置学习">
+    <meta name="description" content="记录我感兴趣的知识或者说需要细看的内容">
 <meta property="og:type" content="article">
-<meta property="og:title" content="network">
-<meta property="og:url" content="http://euds63.github.io/2023/03/11/network/index.html">
+<meta property="og:title" content="感兴趣的知识&#x2F;待细看">
+<meta property="og:url" content="http://euds63.github.io/2023/04/16/things-I-m-interested-in/index.html">
 <meta property="og:site_name" content="EuDs&#39;s blog">
-<meta property="og:description" content="网络配置学习">
+<meta property="og:description" content="记录我感兴趣的知识或者说需要细看的内容">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-03-11T11:32:04.000Z">
+<meta property="article:published_time" content="2023-04-16T08:03:44.000Z">
 <meta property="article:modified_time" content="2023-04-30T17:01:48.705Z">
 <meta property="article:author" content="EuDs">
-<meta property="article:tag" content="折腾">
-<meta property="article:tag" content="笔记">
+<meta property="article:tag" content="博客">
+<meta property="article:tag" content="记录">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>network - EuDs&#39;s blog</title>
+  <title>感兴趣的知识/待细看 - EuDs&#39;s blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -200,7 +200,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="network"></span>
+            <span id="subtitle" data-typed-text="感兴趣的知识/待细看"></span>
           
         </div>
 
@@ -211,8 +211,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-03-11 19:32" pubdate>
-          2023年3月11日 晚上
+        <time datetime="2023-04-16 16:03" pubdate>
+          2023年4月16日 下午
         </time>
       </span>
     
@@ -223,7 +223,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          711 字
+          927 字
         
       </span>
     
@@ -234,7 +234,7 @@
         
         
         
-          6 分钟
+          8 分钟
         
       </span>
     
@@ -272,30 +272,55 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">network</h1>
+            <h1 style="display: none">感兴趣的知识/待细看</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="网络"><a href="#网络" class="headerlink" title="网络"></a>网络</h1><h2 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h2><ul>
-<li>先是看<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/53457e21fcd4">如何让国内的阿里云服务器可以高速下载Github代码</a>，但这个是纯命令行的，用的是pm2</li>
-<li>因为延迟比较大，想切换节点，首先是研究怎么用命令行实现.确实可以，<a target="_blank" rel="noopener" href="https://sakronos.github.io/Note/2021/03/06/%E4%BD%BF%E7%94%A8Clash-APIj%E5%88%87%E6%8D%A2%E8%8A%82%E7%82%B9/">使用Clash-API切换节点</a>有介绍，但我去操作的话不行，返回<code>&#123;&quot;message&quot;:&quot;Body invalid&quot;&#125;  </code>。看也有人提issue，但我还是不能成功更改。加上这样更改的话，就挺麻烦的。于是想着能不能搞个ui。</li>
-<li>然后参考<a target="_blank" rel="noopener" href="https://blog.zzsqwq.cn/posts/how-to-use-clash-on-linux/">如何在Linux上优雅的使用Clash</a>这篇，docker让这些配置变得简单多了。但我还是遇到了些问题：主要是自作聪明，修改了<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs awk">- .<span class="hljs-regexp">/config.yaml:/</span>root<span class="hljs-regexp">/.config/</span>clash/config.yaml<br>- .<span class="hljs-regexp">/Country.mmdb:/</span>root<span class="hljs-regexp">/.config/</span>clash/Country.mmdb<br></code></pre></td></tr></table></figure>
-调试后才发现并不用修改。另一个是配置<code>external-controller: :9090</code>时，自己改成了<code>127.0.0.1:9090</code></li>
-<li>上面那篇文章少了暴露接口这一步，<a target="_blank" rel="noopener" href="https://juejin.cn/post/7054941050216906760">如何为实验室服务器配置终端代理</a>，<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/46973701">Linux 让终端走代理的几种方法</a>,这两篇讲得挺好的</li>
+                <h1 id="感兴趣的知识-x2F-待细看"><a href="#感兴趣的知识-x2F-待细看" class="headerlink" title="感兴趣的知识&#x2F;待细看"></a>感兴趣的知识&#x2F;待细看</h1><p><em>有些知识，我觉得有趣，平时也还算经常看到，但只是一知半解，所以下定决心要将其掌握。我觉得要掌握一个知识，有一个比较好的办法就是写个教程，让不知道的人看了教程后也能对这个知识有相当的了解。所谓教学相长也。又因为知之甚少而难以开一篇专门去叙述，所以权记录于此，作为备忘</em></p>
+<p><em>网上冲浪的时候，或主动或被动，常会看到些我感兴趣的内容。有的时候是内容比较深，有的时候是内容让我有些感想。常常，我会选择不关闭它们，想着有时间一定要好好看，并记录下自己的感想。然后…通常就没有然后了。这并不是件好事。所以我就想着记录在这里，也算是对自己的一种监督，或者说Learn In Public。</em></p>
+<h2 id="数字货币"><a href="#数字货币" class="headerlink" title="数字货币"></a>数字货币</h2><ul>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/wEzbgXh1BDxYjz-xkHs0Gg">匿名是一种设计</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://bitcoin.org/bitcoin.pdf">Bitcoin: A Peer-to-Peer Electronic Cash System</a></li>
 </ul>
-<h2 id="收获"><a href="#收获" class="headerlink" title="收获"></a>收获</h2><ul>
-<li>了解了配置文件怎么写的</li>
-<li>学到了如何检查是处于代理状态：<code>curl cip.cc</code>，但得到的地址和我实际走的节点不一样</li>
+<h2 id="加密"><a href="#加密" class="headerlink" title="加密"></a>加密</h2><ul>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://program-think.blogspot.com/2010/02/introduce-digital-certificate-and-ca.html#verify_file">数字证书及 CA 的扫盲介绍</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://jysperm.me/2017/09/gpg-and-e2ee/">GPG 与端到端加密：论什么才是可以信任的</a></li>
 </ul>
-<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://sakronos.github.io/Note/2021/03/06/%E4%BD%BF%E7%94%A8Clash-APIj%E5%88%87%E6%8D%A2%E8%8A%82%E7%82%B9/">使用Clash-API切换节点</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/Dreamacro/clash/issues/659">通过RESTful API更改节点代理返回{“message”:”Body invalid”}</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/53457e21fcd4">如何让国内的阿里云服务器可以高速下载Github代码</a></li>
-<li><a target="_blank" rel="noopener" href="https://blog.zzsqwq.cn/posts/how-to-use-clash-on-linux/">如何在Linux上优雅的使用Clash</a></li>
-<li><a target="_blank" rel="noopener" href="https://juejin.cn/post/7054941050216906760">如何为实验室服务器配置终端代理</a></li>
-<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/46973701">Linux 让终端走代理的几种方法</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/Dreamacro/clash/wiki/configuration">Configuration</a></li>
+<h2 id="interpreter"><a href="#interpreter" class="headerlink" title="interpreter"></a>interpreter</h2><ul>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://ruslanspivak.com/lsbasi-part1/">https://program-think.blogspot.com/2010/02/introduce-digital-certificate-and-ca.html#verify_file</a></li>
+</ul>
+<h2 id="GPT"><a href="#GPT" class="headerlink" title="GPT"></a>GPT</h2><ul>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://viper.cs.columbia.edu/">ViperGPT: Visual Inference via Python Execution for Reasoning</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2304.03442">Generative Agents: Interactive Simulacra of Human Behavior</a></li>
+</ul>
+<h2 id="diffusion"><a href="#diffusion" class="headerlink" title="diffusion"></a>diffusion</h2><ul>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.biorxiv.org/content/10.1101/2022.11.18.517004v2.full.pdf">High-resolution image reconstruction with latent diffusion models from humanbrain activity</a></li>
+</ul>
+<h2 id="神经网络"><a href="#神经网络" class="headerlink" title="神经网络"></a>神经网络</h2><ul>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/104475016">[干货]深入浅出LSTM及其Python代码实现</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.cnblogs.com/subconscious/p/5058741.html">神经网络浅讲：从神经元到深度学习</a></li>
+</ul>
+<h2 id="博客"><a href="#博客" class="headerlink" title="博客"></a>博客</h2><ul>
+<li><input checked="" disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://luolei.org/gfw/">GFW之父方滨兴讲座后杂想</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://lutaonan.com/blog/reason-why-your-blog-is-not-alive/">为什么无法坚持写博客</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://yzyyz.top/archives/js_snake.html">JS初探，给博客首页添加一个贪吃蛇热力图</a></li>
+<li><input checked="" disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://plumz.me/archives/12906/">你所热爱的，就是你的生活</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.zxch3n.com/local-first/">译：本地优先软件 Local-first software</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://densecollections.top/posts/4074/">MIT计算机科学课堂中学不到的知识</a></li>
+</ul>
+<h2 id="开源"><a href="#开源" class="headerlink" title="开源"></a>开源</h2><ul>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://github.com/zloirock/core-js/blob/master/docs/2023-02-14-so-whats-next.md">So, what’s next?</a></li>
+</ul>
+<h2 id="网络"><a href="#网络" class="headerlink" title="网络"></a>网络</h2><ul>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://plantegg.github.io/2019/05/15/%E5%B0%B1%E6%98%AF%E8%A6%81%E4%BD%A0%E6%87%82%E7%BD%91%E7%BB%9C--%E4%B8%80%E4%B8%AA%E7%BD%91%E7%BB%9C%E5%8C%85%E7%9A%84%E6%97%85%E7%A8%8B/">就是要你懂网络–一个网络包的旅程</a></li>
+</ul>
+<h2 id="机械键盘"><a href="#机械键盘" class="headerlink" title="机械键盘"></a>机械键盘</h2><ul>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://freemind.pluskid.org/electronics/5x12-keyboard-debugging2/">记一次有意义的熬夜</a></li>
+</ul>
+<h2 id="杂"><a href="#杂" class="headerlink" title="杂"></a>杂</h2><ul>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.physics.umd.edu/courses/Phys606/spring_2011/einstein_electrodynamics_of_moving_bodies.pdf">ON THE ELECTRODYNAMICS OF MOVINGBODIES</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Theory_of_mind">Theory of mind</a></li>
 </ul>
 
                 
@@ -330,9 +355,9 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E6%8A%98%E8%85%BE/">#折腾</a>
+        <a href="/tags/%E5%8D%9A%E5%AE%A2/">#博客</a>
       
-        <a href="/tags/%E7%AC%94%E8%AE%B0/">#笔记</a>
+        <a href="/tags/%E8%AE%B0%E5%BD%95/">#记录</a>
       
     </div>
   
@@ -344,8 +369,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>network</div>
-      <div>http://euds63.github.io/2023/03/11/network/</div>
+      <div>感兴趣的知识/待细看</div>
+      <div>http://euds63.github.io/2023/04/16/things-I-m-interested-in/</div>
     </div>
     <div class="license-meta">
       
@@ -357,7 +382,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年3月11日</div>
+          <div>2023年4月16日</div>
         </div>
       
       
@@ -394,9 +419,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/03/13/BlogBuilding/" title="博客搭建">
+                      <a href="/2023/04/20/xLog-using/" title="xLog使用体验">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">博客搭建</span>
+                        <span class="hidden-mobile">xLog使用体验</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -404,8 +429,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/03/09/excerpt-of-Life-and-Death-are-Wearing-Me-Out/" title="《生死疲劳》摘录">
-                        <span class="hidden-mobile">《生死疲劳》摘录</span>
+                      <a href="/2023/04/10/I-strove-with-none/" title="I Strove with None">
+                        <span class="hidden-mobile">I Strove with None</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
