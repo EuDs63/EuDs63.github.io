@@ -1,7 +1,8 @@
 ---
-title: things I'm interested in
+title: 感兴趣的知识/待细看
 tags:
   - 记录
+  - 博客
 categories:
   - 学习
 date: 2023-04-16 16:03:44
