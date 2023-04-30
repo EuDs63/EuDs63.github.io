@@ -1,5 +1,5 @@
 ---
-title: Yangzhou slow
+title: 扬州慢
 tags:
   - 诗词
   - 出游

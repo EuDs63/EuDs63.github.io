@@ -1,5 +1,5 @@
 ---
-title: Blog and Articles
+title: 博客与文章
 tags:
   - 博客
   - 记录
