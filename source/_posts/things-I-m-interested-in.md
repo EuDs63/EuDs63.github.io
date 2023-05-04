@@ -44,7 +44,6 @@ excerpt: 记录我感兴趣的知识或者说需要细看的内容
 - [ ] [译：本地优先软件 Local-first software](https://www.zxch3n.com/local-first/)
 - [ ] [MIT计算机科学课堂中学不到的知识](https://densecollections.top/posts/4074/)
 
-
 ## 开源
 - [ ] [So, what's next?](https://github.com/zloirock/core-js/blob/master/docs/2023-02-14-so-whats-next.md)
 
@@ -53,6 +52,13 @@ excerpt: 记录我感兴趣的知识或者说需要细看的内容
 
 ## 机械键盘
 - [ ] [记一次有意义的熬夜](https://freemind.pluskid.org/electronics/5x12-keyboard-debugging2/)
+  
+## 前端
+- [ ] [写一个炫酷的个人名片页](https://xlog.daidr.me/card-page)
+
 ## 杂
 - [ ] [ON THE ELECTRODYNAMICS OF MOVINGBODIES](https://www.physics.umd.edu/courses/Phys606/spring_2011/einstein_electrodynamics_of_moving_bodies.pdf)
 - [ ] [Theory of mind](https://en.wikipedia.org/wiki/Theory_of_mind)
+- [ ] [GAMES101: 现代计算机图形学入门](https://sites.cs.ucsb.edu/~lingqi/teaching/games101.html)
+- [ ] [The Missing Semester of Your CS Education](https://missing-semester-cn.github.io/)
+- [ ] [When Brains Dream: Exploring the science and mystery of sleep](https://www.amazon.com/When-Brains-Dream-Exploring-Science/dp/1324002832)
