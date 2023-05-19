@@ -1,5 +1,5 @@
 ---
-title: 人工智能
+title: 我看人工智能
 tags:
   - 感想
 categories:
@@ -7,13 +7,16 @@ categories:
 date: 2023-02-17 23:46:49
 excerpt: 从2022年12月ChatGPT发布后，人工智能，或者更具体地说LLM，将要或者说已经改变了生活。我将在这里记录下我的一些想法。
 ---
-# 人工智能
-{% note info %}
-从2022年12月ChatGPT发布后，人工智能，或者更具体地说LLM，将要或者说已经改变了生活。我将在这里记录下我的一些想法，我其实应该更早地写下这篇，因为我12月份ChatGPT刚出没多久的时候就用上了，但因为懒，一直没写
-{% endnote %}
+# 我看人工智能
+
+*从2022年12月ChatGPT发布后，人工智能，或者更具体地说LLM，将要或者说已经改变了生活。我将在这里记录下我的一些想法，我其实应该更早地写下这篇，因为我12月份ChatGPT刚出没多久的时候就用上了，但因为懒，一直没写*
+
+## 2022年12月15日
+了解了相关的原理，想到之前看过的“如果你有无穷多的时间，你可以用来学习，但你将世界上所有的知识都学了一遍并掌握后，你就拥有了全世界”。GPT只是学了一部分，就已经有如此的能力。太强了。
 
 ## 2023年2月17日
 虽然Github学生包中包含了Copilot的使用，但我还是没用上。因为依旧认为自己仍处于一个初学者阶段，编程还是尽量自己动手写比较好。
+（5月17日，为了赶小组项目开始使用，因为有了GPT等的使用，没有觉得那么惊艳了，但还是很大程度上提高了我的效率）
 
 ## 2023年3月20日
 软件工程导论课，偏文，大部分人都在做自己的事情，一抬头，发现至少有三个人在用ChatGPT，然后又想到这墙，哈哈
@@ -49,3 +52,35 @@ excerpt: 从2022年12月ChatGPT发布后，人工智能，或者更具体地说L
 
 ## 2023年4月30日
 今天读到[Elden Ring PvP and Theory of Mind](https://freemind.pluskid.org/misc/elden-ring-pvp-and-theory-of-mind/)。作者科普了ToM的概念，也谈到 AI 语言模型。让我想到之前看过的LLM继续发展下去，可能会有类似读心术的效果，能预测你下一步要做什么，甚至是在想什么。我觉得这在一定程度是可行的。因为现代所谓的一些读心术，很多都是基于微表情的观察和分析其过去的行为模式和经历上。
+
+## 2023年5月5日
+看了[The End of Front-End Development](https://www.joshwcomeau.com/blog/the-end-of-frontend-development/)，文章的主要结构是列举一个常见的观点，然后作者谈自己的看法。
+
+- 作者尝试从以下几点去说ai并不能完全取代程序员。
+  - 从css诞生没多久，就一直有'no code'的工具
+  - GPT擅长生成小型代码，而因为缺乏大型代码的训练和限制，所以大型代码就无能为力了。（我的想法是肯定会有解决的方法，因为GPT本身就是用海量数据中训练出来的）
+  - 精准度。非相关人士很难能很快地找到GPT所给代码的问题所在。是可以直接把报错直接提交给ai，但“not all hallucinations will lead to exceptions”。
+  - security vulnerabilities。代码安全事故需要有背锅的。
+
+- 整篇文章写得很不错，但有几句我觉得值得我摘抄下来。
+  - 作者认为“AI isn't magic. It's only as good as its training data.” 我现在也是这么想，但我还是期待着ai进一步突破的那天。但不知道会是先有鸡还是先有蛋——是人类先想明白思考的本质，再去赋予ai思考的能力；还是堆量到一定程度后，ai自己涌现出思考的能力。然后人类从中学习到为什么。
+  - “We're very quickly reaching the point where non-developers can sit down with a chatbot and crank out a small self-contained project”。 这点我已经体验到了，在ai的帮助下，我能减少学习成本，去实现之前所想的功能。
+  - "if it turns out that LLMs can totally replace software developers? If that's the case, I suspect LLMs will replace a huge majority of knowledge workers." 作者安慰人有一手的。
+  - “ Keep in mind that LLMs are 100% confident, but not 100% accurate.” 深有体会。
+
+## 2023年5月10日
+晚上的时候看了下ai翻唱的教程。本来相关的模型都下好了，但看到显存要求在6g以上就被劝退了。不过还是觉得今年这场ai技术的进步很有魅力。太棒了！
+
+## 2023年5月16日
+刷推时突然连着好几条都是差不多相同的内容，差不多是prompt的推荐。我觉得好的prompt有着不可否认的作用。但对于那些雷同的文章，我怀着恶意认为是因为技术不够没办法谈及更深的层次，但为了蹭流量所以就改为prompt。
+
+现在我觉得我这个想法不好。人家只是在分享，我恶意那么大干嘛，不喜欢的话快点滑过去就行。
+
+## 2023年5月19日
+苹果商店上架了openai的软件。意味着之前困扰中国用户的充值问题现在有了相对很成熟且快捷的解决方式。
+
+虽然有些马后炮，但我觉得这算是一种趋势。现在openAI的优势相比于22年12月已经没有那么大了。各路公司都推出自己的模型。当然这和openAI对自己的部分研究成果开源的成果有关。
+
+能看到这样的局面，而非某一家独步天下真的很棒。
+
+但还是为自己没能用上GPT-4觉得可惜，特别想试试GPT-4宣传片中的多模态模型。

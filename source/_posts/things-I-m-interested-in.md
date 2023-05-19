@@ -43,18 +43,22 @@ excerpt: 记录我感兴趣的知识或者说需要细看的内容
 - [x] [你所热爱的，就是你的生活](https://plumz.me/archives/12906/)
 - [ ] [译：本地优先软件 Local-first software](https://www.zxch3n.com/local-first/)
 - [ ] [MIT计算机科学课堂中学不到的知识](https://densecollections.top/posts/4074/)
+- [ ] [XXIIVV/webring](https://github.com/XXIIVV/webring)
 
 ## 开源
 - [ ] [So, what's next?](https://github.com/zloirock/core-js/blob/master/docs/2023-02-14-so-whats-next.md)
 
 ## 网络
 - [ ] [就是要你懂网络--一个网络包的旅程](https://plantegg.github.io/2019/05/15/%E5%B0%B1%E6%98%AF%E8%A6%81%E4%BD%A0%E6%87%82%E7%BD%91%E7%BB%9C--%E4%B8%80%E4%B8%AA%E7%BD%91%E7%BB%9C%E5%8C%85%E7%9A%84%E6%97%85%E7%A8%8B/)
+- [ ] [中国的防火长城是如何检测和封锁完全加密流量的](https://gfw.report/publications/usenixsecurity23/zh/)
+- [ ] [「网络编程101」来封装一个简单的TCP服务吧！](https://www.iserica.com/posts/network101-socket-function-wrappers/)
 
 ## 机械键盘
 - [ ] [记一次有意义的熬夜](https://freemind.pluskid.org/electronics/5x12-keyboard-debugging2/)
   
 ## 前端
 - [ ] [写一个炫酷的个人名片页](https://xlog.daidr.me/card-page)
+- [ ] [An Interactive Guide to Flexbox](https://www.joshwcomeau.com/css/interactive-guide-to-flexbox/)
 
 ## 杂
 - [ ] [ON THE ELECTRODYNAMICS OF MOVINGBODIES](https://www.physics.umd.edu/courses/Phys606/spring_2011/einstein_electrodynamics_of_moving_bodies.pdf)
@@ -62,3 +66,6 @@ excerpt: 记录我感兴趣的知识或者说需要细看的内容
 - [ ] [GAMES101: 现代计算机图形学入门](https://sites.cs.ucsb.edu/~lingqi/teaching/games101.html)
 - [ ] [The Missing Semester of Your CS Education](https://missing-semester-cn.github.io/)
 - [ ] [When Brains Dream: Exploring the science and mystery of sleep](https://www.amazon.com/When-Brains-Dream-Exploring-Science/dp/1324002832)
+- [ ] [关于 初码先生 某推中典型诡辩论部分的拆解](https://www.kivinsae.com/2023/05/17/2023-05-17-no_sophism/) 
+  学习下辩论技巧
+- [ ] [编程警句 130（1-30）](https://seuite.github.io/blog/2019-04/%E7%BC%96%E7%A8%8B%E8%AD%A6%E5%8F%A5-1301-30/) 有趣的句子

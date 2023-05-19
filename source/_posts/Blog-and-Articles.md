@@ -19,6 +19,10 @@ excerpt: 博客和文章的推荐
 - [plantegg](https://plantegg.github.io/) 计算机网络相关的，干货很多
 - [Plum's Blog](https://plumz.me/) 作者很有趣，涉猎也很广泛。博客持续更新了十几年了。
 - [Free Mind](https://freemind.pluskid.org/) 有思考，有科普，内容足。
+- [JM233333's Blog](https://blog.jm233333.com/) 作者是南大在读博士生，也是jyy操作系统课的助教
+- [SEUITE](https://seuite.github.io/) 偶然间发现的学校曾存在过的一个协会。从仅存的内容中可以看出是一个很有意思的社团，很可惜它没有传承下来。
+- [灵魂逻辑](https://soulogic.com/about) 先关注的Twitter才发现的博客。作者的经历蛮羡慕的。
+- [罗皓的个人博客](https://rehoni.github.io/cn/) 一个学长/学姐的blog。从17年还在大学，到最后一篇博文是痛风的注意事项，能看出ta经历了很多。很吸引我的是ta对每个月支出的总结，虽然可能没太多参考夹着，但还是能让我对以后可能的生活一窥一二。
 
 ## 文章
 - [你所热爱的，就是你的生活](https://plumz.me/archives/12906/)
@@ -44,3 +48,7 @@ excerpt: 博客和文章的推荐
 - [记一次有意义的熬夜](https://freemind.pluskid.org/electronics/5x12-keyboard-debugging2/)
   - 作者客制化键盘的经历。
   - 我自己算是半个机械键盘爱好者，也接触了些客制化键盘，但一直只停留在很初级的阶段。所以看得很起劲。
+
+- [我的郑老三死了](https://soulogic.com/item/3294) 
+  - 作者纪念自己的猫
+  - 很有感觉
