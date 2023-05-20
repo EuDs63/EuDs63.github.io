@@ -4,7 +4,7 @@
   
   
   <entry>
-    <title>为什么要写博客 - 博客 - 折腾 - 感想</title>
+    <title>为什么要写博客</title>
     <link href="/2023/05/20/reasons-for-build-a-blog/"/>
     <url>/2023/05/20/reasons-for-build-a-blog/</url>
     
@@ -17,6 +17,16 @@
       
     </categories>
     
+    
+    <tags>
+      
+      <tag>博客</tag>
+      
+      <tag>折腾</tag>
+      
+      <tag>感想</tag>
+      
+    </tags>
     
   </entry>
   
