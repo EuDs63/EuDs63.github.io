@@ -1,0 +1,1919 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="EuDs">
+  <meta name="keywords" content="">
+  <meta name="google-site-verification" content="nKjFqoYLgKx6sOplaHtjoG319whSAx6ERTIdXhM3v5s" />
+  
+    <meta name="description" content="操作系统复习笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="learn os">
+<meta property="og:url" content="http://euds63.github.io/2023/06/19/learn-os/index.html">
+<meta property="og:site_name" content="EuDs&#39;s blog">
+<meta property="og:description" content="操作系统复习笔记">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-06-19T10:35:11.000Z">
+<meta property="article:modified_time" content="2023-06-27T10:46:59.548Z">
+<meta property="article:author" content="EuDs">
+<meta property="article:tag" content="笔记">
+<meta property="article:tag" content="操作系统">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>learn os - EuDs&#39;s blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"euds63.github.io","root":"/","version":"1.9.4","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="EuDs's blog" type="application/atom+xml">
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>EuDs</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="learn os"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-06-19 18:35" pubdate>
+          2023年6月19日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          18k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          152 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">learn os</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="期末复习"><a href="#期末复习" class="headerlink" title="期末复习"></a>期末复习</h1><h2 id="Chpter-3-Process"><a href="#Chpter-3-Process" class="headerlink" title="Chpter 3 Process"></a>Chpter 3 Process</h2><ul>
+<li>操作系统进行任务调度和资源分配的基本单位</li>
+<li>Process include:<ol>
+<li>Program code</li>
+</ol>
+<ul>
+<li>text section</li>
+</ul>
+<p>		<br>2. program counter and processors’ registers<br>3. Stack</p>
+<ul>
+<li>Function parameters</li>
+<li>Return address</li>
+<li>Local variables</li>
+</ul>
+<ol start="4">
+<li>data section</li>
+</ol>
+<ul>
+<li>Global variables</li>
+</ul>
+<ol start="5">
+<li>Heap</li>
+</ol>
+<ul>
+<li>Dynamically allocated memory</li>
+</ul>
+</li>
+<li>Process State<ul>
+<li>五态模型<ul>
+<li>new</li>
+<li>ready:waiting to be assigned to a processor</li>
+<li>waiting: waiting for some event to occur</li>
+<li>running</li>
+<li>terminated</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Process control block（PCB）<ul>
+<li>包含信息有：<ul>
+<li>Process number</li>
+<li>Process state</li>
+<li>Program counter<ul>
+<li>下条指令的地址</li>
+</ul>
+</li>
+<li>CPU registers</li>
+<li>CPU scheduling information</li>
+<li>Memory-management information</li>
+<li>Accounting information</li>
+<li>I&#x2F;O status information</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="Process-Scheduling"><a href="#Process-Scheduling" class="headerlink" title="Process Scheduling"></a>Process Scheduling</h3><ul>
+<li><p>Scheduling queues</p>
+<ol>
+<li>Job queue</li>
+</ol>
+<ul>
+<li>set of all processes in the system</li>
+<li>As processes&#x2F;job enter the system，they are put into the job queue</li>
+</ul>
+<ol start="2">
+<li>Ready queue</li>
+</ol>
+<ul>
+<li>set of all processes residing in “(main) memory”, ready and “waiting” to execute</li>
+</ul>
+<ol start="3">
+<li>Device queues</li>
+</ol>
+<ul>
+<li>set of processes waiting for an I&#x2F;O device</li>
+</ul>
+</li>
+<li><p>Scheduler(调度器)</p>
+<ol>
+<li>Long-term scheduler or job scheduler</li>
+</ol>
+<ul>
+<li>job queue -&gt; ready queue</li>
+<li>may  be absent on Time-sharing system such as UNIX  and Windows<ul>
+<li>They put every new process in memory for the short-term scheduler</li>
+</ul>
+</li>
+</ul>
+<ol start="2">
+<li>Short-term scheduler Or CPU scheduler: 进程调度</li>
+</ol>
+<ul>
+<li>selects which process should be executed next and allocates CPU</li>
+<li>因为其执行十分频繁，所以每次选择不能耗时太长，否则就overhead</li>
+</ul>
+<ol start="3">
+<li>Medium-term scheduler Or swapping</li>
+</ol>
+<ul>
+<li>swap out: removes processes from memory to disk and reduces the degree of multiprogramming</li>
+<li>swap in: introduce process into memory</li>
+</ul>
+</li>
+<li><p>Context Switch</p>
+<ul>
+<li>CPU switches to another process</li>
+</ul>
+</li>
+</ul>
+<h3 id="Operations-on-Processes"><a href="#Operations-on-Processes" class="headerlink" title="Operations on Processes"></a>Operations on Processes</h3><ol>
+<li>fork()<ul>
+<li>The new process consists of a copy of the address space of the original process</li>
+<li>The return code for the fork() is zero for the child process</li>
+<li>子进程会复制父进程的地址空间和资源，但并不会复制父进程的线程</li>
+</ul>
+</li>
+</ol>
+<h3 id="Interprocess-Communication"><a href="#Interprocess-Communication" class="headerlink" title="Interprocess Communication"></a>Interprocess Communication</h3><ul>
+<li>Shared memory</li>
+<li>Message passing</li>
+</ul>
+<h3 id="名词解释："><a href="#名词解释：" class="headerlink" title="名词解释："></a>名词解释：</h3><ul>
+<li>multiprogramming： is to have some process running at all times, to maximize CPU utilization</li>
+<li>time sharing ： is to switch the CPU among processes so frequently that users can interact with each process</li>
+</ul>
+<h2 id="Chapter-4-Thread"><a href="#Chapter-4-Thread" class="headerlink" title="Chapter 4 Thread"></a>Chapter 4 Thread</h2><ul>
+<li>进程 vs 线程<ul>
+<li>线程是CPU的分布单位</li>
+<li>进程是资源的分布单位</li>
+<li>线程是进程中的执行单元<ul>
+<li>一个进程可以包含多个线程，它们共享相同的地址空间和系统资源，如open files, signals。</li>
+<li>每个线程有自己的栈空间和执行上下文，但它们在同一个进程内共享代码段、数据段和堆等资源。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>benefits of multithreaded programming <ol>
+<li>Responsiveness</li>
+<li>Resource sharing</li>
+<li>Economy</li>
+<li>utilization of multiprocessor architectures</li>
+</ol>
+</li>
+</ul>
+<h3 id="Multithreading-Models"><a href="#Multithreading-Models" class="headerlink" title="Multithreading Models"></a>Multithreading Models</h3><ul>
+<li><p>两种线程</p>
+<ul>
+<li>User Threads<ul>
+<li>Provided by a thread library at the user level</li>
+</ul>
+</li>
+<li>Kernel Threads<ul>
+<li>Provided and managed by the OS directly</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Relationship between kernel threads and user threads</p>
+<ol>
+<li>Many-to-one model</li>
+<li>One-to-one model- </li>
+<li>Many-to-many model</li>
+<li>Two-level Model<ul>
+<li>主体是Many-to-many model</li>
+<li>A user thread (important task) can be bound to a kernel thread</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>Two versions of fork() in UNIX systems</p>
+<ol>
+<li>To duplicate all the threads<ul>
+<li>If exec() is not called after forking, then to duplicate all threads</li>
+</ul>
+</li>
+<li>To only duplicate the thread that invoked the fork() system call<ul>
+<li>If exec() is called immediately after forking, then only to duplicate the calling threads</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<h2 id="Chapter-5-CPU-Scheduling"><a href="#Chapter-5-CPU-Scheduling" class="headerlink" title="Chapter 5 CPU Scheduling"></a>Chapter 5 CPU Scheduling</h2><h3 id="Basic-Concepts"><a href="#Basic-Concepts" class="headerlink" title="Basic Concepts"></a>Basic Concepts</h3><ul>
+<li>CPU scheduling decisions may take place when a process:<ol>
+<li>Switches from running to waiting state<ul>
+<li>The result of  an I&#x2F;O request</li>
+<li>An invocation of wait for the termination of one of the child processes （e.g. wait(NULL);）</li>
+</ul>
+</li>
+<li>Switches from running to ready state<ul>
+<li>When a interrupt occurs</li>
+</ul>
+</li>
+<li>Switches from waiting to ready<ul>
+<li>Completion of I&#x2F;O</li>
+</ul>
+</li>
+<li>Terminates</li>
+</ol>
+</li>
+<li>Non-preemptive (非剥夺)<ul>
+<li>Once the CPU has been allocated to a process, the process keeps the CPU until it releases the CPU </li>
+<li>调度只可能发生在情况 1. 和 4.</li>
+<li>简单，硬件要求低</li>
+</ul>
+</li>
+<li>Preemptive(剥夺)</li>
+</ul>
+<h3 id="Scheduling-Criteria"><a href="#Scheduling-Criteria" class="headerlink" title="Scheduling Criteria"></a>Scheduling Criteria</h3><ol>
+<li>CPU utilization</li>
+<li>CPU throughout<ul>
+<li>number of processes that complete their execution per time unit.</li>
+</ul>
+</li>
+<li>Process turnaround time <ul>
+<li>From the time of submission of a process to the time of completion, include<ul>
+<li>Waiting to get into memory</li>
+<li>Waiting in the ready queue</li>
+<li>Executing on the CPU</li>
+<li>Doing I&#x2F;O</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Process waiting time (等待时间)<ul>
+<li>amount of time that a process spent waiting in the ready queue.</li>
+</ul>
+</li>
+<li>Process response time (响应时间)<ul>
+<li>amount of the time from the submission of a request until the first response&#x2F;result is produced</li>
+</ul>
+</li>
+</ol>
+<h3 id="Scheduling-Algorithms"><a href="#Scheduling-Algorithms" class="headerlink" title="Scheduling Algorithms"></a>Scheduling Algorithms</h3><ol>
+<li>First come first served (FCFS) <ul>
+<li>non-preemptive</li>
+<li>Convoy effect (护航效应)</li>
+</ul>
+</li>
+<li>Shortest job first (SJF) <ul>
+<li>minimum average waiting time </li>
+<li>种类<ol>
+<li>Preemptive SJF allows to preempt the currently executing process</li>
+<li>Non-preemptive</li>
+</ol>
+</li>
+<li>比较适用于长程调度</li>
+</ul>
+</li>
+<li>Priority scheduling <ul>
+<li>问题：starvation</li>
+<li>解决： Aging (时效) – as time progresses increase the priority of the process</li>
+</ul>
+</li>
+<li>Round robin (RR) <ul>
+<li>Is designed for especially for time-sharing systems</li>
+<li>preemptive</li>
+<li>time quantum<ul>
+<li>需要保证 80%的cpu bursts &lt; the time quantum</li>
+</ul>
+</li>
+<li>Response time &#x3D; 2*(n-1)*q</li>
+</ul>
+</li>
+<li>Multilevel queue algorithm </li>
+<li>Multilevel feedback queue algorithm <ul>
+<li>the most general scheduling algorithm</li>
+</ul>
+</li>
+</ol>
+<h3 id="Multiple-Processor-Scheduling"><a href="#Multiple-Processor-Scheduling" class="headerlink" title="Multiple-Processor Scheduling"></a>Multiple-Processor Scheduling</h3><ul>
+<li>homogeneous vs. heterogeneous CPUs<ul>
+<li>homogeneous: 各处理器都一样</li>
+</ul>
+</li>
+<li>Approaches to multiple-processor scheduling<ul>
+<li>Asymmetric multiprocessing <ul>
+<li>only one processor (the master server) has all scheduling decision, I&#x2F;O processing</li>
+</ul>
+</li>
+<li>Symmetric multiprocessing<ul>
+<li>each processor is self-scheduling</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="Chapter-6-Process-synchronization"><a href="#Chapter-6-Process-synchronization" class="headerlink" title="Chapter 6 Process synchronization"></a>Chapter 6 Process synchronization</h2><ul>
+<li>Race condition <ul>
+<li>The situation where several processes access and manipulate shared data concurrently. </li>
+<li>The final value of the shared data depends upon which process finishes last.</li>
+</ul>
+</li>
+</ul>
+<h3 id="The-Critical-Section-Problem"><a href="#The-Critical-Section-Problem" class="headerlink" title="The Critical-Section Problem"></a>The Critical-Section Problem</h3><ul>
+<li><p>critical section</p>
+<ul>
+<li>Each process has a code segment, called critical section, in which the shared data is accessed</li>
+<li>有几个共享变量就有几个临界区</li>
+</ul>
+</li>
+<li><p>Criteria for the critical section problem solution</p>
+<ol>
+<li>Mutual exclusion 互斥</li>
+<li>progress 空闲让进</li>
+<li>Bounded waiting 有限等待</li>
+</ol>
+</li>
+<li><p>Peterson’s Solution</p>
+<ul>
+<li>举手+令牌</li>
+</ul>
+</li>
+<li><p>hardware-based solution </p>
+<ul>
+<li>关中断<ul>
+<li>多处理机不适合</li>
+</ul>
+</li>
+<li>原子操作</li>
+</ul>
+</li>
+</ul>
+<h3 id="Semaphores"><a href="#Semaphores" class="headerlink" title="Semaphores"></a>Semaphores</h3><ul>
+<li><p>A Semaphore S – integer variable</p>
+<ul>
+<li>may be initialized via a non-negative value</li>
+<li>Can only be accessed via two indivisible (atomic) operations: P() and V()</li>
+</ul>
+</li>
+<li><p>P(): the wait() operation</p>
+<figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs gcode">wait <span class="hljs-comment">(S)</span> &#123; <br>  <span class="hljs-keyword">while</span> <span class="hljs-comment">(S.value &lt;= 0)</span> ; 	<span class="hljs-comment">// no-op</span><br>    S.value--;<br>&#125;<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>V() The signal() operation</p>
+<figure class="highlight wren"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs wren"><span class="hljs-title function_">signal</span>(<span class="hljs-params">S</span>)&#123;<br>  <span class="hljs-variable">S</span>.<span class="hljs-property">value</span><span class="hljs-operator">+</span><span class="hljs-operator">+</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>main problem : busy waiting (spinlock)</p>
+<ul>
+<li>advantages<ol>
+<li>No context switch is required when a process must wait on a lock</li>
+<li>If locks are expected to be held for short times, the spinlocks are useful</li>
+</ol>
+</li>
+<li>disadvantages<ol>
+<li>wastes the CPU cycles that can be used by other processes productively</li>
+</ol>
+</li>
+<li>解决：modify the definition of the wait() and signal() <strong>适用于 multiprocessor system</strong><ul>
+<li>Wait(): the process can block() itself rather than engaging in busy waiting</li>
+<li>Signal(): change the blocking process from the waiting state to the ready state</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>implementation</p>
+<ol>
+<li>In a single-processor environment</li>
+</ol>
+<ul>
+<li>Disable interrupt</li>
+</ul>
+<ol start="2">
+<li>In a multi-processor environment</li>
+</ol>
+<ul>
+<li>Critical section can be applied</li>
+</ul>
+</li>
+</ul>
+<h2 id="Chapter-7-Deadlocks"><a href="#Chapter-7-Deadlocks" class="headerlink" title="Chapter 7 Deadlocks"></a>Chapter 7 Deadlocks</h2><ul>
+<li>Necessary conditions<ol>
+<li>Mutual exclusion</li>
+<li>Hold and wait </li>
+<li>No preemption</li>
+<li>Circular wait</li>
+</ol>
+</li>
+</ul>
+<h3 id="Methods-for-Handling-Deadlocks"><a href="#Methods-for-Handling-Deadlocks" class="headerlink" title="Methods for Handling Deadlocks"></a>Methods for Handling Deadlocks</h3><ol>
+<li><p>Prevention</p>
+<ul>
+<li>Provides a set of methods for ensuring that at least one of necessary conditions cannot be held</li>
+<li>针对条件2： all or nothing; 没有资源的时候才去申请</li>
+<li>针对条件3： 谦让； 抢夺</li>
+<li>针对条件4： 顺序执行</li>
+<li>缺点： low device utilization and reduce system throughput.</li>
+</ul>
+</li>
+<li><p>Avoidance </p>
+<ul>
+<li>using the addition information,decide whether the current request can be satisfied or must be delay</li>
+<li>方法：<ol>
+<li>Resource-allocation graph<ul>
+<li>有环：处于unsafe state;可能处于死锁状态</li>
+</ul>
+</li>
+<li>Banker’s algorithm</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>Detection and recovery</p>
+<ul>
+<li>方法:<ul>
+<li>Wait-for graph <ul>
+<li>not appilcable to a resource-allocation system with multiple instances of each resource type</li>
+</ul>
+</li>
+<li>Banker’s Algorithm</li>
+</ul>
+</li>
+<li>When, and how often, to invoke detection algorithm. it depends on:<ul>
+<li>How often a deadlock is likely to occur?</li>
+<li>How many processes will need to be rolled back?</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Ignorance</p>
+</li>
+</ol>
+<h2 id="Chapter-8"><a href="#Chapter-8" class="headerlink" title="Chapter 8"></a>Chapter 8</h2><ul>
+<li><p>Address may be represented in </p>
+<ol>
+<li>symbolic address</li>
+<li>re-locatable address</li>
+<li>absolute address</li>
+</ol>
+</li>
+<li><p>address binding </p>
+<ul>
+<li>转换：<ul>
+<li>symbolic address -&gt; re-locatable address : compiler</li>
+<li>re-locatable address -&gt; absolute address : linkage editor or loader</li>
+</ul>
+</li>
+<li>发生的时期<ol>
+<li>Compile time<ul>
+<li>If memory location known at compile time, absolute code can be generated</li>
+<li>If memory location is not known at compile time, Must generate re-locatable code</li>
+</ul>
+</li>
+<li>Load time （+linkage time）<ul>
+<li>if memory location is known at load time, absolute code can be generated at this time</li>
+</ul>
+</li>
+<li>Execution time<ul>
+<li>If memory location is not known at compile time and load time, Binding is delayed until run time</li>
+<li>absolute code must be generated at run time</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="Logical-vs-Physical-Address-Space"><a href="#Logical-vs-Physical-Address-Space" class="headerlink" title="Logical vs. Physical Address Space"></a>Logical vs. Physical Address Space</h3><ul>
+<li><p>Logical address ：CPU</p>
+<ul>
+<li>also referred to as virtual address</li>
+<li>重定位地址和逻辑地址没有直接关系</li>
+</ul>
+</li>
+<li><p>Physical address ：memory unit </p>
+</li>
+<li><p>logical (virtual) and physical addresses differ in execution-time address-binding scheme</p>
+<ul>
+<li>re-locatable code are seen by CPU</li>
+<li>absolute code are seen by the memory unit</li>
+</ul>
+</li>
+<li><p>Memory-Management Unit (MMU)</p>
+<ul>
+<li>Hardware device that maps virtual address to physical address in the run-time</li>
+</ul>
+</li>
+<li><p>Dynamic load</p>
+<ul>
+<li>not loaded the entire program and data of a process be in physical memory for the process to execute until it is called</li>
+<li>好处： <ol>
+<li>Better memory-space utilization</li>
+<li>No special support is required from the operating system</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>Dynamic linking</p>
+<ul>
+<li>Linking is postponed until execution time</li>
+<li>requires help from the OS</li>
+</ul>
+</li>
+</ul>
+<h3 id="Contiguous-Memory-Allocation"><a href="#Contiguous-Memory-Allocation" class="headerlink" title="Contiguous Memory Allocation"></a>Contiguous Memory Allocation</h3><ol>
+<li>Fixed-Sized Contiguous Partition<ul>
+<li>Strengths (advantages)<ul>
+<li>Simple to implement</li>
+<li>little overhead</li>
+</ul>
+</li>
+<li>Weaknesses(drawbacks)<ul>
+<li>internal fragmentation<ul>
+<li>allocated memory may be larger than requested memory</li>
+</ul>
+</li>
+<li>fixed number of processes</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Dynamic Contiguous partition（可变分区）<ul>
+<li>Hole – block of available memory</li>
+<li>Allocation algorithms <ol>
+<li>first fit:<ul>
+<li>从头开始，或者是从当前位置开始</li>
+</ul>
+</li>
+<li>best-fit <ul>
+<li>Need to search all entire list, unless the list is ordered by size</li>
+<li>produces the smallest leftover hole that may be wasted</li>
+</ul>
+</li>
+<li>worst-fit<ul>
+<li>Need to search all entire list, unless the list is ordered by size</li>
+<li>小进程多的 效果好</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>问题：<ul>
+<li>External Fragmentation</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li><p>Solutions to fragmentation</p>
+<ol>
+<li>Compaction(紧凑)<ul>
+<li>To reduce external fragmentation</li>
+<li>Shuffle memory contents to place all free memory together in one large block</li>
+<li>It is done at execution time， it’s possible only if relocation is dynamic</li>
+<li>May be expensive in moving the processes and the holes</li>
+</ul>
+</li>
+<li>paging</li>
+<li>segmentation</li>
+</ol>
+</li>
+<li><p>Disadvantage of Contiguous Memory Allocation</p>
+<ul>
+<li>Fragmentation in main memory</li>
+<li>Compaction is impossible on the disk</li>
+</ul>
+</li>
+</ul>
+<h3 id="paging"><a href="#paging" class="headerlink" title="paging"></a>paging</h3><ul>
+<li><p>frame: Divide physical memory into fixed-sized blocks </p>
+</li>
+<li><p>page : Divide logical memory into fixed-sized blocks </p>
+<ul>
+<li>page size is equal to frame size</li>
+<li>Finding n free frames for loading a program of size n pages</li>
+</ul>
+</li>
+<li><p>Translating logical address to physical address<br>If the address space is 2^m and the page size is 2^n</p>
+<ul>
+<li>Every logical address generated by CPU is divided into:<ol>
+<li>Page number (p: 页号) <ul>
+<li>used as an index into a page table</li>
+<li>页表中包含每一页在physical memory 的 base address (f:块号)</li>
+<li>p &#x3D;address&#x2F;2^n   is equal to m-n bit of the address</li>
+</ul>
+</li>
+<li>Page offset (d: 偏移) <ul>
+<li>combined with base address (f:块号) to define the physical memory address that is sent to the memory unit</li>
+<li>d &#x3D;address%2n is equal to n bit of the address</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>Physical address <ol>
+<li>frame number（f: 帧号、块号)</li>
+<li>page offset      (d:页偏移、块偏移)</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>page size的选择</p>
+<ul>
+<li>越大： <ul>
+<li>Disk I&#x2F;O is more efficient</li>
+<li>page table size 越小</li>
+</ul>
+</li>
+<li>越小：<ul>
+<li>internal fragmentation 越小</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Frame table (主存分块表)</p>
+<ul>
+<li>Has one entry for each physical page frame<br>Indicating <ul>
+<li>whether the frame is free or it is allocated to which process</li>
+</ul>
+</li>
+</ul>
+<p>	</p>
+</li>
+<li><p>page table</p>
+<ul>
+<li>each process must maintain a copy of the page table </li>
+<li>计算<ul>
+<li>if page-table entry is 4 bytes long<ul>
+<li>Can point to one of 2^32 physical page frames (1比特&#x3D;8字节)</li>
+<li>If frame size(&#x3D; page size) is 4KB, the system can address 2^44 bytes(2^32×2^12&#x3D;16TB) of physical memory</li>
+</ul>
+</li>
+<li>对于32位cpu<ul>
+<li>page size: 4k (&#x3D;2^12)</li>
+<li>Table size：2^32&#x2F;2^12&#x3D;1M </li>
+<li>each entry’s size : 4 bytes</li>
+<li>page table 的大小为： 4 MB</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>位置<ol>
+<li>直接存放在寄存器中：<ul>
+<li>Efficient and expensive</li>
+<li>当page table is reasonable small 时可以</li>
+</ul>
+</li>
+<li>存放在main memory ，然后用Page-table base register (PTBR：页表基址寄存器)存放其位置<ul>
+<li>进程切换时，加载页表只需要改变PTBR</li>
+<li>every data&#x2F;instruction access requires two memory accesses<ul>
+<li>One for the page table</li>
+<li>One for the data&#x2F;instruction</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Translation Look-aside Buffer (TLB) also called Associate Memory(联想寄存器)<ul>
+<li>并行查找</li>
+<li>contains only a few of page-table entries</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="Structure-of-the-Page-Table"><a href="#Structure-of-the-Page-Table" class="headerlink" title="Structure of the Page Table"></a>Structure of the Page Table</h3><ul>
+<li>问题: The page table can be excessively large</li>
+<li>Solution： Divide the page table into smaller pieces<ol>
+<li>Hierarchical Paging （分层页表）</li>
+<li>Hashed Page Tables（哈希页表）</li>
+<li>Inverted Page Tables（反置页表）</li>
+</ol>
+</li>
+</ul>
+<ol>
+<li>Hierarchical Paging （分层页表）<ul>
+<li>缺陷：</li>
+</ul>
+<ol>
+<li>需遍历，进程太多</li>
+<li>可能有共享，而进程号只能填一个</li>
+<li>不适用于64位</li>
+</ol>
+<ul>
+<li>好：<ol>
+<li>需要的空间小</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>Hashed Page Tables<ul>
+<li>hash table -&gt; 在链表中遍历匹配</li>
+</ul>
+</li>
+<li>Inverted Page Table(反置页表&#x2F;主存分块表)</li>
+</ol>
+<ul>
+<li>Only a page table in the system</li>
+<li>One entry for each real page (or physical frame) of memory</li>
+<li>缺点：<ul>
+<li>increases time needed to search the table when a page reference occurs</li>
+<li>Lead to memory share difficulty</li>
+</ul>
+</li>
+</ul>
+<h3 id="segmentation"><a href="#segmentation" class="headerlink" title="segmentation"></a>segmentation</h3><ul>
+<li>User’s View of a Program: A program is a collection of segments，a segment is a logical unit such as:<ul>
+<li>main program<ul>
+<li>procedure ，function，method，object</li>
+<li>local variables, global   variables</li>
+<li>common block</li>
+<li>stack</li>
+<li>symbol table</li>
+<li>arrays</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="Chapter-9-Virtual-Memory"><a href="#Chapter-9-Virtual-Memory" class="headerlink" title="Chapter 9 Virtual Memory"></a>Chapter 9 Virtual Memory</h2><ul>
+<li><p>the entire program is not needed to be in physical memory.这样的好处有：</p>
+<ul>
+<li>程序的大小不再受内存所限制</li>
+<li>更多程序可以同时运行</li>
+<li>Less I&#x2F;O would be needed to load or swap each user program into memory, so program would start to run faster</li>
+</ul>
+</li>
+<li><p>Virtual memory management </p>
+<ul>
+<li>a term used to describe a technique whereby the computer appears to have much more memory than it actually does</li>
+</ul>
+</li>
+<li><p>Virtual memory can be implemented via:</p>
+<ul>
+<li>Demand paging </li>
+<li>Demand segmentation</li>
+</ul>
+</li>
+</ul>
+<h3 id="Demand-paging"><a href="#Demand-paging" class="headerlink" title="Demand paging"></a>Demand paging</h3><ul>
+<li><p>思想： Bring a page into memory only when it is needed</p>
+<ul>
+<li>Be similar to a paging system with swapping</li>
+</ul>
+</li>
+<li><p>Hardware</p>
+<ul>
+<li>Page table. 需要加一位valid–invalid bit <ul>
+<li>v -》 The page is legal and in memory</li>
+</ul>
+</li>
+<li>Secondary memory<ul>
+<li>A high-speed disk, Swap space</li>
+<li>Hold those page that are not present in memory</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Page Fault</p>
+<ul>
+<li>Access to a page marked invalid causes a page-fault trap</li>
+<li>handle<ol>
+<li>Operating system looks at another table (PCB) to decide:<ul>
+<li>Invalid reference -&gt; abort</li>
+<li>Just not in memory	（go on to 2））</li>
+</ul>
+</li>
+<li>Get empty frame</li>
+<li>Swap the desired page into the frame</li>
+<li>modify the page table, Set validation bit &#x3D; v</li>
+<li>Restart the instruction that caused the page fault</li>
+</ol>
+</li>
+<li>特殊：<ol>
+<li>一条指令可产生多个缺页中断</li>
+<li>指令复执</li>
+<li>在指令执行时中断。</li>
+</ol>
+</li>
+<li>对比普通中断：<ul>
+<li>一条指令在执行完后，检查是否有中断请求<ul>
+<li>有：执行中断</li>
+<li>无：执行下一条指令</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="Page-Replacement"><a href="#Page-Replacement" class="headerlink" title="Page Replacement"></a>Page Replacement</h3><p><strong>替换算法</strong></p>
+<ol>
+<li><p>FIFO page Replacement</p>
+<ul>
+<li>Belady’s Anomaly : more frames -&gt; more page faults</li>
+</ul>
+</li>
+<li><p>Optimal Page Replacement (OPT) </p>
+<ul>
+<li>替换最晚才用的页 或 后面最长时间用不到的页</li>
+</ul>
+</li>
+<li><p>Least Recently Used (LRU) Algorithm</p>
+<ul>
+<li>思想： The recent past as an approximation of the near future</li>
+<li>实现：</li>
+<li>counters</li>
+<li>stack</li>
+</ul>
+</li>
+<li><p>LRU Approximation Algorithms</p>
+<ol>
+<li>Additional-reference-bits algorithm</li>
+<li>Second chance (clock) </li>
+<li>Enhanced second-chance algorithm</li>
+</ol>
+</li>
+<li><p>Counting-Based Page Replacement </p>
+<ul>
+<li>Least Frequently used </li>
+<li>Most Frequently used</li>
+</ul>
+</li>
+<li><p>Page-Buffering Algorithm</p>
+<ul>
+<li>Assistant procedure to a page-replacement algorithm</li>
+</ul>
+</li>
+</ol>
+<h3 id="Allocation-of-Frames"><a href="#Allocation-of-Frames" class="headerlink" title="Allocation of Frames"></a>Allocation of Frames</h3><ul>
+<li><p>Two major allocation schemes</p>
+<ol>
+<li>fixed allocation<ul>
+<li>Equal allocation</li>
+<li>Proportional allocation</li>
+</ul>
+</li>
+<li>priority allocation<ul>
+<li>Use a proportional allocation scheme using priorities rather than size</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>Global vs. Local Allocation</p>
+<ol>
+<li>Local replacement<ul>
+<li>To allow a process to select from only its own set of allocated frames. </li>
+<li>Cannot increase the number of frames allocated</li>
+<li>Not affected by external circumstances</li>
+</ul>
+</li>
+<li>Global replacement<ul>
+<li>To allow a process to select a replacement frame from the set of all frames, even if that frame is currently allocated to some other process</li>
+<li>Can increase the number of frames allocated</li>
+<li>Cannot control its page-fault rate.</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li>In general, global replacement is better.</li>
+</ul>
+</li>
+</ul>
+<h3 id="Thrashing"><a href="#Thrashing" class="headerlink" title="Thrashing"></a>Thrashing</h3><ul>
+<li>A process is thrashing （颠簸）if it is spending more time paging than executing</li>
+<li>approach<ol>
+<li>Using a local replacement algorithm</li>
+<li>Working-set strategy <ul>
+<li>To compute the working-set size for each process in the system</li>
+</ul>
+</li>
+<li>Page-Fault Frequency (PFF) Scheme  (水多了加面，面多了加水)<ul>
+<li>If actual rate too low, remove  a frame from the process</li>
+<li>If actual rate too high, allocate another frame to the process</li>
+<li>If no frames are free, suspend it</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<h3 id="Other-Considerations"><a href="#Other-Considerations" class="headerlink" title="Other Considerations"></a>Other Considerations</h3><ul>
+<li>page size 大小的选择要考虑到：<ol>
+<li>内碎片</li>
+<li>页表的大小</li>
+<li>I&#x2F;O overhead (seek time, latency time, transfer time)</li>
+<li>Locality</li>
+<li>Page fault rate<ul>
+<li>顺序访问： page size越大，则缺页中断率越小</li>
+<li>随机访问： page size越大，则more paging action could ensue because fewer pages can be kept in memory and more data is transferred per page fault.</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>Install a faster hard disk, or multiple controllers with multiple hard disks<ul>
+<li>for as the disk bottleneck is removed by faster response and more throughput to the disks, the CPU will get more data more quickly</li>
+</ul>
+</li>
+</ul>
+<h2 id="Chapter-10-File-System-Interface"><a href="#Chapter-10-File-System-Interface" class="headerlink" title="Chapter 10 File-System Interface"></a>Chapter 10 File-System Interface</h2><ul>
+<li>File <ul>
+<li>A file is named collection of related information that is recorded on secondary storage</li>
+<li>Six basic operations<ol>
+<li>create</li>
+<li>read&#x2F;write&#x2F;seek</li>
+<li>delete</li>
+<li>truncate: to erase the contents of a file but keep its attributes except for it’s length</li>
+</ol>
+</li>
+<li>Assistant operations<ul>
+<li>open(F):<ol>
+<li>search the directory structure on disk for entry F</li>
+<li>copy the directory entry into the open-file table</li>
+<li>allocate a file descriptor</li>
+</ol>
+</li>
+<li>close(F):<ol>
+<li>copy the directory entry in the open-file table to the directory structure on disk</li>
+<li>free the file descriptor</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="Access-Methods"><a href="#Access-Methods" class="headerlink" title="Access Methods"></a>Access Methods</h3><ul>
+<li>The information in the file can be accessed in<ol>
+<li>sequentical access</li>
+<li>direct access</li>
+<li>other access <ul>
+<li>involve the construction of an index for the file</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<h3 id="Directory-Structure"><a href="#Directory-Structure" class="headerlink" title="Directory Structure"></a>Directory Structure</h3><ul>
+<li><p>symbol table </p>
+<ul>
+<li>The directory can be viewed as a symbol table that translates file names into their directory entries</li>
+</ul>
+</li>
+<li><p>Criteria </p>
+<ol>
+<li>efficiency</li>
+<li>naming</li>
+<li>grouping</li>
+</ol>
+</li>
+<li><p>shemes </p>
+<ol>
+<li>Single-Level Directory</li>
+<li>Two-Level Directory<ul>
+<li>Positive<ul>
+<li>Efficient searching</li>
+</ul>
+</li>
+<li>Negative<ul>
+<li>No grouping capability</li>
+<li>Difficult to share file among different users</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Tree-Structured Directories<ul>
+<li>Positive<ul>
+<li>Efficient searching</li>
+<li>Grouping Capability</li>
+</ul>
+</li>
+<li>Negative<ul>
+<li>Difficult to share file among different users</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Acyclic-Graph Directories<ul>
+<li>Tree-structured directory + shared subdirectories or files</li>
+<li>Created a new directory entry  called a link to implement sharing</li>
+<li>The difficulty is to avoid cycles as new links are added</li>
+</ul>
+</li>
+<li>General Graph Directory<ul>
+<li>Add the links to an existing tree-structure directory</li>
+<li>Acyclic-Graph Directories更好</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>硬（hard）链接 </p>
+<ul>
+<li><code>ln /usr/local/python3 python</code></li>
+<li>目录中仅存储指向文件数据的指针</li>
+<li>允许一个文件被多个目录引用.</li>
+<li>无法用来链接目录，也不能跨文件系统</li>
+<li>通过<code>ls -i</code>查看是否为硬链接</li>
+</ul>
+</li>
+<li><p>软 (symbolic) 链接</p>
+<ul>
+<li>“快捷方式”</li>
+<li>软链接也是一个文件</li>
+<li><code> ln -s ../p24 p24</code> </li>
+<li>目录从“树”变为了“图”，还是有环图</li>
+</ul>
+</li>
+<li><p>ACL: access-control list</p>
+<ul>
+<li>Each file or directory has an ACL</li>
+</ul>
+</li>
+</ul>
+<h2 id="File-System-Implementation"><a href="#File-System-Implementation" class="headerlink" title="File-System Implementation"></a>File-System Implementation</h2><ul>
+<li>File system organized into layers<ol>
+<li>application program</li>
+<li>logical file system<ul>
+<li>FCB: file control blocks</li>
+</ul>
+</li>
+<li>file-organizational module</li>
+<li>basic file system</li>
+<li>I&#x2F;O control</li>
+<li>devices</li>
+</ol>
+</li>
+</ul>
+<h3 id="Allocation-Methods"><a href="#Allocation-Methods" class="headerlink" title="Allocation Methods"></a>Allocation Methods</h3><ul>
+<li><p>An allocation method refers to how disk blocks are allocated for files</p>
+</li>
+<li><p>Contiguous allocation</p>
+<ul>
+<li>Each file occupies a set of contiguous blocks on the disk</li>
+<li>Supports both sequential access and direct access （Random access）</li>
+<li>问题：<ol>
+<li>External fragmentation </li>
+<li>Files cannot grow</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>Linked allocation</p>
+<ul>
+<li>Each file is a linked list of disk blocks: blocks may be scattered anywhere on the disk</li>
+<li>优点<ol>
+<li>容易实现</li>
+<li>无外碎片</li>
+<li>文件增长方便</li>
+</ol>
+</li>
+<li>缺点：<ol>
+<li>No random access</li>
+<li>Poor reliability</li>
+<li>慢（链表是保存在磁盘上的，所以需要多次查询）</li>
+</ol>
+</li>
+<li>改进： File-allocation table (FAT) <ul>
+<li>把链表信息放到了一个单独的FAT表中，而不是各个数据块中，且进行备份</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Indexed allocation</p>
+<ul>
+<li><p>Bringing all the pointers together into one location: index block </p>
+</li>
+<li><p>Solutions to large files</p>
+<ol>
+<li>Linked sheme<ul>
+<li>Link blocks of index table</li>
+</ul>
+</li>
+<li>Multilevel index</li>
+<li>Combined scheme<ul>
+<li>一部分是 direct pointers ，一部分是multi-indirect block</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>Criteria</p>
+<ol>
+<li>storage utilization efficiency</li>
+<li>data block access time</li>
+</ol>
+<ul>
+<li>Contiguous allocation: Good for known-size file</li>
+<li>Linked allocation: Good for storage utilization </li>
+<li>Indexed allocation: Access time depends on index structure, file size, block position</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="Free-Space-Management"><a href="#Free-Space-Management" class="headerlink" title="Free-Space Management"></a>Free-Space Management</h3><ul>
+<li>The free-space list 的实现<ol>
+<li>Bit vector<ul>
+<li>优点<ul>
+<li>Simple to implement </li>
+<li>Efficient to find the first free block</li>
+</ul>
+</li>
+<li>缺点<ul>
+<li>Bit map requires extra space</li>
+<li>Inefficient unless the entire vector is kept in main memory</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Linked Lists (free list)<ul>
+<li>优点<ul>
+<li>No waste of space</li>
+</ul>
+</li>
+<li>缺点<ul>
+<li>Inefficient when traversing the list</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Grouping</li>
+</ol>
+<ul>
+<li>The first free block store the addresses of n free blocks</li>
+<li>Easier to find a large number of free blocks</li>
+</ul>
+</li>
+</ul>
+<h2 id="Mass-Storage-Systems"><a href="#Mass-Storage-Systems" class="headerlink" title="Mass-Storage Systems"></a>Mass-Storage Systems</h2><ul>
+<li><p>Magnetic disk’s structure</p>
+<ul>
+<li>Disk platter</li>
+<li>track</li>
+<li>sector<ul>
+<li>each track is subdivided into several sectors</li>
+</ul>
+</li>
+<li>cylinder<ul>
+<li>is the set of tracks that are at one arm position</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>CLV vs. CAV</p>
+<ol>
+<li>ClV : constant linear velocity<ul>
+<li>CD-ROM， DVD-ROM</li>
+<li>Tracks in the outermost zone hold more sectors</li>
+</ul>
+</li>
+<li>CAV : constant angular velocity<ul>
+<li>Magnetic disk</li>
+<li>The density of bits decreases from inner tracks to outer tracks to keep the data rate constant</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<h3 id="Disk-Scheduling"><a href="#Disk-Scheduling" class="headerlink" title="Disk Scheduling"></a>Disk Scheduling</h3><ul>
+<li>Access time <ol>
+<li>Seek time is the time for the disk are to move the heads to the cylinder containing the desired sector<ul>
+<li>Seek time  seek distance</li>
+</ul>
+</li>
+<li>Rotational latency<ul>
+<li>waiting for the disk to rotate the desired sector to the disk head</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>Disk bandwidth<ul>
+<li>The total number of bytes transferred &#x2F; the total time  between the first request for service and the completion of the last transfer</li>
+</ul>
+</li>
+</ul>
+<ol>
+<li>FCFS Scheduling</li>
+<li>SSTF：Shortest-seek-time-first (SSTF)<ul>
+<li>最短寻道时间优先</li>
+<li>问题：<ul>
+<li>往返跑—距离很短，但速度不一定很快</li>
+<li>may cause starvation of some requests</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>SCAN</li>
+</ol>
+<ul>
+<li>Sometimes called the elevator algorithm</li>
+</ul>
+<ol start="4">
+<li>C-SCAN (Circular SCAN)</li>
+</ol>
+<ul>
+<li>The head moves from one end of the disk to the other, servicing requests as it goes</li>
+<li>When it reaches the other end, however, it immediately returns to the beginning of the disk, without servicing any requests on the return trip</li>
+<li>回途不载客</li>
+</ul>
+<ol start="5">
+<li>LOOK &#x2F; C-LOOK</li>
+</ol>
+<ul>
+<li><p>Similar to SCAN&#x2F;C-SCAN  </p>
+</li>
+<li><p>Arm only goes as far as the last request in each direction, then reverses direction immediately, without first going all the way to the end of the disk.</p>
+</li>
+<li><p>选择<br><strong>Performance depends on the number and types of requests</strong></p>
+<ul>
+<li>SCAN and C-SCAN perform better for systems that place a heavy load on the disk</li>
+<li>Either SSTF or LOOK is a reasonable choice for the default algorithm</li>
+</ul>
+</li>
+</ul>
+<h3 id="Disk-Management"><a href="#Disk-Management" class="headerlink" title="Disk Management"></a>Disk Management</h3><ul>
+<li>Disk formatting<ul>
+<li>Low-Level Formatting (physical formatting )<ul>
+<li>Dividing a disk into sectors that the disk controller can read and write</li>
+</ul>
+</li>
+<li>logical Formatting<ul>
+<li>Creation of a file system</li>
+<li>Build the metadata structures for a file system</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="RAID-Structure"><a href="#RAID-Structure" class="headerlink" title="RAID Structure"></a>RAID Structure</h3><ul>
+<li><p>Redundant Array of Inexpensive Disks (past)</p>
+</li>
+<li><p>Redundant Array of Independent Disks (now)</p>
+<ul>
+<li>Used for their higher reliability and higher data-transfer rate(performance)</li>
+</ul>
+</li>
+<li><p>levels</p>
+<ol>
+<li>RAID 0<ul>
+<li>Disk arrays with data striping at the level of blocks but without any redundancy</li>
+</ul>
+</li>
+<li>RAID 1<ul>
+<li>Disk mirroring</li>
+</ul>
+</li>
+<li>RAID 2<ul>
+<li>Bit-level striping or Byte-level striping</li>
+<li>Memory-style error-correcting-code (ECC)</li>
+</ul>
+</li>
+<li>RAID 3<ul>
+<li>Bit-interleaved parity</li>
+</ul>
+</li>
+<li>RAID 4<ul>
+<li>Block-interleaved parity organization</li>
+</ul>
+</li>
+<li>RAID 5<ul>
+<li>Block-interleaved distributed parity</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<hr>
+<h2 id="常用单词"><a href="#常用单词" class="headerlink" title="常用单词"></a>常用单词</h2><ul>
+<li>simultaneously : 同时地</li>
+<li>idle : 空闲，懒</li>
+<li>reside : 位于，居住</li>
+<li>uni-processor : 单处理器</li>
+<li>interleave: 交织</li>
+<li>allocation : 分配</li>
+<li>dashed line ： 虚线</li>
+<li>minuscule : 微小的</li>
+<li>concrete : 具体的</li>
+<li>mandatory: 强制的</li>
+<li>mediate : 调解</li>
+<li>strip : 脱掉；条</li>
+</ul>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%AD%A6%E4%B9%A0/" class="category-chain-item">学习</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E7%AC%94%E8%AE%B0/">#笔记</a>
+      
+        <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">#操作系统</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>learn os</div>
+      <div>http://euds63.github.io/2023/06/19/learn-os/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>EuDs</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2023年6月19日</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>更新于</div>
+          <div>2023年6月27日</div>
+        </div>
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2023/06/16/learn-introdue-to-se/" title="软工导论复习笔记">
+                        <span class="hidden-mobile">软工导论复习笔记</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
