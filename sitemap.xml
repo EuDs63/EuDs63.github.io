@@ -2,6 +2,69 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://euds63.github.io/2023/05/01/place-names-in-poetry/</loc>
+    
+    <lastmod>2023-06-27</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://euds63.github.io/2023/06/06/poem/</loc>
+    
+    <lastmod>2023-06-27</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://euds63.github.io/2023/05/20/reasons-for-build-a-blog/</loc>
+    
+    <lastmod>2023-06-27</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://euds63.github.io/2023/03/18/the-use-of-Favorites/</loc>
+    
+    <lastmod>2023-06-27</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://euds63.github.io/2023/04/16/things-I-m-interested-in/</loc>
+    
+    <lastmod>2023-06-27</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://euds63.github.io/2023/04/20/xLog-using/</loc>
+    
+    <lastmod>2023-06-27</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://euds63.github.io/about/index.html</loc>
+    
+    <lastmod>2023-06-27</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://euds63.github.io/2023/04/30/Blog-and-Articles/</loc>
     
     <lastmod>2023-06-27</lastmod>
@@ -128,6 +191,15 @@
   </url>
   
   <url>
+    <loc>http://euds63.github.io/2023/05/20/death/</loc>
+    
+    <lastmod>2023-06-27</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://euds63.github.io/2023/03/09/excerpt-of-Life-and-Death-are-Wearing-Me-Out/</loc>
     
     <lastmod>2023-06-27</lastmod>
@@ -173,7 +245,25 @@
   </url>
   
   <url>
+    <loc>http://euds63.github.io/2023/03/19/learn-Linux/</loc>
+    
+    <lastmod>2023-06-27</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://euds63.github.io/2023/06/16/learn-introdue-to-se/</loc>
+    
+    <lastmod>2023-06-27</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://euds63.github.io/2023/06/27/learn-os-vias-jyy/</loc>
     
     <lastmod>2023-06-27</lastmod>
     
@@ -201,69 +291,6 @@
   
   <url>
     <loc>http://euds63.github.io/2023/03/11/network/</loc>
-    
-    <lastmod>2023-06-27</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://euds63.github.io/2023/05/01/place-names-in-poetry/</loc>
-    
-    <lastmod>2023-06-27</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://euds63.github.io/2023/06/06/poem/</loc>
-    
-    <lastmod>2023-06-27</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://euds63.github.io/2023/05/20/reasons-for-build-a-blog/</loc>
-    
-    <lastmod>2023-06-27</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://euds63.github.io/2023/03/18/the-use-of-Favorites/</loc>
-    
-    <lastmod>2023-06-27</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://euds63.github.io/2023/04/16/things-I-m-interested-in/</loc>
-    
-    <lastmod>2023-06-27</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://euds63.github.io/2023/04/20/xLog-using/</loc>
-    
-    <lastmod>2023-06-27</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://euds63.github.io/about/index.html</loc>
     
     <lastmod>2023-06-27</lastmod>
     
@@ -372,6 +399,13 @@
   </url>
   
   <url>
+    <loc>http://euds63.github.io/tags/%E6%AD%BB%E4%BA%A1/</loc>
+    <lastmod>2023-06-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>http://euds63.github.io/tags/web/</loc>
     <lastmod>2023-06-27</lastmod>
     <changefreq>weekly</changefreq>
@@ -400,14 +434,21 @@
   </url>
   
   <url>
-    <loc>http://euds63.github.io/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/</loc>
+    <loc>http://euds63.github.io/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/</loc>
     <lastmod>2023-06-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://euds63.github.io/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/</loc>
+    <loc>http://euds63.github.io/tags/Linux/</loc>
+    <lastmod>2023-06-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://euds63.github.io/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/</loc>
     <lastmod>2023-06-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
