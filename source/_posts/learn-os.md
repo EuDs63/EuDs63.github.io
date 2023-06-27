@@ -1,5 +1,5 @@
 ---
-title: learn os
+title: 操作系统复习笔记
 tags:
   - 笔记
   - 操作系统

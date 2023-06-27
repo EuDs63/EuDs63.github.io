@@ -1,5 +1,5 @@
 ---
-title: learn Linux
+title: Linux学习笔记
 tags:
   - 笔记
   - 操作系统
@@ -7,7 +7,7 @@ tags:
 categories:
   - 学习
 date: 2023-03-19 18:38:50
-excerpt:
+excerpt: Linux学习笔记
 ---
 ## Linux命令
 - `ctrl + C` 打断执行
