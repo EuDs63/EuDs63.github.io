@@ -4,6 +4,33 @@
   
   
   <entry>
+    <title>换域名喽</title>
+    <link href="/2023/08/17/change-domain-name/"/>
+    <url>/2023/08/17/change-domain-name/</url>
+    
+    <content type="html"><![CDATA[<h2 id="缘起"><a href="#缘起" class="headerlink" title="缘起"></a>缘起</h2><p>我博客有相当一段时间，一直是使用默认的域名。而且我其实并不太想去修改，原因是我博客使用的是Github Page。我想信：背靠着微软，GitHub所提供的这项服务的可靠性会比我私人所申请的域名要可靠得多。而我一直秉持着这样一个观点：一个博客的死亡并不是其不再更新，而是无法访问。也就是说，我认为博客的持续性是要优先于其他很多方面的。</p><p>但今天意外发现邮箱里有封邮件，通知我说申请的域名通过了。十分惊喜，因为我已经忘了这件事了。既然手头上有一个域名，上学期也学了相关的知识，干脆就试一试，在此次梳理下相应的步骤。</p><h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><ol><li><p>申请&#x2F;购买域名</p><p>我使用的是<a href="https://nic.eu.org/">EU.org</a>。好处是免费，但所需时间很长。我在5月27日申请的，直到昨天（8月16日）才通过。</p></li><li><p>选择域名解析服务商</p><p>我选择的是<a href="https://hostry.com/">hostry</a>,原因是免费。</p></li><li><p>Navigate to your DNS provider and create either an ALIAS, ANAME, or A record.</p><p>以下是我设置中的一部分：</p><table><thead><tr><th>SUBDOMAIN</th><th>TYPE</th><th>VALUE</th><th>TTL, SEC</th></tr></thead><tbody><tr><td>@</td><td>A</td><td>185.199.108.153</td><td>86400</td></tr><tr><td>@</td><td>AAAA</td><td>2606:50c0:8000::153</td><td>86400</td></tr><tr><td>www</td><td>CNAME</td><td>euds63.github.io</td><td>86400</td></tr></tbody></table></li></ol><p>  在Claude的帮助下，我知道：</p><ul><li>A记录(Address Record):将域名直接映射到一个IPv4地址。它是最基本的域名记录类型。GitHub提供了4个IP地址,而不是一个IP,主要出于负载均衡和容错的考虑</li><li>AAAA记录(Quad-A record):用于将域名映射到IPv6地址。   </li><li>CNAME记录(Canonical Name Record):将域名映射到另一个域名,实现域名别名的作用</li></ul><p>  值得注意的是<code>www CNAME euds63.github.io 86400</code>，我看到其他的教程有的是将SUBDOMAIN设置为<code>@</code>,但我的情况下会报错<code>Existing record &#39;SOA&#39; conflicts with the code you are trying to create Cname should not have the same name as other records</code></p><ol start="4"><li>Github配置<ul><li>Under “Custom domain”, type your custom domain, then click Save.</li><li>勾选Enforce HTTPS</li></ul></li></ol><p>  <strong>这里Github帮我们简化了许多操作。但如果不是用的Github Page，要怎么做呢？</strong></p><h2 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ ping ds63.eu.org<br>正在 Ping ds63.eu.org [185.199.108.153] 具有 32 字节的数据:<br>来自 185.199.108.153 的回复: 字节=32 时间=77ms TTL=54<br>来自 185.199.108.153 的回复: 字节=32 时间=103ms TTL=54<br>来自 185.199.108.153 的回复: 字节=32 时间=76ms TTL=54<br>来自 185.199.108.153 的回复: 字节=32 时间=77ms TTL=54<br><br>185.199.108.153 的 Ping 统计信息:<br>    数据包: 已发送 = 4，已接收 = 4，丢失 = 0 (0% 丢失)，<br>往返行程的估计时间(以毫秒为单位):<br>    最短 = 76ms，最长 = 103ms，平均 = 83ms<br><br>$ ping -6 ds63.eu.org<br><br>正在 Ping ds63.eu.org [2606:50c0:8001::153] 具有 32 字节的数据:<br>来自 2606:50c0:8001::153 的回复: 时间=74ms<br>来自 2606:50c0:8001::153 的回复: 时间=81ms<br>来自 2606:50c0:8001::153 的回复: 时间=74ms<br>来自 2606:50c0:8001::153 的回复: 时间=72ms<br><br>2606:50c0:8001::153 的 Ping 统计信息:<br>    数据包: 已发送 = 4，已接收 = 4，丢失 = 0 (0% 丢失)，<br>往返行程的估计时间(以毫秒为单位):<br>    最短 = 72ms，最长 = 81ms，平均 = 75ms<br></code></pre></td></tr></table></figure><h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul><li><a href="https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site">Managing a custom domain for your GitHub Pages site</a></li><li><a href="https://www.yong.eu.org/detail/15112.html">GitHub Pages绑定个人域名并启用https</a></li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>学习</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>博客</tag>
+      
+      <tag>折腾</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>《操作系统：设计与实现》笔记</title>
     <link href="/2023/06/27/learn-os-vias-jyy/"/>
     <url>/2023/06/27/learn-os-vias-jyy/</url>
