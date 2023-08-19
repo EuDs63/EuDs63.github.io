@@ -2,69 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://euds63.github.io/2023/06/19/learn-os/</loc>
-    
-    <lastmod>2023-08-19</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://euds63.github.io/2023/03/05/lizhizhuangbi/</loc>
-    
-    <lastmod>2023-08-19</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://euds63.github.io/2023/03/11/network/</loc>
-    
-    <lastmod>2023-08-19</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://euds63.github.io/2023/05/01/place-names-in-poetry/</loc>
-    
-    <lastmod>2023-08-19</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://euds63.github.io/2023/06/06/poem/</loc>
-    
-    <lastmod>2023-08-19</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://euds63.github.io/2023/05/20/reasons-for-build-a-blog/</loc>
-    
-    <lastmod>2023-08-19</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://euds63.github.io/2023/03/18/the-use-of-Favorites/</loc>
-    
-    <lastmod>2023-08-19</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://euds63.github.io/2023/04/16/things-I-m-interested-in/</loc>
     
     <lastmod>2023-08-19</lastmod>
@@ -307,6 +244,87 @@
     <priority>0.6</priority>
   </url>
   
+  <url>
+    <loc>http://euds63.github.io/2023/06/19/learn-os/</loc>
+    
+    <lastmod>2023-08-19</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://euds63.github.io/2023/03/05/lizhizhuangbi/</loc>
+    
+    <lastmod>2023-08-19</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://euds63.github.io/2023/08/03/my-opinion-about-LK-99/</loc>
+    
+    <lastmod>2023-08-19</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://euds63.github.io/2023/03/11/network/</loc>
+    
+    <lastmod>2023-08-19</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://euds63.github.io/2023/05/01/place-names-in-poetry/</loc>
+    
+    <lastmod>2023-08-19</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://euds63.github.io/2023/06/06/poem/</loc>
+    
+    <lastmod>2023-08-19</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://euds63.github.io/2023/05/20/reasons-for-build-a-blog/</loc>
+    
+    <lastmod>2023-08-19</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://euds63.github.io/2023/07/18/rust-learning/</loc>
+    
+    <lastmod>2023-08-19</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://euds63.github.io/2023/03/18/the-use-of-Favorites/</loc>
+    
+    <lastmod>2023-08-19</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
 
   <url>
     <loc>http://euds63.github.io/</loc>
@@ -465,6 +483,13 @@
   
   <url>
     <loc>http://euds63.github.io/tags/%E6%AD%8C%E6%89%8B/</loc>
+    <lastmod>2023-08-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://euds63.github.io/tags/Rust/</loc>
     <lastmod>2023-08-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
