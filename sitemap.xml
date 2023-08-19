@@ -2,6 +2,51 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://euds63.github.io/2023/04/30/Blog-and-Articles/</loc>
+    
+    <lastmod>2023-08-19</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://euds63.github.io/2023/03/13/BlogBuilding/</loc>
+    
+    <lastmod>2023-08-19</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://euds63.github.io/2023/04/03/Harry-Potter/</loc>
+    
+    <lastmod>2023-08-19</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://euds63.github.io/2023/04/10/I-strove-with-none/</loc>
+    
+    <lastmod>2023-08-19</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://euds63.github.io/2023/05/05/Internet/</loc>
+    
+    <lastmod>2023-08-19</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://euds63.github.io/2023/03/09/Life-and-Death-are-Wearing-Me-Out/</loc>
     
     <lastmod>2023-08-19</lastmod>
@@ -255,51 +300,6 @@
   
   <url>
     <loc>http://euds63.github.io/about/index.html</loc>
-    
-    <lastmod>2023-08-19</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://euds63.github.io/2023/04/30/Blog-and-Articles/</loc>
-    
-    <lastmod>2023-08-19</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://euds63.github.io/2023/03/13/BlogBuilding/</loc>
-    
-    <lastmod>2023-08-19</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://euds63.github.io/2023/04/03/Harry-Potter/</loc>
-    
-    <lastmod>2023-08-19</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://euds63.github.io/2023/04/10/I-strove-with-none/</loc>
-    
-    <lastmod>2023-08-19</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://euds63.github.io/2023/05/05/Internet/</loc>
     
     <lastmod>2023-08-19</lastmod>
     
