@@ -1,12 +1,12 @@
 ---
-title: change domain name
+title: 换域名喽
 tags:
   - 折腾
   - 博客
 categories:
   - 学习
 date: 2023-08-17 23:50:11
-excerpt:
+excerpt: 更换域名为ds63.eu.org
 ---
 ## 缘起
 我博客有相当一段时间，一直是使用默认的域名。而且我其实并不太想去修改，原因是我博客使用的是Github Page。我想信：背靠着微软，GitHub所提供的这项服务的可靠性会比我私人所申请的域名要可靠得多。而我一直秉持着这样一个观点：一个博客的死亡并不是其不再更新，而是无法访问。也就是说，我认为博客的持续性是要优先于其他很多方面的。
@@ -40,6 +40,9 @@ excerpt:
 4. Github配置
    - Under "Custom domain", type your custom domain, then click Save.
    - 勾选Enforce HTTPS
+
+  **这里Github帮我们简化了许多操作。但如果不是用的Github Page，要怎么做呢？**
+
 ## 验证
 ```bash
 $ ping ds63.eu.org
@@ -70,3 +73,4 @@ $ ping -6 ds63.eu.org
 
 # 参考资料
 - [Managing a custom domain for your GitHub Pages site](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site)
+- [GitHub Pages绑定个人域名并启用https](https://www.yong.eu.org/detail/15112.html)
