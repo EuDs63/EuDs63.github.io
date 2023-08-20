@@ -41,7 +41,15 @@ excerpt: 更换域名为ds63.eu.org
    - Under "Custom domain", type your custom domain, then click Save.
    - 勾选Enforce HTTPS
 
-  **这里Github帮我们简化了许多操作。但如果不是用的Github Page，要怎么做呢？**
+  **很明显，这里Github帮我们简化了许多操作。包括哪些呢?**
+  
+  由[Securing your GitHub Pages site with HTTPS](https://docs.github.com/en/pages/getting-started-with-github-pages/securing-your-github-pages-site-with-https)可知，当set or change your custom domain in the Pages setting后，GitHub
+  1.  begin an automatic DNS check . This check determines if your DNS settings are configured to allow GitHub to obtain a certificate automatically. 
+  2.  If the check is successful, GitHub queues a job to request a TLS certificate from Let's Encrypt. 
+  3.  On receiving a valid certificate, GitHub automatically uploads it to the servers that handle TLS termination for Pages. When this process completes successfully, a check mark is displayed beside your custom domain name.
+
+  **但如果不是用的Github Page，要怎么做呢？**
+
 
 ## 验证
 ```bash
@@ -74,3 +82,4 @@ $ ping -6 ds63.eu.org
 # 参考资料
 - [Managing a custom domain for your GitHub Pages site](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site)
 - [GitHub Pages绑定个人域名并启用https](https://www.yong.eu.org/detail/15112.html)
+- [Securing your GitHub Pages site with HTTPS](https://docs.github.com/en/pages/getting-started-with-github-pages/securing-your-github-pages-site-with-https)
