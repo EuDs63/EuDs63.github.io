@@ -107,8 +107,8 @@ git push
    - **场景**:push时报错,大意是网络问题
    - **解决**：
         ```
-        git congig --global http.proxy 'http://127.0.0.1:7890'
-        git congig --global https.proxy 'http://127.0.0.1:7890'
+        git config --global http.proxy 'http://127.0.0.1:7890'
+        git config --global https.proxy 'http://127.0.0.1:7890'
         ```
 
 ---
