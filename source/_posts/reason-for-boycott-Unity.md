@@ -33,11 +33,13 @@ Unity的收费标准对于person和Enterprise是有区别的，而且相当大�
 以下是[Unity can get fucked](https://garry.net/posts/unity-can-get-fucked)的部分摘抄，作者是Garry's Mod的创作者。
 
 > Let me be clear.. the cost isn't a big issue to us. If everything worked out, the tracking was flawless and it was 10p per sale, no biggy really. If that's what it costs, then that's what it costs.
+
 **这个收费是他们可承受的，甚至似乎可以说是无伤大雅**
 
 > It hurts because we didn't agree to this. We used the engine because you pay up front and then ship your product. We weren't told this was going to happen. We weren't warned. We weren't consulted.
 
 > We have spent 10 years making Rust on Unity's engine. We've paid them every year. And now they changed the rules.
+
 **指出愤怒点：未经提前告知、商讨，就更改条款**
 
 > We had 10 years to make our own engine and never did. I'm sure a lot of game companies are feeling the same today.
