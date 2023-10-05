@@ -1,5 +1,5 @@
 ---
-title: my opinion about LK-99
+title: 我看 LK-99
 tags:
   - 感想
   - 感受

@@ -21,6 +21,12 @@ cargo check
 cargo doc --open #build documentation provided by all your dependencies locally and open it in your browser
 ```
 
+## 参考链接
+- [Rust语言圣经](https://course.rs/)
+- [The Rust Programming Language](https://rust-book.cs.brown.edu/)
+- [Rust语言实战](https://zh.practice.rs/)
+- [PNGme](https://picklenerd.github.io/)
+
 ## Rust特点
 - Patterns and the match construct
 - a strong, static type system.
@@ -163,7 +169,7 @@ cargo doc --open #build documentation provided by all your dependencies locally 
 - Without restrictions, a generic type T has no capabilities: it cannot be printed, cloned, or mutated (although it can be dropped).
 - Rust does not have inheritance-like mechanisms for specializing methods as you might find in an object-oriented language,
 -  Monomorphization is the process of turning generic code into specific code by filling in the concrete types that are used when compiled
-
+- const 泛型： `const N : usize`
 ### trait
 - A trait defines functionality a particular type has and can share with other types.
 - One restriction to note is that we can implement a trait on a type only if at least one of the trait or the type is local to our crate.
@@ -214,3 +220,63 @@ cargo doc --open #build documentation provided by all your dependencies locally 
 - Lifetime annotations don’t change how long any of the references live. Rather, they describe the relationships of the lifetimes of multiple references to each other without affecting the lifetimes
 - the names of lifetime parameters must start with an apostrophe (') and are usually all lowercase and very short
 -  when we specify the lifetime parameters in this function signature, we’re not changing the lifetimes of any values passed in or returned. Rather, we’re specifying that the borrow checker should reject any values that don’t adhere to these constraints.
+- in early versions (pre-1.0) of Rust,every reference needed an explicit lifetime
+- The compiler uses *three rules* to figure out the lifetimes of the references when there aren’t explicit annotations.
+  1. the compiler assigns a different lifetime parameter to each lifetime in each input type.
+  2. if there is exactly one input lifetime parameter, that lifetime is assigned to all output lifetime parameters
+  3. if there are multiple input lifetime parameters, but one of them is `&self` or `&mut self` because this is a *method*, the lifetime of self is assigned to all output lifetime parameters.
+- The Static Lifetime `'static`
+  - The string literals is *stored directly in the program’s binary*, which is always available. Therefore, *the lifetime of all string literals is `'static`.*
+  - 'static means "live for the entire program", and so data under a static reference must never be deallocated. 
+- 生命周期标注并不会改变任何引用的实际作用域
+
+## chapter11
+### The output from running the automatically generated test
+- The 0 measured statistic is for benchmark tests that measure performance.
+- `Doc-tests`  is for the results of any documentation tests
+
+### 常用命令
+```Rust
+assert!();
+assert_eq!();
+assert_ne! //  will pass if the two values we give it are not equal and fail if they’re equal.
+```
+
+### Running Tests in Parallel or Consecutively
+- When you run multiple tests, *by default* they run in parallel using threads
+- `cargo test -- --test-threads=1`
+- `cargo test -- --show-output`
+- `cargo test --help`
+- `cargo test -- --help`
+- ```Rust
+  #[test]
+  #[ignore]
+
+  cargo test -- --ignored
+  cargo test -- --include-ignored
+  ```
+- We can specify part of a test name, and *any test whose name matches that value* will be run.
+
+### test-organization
+- Unit tests exercise different parts of a library separately and can test private implementation details.
+- Unit tests exercise different parts of a library separately and can test private implementation details.
+
+## chapter12
+- in cases where the desired function is nested in more than one module, we’ve chosen to *bring the parent module into scope* rather than the function.
+- TDD(Test Driven Develop)
+- Write a test that fails and run it to make sure it fails for the reason you expect.
+- Write or modify just enough code to make the new test pass.
+- Refactor the code you just added or changed and make sure the tests continue to pass.
+- Repeat from step 1!
+
+## chapter13
+- Rust will infer the types of arguments/returns for closures, but not top-level functions
+- Closures can capture values from their environment in three ways
+    1. borrowing immutably
+    2. borrowing mutably
+    3. taking ownership. 
+- Fn traits
+    1. FnOnce
+    2. FnMut
+    3. Fn
+- iterator adaptors are lazy, and we need to consume the iterator here.
