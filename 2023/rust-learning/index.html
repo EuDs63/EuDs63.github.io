@@ -1,0 +1,923 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/cloud.png">
+  <link rel="icon" href="/img/cloud.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="EuDs">
+  <meta name="keywords" content="">
+  <meta name="google-site-verification" content="nKjFqoYLgKx6sOplaHtjoG319whSAx6ERTIdXhM3v5s" />
+  
+    <meta name="description" content="no panic">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Rust_Learning">
+<meta property="og:url" content="http://euds63.github.io/2023/rust-learning/index.html">
+<meta property="og:site_name" content="EuDs&#39;s blog">
+<meta property="og:description" content="no panic">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-07-18T08:25:21.000Z">
+<meta property="article:modified_time" content="2023-10-07T05:15:21.399Z">
+<meta property="article:author" content="EuDs">
+<meta property="article:tag" content="记录">
+<meta property="article:tag" content="Rust">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>Rust_Learning - EuDs&#39;s blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"euds63.github.io","root":"/","version":"1.9.4","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="EuDs's blog" type="application/atom+xml">
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>EuDs</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Rust_Learning"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-07-18 16:25" pubdate>
+          2023年7月18日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          12k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          100 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Rust_Learning</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="Rust-Learning"><a href="#Rust-Learning" class="headerlink" title="Rust_Learning"></a>Rust_Learning</h1><p><strong>记录我的Rust学习</strong></p>
+<h2 id="Cargo使用"><a href="#Cargo使用" class="headerlink" title="Cargo使用"></a>Cargo使用</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash">cargo new<br>cargo build <br>cargo run<br>cargo check<br>cargo doc --open <span class="hljs-comment">#build documentation provided by all your dependencies locally and open it in your browser</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://course.rs/">Rust语言圣经</a></li>
+<li><a target="_blank" rel="noopener" href="https://rust-book.cs.brown.edu/">The Rust Programming Language</a></li>
+<li><a target="_blank" rel="noopener" href="https://zh.practice.rs/">Rust语言实战</a></li>
+<li><a target="_blank" rel="noopener" href="https://picklenerd.github.io/">PNGme</a></li>
+</ul>
+<h2 id="Rust特点"><a href="#Rust特点" class="headerlink" title="Rust特点"></a>Rust特点</h2><ul>
+<li>Patterns and the match construct</li>
+<li>a strong, static type system.</li>
+<li>type inference</li>
+<li>shadow</li>
+<li>Rust uses the term panicking when a program exits with an error</li>
+<li>requiring type annotations in function definitions</li>
+<li>Rust’s goal is to compile programs into efficient binaries that <em>require as few runtime checks as possible</em></li>
+<li>A foundational goal of Rust is to ensure that your programs never have undefined behavior</li>
+</ul>
+<h2 id="Chapter3-Common-Programming-Concepts"><a href="#Chapter3-Common-Programming-Concepts" class="headerlink" title="Chapter3 Common Programming Concepts"></a>Chapter3 Common Programming Concepts</h2><ul>
+<li>constant v.s. variable<ol>
+<li>Constants aren’t just immutable by default;they’re always immutable.</li>
+<li>Constants can be declared in any scope</li>
+<li>Constants may be set only to a constant expression, not the result of a value that could only be computed at runtime.</li>
+</ol>
+</li>
+<li>shadow ends until<ol>
+<li>it itself is shadowed </li>
+<li>the scope ends</li>
+</ol>
+</li>
+<li>Integer division truncates toward zero to the nearest integer</li>
+<li>tuple和array区别<ol>
+<li>tuple的各类型可以不同；</li>
+<li>array的大小固定,在定义时就指定了</li>
+<li>tuple更灵活,可存储不同类型,一般用于临时组合数据</li>
+<li>array大小固定,用于存储大量相同类型的数据</li>
+</ol>
+</li>
+<li>expression and statement<ol>
+<li>Expressions do not include ending semicolons</li>
+<li>statement does not return a value</li>
+<li>the return value of the function is synonymous with <em>the value of the final expression in the block of the body of a function</em></li>
+</ol>
+</li>
+<li>Control Flow<ol>
+<li>This means the values that have the potential to be results from each arm of the if must be the same type</li>
+<li>Rust does not have a concept of “truthy” or “falsy” values.So <em>The condition to an if-expression must be a boolean</em></li>
+</ol>
+</li>
+</ul>
+<h2 id="Chapter4-Understanding-Ownship"><a href="#Chapter4-Understanding-Ownship" class="headerlink" title="Chapter4 Understanding Ownship"></a>Chapter4 Understanding Ownship</h2><ul>
+<li>The stack holds data associated with a specific function, while the heap holds data that can outlive a function</li>
+<li>Rust does not allow programs to manually deallocate memory. That policy avoids the kinds of undefined behaviors shown above.</li>
+<li>Box deallocation principle : If a variable owns a box, when Rust deallocates the variable’s frame, then Rust deallocates the box’s heap memory.</li>
+<li>Moved heap data principle: if a variable x moves ownership of heap data to another variable y, then x cannot be used after the move.</li>
+<li>A reference is a kind of pointer.</li>
+<li>Rust implicitly inserts dereferences and references in certain cases, such as calling a method with the dot operator</li>
+<li><em>Pointer Safety Principle</em>: data should never be aliased and mutated at the same time.</li>
+<li>Permissions are defined on <em>paths</em> and not just variables. A path is anything you can put on the left-hand side of an assignment.</li>
+<li>Creating a reference to data (“<em>borrowing</em>“ it) causes that data to be temporarily read-only until the reference is no longer used.</li>
+<li>Rust’s borrow checker does not contain different paths for a[0], a[1], and so on. It uses a single path a[_] that represents all indexes of a.</li>
+<li>Slices are special kinds of references because they are “fat” pointers, or pointers with metadata. Here, the metadata is the length of the slice.</li>
+</ul>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ul>
+<li>优势<ol>
+<li>improving runtime performance by avoiding garbage collection</li>
+<li>improving predictability by preventing accidental “leaks” of data.</li>
+</ol>
+</li>
+<li>Pointers can be created through <ol>
+<li>boxes (pointers owning data on the heap) </li>
+<li>references (non-owning pointers).</li>
+</ol>
+</li>
+<li>move v.s. borrow<ul>
+<li>A move of a variable with a non-copyable type (like Box<T> or String) requires the RO permissions, and the move eliminates all permissions on the variable. That rule prevents the use of moved variables:</li>
+<li>Borrowing a variable (creating a reference to it) temporarily removes some of the variable’s permissions<ul>
+<li>An immutable borrow creates an immutable reference, and also <em>disables the borrowed data from being mutated or moved.</em></li>
+<li>A mutable borrow creates a mutable reference, which* disables the borrowed data from being read, written, or moved*</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>use-after-free: <em>Immutable borrows</em> remove the W permission to avoid use-after-free,</li>
+<li>double-frees: Dereferences of references to non-copyable data do not have the O permission to avoid double-frees</li>
+</ul>
+<h2 id="Chapter5-Struct"><a href="#Chapter5-Struct" class="headerlink" title="Chapter5 Struct"></a>Chapter5 Struct</h2><ul>
+<li>Rust <em>does not have a keyword for constructor functions</em>. The idiomatic way to define a constructor function is to make an associated function called new, but that is not enforced by the language.</li>
+<li>tuple struct. e.g. <code>struct Color (i32,i32,i32);</code></li>
+<li>Rust will insert as many references and dereferences as needed to make the types match up for the self parameter</li>
+<li>Rust does not auto-derive Copy for stability across API changes. <code>#[derive(Copy, Clone)]</code></li>
+<li>when you see an error like “cannot move out of *self”, that’s usually because you’re trying to call a self method on a reference like &amp;self or &amp;mut self. Rust is protecting you from a double-free</li>
+</ul>
+<h2 id="Chapter6-Enum"><a href="#Chapter6-Enum" class="headerlink" title="Chapter6 Enum"></a>Chapter6 Enum</h2><ul>
+<li>advantage to using an enum rather than a struct:</li>
+</ul>
+<ol>
+<li>each variant can have different types and amounts of associated data</li>
+<li>the name of each enum variant that we define also becomes a function that constructs an instance of the enum</li>
+<li>you can put any kind of data inside an enum variant: strings, numeric types, or structs, for example. You can even include another enum</li>
+</ol>
+<ul>
+<li><p>The Option Enum </p>
+<ol>
+<li>the compiler can check whether you’ve handled all the cases you should be handling</li>
+<li>a null is a value that is currently invalid or absent for some reason.</li>
+<li>Rust does not have nulls, but it does have an enum that can encode the concept of a value being present or absent.</li>
+<li>The function Option::unwrap expects <em>self</em>, meaning it expects <em>ownership</em> of arg. However arg is an <em>immutable reference</em> to an option, so it cannot provide ownership of the option.</li>
+</ol>
+</li>
+<li><p>match</p>
+</li>
+<li><p>Each match is tried from top to bottom</p>
+</li>
+<li><p>opt is a plain enum — its type is Option<String> and not a reference like &amp;Option<String>. Therefore a match on opt will move non-ignored fields like s. </p>
+</li>
+<li><p>If we want to peek into opt without moving its contents, the idiomatic solution is to match on a reference:</p>
+</li>
+<li><p><code>if let</code></p>
+<ul>
+<li>if let as syntax sugar for a match that runs code when the value matches one pattern and then ignores all other values.</li>
+<li>The block of code that goes with the else is the same as the block of code that would go with the _ case in the match expression that is equivalent to the if let and else</li>
+</ul>
+</li>
+</ul>
+<h2 id="Chapter7-Managing-Growing-Projects-with-Packages-Crates-and-Modules"><a href="#Chapter7-Managing-Growing-Projects-with-Packages-Crates-and-Modules" class="headerlink" title="Chapter7 Managing Growing Projects with Packages, Crates, and Modules"></a>Chapter7 Managing Growing Projects with Packages, Crates, and Modules</h2><h3 id="Packages-A-Cargo-feature-that-lets-you-build-test-and-share-crates"><a href="#Packages-A-Cargo-feature-that-lets-you-build-test-and-share-crates" class="headerlink" title="Packages: A Cargo feature that lets you build, test, and share crates"></a>Packages: A Cargo feature that lets you build, test, and share crates</h3><ul>
+<li>a bundle of one or more crates that provides a set of functionality.</li>
+<li>A package can contain as many binary crates as you like, but at most only one library crate.</li>
+<li>Using External Packages<ol>
+<li>the standard std library is also a crate that’s external to our package.we <em>don’t</em> need to change Cargo.toml to include std. But <em>we do need to refer to it</em> with use to bring items from there into our package’s scope</li>
+</ol>
+</li>
+</ul>
+<h3 id="Crates-A-tree-of-modules-that-produces-a-library-or-executable"><a href="#Crates-A-tree-of-modules-that-produces-a-library-or-executable" class="headerlink" title="Crates: A tree of modules that produces a library or executable"></a>Crates: A tree of modules that produces a library or executable</h3><ul>
+<li>Binary create: must have a function called <code>main</code></li>
+<li>Library crates : define functionality intended to be shared with multiple projects.<br>Rustaceans say “crate”, they mean library crate, and they use “crate” interchangeably with the general programming concept of a <em>“library”</em>.</li>
+</ul>
+<h3 id="Modules-and-use-Let-you-control-the-organization-scope-and-privacy-of-paths"><a href="#Modules-and-use-Let-you-control-the-organization-scope-and-privacy-of-paths" class="headerlink" title="Modules and use: Let you control the organization, scope, and privacy of paths"></a>Modules and use: Let you control the organization, scope, and privacy of paths</h3><ul>
+<li>用处<ol>
+<li>let us organize code within a crate for readability and easy reuse</li>
+<li>allow us to control the privacy of items, because code within a module is private by default</li>
+</ol>
+</li>
+<li>parent and child<ol>
+<li>all items (functions, methods, structs, enums, modules, and constants) <em>are private to parent modules</em> by default. </li>
+<li>Items in a parent module can’t use the private items inside child modules, but items in child modules can use the items in their ancestor modules.</li>
+</ol>
+</li>
+</ul>
+<h3 id="Paths-A-way-of-naming-an-item-such-as-a-struct-function-or-module"><a href="#Paths-A-way-of-naming-an-item-such-as-a-struct-function-or-module" class="headerlink" title="Paths: A way of naming an item, such as a struct, function, or module"></a>Paths: A way of naming an item, such as a struct, function, or module</h3><ul>
+<li>the idiomatic way<ol>
+<li>Bringing the function’s parent module into scope with use</li>
+<li>when bringing in structs, enums, and other items with use, it’s idiomatic to specify the full path</li>
+</ol>
+</li>
+<li><code>use std::io::Result as IoResult;</code></li>
+<li>we can use nested paths to bring the same items into scope in one line.<code>use std::&#123;cmp::Ordering, io&#125;;</code>,<code>use std::io::&#123;self, Write&#125;;</code></li>
+</ul>
+<h2 id="Chapter8"><a href="#Chapter8" class="headerlink" title="Chapter8"></a>Chapter8</h2><h3 id="Vector"><a href="#Vector" class="headerlink" title="Vector"></a>Vector</h3><ul>
+<li>Reason for a reference to the first element care about changes at the end of the vector <ol>
+<li>adding a new element onto the end of the vector might require allocating new memory and copying the old elements <em>to the new space</em></li>
+<li>the reference to the first element would be pointing to <em>deallocated memory</em></li>
+</ol>
+</li>
+<li>Vec::push moves its argument, so s is not usable after calling v.push(s)</li>
+<li>When the vector gets dropped, all of its contents are also dropped, meaning the integers it holds will be cleaned up.</li>
+</ul>
+<h3 id="String"><a href="#String" class="headerlink" title="String"></a>String</h3><ul>
+<li>the compiler can coerce the &amp;String argument into a &amp;str  </li>
+<li>Rust strings don’t support indexing to <em>avoid returning an unexpected value and causing bugs that might not be discovered immediately</em></li>
+<li>three relevant ways to look at strings from Rust’s perspective<ol>
+<li>bytes</li>
+<li>scalar values</li>
+<li>grapheme clusters</li>
+</ol>
+</li>
+<li>The best way to operate on pieces of strings is to <em>be explicit about whether you want</em> characters or bytes</li>
+<li>&amp;str is a promise that the byte sequence it points to will always be valid UTF-8</li>
+</ul>
+<h3 id="hash-map"><a href="#hash-map" class="headerlink" title="hash map"></a>hash map</h3><ul>
+<li>Hash maps are useful when you want to look up data not by using an index, as you can with vectors, but by using a key that can be of any type</li>
+<li>For types that implement the Copy trait, like i32, the values are copied into the hash map. - For <em>owned values</em> like String, the values will be moved and the hash map will be <em>the owner of those values</em></li>
+</ul>
+<h2 id="chapter10"><a href="#chapter10" class="headerlink" title="chapter10"></a>chapter10</h2><h3 id="Generic-Data-Types"><a href="#Generic-Data-Types" class="headerlink" title="Generic Data Types"></a>Generic Data Types</h3><ul>
+<li>Rust instead requires you to state the expected capabilities of generic types up front</li>
+<li>Without restrictions, a generic type T has no capabilities: it cannot be printed, cloned, or mutated (although it can be dropped).</li>
+<li>Rust does not have inheritance-like mechanisms for specializing methods as you might find in an object-oriented language,</li>
+<li>Monomorphization is the process of turning generic code into specific code by filling in the concrete types that are used when compiled</li>
+<li>const 泛型： <code>const N : usize</code></li>
+</ul>
+<h3 id="trait"><a href="#trait" class="headerlink" title="trait"></a>trait</h3><ul>
+<li>A trait defines functionality a particular type has and can share with other types.</li>
+<li>One restriction to note is that we can implement a trait on a type only if at least one of the trait or the type is local to our crate.</li>
+<li>Default implementations can call other methods in the same trait, even if those other methods don’t have a default implementation</li>
+<li>traits in parameter<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs Rust"><span class="hljs-keyword">fn</span> <span class="hljs-title function_">some_function</span>&lt;T:Display + <span class="hljs-built_in">Clone</span> ,U: <span class="hljs-built_in">Clone</span> + <span class="hljs-built_in">Debug</span>&gt;(t:&amp;T,u:&amp;U) <span class="hljs-punctuation">-&gt;</span> <span class="hljs-type">i32</span>&#123;&#125;<br><span class="hljs-comment">// Clearer Trait Bounds with where Clauses</span><br><span class="hljs-keyword">fn</span> <span class="hljs-title function_">some_function</span>&lt;T,U&gt;()(t:&amp;T,u:&amp;U) <span class="hljs-punctuation">-&gt;</span> <span class="hljs-type">i32</span><br><span class="hljs-keyword">where</span> <br>  T:Display + <span class="hljs-built_in">Clone</span> ,<br>  U: <span class="hljs-built_in">Clone</span> + <span class="hljs-built_in">Debug</span><br>&#123;&#125;<br></code></pre></td></tr></table></figure></li>
+<li>can only use impl Trait if you’re returning a single type</li>
+<li>Using Trait Bounds to Conditionally Implement Methods<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs Rust"><span class="hljs-keyword">use</span> std::fmt::Display;<br><br><span class="hljs-keyword">struct</span> <span class="hljs-title class_">Pair</span>&lt;T&gt; &#123;<br>    x: T,<br>    y: T,<br>&#125;<br><br><span class="hljs-keyword">impl</span>&lt;T&gt; Pair&lt;T&gt; &#123;<br>    <span class="hljs-keyword">fn</span> <span class="hljs-title function_">new</span>(x: T, y: T) <span class="hljs-punctuation">-&gt;</span> <span class="hljs-keyword">Self</span> &#123;<br>        <span class="hljs-keyword">Self</span> &#123; x, y &#125;<br>    &#125;<br>&#125;<br><br><span class="hljs-keyword">impl</span>&lt;T: Display + <span class="hljs-built_in">PartialOrd</span>&gt; Pair&lt;T&gt; &#123;<br>    <span class="hljs-keyword">fn</span> <span class="hljs-title function_">cmp_display</span>(&amp;<span class="hljs-keyword">self</span>) &#123;<br>        <span class="hljs-keyword">if</span> <span class="hljs-keyword">self</span>.x &gt;= <span class="hljs-keyword">self</span>.y &#123;<br>            <span class="hljs-built_in">println!</span>(<span class="hljs-string">&quot;The largest member is x = &#123;&#125;&quot;</span>, <span class="hljs-keyword">self</span>.x);<br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>            <span class="hljs-built_in">println!</span>(<span class="hljs-string">&quot;The largest member is y = &#123;&#125;&quot;</span>, <span class="hljs-keyword">self</span>.y);<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure></li>
+<li>conditionally implement a trait for any type that implements another trait<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs Rust"><span class="hljs-keyword">impl</span>&lt;T: Display&gt; <span class="hljs-built_in">ToString</span> <span class="hljs-keyword">for</span> <span class="hljs-title class_">T</span> &#123;<br>  <span class="hljs-comment">// --snip--</span><br>&#125;<br></code></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="lifetime"><a href="#lifetime" class="headerlink" title="lifetime"></a>lifetime</h3><ul>
+<li>Lifetime annotations don’t change how long any of the references live. Rather, they describe the relationships of the lifetimes of multiple references to each other without affecting the lifetimes</li>
+<li>the names of lifetime parameters must start with an apostrophe (‘) and are usually all lowercase and very short</li>
+<li>when we specify the lifetime parameters in this function signature, we’re not changing the lifetimes of any values passed in or returned. Rather, we’re specifying that the borrow checker should reject any values that don’t adhere to these constraints.</li>
+<li>in early versions (pre-1.0) of Rust,every reference needed an explicit lifetime</li>
+<li>The compiler uses <em>three rules</em> to figure out the lifetimes of the references when there aren’t explicit annotations.<ol>
+<li>the compiler assigns a different lifetime parameter to each lifetime in each input type.</li>
+<li>if there is exactly one input lifetime parameter, that lifetime is assigned to all output lifetime parameters</li>
+<li>if there are multiple input lifetime parameters, but one of them is <code>&amp;self</code> or <code>&amp;mut self</code> because this is a <em>method</em>, the lifetime of self is assigned to all output lifetime parameters.</li>
+</ol>
+</li>
+<li>The Static Lifetime <code>&#39;static</code><ul>
+<li>The string literals is <em>stored directly in the program’s binary</em>, which is always available. Therefore, <em>the lifetime of all string literals is <code>&#39;static</code>.</em></li>
+<li>‘static means “live for the entire program”, and so data under a static reference must never be deallocated.</li>
+</ul>
+</li>
+<li>生命周期标注并不会改变任何引用的实际作用域</li>
+</ul>
+<h2 id="chapter11"><a href="#chapter11" class="headerlink" title="chapter11"></a>chapter11</h2><h3 id="The-output-from-running-the-automatically-generated-test"><a href="#The-output-from-running-the-automatically-generated-test" class="headerlink" title="The output from running the automatically generated test"></a>The output from running the automatically generated test</h3><ul>
+<li>The 0 measured statistic is for benchmark tests that measure performance.</li>
+<li><code>Doc-tests</code>  is for the results of any documentation tests</li>
+</ul>
+<h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs Rust"><span class="hljs-built_in">assert!</span>();<br><span class="hljs-built_in">assert_eq!</span>();<br><span class="hljs-built_in">assert_ne!</span> <span class="hljs-comment">//  will pass if the two values we give it are not equal and fail if they’re equal.</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="Running-Tests-in-Parallel-or-Consecutively"><a href="#Running-Tests-in-Parallel-or-Consecutively" class="headerlink" title="Running Tests in Parallel or Consecutively"></a>Running Tests in Parallel or Consecutively</h3><ul>
+<li>When you run multiple tests, <em>by default</em> they run in parallel using threads</li>
+<li><code>cargo test -- --test-threads=1</code></li>
+<li><code>cargo test -- --show-output</code></li>
+<li><code>cargo test --help</code></li>
+<li><code>cargo test -- --help</code></li>
+<li><pre><code class="Rust">#[test]
+#[ignore]
+
+cargo test -- --ignored
+cargo test -- --include-ignored
+</code></pre>
+</li>
+<li>We can specify part of a test name, and <em>any test whose name matches that value</em> will be run.</li>
+</ul>
+<h3 id="test-organization"><a href="#test-organization" class="headerlink" title="test-organization"></a>test-organization</h3><ul>
+<li>Unit tests exercise different parts of a library separately and can test private implementation details.</li>
+<li>Unit tests exercise different parts of a library separately and can test private implementation details.</li>
+</ul>
+<h2 id="chapter12"><a href="#chapter12" class="headerlink" title="chapter12"></a>chapter12</h2><ul>
+<li>in cases where the desired function is nested in more than one module, we’ve chosen to <em>bring the parent module into scope</em> rather than the function.</li>
+<li>TDD(Test Driven Develop)</li>
+<li>Write a test that fails and run it to make sure it fails for the reason you expect.</li>
+<li>Write or modify just enough code to make the new test pass.</li>
+<li>Refactor the code you just added or changed and make sure the tests continue to pass.</li>
+<li>Repeat from step 1!</li>
+</ul>
+<h2 id="chapter13"><a href="#chapter13" class="headerlink" title="chapter13"></a>chapter13</h2><ul>
+<li>Rust will infer the types of arguments&#x2F;returns for closures, but not top-level functions</li>
+<li>Closures can capture values from their environment in three ways<ol>
+<li>borrowing immutably</li>
+<li>borrowing mutably</li>
+<li>taking ownership.</li>
+</ol>
+</li>
+<li>Fn traits<ol>
+<li>FnOnce</li>
+<li>FnMut</li>
+<li>Fn</li>
+</ol>
+</li>
+<li>iterator adaptors are lazy, and we need to consume the iterator here.</li>
+</ul>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%AD%A6%E4%B9%A0/" class="category-chain-item">学习</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E8%AE%B0%E5%BD%95/">#记录</a>
+      
+        <a href="/tags/Rust/">#Rust</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Rust_Learning</div>
+      <div>http://euds63.github.io/2023/rust-learning/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>EuDs</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2023年7月18日</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>更新于</div>
+          <div>2023年10月7日</div>
+        </div>
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2023/my-opinion-about-LK-99/" title="我看 LK-99">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">我看 LK-99</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2023/learn-os-vias-jyy/" title="《操作系统：设计与实现》笔记">
+                        <span class="hidden-mobile">《操作系统：设计与实现》笔记</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
