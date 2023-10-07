@@ -52,3 +52,34 @@ excerpt: 博客和文章的推荐
 - [我的郑老三死了](https://soulogic.com/item/3294) 
   - 作者纪念自己的猫
   - 很有感觉
+
+- [互联网技术比游戏后端技术领先十年吗？](https://www.skywind.me/blog/archives/2719)
+  - 现在已经习以为然的互联网体验，其背后的技术令人咋舌。
+
+- [关于 初码先生 某推中典型诡辩论部分的拆解](https://www.kivinsae.com/2023/05/17/2023-05-17-no_sophism/)
+  - 有趣
+
+- [Fire And Motion](https://web.archive.org/web/20060207013551/http://www.joelonsoftware.com/articles/fog0000000339.html)
+  - 作者在文中有个观点：大公司不断地技术迭代，有一部分原因是为了让竞争对手疲于奔命，“has no choice but to spend all their time porting and keeping up, time that they can't spend writing new features.”
+  - 
+  > Maybe as a software developer I really can't control when I'm productive, and I just have to take the slow times with the fast times and hope that they average out to enough lines of code to make me employable”
+
+- [The past is not true](https://sive.rs/pnt)
+  - 文章还没看，先被这个网站所震撼到。好短，好漂亮。
+  - 读完后让我十分怀念，让我想到以前做的英文阅读题。 差不多相同的结构：故事、作者的感悟。
+  - 里面一句话我觉得值得记录：
+    > We think of the past like it’s a physical fact - like it’s real. But the past is what we call our memory and stories about it. Imperfect memories, and stories built on one interpretation of incomplete information. That’s “the past”.
+
+- [读博第一年总结]
+  - 读博对我来说太遥远，但最后一段我觉得值得记录：
+    > 当然，对于我个人而言最重要的是，相信一切都是能结束的。 之前碰到同学的室友，隔壁专业的，聊如果挂科了，找不到工作，不得不回到国内，被卷进新文革，该怎么办。我说，大不了我还能跳楼，他说，大不了我就趴在泥里，吃草吃土地活下去。屋子内外充满了快活的空气。
+    
+    > 我想，在现在这样的时代，确实需要一些这样的觉悟，才能活得更轻松一些。
+  - 我最近偶尔会觉得焦虑，不过找到了一个自己觉得还算不错的排解方法。就是假设最坏的结果发生，然后我就会想，就算是那样我也是不能活，一旦接受了这个可能的最坏结果，我一般就没那么焦虑了。所以看到这段后，我会心一笑。
+
+- [Information Processing in Human Body](https://vadim.oversigma.com/MAS862/Project.html)
+  人体真奇妙
+
+- [浅谈编程中的命名（短文） | 春水煎茶 - 王超的个人博客](https://writings.sh/post/naming)
+   - 基本上都认可。第二点我之前有注意到，但一直没有去落实。
+   - 我最近命名的时候喜欢用全称，因为觉得缩写时间久了很容易忘。
