@@ -44,3 +44,15 @@ excerpt: 打算用来记录互联网带给我激动的事情。可以是网站�
 
     我喜欢这个观点。
 5. 今天还发现了好几位很优秀的学长。从他们的博客中看到他们当年的一些想法和经历的事情。特别是他们上学时的笔记。这种感觉就很奇妙。
+
+## 2023年9月13日
+[Spacewar!](https://spacewar.oversigma.com/).
+
+刚开始还不得其法，玩了几分钟后才明白。挺有趣的一个小游戏。更吸引我的是它是1962年的游戏。厚重的历史感，好游戏那种穿越时间的魅力。太美妙了。
+
+然后又突然想到Steam上那款测试游戏，也是叫Spacewar，致敬?巧合?有一种奇妙感。
+
+## 2023年10月6日
+[naming - Why it is called "hash table", or "hash function"? ](https://softwareengineering.stackexchange.com/questions/108124/why-it-is-called-hash-table-or-hash-function-hash-doesnt-make-any-sense-t)
+
+可能是我理解有问题，看完后还是不太理解为什么要叫hash。底下的回答似乎都是在说hash是用来做什么的。
