@@ -17,25 +17,23 @@
   <meta name="keywords" content="">
   <meta name="google-site-verification" content="nKjFqoYLgKx6sOplaHtjoG319whSAx6ERTIdXhM3v5s" />
   
-    <meta name="description" content="Long may the Free Software Movement!">
+    <meta name="description" content="虽然早就知道是这样。但是这次还是第一次这么切身地体验到。很感慨。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="由Unity收费想到的">
-<meta property="og:url" content="http://euds63.github.io/2023/reason-for-boycott-Unity/index.html">
+<meta property="og:title" content="服务器迁移记">
+<meta property="og:url" content="http://euds63.github.io/2023/change-ecs/index.html">
 <meta property="og:site_name" content="EuDs&#39;s blog">
-<meta property="og:description" content="Long may the Free Software Movement!">
+<meta property="og:description" content="虽然早就知道是这样。但是这次还是第一次这么切身地体验到。很感慨。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-09-15T07:59:21.000Z">
+<meta property="article:published_time" content="2023-10-07T11:32:21.000Z">
 <meta property="article:modified_time" content="2023-10-07T11:35:57.044Z">
 <meta property="article:author" content="EuDs">
-<meta property="article:tag" content="感想">
-<meta property="article:tag" content="游戏">
-<meta property="article:tag" content="感受">
-<meta property="article:tag" content="开源">
+<meta property="article:tag" content="折腾">
+<meta property="article:tag" content="播客">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>由Unity收费想到的 - EuDs&#39;s blog</title>
+  <title>服务器迁移记 - EuDs&#39;s blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -202,7 +200,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="由Unity收费想到的"></span>
+            <span id="subtitle" data-typed-text="服务器迁移记"></span>
           
         </div>
 
@@ -213,8 +211,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-09-15 15:59" pubdate>
-          2023年9月15日 下午
+        <time datetime="2023-10-07 19:32" pubdate>
+          2023年10月7日 晚上
         </time>
       </span>
     
@@ -225,7 +223,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.5k 字
+          860 字
         
       </span>
     
@@ -236,7 +234,7 @@
         
         
         
-          13 分钟
+          8 分钟
         
       </span>
     
@@ -274,51 +272,44 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">由Unity收费想到的</h1>
+            <h1 style="display: none">服务器迁移记</h1>
             
             
               <div class="markdown-body">
                 
-                <p><em>Unity宣布收取安装费这件事自9月12日引发许多讨论，我的想法也有一定的改变</em></p>
-<h2 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h2><p>我是认可收费的，原因有：</p>
+                <h2 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h2><p>我之前使用的是阿里云的ecs。因为要到期了，而续费又过于昂贵。（2核2g一年要六百多。）</p>
+<p>对比了下几家云服务器提供商，发现华为云价格最为理想（2核2g3M带宽一年89）。</p>
+<h2 id="迁移过程"><a href="#迁移过程" class="headerlink" title="迁移过程"></a>迁移过程</h2><p>我其实并没有用服务器来做多少事情。主要就两个：telegram bot和ttrss。它们都是使用docker进行部署的，所以能省不少事。</p>
 <ol>
-<li>游戏开发人员使用了Unity的服务，并以此盈利，那就应该支付相应的费用。</li>
-<li>收费是有一定门槛的，这个门槛在我看来似乎还挺高？</li>
+<li>docker安装<br>没想到第一步安装docker就花了一晚上。3m的带宽，下载时只有可怜的十几kb。等到最后还下不了。</li>
 </ol>
-<h2 id="了解"><a href="#了解" class="headerlink" title="了解"></a>了解</h2><p>我发现反对的言论明显多于支持或者中立的言论，就决定自己去了解。</p>
-<p>从<a target="_blank" rel="noopener" href="https://blog.unity.com/news/plan-pricing-and-packaging-updates">Unity的官方网站</a>，我了解到：</p>
-<ol>
-<li>Unity已经有相关的收费：Unity Plus、Unity Pro	等等</li>
-<li>新的收费内容是按照New installs per month进行收费，这个我觉得很不合理。<ul>
-<li>如何知道用户安装了几次</li>
-<li>如何确保有人恶意安装，导致开发人员蒙受不必要的损失。</li>
-</ul>
+<p>最后我是自己手动下载软件包，再安装的。</p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs gradle"># “<span class="hljs-keyword">package</span>.deb”为下载的软件包<br>sudo dpkg -i <span class="hljs-regexp">/path/</span>to/<span class="hljs-keyword">package</span>.deb<br></code></pre></td></tr></table></figure>
+
+<p>我其实应该一开始就去配置镜像源的…</p>
+<ol start="2">
+<li><p>设置网络<br><a target="_blank" rel="noopener" href="https://ds63.eu.org/2023/03/11/network/">network - EuDs’s blog</a></p>
+</li>
+<li><p>Faye_Bot<br><a target="_blank" rel="noopener" href="https://github.com/EuDs63/Faye_Bot">EuDs63&#x2F;Faye_Bot: my telegram Bot</a></p>
+</li>
+<li><p>ttrss</p>
 </li>
 </ol>
-<h2 id="游戏开发人员"><a href="#游戏开发人员" class="headerlink" title="游戏开发人员"></a>游戏开发人员</h2><p>Unity的收费标准对于person和Enterprise是有区别的，而且相当大。person是$0.2 per new install,而Enterprise甚至可以低到$0.01。所以我也分开来调查。</p>
-<h3 id="有一定体量的公司"><a href="#有一定体量的公司" class="headerlink" title="有一定体量的公司"></a>有一定体量的公司</h3><p>以下是<a target="_blank" rel="noopener" href="https://garry.net/posts/unity-can-get-fucked">Unity can get fucked</a>的部分摘抄，作者是Garry’s Mod的创作者。</p>
-<blockquote>
-<p>Let me be clear.. the cost isn’t a big issue to us. If everything worked out, the tracking was flawless and it was 10p per sale, no biggy really. If that’s what it costs, then that’s what it costs.</p>
-</blockquote>
-<p><strong>这个收费是他们可承受的，甚至似乎可以说是无伤大雅</strong></p>
-<blockquote>
-<p>It hurts because we didn’t agree to this. We used the engine because you pay up front and then ship your product. We weren’t told this was going to happen. We weren’t warned. We weren’t consulted.</p>
-</blockquote>
-<blockquote>
-<p>We have spent 10 years making Rust on Unity’s engine. We’ve paid them every year. And now they changed the rules.</p>
-</blockquote>
-<p><strong>指出愤怒点：未经提前告知、商讨，就更改条款</strong></p>
-<blockquote>
-<p>We had 10 years to make our own engine and never did. I’m sure a lot of game companies are feeling the same today.</p>
-</blockquote>
-<p><strong>后悔没有做自己的引擎</strong></p>
-<h3 id="个人制作者"><a href="#个人制作者" class="headerlink" title="个人制作者"></a>个人制作者</h3><p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=1jKVt98fgEY">Unity Ruined Their Game Engine Forever</a>里举了这样一个例子：<br>有些独立游戏开发者制作了一些小游戏，下载量高达数百万，但游戏中的广告系统或者收费内容没办法cover所需要支付的安装费，那就会变成一个很荒谬的情况：因为游戏受欢迎而破产。</p>
-<h2 id="引申"><a href="#引申" class="headerlink" title="引申"></a>引申</h2><p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=1jKVt98fgEY">Unity Ruined Their Game Engine Forever</a>里还有一句我很喜欢”the beauty of Open Source is it’s not run by one scumbag company that can absolutely decide to bring this any time day in shape you can just download this engine and start working on your project.</p>
-<p>这里我就想到GNU和自由软件运动，太美妙了，太高瞻远瞩了。</p>
-<h2 id="我的收获"><a href="#我的收获" class="headerlink" title="我的收获"></a>我的收获</h2><p>我并不是一个游戏开发者，只是一个臭打游戏的，一个还没有真正踏进社会的学生。</p>
-<p>所以刚开始看到这件事情，我也没有思考、了解太多，仅靠自己的判断就给这件事情下了定论，甚至站了立场。</p>
-<p>但随着了解的深入，我的想法可以说是发生反转性的变化。我想很多事也是如此。</p>
-<p>所以这件事给我最大的收获是：在不了解一件事之前不能往下定论。</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://ds63.eu.org/2023/03/08/RssTossing/">RSS折腾记 - EuDs’s blog</a></li>
+<li><a target="_blank" rel="noopener" href="https://ttrss.henry.wang/zh/#%E5%85%B3%E4%BA%8E">🐋 Awesome TTRSS </a></li>
+</ul>
+<h2 id="尾巴"><a href="#尾巴" class="headerlink" title="尾巴"></a>尾巴</h2><p>本来没打算再买一个服务器的。因为vscode+WSL2其实已经满足我绝大部分的linux使用需求了。但想着说不定呢？以后哪天就有需求了。而那时候再重新搭环境，没了现有的作参考，怕是要发更多的时间，于是还是买了。</p>
+<p>还是要想办法用起来。</p>
+<h2 id="尾巴的尾巴"><a href="#尾巴的尾巴" class="headerlink" title="尾巴的尾巴"></a>尾巴的尾巴</h2><p>没想到这么快就又有了一个服务器。今天（隔天）逛博客看到Azure学生包注册教程。想着之前也有试着搞过，但不知道为什么没成功。今天抱着试一试的想法，就又点进去。没想到直接就成了。</p>
+<p>于是参考<a target="_blank" rel="noopener" href="https://zbttl-github-io.vercel.app/github-xue-sheng-bao-he-azure-yang-mao/">github 学生包和 azure 羊毛</a>，申请了台linux虚拟机。还是用的ubuntu的镜像。</p>
+<p>结果十分地流畅。安装docker不到三分钟，也不需要额外配置什么代理。昨天没成功的<a target="_blank" rel="noopener" href="https://github.com/yihong0618/tg_bing_dalle">yihong0618&#x2F;tg_bing_dalle: tg bing dalle-3</a>也成了。</p>
+<p>虽然早就知道是这样。但是这次还是第一次这么切身地体验到。很感慨。</p>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://zbttl-github-io.vercel.app/github-xue-sheng-bao-he-azure-yang-mao/">github 学生包和 azure 羊毛</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/yihong0618/tg_bing_dalle">yihong0618&#x2F;tg_bing_dalle: tg bing dalle-3</a></li>
+<li><a target="_blank" rel="noopener" href="https://ttrss.henry.wang/zh/#%E5%85%B3%E4%BA%8E">🐋 Awesome TTRSS </a></li>
+</ul>
 
                 
               </div>
@@ -337,7 +328,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E6%83%B3%E6%B3%95/" class="category-chain-item">想法</a>
+  <a href="/categories/%E5%AD%A6%E4%B9%A0/" class="category-chain-item">学习</a>
   
   
 
@@ -352,13 +343,9 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E6%84%9F%E6%83%B3/">#感想</a>
+        <a href="/tags/%E6%8A%98%E8%85%BE/">#折腾</a>
       
-        <a href="/tags/%E6%B8%B8%E6%88%8F/">#游戏</a>
-      
-        <a href="/tags/%E6%84%9F%E5%8F%97/">#感受</a>
-      
-        <a href="/tags/%E5%BC%80%E6%BA%90/">#开源</a>
+        <a href="/tags/%E6%92%AD%E5%AE%A2/">#播客</a>
       
     </div>
   
@@ -370,8 +357,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>由Unity收费想到的</div>
-      <div>http://euds63.github.io/2023/reason-for-boycott-Unity/</div>
+      <div>服务器迁移记</div>
+      <div>http://euds63.github.io/2023/change-ecs/</div>
     </div>
     <div class="license-meta">
       
@@ -383,7 +370,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年9月15日</div>
+          <div>2023年10月7日</div>
         </div>
       
       
@@ -420,18 +407,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/one-more-think/" title="再想一下">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">再想一下</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/Enlightenment-of-summer-project/" title="暑期项目的感悟">
-                        <span class="hidden-mobile">暑期项目的感悟</span>
+                      <a href="/2023/game-of-life/" title="game of life">
+                        <span class="hidden-mobile">game of life</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
