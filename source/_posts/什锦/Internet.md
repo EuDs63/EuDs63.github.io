@@ -56,3 +56,12 @@ excerpt: 打算用来记录互联网带给我激动的事情。可以是网站�
 [naming - Why it is called "hash table", or "hash function"? ](https://softwareengineering.stackexchange.com/questions/108124/why-it-is-called-hash-table-or-hash-function-hash-doesnt-make-any-sense-t)
 
 可能是我理解有问题，看完后还是不太理解为什么要叫hash。底下的回答似乎都是在说hash是用来做什么的。
+
+## 2023年10月10日
+[YUME 梦乡](http://yume.ly/)
+
+一个记录梦境的网站。蛮有意思。
+
+11年的网站一直持续到现在，并且还有一定的用户量。我觉得很厉害。
+
+可惜的是，作者在11年时提出的[创意](http://yume.ly/dream/1)，似乎都现在还没有一个比较好的实现。（也可能是我还没发现）

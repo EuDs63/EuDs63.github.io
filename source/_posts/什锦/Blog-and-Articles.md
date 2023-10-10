@@ -23,6 +23,8 @@ excerpt: 博客和文章的推荐
 - [SEUITE](https://seuite.github.io/) 偶然间发现的学校曾存在过的一个协会。从仅存的内容中可以看出是一个很有意思的社团，很可惜它没有传承下来。
 - [灵魂逻辑](https://soulogic.com/about) 先关注的Twitter才发现的博客。作者的经历蛮羡慕的。
 - [罗皓的个人博客](https://rehoni.github.io/cn/) 一个学长/学姐的blog。从17年还在大学，到最后一篇博文是痛风的注意事项，能看出ta经历了很多。很吸引我的是ta对每个月支出的总结，虽然可能没太多参考夹着，但还是能让我对以后可能的生活一窥一二。
+- [Blog of Insanity](http://paulsin.blogspot.com/) 05年更新至今，内容很足。博主知识很渊博。博客的slogan是“读书，是为了遮眼睛”。还没悟到是啥意思。
+- [::Nothing but SAi](http://blog.orzotl.com/1?page=1) 博主为Bangumi的创始者。博客从05年一直活跃到11年，11年这时候博主大概21岁，就已经很有成就了。我现在也刚好是21岁，相比之下实感汗颜。
 
 ## 文章
 - [你所热爱的，就是你的生活](https://plumz.me/archives/12906/)
