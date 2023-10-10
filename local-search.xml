@@ -4,6 +4,33 @@
   
   
   <entry>
+    <title>qqBot 搭建</title>
+    <link href="/2023/build-qq-bot/"/>
+    <url>/2023/build-qq-bot/</url>
+    
+    <content type="html"><![CDATA[<h1 id="qqBot-搭建"><a href="#qqBot-搭建" class="headerlink" title="qqBot 搭建"></a>qqBot 搭建</h1><p><strong>这两天在搭qqBot，记录一下</strong></p><h2 id="整体技术"><a href="#整体技术" class="headerlink" title="整体技术"></a>整体技术</h2><p>我使用的是<a href="https://github.com/Mrs4s/go-cqhttp">go-cqhttp</a>和<a href="https://github.com/nonebot/nonebot2">nonebot2</a>。</p><p>在遇到风控问题时，我使用了<a href="https://github.com/fuqiuluo/unidbg-fetch-qsign">unidbg-fetch-qsign</a>。</p><h2 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h2><ul><li><p>整个过程比我着手搭建前所想的要困难许多，踩了许多坑。不过很棒的一点是，这三个项目的issue都十分活跃。我踩的坑，在issue中几乎都能搜到。我使用过的开源项目不多，但这三个给了我很好的印象，希望自己以后能做些自己的贡献。</p></li><li><p>之前没想到最难的一点不是机器人程序的编写，而在于登录。我使用的号是新号（创建一个礼拜左右），风控等级比较高。</p></li></ul><p>而我的需求是：将bot部署在地点在非我所在地的一个服务器上，这更是增加了被风控的概率。</p><p>尝试许多种方法后，我最终的解决方法是：</p><ol><li>在本地先使用手表协议扫码登录。( <code>&quot;sort_version_name&quot;:8.9.73</code>,<code>protocol：2</code>)</li><li>成功登录后将得到的文件移至服务器上并配置<code>signsever</code>,再次进行登录</li></ol><ul><li><p>但最后bot还是被风控，无法发送群消息。</p><p>  我短时间内也不想再进一步折腾了。</p></li><li><p>今天把自己写的插件<a href="https://github.com/EuDs63/nonebot-plugin-yesman">EuDs63&#x2F;nonebot-plugin-yesman: nonebot2 插件</a>发布到<a href="https://nonebot.dev/store/plugins">插件商店 | NoneBot</a>了。过了一遍插件发布的流程，还蛮有意思的。有几点值得说下:</p><ol><li><a href="https://pypi.org/account/register/">Create an account · PyPI</a>的username要求是我见过的最苛刻的。但也能理解。<blockquote><p>Choose a strong password that contains letters (uppercase and lowercase), numbers and special characters. Avoid common words or repetition.</p></blockquote></li><li><a href="https://github.com/apps/noneflow">About NoneFlow</a> 好强大。有机会想自己试试写一个类似的，或者了解是怎么做到的。</li></ol></li></ul><h2 id="感想"><a href="#感想" class="headerlink" title="感想"></a>感想</h2><ol><li>想起搭telegram bot时，只需要申请一个token，甚至教程官方都有在写。而这里却是道高一尺魔高一丈般的猫鼠游戏。不免五味杂陈。</li><li>nonebot这种插件系统我觉得很棒。省了不少力气。</li><li>感觉qqBot可玩性还是蛮高的，在其他群里也常常能见到些有趣的bot。但可惜的是腾讯的态度。</li></ol><h2 id="收获"><a href="#收获" class="headerlink" title="收获"></a>收获</h2><ol><li><code>nohup</code></li></ol><ul><li>使用: 例: <code>nphup nb run</code></li><li>关闭: 例:<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs perl">ps aux | <span class="hljs-keyword">grep</span> <span class="hljs-string">`nb`</span> <span class="hljs-comment">#找到对应的进程号</span><br><span class="hljs-keyword">kill</span> $进程号<br></code></pre></td></tr></table></figure></li></ul><ol start="2"><li><code>守护进程（Systemd）</code><br> <em>注：以下复制自<a href="https://blog.cysi.me/2022/04/make-a-qqbot.html#%E5%AE%88%E6%8A%A4%E8%BF%9B%E7%A8%8Bsystemd">使用 NoneBot2 和 go-cqhttp 打造自己的 FF14 QQ 机器人</a></em><ul><li>创建 <figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-comment"># vim /lib/systemd/system/go-cqhttp.service</span><br><br>    <span class="hljs-section">[Unit]</span><br>    <span class="hljs-attr">Description</span>=GO-CQHTTP<br>    <span class="hljs-attr">Wants</span>=network-<span class="hljs-literal">on</span>line.target<br>    <span class="hljs-attr">After</span>=network-<span class="hljs-literal">on</span>line.target<br>    <span class="hljs-section">[Service]</span><br>    <span class="hljs-attr">Type</span>=simple<br>    <span class="hljs-attr">User</span>=root<br>    <span class="hljs-attr">WorkingDirectory</span>= GO-CQHTTP的运行目录<br>    <span class="hljs-attr">ExecStart</span>= nohup go-cqhttp<br>    <span class="hljs-attr">KillMode</span>=process<br><br>    <span class="hljs-section">[Install]</span><br>    <span class="hljs-attr">WantedBy</span>=multi-user.target<br></code></pre></td></tr></table></figure></li><li>使用 <figure class="highlight nsis"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs nsis"><span class="hljs-params">system</span>ctl status go-cqhttp <span class="hljs-comment">#查看状态</span><br><span class="hljs-params">system</span>ctl enable go-cqhttp <span class="hljs-comment">#启用开机自启</span><br><span class="hljs-params">system</span>ctl restart go-cqhttp <span class="hljs-comment">#重启进程</span><br><span class="hljs-params">system</span>ctl stop go-cqhttp <span class="hljs-comment">#停止进程</span><br><span class="hljs-params">system</span>ctl start go-cqhttp <span class="hljs-comment">#开始进程</span><br></code></pre></td></tr></table></figure></li></ul></li><li>python虚拟环境<ul><li>新建<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-attribute">python</span> -m venv myenv <span class="hljs-comment"># 创建一个名为myenv的虚拟环境</span><br></code></pre></td></tr></table></figure></li><li>激活<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">source</span> ./qqVenv/bin/activate <span class="hljs-comment"># bash</span><br><br><span class="hljs-built_in">source</span> ./qqVenv/bin/activate.fish <span class="hljs-comment"># fish</span><br><br></code></pre></td></tr></table></figure></li></ul></li></ol><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul><li><a href="https://github.com/nonebot/nonebot2">nonebot&#x2F;nonebot2: 跨平台 Python 异步聊天机器人框架 &#x2F; Asynchronous multi-platform chatbot framework written in Python</a></li><li><a href="https://github.com/fuqiuluo/unidbg-fetch-qsign">fuqiuluo&#x2F;unidbg-fetch-qsign: 获取QQSign通过Unidbg</a></li><li><a href="https://blog.cysi.me/2022/04/make-a-qqbot.html#%E5%AE%89%E8%A3%85%E6%8F%92%E4%BB%B6">使用 NoneBot2 和 go-cqhttp 打造自己的 FF14 QQ 机器人</a></li><li><a href="https://github.com/Mrs4s/go-cqhttp">Mrs4s&#x2F;go-cqhttp: cqhttp的golang实现，轻量、原生跨平台.</a></li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>学习</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>记录</tag>
+      
+      <tag>折腾</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Sai</title>
     <link href="/2023/Sai/"/>
     <url>/2023/Sai/</url>
@@ -682,9 +709,9 @@
     
     <tags>
       
-      <tag>感想</tag>
-      
       <tag>摘抄</tag>
+      
+      <tag>感想</tag>
       
       <tag>翻译</tag>
       
@@ -1093,9 +1120,9 @@
     
     <tags>
       
-      <tag>感想</tag>
-      
       <tag>摘抄</tag>
+      
+      <tag>感想</tag>
       
       <tag>翻译</tag>
       

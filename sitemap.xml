@@ -2,42 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://euds63.github.io/2023/the-use-of-Favorites/</loc>
-    
-    <lastmod>2023-10-10</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://euds63.github.io/2023/death/</loc>
-    
-    <lastmod>2023-10-10</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://euds63.github.io/2023/one-more-think/</loc>
-    
-    <lastmod>2023-10-10</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://euds63.github.io/2023/reason-for-boycott-Unity/</loc>
-    
-    <lastmod>2023-10-10</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://euds63.github.io/2023/Enlightenment-of-summer-project/</loc>
     
     <lastmod>2023-10-10</lastmod>
@@ -164,6 +128,15 @@
   </url>
   
   <url>
+    <loc>http://euds63.github.io/2023/I-strove-with-none/</loc>
+    
+    <lastmod>2023-10-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://euds63.github.io/2023/Internet/</loc>
     
     <lastmod>2023-10-10</lastmod>
@@ -218,15 +191,6 @@
   </url>
   
   <url>
-    <loc>http://euds63.github.io/2023/I-strove-with-none/</loc>
-    
-    <lastmod>2023-10-10</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://euds63.github.io/2023/lizhizhuangbi/</loc>
     
     <lastmod>2023-10-10</lastmod>
@@ -273,6 +237,15 @@
   
   <url>
     <loc>http://euds63.github.io/2023/TinyTinyRSS-OPML-to-MD-Table/</loc>
+    
+    <lastmod>2023-10-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://euds63.github.io/2023/build-qq-bot/</loc>
     
     <lastmod>2023-10-10</lastmod>
     
@@ -379,6 +352,42 @@
     <priority>0.6</priority>
   </url>
   
+  <url>
+    <loc>http://euds63.github.io/2023/the-use-of-Favorites/</loc>
+    
+    <lastmod>2023-10-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://euds63.github.io/2023/death/</loc>
+    
+    <lastmod>2023-10-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://euds63.github.io/2023/one-more-think/</loc>
+    
+    <lastmod>2023-10-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://euds63.github.io/2023/reason-for-boycott-Unity/</loc>
+    
+    <lastmod>2023-10-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
 
   <url>
     <loc>http://euds63.github.io/</loc>
@@ -403,7 +412,21 @@
   </url>
   
   <url>
+    <loc>http://euds63.github.io/tags/%E6%91%98%E6%8A%84/</loc>
+    <lastmod>2023-10-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>http://euds63.github.io/tags/%E6%84%9F%E6%83%B3/</loc>
+    <lastmod>2023-10-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://euds63.github.io/tags/%E7%BF%BB%E8%AF%91/</loc>
     <lastmod>2023-10-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -425,20 +448,6 @@
   
   <url>
     <loc>http://euds63.github.io/tags/%E4%BA%BA%E7%89%A9/</loc>
-    <lastmod>2023-10-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://euds63.github.io/tags/%E6%91%98%E6%8A%84/</loc>
-    <lastmod>2023-10-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://euds63.github.io/tags/%E7%BF%BB%E8%AF%91/</loc>
     <lastmod>2023-10-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
