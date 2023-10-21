@@ -6,7 +6,7 @@ tags:
 categories:
   - 想法
 date: 2023-06-06T22:53:45+08:00
-sticky: 100
+weight: 1
 summary: 暂时定于用来记录些诗词
 ---
 # 诗词
