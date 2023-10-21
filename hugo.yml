@@ -118,14 +118,14 @@ params:
         keys: ["title", "permalink", "summary", "content"]
 menu:
     main:
-        - identifier: categories
-          name: categories
-          url: /categories/
-          weight: 10
-        - identifier: tags
-          name: tags
-          url: /tags/
-          weight: 20
+        # - identifier: categories
+        #   name: categories
+        #   url: /categories/
+        #   weight: 10
+        # - identifier: tags
+        #   name: tags
+        #   url: /tags/
+        #   weight: 20
         - identifier: archives
           name: archives
           url: /archives/
@@ -134,8 +134,8 @@ menu:
           name: about
           url: /about/
           weight: 30
-        - name: Search
-          url: /search/
+        - name: Discover
+          url: /discover/
           weight: 10
 # Read: https://github.com/reorx/hugo-PaperModX/wiki/FAQs#using-hugos-syntax-highlighter-chroma
 # pygmentsUseClasses: true
