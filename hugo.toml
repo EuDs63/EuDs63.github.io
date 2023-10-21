@@ -1,5 +1,5 @@
 baseURL = 'https://example.org/'
 languageCode = 'zh-CN'
 title = "EuDs's Blog"
-theme = "LoveIt"
+theme = "PaperMod"
 
