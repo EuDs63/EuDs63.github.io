@@ -86,6 +86,20 @@ git push
 
 ---
 
+## submodule
+1. 删除特定的Git子模块
+```git
+# 以取消themes/PaperMod为例
+# 取消子模块的初始化
+git submodule deinit -f -- themes/PaperMod
+# 从项目中删除子模块的目录
+git rm -f themes/PaperMod
+# git rm -f themes/PaperMod
+rm -rf .git/modules/themes/PaperMod
+```
+
+---
+
 ## 报错与解决
 1. 报错：
    >Updates were rejected because the remote contains work that you donot have locally.
