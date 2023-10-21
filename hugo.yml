@@ -64,10 +64,10 @@ params:
 
     # profile-mode
     profileMode:
-        enabled: false # needs to be explicitly set
-        title: ExampleSite
+        enabled: true # needs to be explicitly set
+        title: EuDs's Blog
         subtitle: "This is subtitle"
-        imageUrl: "<img location>"
+        imageUrl: "future.jpg"
         imageWidth: 120
         imageHeight: 120
         imageTitle: my image
