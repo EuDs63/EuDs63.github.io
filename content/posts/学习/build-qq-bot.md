@@ -46,11 +46,12 @@ summary: 短时间内也不想再进一步折腾了
 1. `nohup`
 - 使用: 例: `nphup nb run`
 - 关闭: 例:
-  ```
-  ps aux | grep `nb` #找到对应的进程号
-  kill $进程号
-  ```
+         ```
+         ps aux | grep `nb` #找到对应的进程号
+         kill $进程号
+         ```
 2. `守护进程（Systemd）`
+   
     *注：以下复制自[使用 NoneBot2 和 go-cqhttp 打造自己的 FF14 QQ 机器人](https://blog.cysi.me/2022/04/make-a-qqbot.html#%E5%AE%88%E6%8A%A4%E8%BF%9B%E7%A8%8Bsystemd)*
    - 创建
     ```
