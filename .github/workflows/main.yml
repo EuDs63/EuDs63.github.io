@@ -1,9 +1,9 @@
 name: Build Hugo and Deploy
 
 on:
-  push:
-    branches:
-      - hugo-blog-backup  # Set a branch to deploy
+  # push:
+  #   branches:
+  #     - hugo-blog-backup  # Set a branch to deploy
   workflow_dispatch:
   repository_dispatch:
 
