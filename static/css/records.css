@@ -35,23 +35,3 @@
     font-style: italic;
 }
 
-h2 {
-    font-size: 24px;
-    /* 调整标题字体大小 */
-    color: #333;
-    /* 调整标题文本颜色 */
-    margin-top: 16px;
-    /* 调整上边距 */
-}
-
-a {
-    color: #0077cc;
-    /* 调整链接文本颜色 */
-    text-decoration: none;
-    /* 移除链接下划线 */
-}
-
-a:hover {
-    text-decoration: underline;
-    /* 鼠标悬停时显示下划线 */
-}
