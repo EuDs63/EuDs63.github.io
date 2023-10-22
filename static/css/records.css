@@ -1,0 +1,58 @@
+/* 书卡片容器 */
+.book-card {
+    display: inline-block;
+    width: 30%;
+    /* 调整宽度以适应你希望显示的卡片数量 */
+    margin: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+    vertical-align: top;
+    /* 保持顶部对齐 */
+    text-align: left;
+    /* 文本左对齐 */
+}
+
+/* 书卡片封面 */
+.book-card-cover {
+    padding: 5px;
+    flex: 1;
+    /* 占据可用宽度的一部分，保持封面高度不等 */
+}
+
+.book-card-cover img {
+    max-width: 100%;
+    max-height: 100%;
+    /* 限制封面高度，宽度自动适应 */
+}
+
+/* 书卡片内容 */
+.book-card-content {
+    flex: 1;
+    padding: 10px;
+}
+
+/* 书卡片标题链接 */
+.book-card-title a {
+    font-weight: bold;
+    color: #333;
+    text-decoration: none;
+    transition: color 0.2s ease-in-out;
+    white-space: nowrap;
+    /* 防止文字换行 */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* 在文本溢出时显示省略号 */
+}
+
+.book-card-title a:hover {
+    color: #007bff;
+}
+
+/* 书卡片摘要 */
+.book-card-summary {
+    margin-top: 10px;
+    color: #666;
+}
