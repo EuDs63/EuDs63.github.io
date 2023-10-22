@@ -74,8 +74,6 @@ params:
         buttons:
             - name: Posts
               url: posts
-            - name: Tags
-              url: tags
             - name: Records
               url: records
 
