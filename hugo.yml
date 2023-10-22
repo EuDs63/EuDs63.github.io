@@ -1,4 +1,5 @@
 baseURL: "https://ds63.eu.org/"
+# languageCode: zh-cn # en-us
 title: EuDs's Blog
 paginate: 5
 theme: PaperModX
@@ -76,6 +77,8 @@ params:
               url: posts
             - name: Records
               url: records
+            - name: My Subscription
+              url: rss_subscription
 
     # home-info mode
     homeInfoParams:
