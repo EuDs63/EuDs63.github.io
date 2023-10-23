@@ -1,4 +1,4 @@
-name: Sync NeoDB Data
+name: Sync NeoDB Data and rss_subscription
 on:
   schedule:
     - cron: '0 12 * * 0'
@@ -43,13 +43,19 @@ jobs:
          # 更新 NeoDB 数据
         cp -f book_progress.json ${{ env.WORK_DIR }}/data/neodb/
 
+    - name: Get rss_subscription
+      run: |
+        curl https://raw.githubusercontent.com/EuDs63/TinyTinyRSS-OPML-to-MD-Table/main/rss_subscription.json > rss_subscription.json
+
+        # 更新rss_subscription数据
+        cp -f rss_subscription.json ${{ env.WORK_DIR }}/data/rss/
 
     # 把修改后的数据提交到 GitHub 仓库
     - name: Git Add and Commit
       uses: EndBug/add-and-commit@v9
       with:
         message: 'update neodb data'
-        add: './data/neodb'
+        add: './data'
 
     # 调用另外的 GitHub Actions 构建 Hugo
     - name: Build Hugo and Deploy
