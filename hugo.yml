@@ -77,7 +77,7 @@ params:
               url: posts
             - name: Records
               url: records
-            - name: My Subscription
+            - name: My Rss Subscription
               url: rss_subscription
 
     # home-info mode
@@ -90,6 +90,10 @@ params:
           url: "https://github.com/EuDs63"
         - name: mastodon
           url: "https://mastodon.social/@euds63"
+        - name: rss
+          url: "https://euds63.github.io/index.xml"
+        - name: steam
+          url: "https://steamcommunity.com/profiles/76561199184191476/"
 
     # analytics:
     #     google:
@@ -125,13 +129,14 @@ menu:
           name: archives
           url: /archives/
           weight: 30
+        - name: Discover
+          url: /discover/
+          weight: 10
         - identifier: about
           name: about
           url: /about/
           weight: 30
-        - name: Discover
-          url: /discover/
-          weight: 10
+ 
 # Read: https://github.com/reorx/hugo-PaperModX/wiki/FAQs#using-hugos-syntax-highlighter-chroma
 # pygmentsUseClasses: true
 markup:
