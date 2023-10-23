@@ -26,12 +26,24 @@ jobs:
         # 把当前目录保存到环境变量中
         echo "WORK_DIR=$(pwd)" >> $GITHUB_ENV
 
+    # 获取本地现有文件的标记数
+    - name: Get Current Count
+      run: |
+        CURRENT_COUNT() {
+          jq '.count' data/neodb/book_progress.json
+        }
+        echo "CURRENT_COUNT=$(CURRENT_COUNT)" >> $GITHUB_ENV
+
     - name: Get NeoDB JSON
       run: |
         curl -X 'GET' \
         'https://neodb.social/api/me/shelf/progress?category=book' \
         -H 'accept: application/json' \
         -H 'Authorization: Bearer ${{ secrets.NEODB_ACCESS_TOKEN }}' > book_progress.json
+
+         # 更新 NeoDB 数据
+        cp -f book_progress.json ${{ env.WORK_DIR }}/data/neodb/
+
 
     # 把修改后的数据提交到 GitHub 仓库
     - name: Git Add and Commit
