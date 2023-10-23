@@ -96,6 +96,11 @@
             "html_url": "https://fenx.work/"
         },
         {
+            "title": "EuDs's Blog",
+            "feed_url": "https://ds63.eu.org/index.xml",
+            "html_url": "https://ds63.eu.org/"
+        },
+        {
             "title": "Free Mind",
             "feed_url": "https://freemind.pluskid.org/rss.xml",
             "html_url": "http://freemind.pluskid.org"
@@ -486,6 +491,6 @@
             "html_url": "https://coolshell.cn"
         }
     ],
-    "last_updated": "2023-10-22",
-    "count": 97
+    "last_updated": "2023-10-23",
+    "count": 98
 }
