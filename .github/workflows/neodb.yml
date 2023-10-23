@@ -1,4 +1,3 @@
-# .github/workflows/douban.yml
 name: Sync NeoDB Data
 on:
   schedule:
@@ -27,12 +26,12 @@ jobs:
         echo "WORK_DIR=$(pwd)" >> $GITHUB_ENV
 
     # 获取本地现有文件的标记数
-    - name: Get Current Count
-      run: |
-        CURRENT_COUNT() {
-          jq '.count' data/neodb/book_progress.json
-        }
-        echo "CURRENT_COUNT=$(CURRENT_COUNT)" >> $GITHUB_ENV
+    # - name: Get Current Count
+    #   run: |
+    #     CURRENT_COUNT() {
+    #       jq '.count' data/neodb/book_progress.json
+    #     }
+    #     echo "CURRENT_COUNT=$(CURRENT_COUNT)" >> $GITHUB_ENV
 
     - name: Get NeoDB JSON
       run: |
