@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>开源 on EuDs&#39;s Blog</title>
+    <link>https://euds63.github.io/tags/%E5%BC%80%E6%BA%90/</link>
+    <description>Recent content in 开源 on EuDs&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 15 Sep 2023 15:59:21 +0800</lastBuildDate><atom:link href="https://euds63.github.io/tags/%E5%BC%80%E6%BA%90/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>由Unity收费想到的</title>
+      <link>https://euds63.github.io/2023/%E7%94%B1unity%E6%94%B6%E8%B4%B9%E6%83%B3%E5%88%B0%E7%9A%84/</link>
+      <pubDate>Fri, 15 Sep 2023 15:59:21 +0800</pubDate>
+      
+      <guid>https://euds63.github.io/2023/%E7%94%B1unity%E6%94%B6%E8%B4%B9%E6%83%B3%E5%88%B0%E7%9A%84/</guid>
+      <description>Long may the Free Software Movement!</description>
+      <content:encoded><![CDATA[<p><em>Unity宣布收取安装费这件事自9月12日引发许多讨论，我的想法也有一定的改变</em></p>
+<h2 id="开始">开始</h2>
+<p>我是认可收费的，原因有：</p>
+<ol>
+<li>游戏开发人员使用了Unity的服务，并以此盈利，那就应该支付相应的费用。</li>
+<li>收费是有一定门槛的，这个门槛在我看来似乎还挺高？</li>
+</ol>
+<h2 id="了解">了解</h2>
+<p>我发现反对的言论明显多于支持或者中立的言论，就决定自己去了解。</p>
+<p>从<a href="https://blog.unity.com/news/plan-pricing-and-packaging-updates"  target="_blank" rel="noopener" >Unity的官方网站</a>，我了解到：</p>
+<ol>
+<li>Unity已经有相关的收费：Unity Plus、Unity Pro	等等</li>
+<li>新的收费内容是按照New installs per month进行收费，这个我觉得很不合理。
+<ul>
+<li>如何知道用户安装了几次</li>
+<li>如何确保有人恶意安装，导致开发人员蒙受不必要的损失。</li>
+</ul>
+</li>
+</ol>
+<h2 id="游戏开发人员">游戏开发人员</h2>
+<p>Unity的收费标准对于person和Enterprise是有区别的，而且相当大。person是$0.2 per new install,而Enterprise甚至可以低到$0.01。所以我也分开来调查。</p>
+<h3 id="有一定体量的公司">有一定体量的公司</h3>
+<p>以下是<a href="https://garry.net/posts/unity-can-get-fucked"  target="_blank" rel="noopener" >Unity can get fucked</a>的部分摘抄，作者是Garry&rsquo;s Mod的创作者。</p>
+<blockquote>
+<p>Let me be clear.. the cost isn&rsquo;t a big issue to us. If everything worked out, the tracking was flawless and it was 10p per sale, no biggy really. If that&rsquo;s what it costs, then that&rsquo;s what it costs.</p>
+</blockquote>
+<p><strong>这个收费是他们可承受的，甚至似乎可以说是无伤大雅</strong></p>
+<blockquote>
+<p>It hurts because we didn&rsquo;t agree to this. We used the engine because you pay up front and then ship your product. We weren&rsquo;t told this was going to happen. We weren&rsquo;t warned. We weren&rsquo;t consulted.</p>
+</blockquote>
+<blockquote>
+<p>We have spent 10 years making Rust on Unity&rsquo;s engine. We&rsquo;ve paid them every year. And now they changed the rules.</p>
+</blockquote>
+<p><strong>指出愤怒点：未经提前告知、商讨，就更改条款</strong></p>
+<blockquote>
+<p>We had 10 years to make our own engine and never did. I&rsquo;m sure a lot of game companies are feeling the same today.</p>
+</blockquote>
+<p><strong>后悔没有做自己的引擎</strong></p>
+<h3 id="个人制作者">个人制作者</h3>
+<p><a href="https://www.youtube.com/watch?v=1jKVt98fgEY"  target="_blank" rel="noopener" >Unity Ruined Their Game Engine Forever</a>里举了这样一个例子：
+有些独立游戏开发者制作了一些小游戏，下载量高达数百万，但游戏中的广告系统或者收费内容没办法cover所需要支付的安装费，那就会变成一个很荒谬的情况：因为游戏受欢迎而破产。</p>
+<h2 id="引申">引申</h2>
+<p><a href="https://www.youtube.com/watch?v=1jKVt98fgEY"  target="_blank" rel="noopener" >Unity Ruined Their Game Engine Forever</a>里还有一句我很喜欢&quot;the beauty of Open Source is it&rsquo;s not run by one scumbag company that can absolutely decide to bring this any time day in shape you can just download this engine and start working on your project.</p>
+<p>这里我就想到GNU和自由软件运动，太美妙了，太高瞻远瞩了。</p>
+<h2 id="我的收获">我的收获</h2>
+<p>我并不是一个游戏开发者，只是一个臭打游戏的，一个还没有真正踏进社会的学生。</p>
+<p>所以刚开始看到这件事情，我也没有思考、了解太多，仅靠自己的判断就给这件事情下了定论，甚至站了立场。</p>
+<p>但随着了解的深入，我的想法可以说是发生反转性的变化。我想很多事也是如此。</p>
+<p>所以这件事给我最大的收获是：在不了解一件事之前不能往下定论。</p>
+]]></content:encoded>
+    </item>
+    
+  </channel>
+</rss>

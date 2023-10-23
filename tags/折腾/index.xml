@@ -1,0 +1,811 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>折腾 on EuDs&#39;s Blog</title>
+    <link>https://euds63.github.io/tags/%E6%8A%98%E8%85%BE/</link>
+    <description>Recent content in 折腾 on EuDs&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 21 Oct 2023 12:50:17 +0800</lastBuildDate><atom:link href="https://euds63.github.io/tags/%E6%8A%98%E8%85%BE/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>博客迁移记</title>
+      <link>https://euds63.github.io/2023/%E5%8D%9A%E5%AE%A2%E8%BF%81%E7%A7%BB%E8%AE%B0/</link>
+      <pubDate>Sat, 21 Oct 2023 12:50:17 +0800</pubDate>
+      
+      <guid>https://euds63.github.io/2023/%E5%8D%9A%E5%AE%A2%E8%BF%81%E7%A7%BB%E8%AE%B0/</guid>
+      <description>nice to use Hugo</description>
+      <content:encoded><![CDATA[<ol>
+<li>尝试修改代码栏背景，无果</li>
+<li>更换主题至<a href="https://reorx.github.io/hugo-PaperModX/"  target="_blank" rel="noopener" >PaperModX</a></li>
+<li>设置文章中链接以新标签的方式打开
+参考：<a href="https://dvel.me/posts/hugo-goldmark-markdown-new-tab/"  target="_blank" rel="noopener" >在 Hugo Goldmark Markdown 中设置以新标签打开链接 - Dvel&rsquo;s Blog</a></li>
+<li>统一风格</li>
+<li>使用<a href="https://www.jinrishici.com/"  target="_blank" rel="noopener" >今日诗词 - 一言API</a>作为slogan。步骤如下：
+<ol>
+<li>找到位置，发现位于<code>themes\PaperModX\layouts\partials\home_info.html</code></li>
+<li>根据api文档添加调用代码</li>
+</ol>
+</li>
+<li>参考<a href="https://www.sulvblog.cn/posts/blog/hugo_tag_cloud/"  target="_blank" rel="noopener" >Hugo博客添加标签云 | Sulv&rsquo;s Blog</a>美化标签页</li>
+<li>添加archive页。步骤如下：
+<ol>
+<li>新增archive.md文件</li>
+<li>在<code>themes\PaperModX\assets\css\common\archive.css</code>替换并添加相应代码
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl">  <span class="p">.</span><span class="nc">archive-entry</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">     <span class="k">position</span><span class="p">:</span> <span class="kc">relative</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">     <span class="k">padding</span><span class="p">:</span> <span class="mi">5</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">     <span class="k">margin</span><span class="p">:</span> <span class="mi">10</span><span class="kt">px</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">     <span class="k">transition</span><span class="p">:</span> <span class="nf">var</span><span class="p">(</span><span class="o">--</span><span class="n">link</span><span class="o">-</span><span class="n">transition</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">     <span class="c">/* 添加过渡效果，使颜色和阴影变化平滑 */</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="p">.</span><span class="nc">archive-entry</span><span class="p">:</span><span class="nd">hover</span> <span class="p">.</span><span class="nc">archive-entry-title</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">     <span class="k">color</span><span class="p">:</span> <span class="nf">var</span><span class="p">(</span><span class="o">--</span><span class="n">link</span><span class="o">-</span><span class="n">hover</span><span class="o">-</span><span class="kc">color</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">     <span class="c">/* 鼠标悬停时的文字颜色 */</span>
+</span></span><span class="line"><span class="cl">     <span class="k">box-shadow</span><span class="p">:</span> <span class="nf">var</span><span class="p">(</span><span class="o">--</span><span class="n">link</span><span class="o">-</span><span class="n">hover</span><span class="o">-</span><span class="kc">underline</span><span class="o">-</span><span class="n">shadow</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">     <span class="c">/* 鼠标悬停时的下划线阴影效果 */</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="p">.</span><span class="nc">archive-entry-title</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">     <span class="k">margin</span><span class="p">:</span> <span class="mi">5</span><span class="kt">px</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">     <span class="k">font-weight</span><span class="p">:</span> <span class="mi">400</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">     <span class="k">transition</span><span class="p">:</span> <span class="nf">var</span><span class="p">(</span><span class="o">--</span><span class="n">link</span><span class="o">-</span><span class="n">transition</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">     <span class="k">display</span><span class="p">:</span> <span class="kc">inline-block</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></div></li>
+</ol>
+</li>
+<li>添加搜索功能，步骤如下
+<ol>
+<li>新增search.md文件</li>
+<li>在<code>hugo.yml</code>新增
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="cl"><span class="nt">outputs</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">home</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span>- <span class="l">HTML</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span>- <span class="l">RSS</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span>- <span class="l">JSON</span><span class="w"> </span><span class="c"># is necessary</span><span class="w">
+</span></span></span></code></pre></div></li>
+</ol>
+</li>
+<li>整合search,category,tags至discover，以使导航栏更为简洁，步骤如下
+<ol>
+<li>参考<a href="https://loyayz.com/website/220609-hugo-papermodx-tags-in-search-page/"  target="_blank" rel="noopener" >PaperMod 搜索页展示标签列表 | loyayz</a></li>
+<li>修改对应标题、url</li>
+<li>修改<code>themes\PaperModX\layouts\_default\search.html</code>中的代码</li>
+</ol>
+</li>
+<li>修改profile-mode中的副标题为一言诗句，步骤如下:
+<ol>
+<li>找到对应位置<code>themes\PaperModX\layouts\partials\index_profile.html</code></li>
+<li>参考第五步</li>
+</ol>
+</li>
+<li>添加Records页面，步骤如下
+<ol>
+<li>参考<a href="https://eallion.com/neodb/#back-to-top"  target="_blank" rel="noopener" >NeoDB API 创建观影页面 - 大大的小蜗牛</a></li>
+<li>添加<code>themes\PaperModX\layouts\_default\records.html</code>与<code>static\css\records.css</code></li>
+<li>添加<code>content\records.md</code></li>
+</ol>
+</li>
+<li>添加rss_subscription页面，步骤如下
+<ol>
+<li>大体上与第11步相同</li>
+<li>在<code>themes\PaperModX\layouts\_default\single.html</code>的基础上进行修改，得到<code>themes\PaperModX\layouts\_default\rss_subscription.html</code></li>
+</ol>
+</li>
+<li>部署
+参考<a href="https://gohugo.io/hosting-and-deployment/hosting-on-github/"  target="_blank" rel="noopener" >Host on GitHub Pages | Hugo</a></li>
+<li>添加social icons
+参考<a href="https://adityatelange.github.io/hugo-PaperMod/posts/papermod/papermod-icons/"  target="_blank" rel="noopener" >Icons | PaperMod</a></li>
+</ol>
+<h2 id="待修复问题">待修复问题</h2>
+<ol>
+<li><input checked="" disabled="" type="checkbox"> 部署后<a href="https://ds63.eu.org/rss_subscription/"  target="_blank" rel="noopener" >My Rss Subscription | EuDs&rsquo;s Blog</a>无法正常显示</li>
+<li><input checked="" disabled="" type="checkbox"> 网站icon时有时无</li>
+</ol>
+<h2 id="参考">参考</h2>
+<ul>
+<li><a href="https://liujiacai.net/blog/2020/12/05/hexo-to-hugo/#headline-3"  target="_blank" rel="noopener" >博客系统迁移：Hexo 到 Hugo</a></li>
+<li><a href="https://cloud.tencent.com/developer/article/1702561"  target="_blank" rel="noopener" >将hexo文章头转为hugo格式-腾讯云开发者社区-腾讯云</a></li>
+<li><a href="https://io-oi.me/tech/hugo-vs-hexo/"  target="_blank" rel="noopener" >Hugo 与 Hexo 的异同 | reuixiy</a></li>
+<li><a href="https://www.sulvblog.cn/posts/blog/hugo_toc_side/"  target="_blank" rel="noopener" >Hugo博客目录放在侧边 | PaperMod主题 | Sulv&rsquo;s Blog</a></li>
+<li><a href="https://hugo.aiaide.com/post/hugo%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86/"  target="_blank" rel="noopener" >Hugo的工作原理 - Hugo 中文帮助文档</a></li>
+<li><a href="https://www.sulvblog.cn/posts/blog/hugo_tag_cloud/"  target="_blank" rel="noopener" >Hugo博客添加标签云 | Sulv&rsquo;s Blog</a></li>
+<li><a href="https://www.fusejs.io/api/options.html#keys"  target="_blank" rel="noopener" >Options | Fuse.js</a></li>
+<li><a href="https://loyayz.com/website/220609-hugo-papermodx-tags-in-search-page/"  target="_blank" rel="noopener" >PaperMod 搜索页展示标签列表 | loyayz</a></li>
+<li><a href="https://eallion.com/neodb/#back-to-top"  target="_blank" rel="noopener" >NeoDB API 创建观影页面 - 大大的小蜗牛</a></li>
+<li><a href="https://gohugo.io/hosting-and-deployment/hosting-on-github/"  target="_blank" rel="noopener" >Host on GitHub Pages | Hugo</a></li>
+</ul>
+]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>qqBot 搭建</title>
+      <link>https://euds63.github.io/2023/qqbot-%E6%90%AD%E5%BB%BA/</link>
+      <pubDate>Wed, 11 Oct 2023 01:23:34 +0800</pubDate>
+      
+      <guid>https://euds63.github.io/2023/qqbot-%E6%90%AD%E5%BB%BA/</guid>
+      <description>短时间内也不想再进一步折腾了</description>
+      <content:encoded><![CDATA[<h1 id="qqbot-搭建">qqBot 搭建</h1>
+<p><strong>这两天在搭qqBot，记录一下</strong></p>
+<h2 id="整体技术">整体技术</h2>
+<p>我使用的是<a href="https://github.com/Mrs4s/go-cqhttp"  target="_blank" rel="noopener" >go-cqhttp</a>和<a href="https://github.com/nonebot/nonebot2"  target="_blank" rel="noopener" >nonebot2</a>。</p>
+<p>在遇到风控问题时，我使用了<a href="https://github.com/fuqiuluo/unidbg-fetch-qsign"  target="_blank" rel="noopener" >unidbg-fetch-qsign</a>。</p>
+<h2 id="过程">过程</h2>
+<ul>
+<li>
+<p>整个过程比我着手搭建前所想的要困难许多，踩了许多坑。不过很棒的一点是，这三个项目的issue都十分活跃。我踩的坑，在issue中几乎都能搜到。我使用过的开源项目不多，但这三个给了我很好的印象，希望自己以后能做些自己的贡献。</p>
+</li>
+<li>
+<p>之前没想到最难的一点不是机器人程序的编写，而在于登录。我使用的号是新号（创建一个礼拜左右），风控等级比较高。</p>
+</li>
+</ul>
+<p>而我的需求是：将bot部署在地点在非我所在地的一个服务器上，这更是增加了被风控的概率。</p>
+<p>尝试许多种方法后，我最终的解决方法是：</p>
+<ol>
+<li>在本地先使用手表协议扫码登录。( <code>&quot;sort_version_name&quot;:8.9.73</code>,<code>protocol：2</code>)</li>
+<li>成功登录后将得到的文件移至服务器上并配置<code>signsever</code>,再次进行登录</li>
+</ol>
+<ul>
+<li>
+<p>但最后bot还是被风控，无法发送群消息。</p>
+<p>我短时间内也不想再进一步折腾了。</p>
+</li>
+<li>
+<p>今天把自己写的插件<a href="https://github.com/EuDs63/nonebot-plugin-yesman"  target="_blank" rel="noopener" >EuDs63/nonebot-plugin-yesman: nonebot2 插件</a>发布到<a href="https://nonebot.dev/store/plugins"  target="_blank" rel="noopener" >插件商店 | NoneBot</a>了。过了一遍插件发布的流程，还蛮有意思的。有几点值得说下:</p>
+<ol>
+<li><a href="https://pypi.org/account/register/"  target="_blank" rel="noopener" >Create an account · PyPI</a>的username要求是我见过的最苛刻的。但也能理解。
+<blockquote>
+<p>Choose a strong password that contains letters (uppercase and lowercase), numbers and special characters. Avoid common words or repetition.</p>
+</blockquote>
+</li>
+<li><a href="https://github.com/apps/noneflow"  target="_blank" rel="noopener" >About NoneFlow</a> 好强大。有机会想自己试试写一个类似的，或者了解是怎么做到的。</li>
+</ol>
+</li>
+</ul>
+<h2 id="感想">感想</h2>
+<ol>
+<li>想起搭telegram bot时，只需要申请一个token，甚至教程官方都有在写。而这里却是道高一尺魔高一丈般的猫鼠游戏。不免五味杂陈。</li>
+<li>nonebot这种插件系统我觉得很棒。省了不少力气。</li>
+<li>感觉qqBot可玩性还是蛮高的，在其他群里也常常能见到些有趣的bot。但可惜的是腾讯的态度。</li>
+</ol>
+<h2 id="收获">收获</h2>
+<ol>
+<li><code>nohup</code></li>
+</ol>
+<ul>
+<li>使用: 例: <code>nphup nb run</code></li>
+<li>关闭: 例:
+<code>ps aux | grep `nb` #找到对应的进程号 kill $进程号</code></li>
+</ul>
+<ol start="2">
+<li>
+<p><code>守护进程（Systemd）</code></p>
+<p><em>注：以下复制自<a href="https://blog.cysi.me/2022/04/make-a-qqbot.html#%E5%AE%88%E6%8A%A4%E8%BF%9B%E7%A8%8Bsystemd"  target="_blank" rel="noopener" >使用 NoneBot2 和 go-cqhttp 打造自己的 FF14 QQ 机器人</a></em></p>
+<ul>
+<li>创建</li>
+</ul>
+<pre tabindex="0"><code># vim /lib/systemd/system/go-cqhttp.service
+
+    [Unit]
+    Description=GO-CQHTTP
+    Wants=network-online.target
+    After=network-online.target
+    [Service]
+    Type=simple
+    User=root
+    WorkingDirectory= GO-CQHTTP的运行目录
+    ExecStart= nohup go-cqhttp
+    KillMode=process
+
+    [Install]
+    WantedBy=multi-user.target
+</code></pre><ul>
+<li>使用</li>
+</ul>
+<pre tabindex="0"><code>systemctl status go-cqhttp #查看状态
+systemctl enable go-cqhttp #启用开机自启
+systemctl restart go-cqhttp #重启进程
+systemctl stop go-cqhttp #停止进程
+systemctl start go-cqhttp #开始进程
+</code></pre></li>
+<li>
+<p>python虚拟环境</p>
+<ul>
+<li>新建</li>
+</ul>
+<pre tabindex="0"><code>python -m venv myenv # 创建一个名为myenv的虚拟环境
+</code></pre><ul>
+<li>激活</li>
+</ul>
+<pre tabindex="0"><code>source ./qqVenv/bin/activate # bash
+
+source ./qqVenv/bin/activate.fish # fish
+</code></pre></li>
+</ol>
+<h2 id="参考">参考</h2>
+<ul>
+<li><a href="https://github.com/nonebot/nonebot2"  target="_blank" rel="noopener" >nonebot/nonebot2: 跨平台 Python 异步聊天机器人框架 / Asynchronous multi-platform chatbot framework written in Python</a></li>
+<li><a href="https://github.com/fuqiuluo/unidbg-fetch-qsign"  target="_blank" rel="noopener" >fuqiuluo/unidbg-fetch-qsign: 获取QQSign通过Unidbg</a></li>
+<li><a href="https://blog.cysi.me/2022/04/make-a-qqbot.html#%E5%AE%89%E8%A3%85%E6%8F%92%E4%BB%B6"  target="_blank" rel="noopener" >使用 NoneBot2 和 go-cqhttp 打造自己的 FF14 QQ 机器人</a></li>
+<li><a href="https://github.com/Mrs4s/go-cqhttp"  target="_blank" rel="noopener" >Mrs4s/go-cqhttp: cqhttp的golang实现，轻量、原生跨平台.</a></li>
+</ul>
+]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>服务器迁移记</title>
+      <link>https://euds63.github.io/2023/%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%BF%81%E7%A7%BB%E8%AE%B0/</link>
+      <pubDate>Sat, 07 Oct 2023 19:32:21 +0800</pubDate>
+      
+      <guid>https://euds63.github.io/2023/%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%BF%81%E7%A7%BB%E8%AE%B0/</guid>
+      <description>虽然早就知道是这样。但是这次还是第一次这么切身地体验到。很感慨。</description>
+      <content:encoded><![CDATA[<h2 id="起因">起因</h2>
+<p>我之前使用的是阿里云的ecs。因为要到期了，而续费又过于昂贵。（2核2g一年要六百多。）</p>
+<p>对比了下几家云服务器提供商，发现华为云价格最为理想（2核2g3M带宽一年89）。</p>
+<h2 id="迁移过程">迁移过程</h2>
+<p>我其实并没有用服务器来做多少事情。主要就两个：telegram bot和ttrss。它们都是使用docker进行部署的，所以能省不少事。</p>
+<ol>
+<li>docker安装
+没想到第一步安装docker就花了一晚上。3m的带宽，下载时只有可怜的十几kb。等到最后还下不了。</li>
+</ol>
+<p>最后我是自己手动下载软件包，再安装的。</p>
+<pre tabindex="0"><code># “package.deb”为下载的软件包
+sudo dpkg -i /path/to/package.deb
+</code></pre><p>我其实应该一开始就去配置镜像源的&hellip;</p>
+<ol start="2">
+<li>
+<p>设置网络
+<a href="https://ds63.eu.org/2023/03/11/network/"  target="_blank" rel="noopener" >network - EuDs&rsquo;s blog</a></p>
+</li>
+<li>
+<p>Faye_Bot
+<a href="https://github.com/EuDs63/Faye_Bot"  target="_blank" rel="noopener" >EuDs63/Faye_Bot: my telegram Bot</a></p>
+</li>
+<li>
+<p>ttrss</p>
+</li>
+</ol>
+<ul>
+<li><a href="https://ds63.eu.org/2023/03/08/RssTossing/"  target="_blank" rel="noopener" >RSS折腾记 - EuDs&rsquo;s blog</a></li>
+<li><a href="https://ttrss.henry.wang/zh/#%E5%85%B3%E4%BA%8E"  target="_blank" rel="noopener" >🐋 Awesome TTRSS </a></li>
+</ul>
+<h2 id="尾巴">尾巴</h2>
+<p>本来没打算再买一个服务器的。因为vscode+WSL2其实已经满足我绝大部分的linux使用需求了。但想着说不定呢？以后哪天就有需求了。而那时候再重新搭环境，没了现有的作参考，怕是要发更多的时间，于是还是买了。</p>
+<p>还是要想办法用起来。</p>
+<h2 id="尾巴的尾巴">尾巴的尾巴</h2>
+<p>没想到这么快就又有了一个服务器。今天（隔天）逛博客看到Azure学生包注册教程。想着之前也有试着搞过，但不知道为什么没成功。今天抱着试一试的想法，就又点进去。没想到直接就成了。</p>
+<p>于是参考<a href="https://zbttl-github-io.vercel.app/github-xue-sheng-bao-he-azure-yang-mao/"  target="_blank" rel="noopener" >github 学生包和 azure 羊毛</a>，申请了台linux虚拟机。还是用的ubuntu的镜像。</p>
+<p>结果十分地流畅。安装docker不到三分钟，也不需要额外配置什么代理。昨天没成功的<a href="https://github.com/yihong0618/tg_bing_dalle"  target="_blank" rel="noopener" >yihong0618/tg_bing_dalle: tg bing dalle-3</a>也成了。</p>
+<p>虽然早就知道是这样。但是这次还是第一次这么切身地体验到。很感慨。</p>
+<h2 id="参考链接">参考链接</h2>
+<ul>
+<li><a href="https://zbttl-github-io.vercel.app/github-xue-sheng-bao-he-azure-yang-mao/"  target="_blank" rel="noopener" >github 学生包和 azure 羊毛</a></li>
+<li><a href="https://github.com/yihong0618/tg_bing_dalle"  target="_blank" rel="noopener" >yihong0618/tg_bing_dalle: tg bing dalle-3</a></li>
+<li><a href="https://ttrss.henry.wang/zh/#%E5%85%B3%E4%BA%8E"  target="_blank" rel="noopener" >🐋 Awesome TTRSS </a></li>
+</ul>
+]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>game of life</title>
+      <link>https://euds63.github.io/2023/game-of-life/</link>
+      <pubDate>Thu, 05 Oct 2023 16:04:39 +0800</pubDate>
+      
+      <guid>https://euds63.github.io/2023/game-of-life/</guid>
+      <description>记录EuDs63/game_of_life</description>
+      <content:encoded><![CDATA[<h2 id="起因">起因</h2>
+<p>大一的时候做某次课程作业，我的选题就是life of game。从那时候就想自己实现一个。但一直搁置着没有动手，最近在学Rust，并正好看到了篇<a href="https://rustwasm.github.io/docs/book/introduction.html"  target="_blank" rel="noopener" >很不错的教程</a>。这便是这个项目的起因。</p>
+<h2 id="历程">历程</h2>
+<h3 id="前期准备">前期准备</h3>
+<p>我使用的环境是vecode+wsl2。整体下来除了因为机器性能限制导致内存占用过高，体验还是很可以的。</p>
+<p>但在搭建项目环境时踩了三个坑。</p>
+<ol>
+<li><em>npm install 失败</em></li>
+</ol>
+<ul>
+<li>解决：在Ubuntu中安装npm</li>
+<li>参考：<a href="https://blog.csdn.net/hys__handsome/article/details/125687617"  target="_blank" rel="noopener" >WSL无法使用npm</a></li>
+</ul>
+<ol start="2">
+<li><em>wasm-build 失败</em></li>
+</ol>
+<ul>
+<li>解决
+<pre tabindex="0"><code>[package.metadata.wasm-pack.profile.release]
+wasm-opt = false
+</code></pre></li>
+<li>参考：<a href="https://github.com/rustwasm/wasm-pack/issues/864"  target="_blank" rel="noopener" >failed to download binaryen-version_90-x86-windows.tar.gz</a></li>
+</ul>
+<ol start="3">
+<li><em>wasm-pack test &ndash;chrome &ndash;headless 失败</em></li>
+</ol>
+<ul>
+<li>解决: 改用<code>wasm-pack test --chrome</code></li>
+<li>参考： <a href="https://github.com/rustwasm/wasm-pack/issues/611"  target="_blank" rel="noopener" >Headless Chrome test fails</a></li>
+</ul>
+<h3 id="编码">编码</h3>
+<p>编码阶段跟着教程来，还算顺利。但教程中的代码是全部堆放在一起的。这看起来不太舒服，也不太适合我后续的迭代。我花了些时间将其组件化。但教程的后面也有说明没有组件化的理由：Shrinking .wasm Size。这让我意识到还是要根据项目的特点来去做对应的优化和修改。</p>
+<h3 id="部署">部署</h3>
+<p>开发时，我发现<a href="https://github.com/shalzz/wasm-game-of-life"  target="_blank" rel="noopener" >shalzz/wasm-game-of-life</a>提供了一个live demo。是使用vercel进行部署的。vercel之前我也有使用过，但只是用的别人的一键部署。我觉得蛮有意思的，于是决定也试试。着实花了些时间，踩了不少坑。这里展开说下过程。</p>
+<ol>
+<li>一开始参考<a href="https://betterprogramming.pub/deploying-a-wasm-powered-react-app-on-vercel-cf3cae2a75d6"  target="_blank" rel="noopener" >Deploying a WASM-Powered React App on Vercel</a>。后来发现不需要这么麻烦，因为我已经<code>wasm-pack pulish</code>了，可以直接将<a href="https://www.npmjs.com/package/wasm-game-of-life-euds63"  target="_blank" rel="noopener" >wasm-game-of-life-euds63 - npm</a>作为依赖引入。这样就只需要部署webpack，而不用再去安装Rust相关的内容。</li>
+<li>对代码进行对应的修改后。我开始尝试部署。先是遇到路径问题，我将<code>Root Directory</code>修改为www。</li>
+<li>这时候vercel显示部署成功了，但实际上是运行不了的。我因着之前的经验，惯性地以为也是路径问题。开始修改其他地方的路径。但实际上不是。反复修改几次后我发现:错误的路径会导致部署成功，而正确的路径反而会使<code>npm install</code>报错。而我一开始以为的错误路径是正确的。 这一步我觉得还是我没有好好去看log导致的。</li>
+<li>根据相应的报错发现是node版本问题。我本地运行成功的node版本是12，而vercel只支持18和16，我一开始的想法是另外安装一个12的版本，未果。后来报着试一试的念头改为16，惊喜的是<code>npm install</code>成功了。</li>
+<li><code>npm run build</code>后报错：Missing Public Directory。根据<a href="https://vercel.com/docs/errors/error-list#missing-public-directory"  target="_blank" rel="noopener" >Error List | Vercel Docs</a>尝试将<code>Output Directory</code>设为dist，解决。</li>
+</ol>
+<h3 id="配置域名">配置域名</h3>
+<p>我使用了子域名的方式进行配置。之前觉得配置子域名蛮神奇的。自己尝试后发现，似乎是相当于一个redirect？</p>
+<p>我先在我使用的DNS服务提供商处添加了一条CNAME记录。</p>
+<table>
+<thead>
+<tr>
+<th>SUBDOMAIN</th>
+<th>TYPE</th>
+<th>VALUE</th>
+<th>TTL, SEC</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>lifegame</td>
+<td>CNAME</td>
+<td>game-of-life-2hpx.vercel.app</td>
+<td>86400</td>
+</tr>
+</tbody>
+</table>
+<p>然后在vercel的对应项目中的Domains新增域名lifegame.ds63.eu.org。</p>
+<p>一开始设置好的是没有ssl证书。网上查了些资料，发现vercel是会自动提供ssl证书的。还以为是自己哪里设置出问题了。结果是得等一会儿才行。</p>
+<h2 id="收获">收获</h2>
+<ol>
+<li>Rust自定义宏
+<ul>
+<li>步骤
+<ol>
+<li>在一个模块中定义并导出自定义宏
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Rust" data-lang="Rust"><span class="line"><span class="cl"><span class="c1">// utils.rs
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="cp">#[macro_export]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">macro_rules</span><span class="o">!</span><span class="w"> </span><span class="n">log</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="p">(</span><span class="w"> </span><span class="cp">$(</span><span class="w"> </span><span class="cp">$t</span>:<span class="nc">tt</span><span class="w"> </span><span class="p">)</span><span class="o">*</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="n">web_sys</span>::<span class="n">console</span>::<span class="n">log_1</span><span class="p">(</span><span class="o">&amp;</span><span class="fm">format!</span><span class="p">(</span><span class="w"> </span><span class="cp">$(</span><span class="w"> </span><span class="cp">$t</span><span class="w"> </span><span class="p">)</span><span class="o">*</span><span class="w"> </span><span class="p">).</span><span class="n">into</span><span class="p">());</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div></li>
+<li>在其他模块中使用
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Rust" data-lang="Rust"><span class="line"><span class="cl"><span class="c1">// lib.rs
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="cp">#[macro_use]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">mod</span> <span class="nn">utils</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">mod</span> <span class="nn">universe</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// universe.rs
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">use</span><span class="w"> </span><span class="k">crate</span>::<span class="n">utils</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 直接使用
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="fm">log!</span><span class="p">(</span><span class="s">&#34;This is a log message: {}&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">some_variable</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></div></li>
+</ol>
+</li>
+</ul>
+</li>
+<li>Always let profiling guide your focus
+<ul>
+<li>一些检测性能工具
+<ol>
+<li>edge开发者工具 -&gt; 性能</li>
+<li><code>cargo benchcmp</code></li>
+<li><code>perf</code></li>
+</ol>
+</li>
+<li><a href="https://rustwasm.github.io/docs/book/game-of-life/time-profiling.html"  target="_blank" rel="noopener" >Time Profiling - Rust and WebAssembly</a>这章值得再读几次</li>
+</ul>
+</li>
+<li>vercel部署</li>
+</ol>
+<h2 id="参考">参考</h2>
+<ul>
+<li><a href="https://rustwasm.github.io/docs/book/introduction.html"  target="_blank" rel="noopener" >Rust and WebAssembly</a></li>
+<li><a href="https://playgameoflife.com/"  target="_blank" rel="noopener" >Play John Conway’s Game of Life</a> 目前发现的最好的一个game of life实现</li>
+<li><a href="https://github.com/shalzz/wasm-game-of-life"  target="_blank" rel="noopener" >shalzz/wasm-game-of-life: Game of Life implementation using Rust, Javascript and WebAssembly!</a></li>
+<li><a href="https://vercel.com/docs/projects/overview#ignored-build-step"  target="_blank" rel="noopener" >Projects Overview | Vercel Docs</a></li>
+</ul>
+]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>换域名喽</title>
+      <link>https://euds63.github.io/2023/%E6%8D%A2%E5%9F%9F%E5%90%8D%E5%96%BD/</link>
+      <pubDate>Thu, 17 Aug 2023 23:50:11 +0800</pubDate>
+      
+      <guid>https://euds63.github.io/2023/%E6%8D%A2%E5%9F%9F%E5%90%8D%E5%96%BD/</guid>
+      <description>更换域名为ds63.eu.org</description>
+      <content:encoded><![CDATA[<h2 id="缘起">缘起</h2>
+<p>我博客有相当一段时间，一直是使用默认的域名。而且我其实并不太想去修改，原因是我博客使用的是Github Page。我想信：背靠着微软，GitHub所提供的这项服务的可靠性会比我私人所申请的域名要可靠得多。而我一直秉持着这样一个观点：一个博客的死亡并不是其不再更新，而是无法访问。也就是说，我认为博客的持续性是要优先于其他很多方面的。</p>
+<p>但今天意外发现邮箱里有封邮件，通知我说申请的域名通过了。十分惊喜，因为我已经忘了这件事了。既然手头上有一个域名，上学期也学了相关的知识，干脆就试一试，在此次梳理下相应的步骤。</p>
+<h2 id="步骤">步骤</h2>
+<ol>
+<li>
+<p>申请/购买域名</p>
+<p>我使用的是<a href="https://nic.eu.org/"  target="_blank" rel="noopener" >EU.org</a>。好处是免费，但所需时间很长。我在5月27日申请的，直到昨天（8月16日）才通过。</p>
+</li>
+<li>
+<p>选择域名解析服务商</p>
+<p>我选择的是<a href="https://hostry.com/"  target="_blank" rel="noopener" >hostry</a>,原因是免费。</p>
+</li>
+<li>
+<p>Navigate to your DNS provider and create either an ALIAS, ANAME, or A record.</p>
+<p>以下是我设置中的一部分：</p>
+<table>
+<thead>
+<tr>
+<th>SUBDOMAIN</th>
+<th>TYPE</th>
+<th>VALUE</th>
+<th>TTL, SEC</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>@</td>
+<td>A</td>
+<td>185.199.108.153</td>
+<td>86400</td>
+</tr>
+<tr>
+<td>@</td>
+<td>AAAA</td>
+<td>2606:50c0:8000::153</td>
+<td>86400</td>
+</tr>
+<tr>
+<td>www</td>
+<td>CNAME</td>
+<td>euds63.github.io</td>
+<td>86400</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ol>
+<p>在Claude的帮助下，我知道：</p>
+<ul>
+<li>A记录(Address Record):将域名直接映射到一个IPv4地址。它是最基本的域名记录类型。GitHub提供了4个IP地址,而不是一个IP,主要出于负载均衡和容错的考虑</li>
+<li>AAAA记录(Quad-A record):用于将域名映射到IPv6地址。</li>
+<li>CNAME记录(Canonical Name Record):将域名映射到另一个域名,实现域名别名的作用</li>
+</ul>
+<p>值得注意的是<code>www CNAME euds63.github.io 86400</code>，我看到其他的教程有的是将SUBDOMAIN设置为<code>@</code>,但我的情况下会报错<code>Existing record 'SOA' conflicts with the code you are trying to create Cname should not have the same name as other records</code></p>
+<ol start="4">
+<li>Github配置
+<ul>
+<li>Under &ldquo;Custom domain&rdquo;, type your custom domain, then click Save.</li>
+<li>勾选Enforce HTTPS</li>
+</ul>
+</li>
+</ol>
+<p><strong>很明显，这里Github帮我们简化了许多操作。包括哪些呢?</strong></p>
+<p>由<a href="https://docs.github.com/en/pages/getting-started-with-github-pages/securing-your-github-pages-site-with-https"  target="_blank" rel="noopener" >Securing your GitHub Pages site with HTTPS</a>可知，当set or change your custom domain in the Pages setting后，GitHub</p>
+<ol>
+<li>begin an automatic DNS check . This check determines if your DNS settings are configured to allow GitHub to obtain a certificate automatically.</li>
+<li>If the check is successful, GitHub queues a job to request a TLS certificate from Let&rsquo;s Encrypt.</li>
+<li>On receiving a valid certificate, GitHub automatically uploads it to the servers that handle TLS termination for Pages. When this process completes successfully, a check mark is displayed beside your custom domain name.</li>
+</ol>
+<p><strong>但如果不是用的Github Page，要怎么做呢？</strong></p>
+<h2 id="验证">验证</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ ping ds63.eu.org
+</span></span><span class="line"><span class="cl">正在 Ping ds63.eu.org <span class="o">[</span>185.199.108.153<span class="o">]</span> 具有 <span class="m">32</span> 字节的数据:
+</span></span><span class="line"><span class="cl">来自 185.199.108.153 的回复: <span class="nv">字节</span><span class="o">=</span><span class="m">32</span> <span class="nv">时间</span><span class="o">=</span>77ms <span class="nv">TTL</span><span class="o">=</span><span class="m">54</span>
+</span></span><span class="line"><span class="cl">来自 185.199.108.153 的回复: <span class="nv">字节</span><span class="o">=</span><span class="m">32</span> <span class="nv">时间</span><span class="o">=</span>103ms <span class="nv">TTL</span><span class="o">=</span><span class="m">54</span>
+</span></span><span class="line"><span class="cl">来自 185.199.108.153 的回复: <span class="nv">字节</span><span class="o">=</span><span class="m">32</span> <span class="nv">时间</span><span class="o">=</span>76ms <span class="nv">TTL</span><span class="o">=</span><span class="m">54</span>
+</span></span><span class="line"><span class="cl">来自 185.199.108.153 的回复: <span class="nv">字节</span><span class="o">=</span><span class="m">32</span> <span class="nv">时间</span><span class="o">=</span>77ms <span class="nv">TTL</span><span class="o">=</span><span class="m">54</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">185.199.108.153 的 Ping 统计信息:
+</span></span><span class="line"><span class="cl">    数据包: <span class="nv">已发送</span> <span class="o">=</span> 4，已接收 <span class="o">=</span> 4，丢失 <span class="o">=</span> <span class="m">0</span> <span class="o">(</span>0% 丢失<span class="o">)</span>，
+</span></span><span class="line"><span class="cl">往返行程的估计时间<span class="o">(</span>以毫秒为单位<span class="o">)</span>:
+</span></span><span class="line"><span class="cl">    <span class="nv">最短</span> <span class="o">=</span> 76ms，最长 <span class="o">=</span> 103ms，平均 <span class="o">=</span> 83ms
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">$ ping -6 ds63.eu.org
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">正在 Ping ds63.eu.org <span class="o">[</span>2606:50c0:8001::153<span class="o">]</span> 具有 <span class="m">32</span> 字节的数据:
+</span></span><span class="line"><span class="cl">来自 2606:50c0:8001::153 的回复: <span class="nv">时间</span><span class="o">=</span>74ms
+</span></span><span class="line"><span class="cl">来自 2606:50c0:8001::153 的回复: <span class="nv">时间</span><span class="o">=</span>81ms
+</span></span><span class="line"><span class="cl">来自 2606:50c0:8001::153 的回复: <span class="nv">时间</span><span class="o">=</span>74ms
+</span></span><span class="line"><span class="cl">来自 2606:50c0:8001::153 的回复: <span class="nv">时间</span><span class="o">=</span>72ms
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">2606:50c0:8001::153 的 Ping 统计信息:
+</span></span><span class="line"><span class="cl">    数据包: <span class="nv">已发送</span> <span class="o">=</span> 4，已接收 <span class="o">=</span> 4，丢失 <span class="o">=</span> <span class="m">0</span> <span class="o">(</span>0% 丢失<span class="o">)</span>，
+</span></span><span class="line"><span class="cl">往返行程的估计时间<span class="o">(</span>以毫秒为单位<span class="o">)</span>:
+</span></span><span class="line"><span class="cl">    <span class="nv">最短</span> <span class="o">=</span> 72ms，最长 <span class="o">=</span> 81ms，平均 <span class="o">=</span> 75ms
+</span></span></code></pre></div><h1 id="参考资料">参考资料</h1>
+<ul>
+<li><a href="https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site"  target="_blank" rel="noopener" >Managing a custom domain for your GitHub Pages site</a></li>
+<li><a href="https://www.yong.eu.org/detail/15112.html"  target="_blank" rel="noopener" >GitHub Pages绑定个人域名并启用https</a></li>
+<li><a href="https://docs.github.com/en/pages/getting-started-with-github-pages/securing-your-github-pages-site-with-https"  target="_blank" rel="noopener" >Securing your GitHub Pages site with HTTPS</a></li>
+</ul>
+]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>为什么要写博客</title>
+      <link>https://euds63.github.io/2023/%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E5%86%99%E5%8D%9A%E5%AE%A2/</link>
+      <pubDate>Sat, 20 May 2023 00:38:56 +0800</pubDate>
+      
+      <guid>https://euds63.github.io/2023/%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E5%86%99%E5%8D%9A%E5%AE%A2/</guid>
+      <description>这个问题已经被很多人回答过了。但我还是愿意给出些自己的回答（或者认同的回答）。</description>
+      <content:encoded><![CDATA[<h1 id="为什么要写博客">为什么要写博客</h1>
+<p>这个问题已经被很多人回答过了。但我还是愿意给出些自己的回答（或者认同的回答）。</p>
+<ul>
+<li><a href="https://plantegg.github.io/2117/06/07/%E5%85%B3%E4%BA%8E%E6%9C%AC%E5%8D%9A/"  target="_blank" rel="noopener" >关于本博</a>里的答案是这样的。
+为了解决一看就懂，一问就打鼓，一用就糊涂。所以需要记录、总结，再联系案例。把零散知识记录下来（看到过），慢慢地相关知识积累更多，直到碰到实践案例或是有点领悟到于是发现这块知识可以整理成一篇系统些的文章。</li>
+</ul>
+<h2 id="2023年5月5日">2023年5月5日</h2>
+<p>我享受逛博客的过程。不管是博客的页面设计还是文章的内容，基本上都是作者的一番心血。巨大的互联网使用人数和几十年的时间，诞生了许多很有意思的博客，可谓浩如烟海。而我想在这这烟海中有一颗属于自己的星。</p>
+<h2 id="2023年5月19日">2023年5月19日</h2>
+<p>今天一天都跟博客有关。</p>
+<p>白天是拼了几篇博客来做作业。</p>
+<p>晚上的时候看<a href="https://soulogic.com/item/3294"  target="_blank" rel="noopener" >我的郑老三死了</a>。我记忆中自己没养过动物，但前不久才经历过亲人的突然离去，所以这篇让我很有些想法。</p>
+<p>更晚些的时候看<a href="https://rehoni.github.io/cn/"  target="_blank" rel="noopener" >罗皓的个人博客</a>，是一个学长的。从大学一直记录到工作。看着那些熟悉的地名和事情很有感觉。</p>
+<p>现在突然冒出来了个想法。博客的意义可能在于存在。它不需要马上就能让某个人有想法。它只需要存在，存在着能访问就好。</p>
+<h2 id="2023年10月5日">2023年10月5日</h2>
+<p>这段时间在迁移服务器。这时候我的博客就起了很大的作用。以前遗忘的一些配置细节，翻翻之前的博文就能想起来了。</p>
+<p>这种感觉很好。</p>
+<h2 id="2023年10月7日">2023年10月7日</h2>
+<p>逛博客的时候看到<a href="https://prin.pw/short-domain-name-for-blog/"  target="_blank" rel="noopener" >博客短域名 printem.pw 和 prin.studio - PRIN BLOG</a>，发现我和作者的想法差不多，但人家写得比我好，摘录如下。</p>
+<pre tabindex="0"><code>之前的博文里也有零星提到过，我这人有种特殊的情结，总是希望自己能在浩如烟海的 Internet 上留下些什么痕迹，证明我曾经来到过、享受过这个赛博空间，甚至为其做出过一些微小的贡献。
+
+自建服务器、自有域名其实挺脆弱的，没有人照看的话，服务器不续费会被停机，域名不续费会被收回。如果真出了些什么意料之外的状况，辛辛苦苦搭建起来的东西可能就灰飞烟灭了，或者只留存在互联网档案馆中。
+
+以我的感性来看，这是挺难过的一件事，我不希望这样。
+
+雁过尚且留声，人生岂能无痕？
+
+所以本博客上的所有资源全部托管在 GitHub、CloudFlare 这类可靠的免费服务上，只要这些公司不倒闭跑路要么停止免费服务，或者人类迎来天启现代文明全部嗝屁儿，我的博客应该可以在无人值守的情况下保持很长一段时间的可访问状态。
+</code></pre>]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>TinyTinyRSS-OPML-to-MD-Table</title>
+      <link>https://euds63.github.io/2023/tinytinyrss-opml-to-md-table/</link>
+      <pubDate>Sat, 29 Apr 2023 00:59:40 +0800</pubDate>
+      
+      <guid>https://euds63.github.io/2023/tinytinyrss-opml-to-md-table/</guid>
+      <description>记录&lt;a href=&#34;https://github.com/EuDs63/TinyTinyRSS-OPML-to-MD-Table&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34; &gt;EuDs63/TinyTinyRSS-OPML-to-MD-Table&lt;/a&gt; 的过程</description>
+      <content:encoded><![CDATA[<h1 id="tinytinyrss-opml-to-md-table">TinyTinyRSS-OPML-to-MD-Table</h1>
+<h2 id="需求由来">需求由来：</h2>
+<p>我很喜欢读博客。但发现总有些很有趣的博客等着发现。所以我关注了些推荐博客的频道。同时，我也想分享些自己喜欢的博客，但每次去手动复制又显得太麻烦了。所以就想着做一个自动化的方式，顺带着也可以学习下Github Action.</p>
+<h2 id="历程">历程</h2>
+<ol>
+<li>大部分时间是花在了如何获取opml文件上。Tiny Tiny RSS所给的文档较为精简，而网上相关的资料大都仅局限于如何部署。所以这一段只能是自己摸索。
+<ul>
+<li>TinyTinyRSS的网页版有给一个按钮能导出OPML，而这个按钮所指向的网址是<code>http://example.com/tt-rss/backend.php?op=opml&amp;method=export'</code>。但它是有个鉴权操作的。需要登录。</li>
+<li>它的示例中有提供了一个登录的api调用，所以我开始的想法也是顺着这个来。想着直接添加data参数。但尝试了多种添加方式无果。</li>
+<li>后来注意到登录成功是会返回session值的，于是先用curl试验了下。
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 登录并获取Session ID</span>
+</span></span><span class="line"><span class="cl"><span class="nv">SESSION</span><span class="o">=</span><span class="k">$(</span>curl -s -d <span class="s1">&#39;{&#34;op&#34;:&#34;login&#34;,&#34;user&#34;:&#34;user&#34;,&#34;password&#34;:&#34;password&#34;}&#39;</span> http://example.com/tt-rss/api/ <span class="p">|</span> python -c <span class="s2">&#34;import sys, json; print(json.load(sys.stdin)[&#39;content&#39;][&#39;session_id&#39;])&#34;</span><span class="k">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#获得opml文件</span>
+</span></span><span class="line"><span class="cl">curl -o my_tiny_tiny_rss.opml <span class="s1">&#39;http://example.com/tt-rss/backend.php?op=opml&amp;method=export&#39;</span> --cookie <span class="s2">&#34;ttrss_sid=</span><span class="si">${</span><span class="nv">SESSION</span><span class="si">}</span><span class="s2">&#34;</span>
+</span></span></code></pre></div></li>
+<li>转写成python是用的request。其实现在回头想想，这应该是蛮基础的操作，而且session之前也有接触过。如果早点想起来的话是可以少花些时间的。</li>
+</ul>
+</li>
+<li>opml的解析有现成的库，用就是了。</li>
+<li>然后就是把一些个人信息抽出来写在配置文件中。这里踩了一个坑。<code>data = {'op': 'login', 'user': user, 'password': password}</code>,我开始的时候是这样写的<code>data = f&quot;{{'op': 'login', 'user': {user}, 'password': {password}}}&quot;</code>。后者虽然在形式上看着一样，但前者是json对象，后者是字符串。这里也给我提了个醒：Python虽然有动态类型这个特性，但还是要注意类型错误。</li>
+<li>最后是使用Github Action。之前也有使用过，但是是直接用的别人写好的workflow。所以也花了些时间学习了下。遇到的几个问题是
+<ul>
+<li>Yml文件的格式问题。这个可以用<a href="https://codebeautify.org/yaml-validator"  target="_blank" rel="noopener" >YAML Validator</a>来检查。Vscode应该也有相应的插件吧。</li>
+<li>运行时需要用到的变量，是用的secret。我之前以为secret的value只能是字符串。但<a href="https://nekokiku.cn/2020/12/22/2020-12-22-Github-Action%E4%B8%ADpython%E8%8E%B7%E5%8F%96%E4%BB%93%E5%BA%93%E7%9A%84secrets/"  target="_blank" rel="noopener" >Github Action中python获取仓库的secrets</a>中提到，可以把一整个yml文件放在value里面。所以我就想那json文件应该也可以。试了下确实能行。这样我的代码需要修改的地方就很少了。</li>
+<li>workflow的触发方式,要添加手动触发，需加上<code>workflow_dispatch:</code></li>
+</ul>
+</li>
+</ol>
+<h2 id="学到的知识">学到的知识</h2>
+<ul>
+<li>pipe和python的结合。下面这段是ChatGPT写的，太妙了。
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">SESSION</span><span class="o">=</span><span class="k">$(</span>curl -s -d <span class="s1">&#39;{&#34;op&#34;:&#34;login&#34;,&#34;user&#34;:&#34;user&#34;,&#34;password&#34;:&#34;password&#34;}&#39;</span> http://example.com/tt-rss/api/ <span class="p">|</span> python -c <span class="s2">&#34;import sys, json; print(json.load(sys.stdin)[&#39;content&#39;][&#39;session_id&#39;])&#34;</span><span class="k">)</span>
+</span></span></code></pre></div></li>
+<li>Github Action的使用</li>
+<li>python request</li>
+</ul>
+<h2 id="尾巴">尾巴</h2>
+<p>这个项目算是个很小的项目，但我还是花了半天的时间，而且是在ChatGPT的帮助下。之前看到这样一种说法，搜索引擎大幅降低了普通人获取知识的难度，而ChatGPT在此基础上更是降低了十分客观的一个量。结合自己这次的经历，我十分认同这个观点。通过我对背景的补充和提问，ChatGPT让我省去了花费在各种教程和不完善的文档上所要消费的时间。这比搜索引擎所做到的交互要更自然。</p>
+<h2 id="参考">参考</h2>
+<ul>
+<li><a href="https://tt-rss.org/wiki/ApiReference"  target="_blank" rel="noopener" >API Reference</a></li>
+<li><a href="https://www.cnblogs.com/jiangleads/p/10636696.html"  target="_blank" rel="noopener" >curl命令实现上网认证登录</a></li>
+<li><a href="https://nekokiku.cn/2020/12/22/2020-12-22-Github-Action%E4%B8%ADpython%E8%8E%B7%E5%8F%96%E4%BB%93%E5%BA%93%E7%9A%84secrets/"  target="_blank" rel="noopener" >Github Action中python获取仓库的secrets</a></li>
+<li><a href="https://codebeautify.org/yaml-validator"  target="_blank" rel="noopener" >YAML Validator</a></li>
+</ul>
+]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>xLog使用体验</title>
+      <link>https://euds63.github.io/2023/xlog%E4%BD%BF%E7%94%A8%E4%BD%93%E9%AA%8C/</link>
+      <pubDate>Thu, 20 Apr 2023 01:15:48 +0800</pubDate>
+      
+      <guid>https://euds63.github.io/2023/xlog%E4%BD%BF%E7%94%A8%E4%BD%93%E9%AA%8C/</guid>
+      <description>记录xLog的使用体验</description>
+      <content:encoded><![CDATA[<p><em><a href="https://xlog.app/"  target="_blank" rel="noopener" >xLog</a>这个开源博客社区，由于<a href="https://github.com/DIYgod/RSSHub"  target="_blank" rel="noopener" >RSSHub</a>的作者的宣传，我前段时间就有听闻。。但我一直认同这样一种想法：&ldquo;一个博客的死掉不是不再更新，而是无法访问。&ldquo;而xLog毕竟是一个比较新的事物，无法保证其的可持续性，所以就一直没有使用的想法。</em></p>
+<h2 id="缘起">缘起</h2>
+<p>但今天听了一个<a href="https://xinbao.xlog.app/27"  target="_blank" rel="noopener" >No.27 和 Qwerty Learner 的开翼聊技术优化、产品运营和前端感悟</a>，我觉得讲得很好，看到它发布的平台有xLog。所以心念一转，想着去尝试一下，就当作一个备份也无妨。使用体验有几点值得一提：</p>
+<h2 id="实际体验">实际体验</h2>
+<ul>
+<li>如其宣传的一样，上手很容易。连接web3钱包和邮件后，我再导入自己已有的md文件就能搭一个博客。我觉得很不错。</li>
+<li>提供的编辑器对我来说算是锦上添花。因为我比较习惯于在vscode上进行编辑。</li>
+<li>ai智能摘要。我还是更倾向于自己手动去写摘要。但好像xLog它无法识别我原有的<code>summary:T</code>，但其他的属性:<code>date:</code>,<code>tags:</code>,<code>title:</code>倒是有支持。+08:00</li>
+<li>web3。相比较于其他的博客社区，web3是xLog一大特点。这个概念提出来也是有段时间了，但对我来说还是比较新的。这次xLog使用时我第一次去接触这方面的内容。好多概念我觉得都挺有趣的，我觉得应该找时间去了解下是怎么实现的。</li>
+<li>社区。 因为是社区，这就意味着可能有更多的人会看到。都说写博客是为了自己看的，但如果有更多的人能看到自己的一些想法，那也不错。但我不想让自己陷入到这样一种情况：我因为太过于关注浏览量，点赞数等数据，然后却失去了自己写博客的初衷（关于初衷是什么，我想我会写一篇来好好思考下），那就得不偿失了。</li>
+</ul>
+<h2 id="尾巴">尾巴</h2>
+<p>我以前写博客一般是这样的过程。</p>
+<ol>
+<li>有感想，然后记录下来，存在本地。</li>
+<li>有空的时候会找时间，去从本地中的感想中挑选一些可以作为博文的。并对其进行稍微的修改（润色，脱敏），发布到<a href="https://euds63.github.io/"  target="_blank" rel="noopener" >euds63.github.io</a>上。</li>
+</ol>
+<p>但现在如果要在<a href="https://erica-2392.xlog.app/"  target="_blank" rel="noopener" >EuDs</a>也更新的话，那就还需要第三步。
+3. 手动导入到xLog上</p>
+<p>三个步骤中，第一二步是没法减掉的。而且<a href="https://euds63.github.io/"  target="_blank" rel="noopener" >euds63.github.io</a>的更新我觉得还是会作为我的博客主要托管站。而第三步，工作量虽然不是太大，但终究还是有点麻烦。所以我现在的想法是可以将第三步和第二步合并。不知道有没有相关的接口。</p>
+]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>收藏夹的使用</title>
+      <link>https://euds63.github.io/2023/%E6%94%B6%E8%97%8F%E5%A4%B9%E7%9A%84%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Sat, 18 Mar 2023 23:45:18 +0800</pubDate>
+      
+      <guid>https://euds63.github.io/2023/%E6%94%B6%E8%97%8F%E5%A4%B9%E7%9A%84%E4%BD%BF%E7%94%A8/</guid>
+      <description>收藏夹和JavaScript的结合实现实用小功能</description>
+      <content:encoded><![CDATA[<h1 id="收藏夹的使用">收藏夹的使用</h1>
+<!-- raw HTML omitted -->
+<h2 id="bing转google搜索">Bing转Google搜索</h2>
+<ul>
+<li>描述：我日常搜索引擎是使用bing，但有些时候bing的内容我不是很满意，需要在Google上再次搜索；由于new bing的存在，我不想更换默认搜索引擎，但打开Google，再次搜索这个操作又很麻烦，所以就添加了一条收藏夹</li>
+<li>代码详解：
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-JavaScript" data-lang="JavaScript"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">currentUrl</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">href</span><span class="p">;</span> <span class="c1">//获取当前连接
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">var</span> <span class="nx">reg</span> <span class="o">=</span> <span class="sr">/q=([^&amp;]+)/</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">res</span> <span class="o">=</span> <span class="nx">currentUrl</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="nx">reg</span><span class="p">);</span> <span class="c1">//使用正则表达式进行匹配
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">var</span> <span class="nx">googleUrl</span> <span class="o">=</span> <span class="s2">&#34;https://www.google.com/search?q=&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">resultUrl</span> <span class="o">=</span> <span class="nx">googleUrl</span><span class="o">+</span><span class="nx">res</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span> <span class="c1">//拼接
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nb">window</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="nx">resultUrl</span><span class="p">,</span><span class="s1">&#39;_self&#39;</span><span class="p">).</span><span class="nx">close</span><span class="p">();</span><span class="c1">//打开新网站，并关闭原网站
+</span></span></span></code></pre></div></li>
+<li>书签URL
+{% note success %}
+<code>javascript:var currentUrl = window.location.href;var reg = /q=([^&amp;]+)/;var res = currentUrl.match(reg);var googleUrl = &quot;https://www.google.com/search?q=&quot;;var resultUrl = googleUrl+res[1];window.open(resultUrl,'_self').close();</code>
+{% endnote %}</li>
+<li>注：正则表达式是让new bing写的，感觉有种ntr的美</li>
+</ul>
+<h2 id="网易云解除歌单限制">网易云解除歌单限制</h2>
+<ul>
+<li>描述：网易云音乐网页端对歌单显示数量有限制，只显示20条，而我不希望因此下载客户端，于是添加了该书签。</li>
+<li>代码：
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-JavaScript" data-lang="JavaScript"><span class="line"><span class="cl"><span class="nb">document</span><span class="p">.</span><span class="nx">cookie</span><span class="o">=</span><span class="s2">&#34;os=pc&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">reload</span><span class="p">();</span><span class="c1">//重新加载网页
+</span></span></span></code></pre></div></li>
+<li>收藏夹URL
+{% note success %}
+<code>javascript:document.cookie=&quot;os=pc&quot;;window.location.reload();</code>
+{% endnote %}</li>
+</ul>
+]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>博客搭建</title>
+      <link>https://euds63.github.io/2023/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</link>
+      <pubDate>Mon, 13 Mar 2023 12:50:17 +0800</pubDate>
+      
+      <guid>https://euds63.github.io/2023/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</guid>
+      <description>记录博客搭建的过程,及途中遇到的问题和解决方式</description>
+      <content:encoded><![CDATA[<h2 id="过程">过程</h2>
+<p><em>记录博客搭建的过程</em></p>
+<ol>
+<li>框架是选用的<a href="https://hexo.io/zh-cn/docs/"  target="_blank" rel="noopener" >Hexo</a>,主题选用的是<a href="https://hexo.fluid-dev.com/docs"  target="_blank" rel="noopener" >Fluid</a>,本地部署十分顺利，跟着教程来就行。</li>
+<li>调整配置的时候遇到了问题，我刚开始是直接使用<code>npm install --save hexo-theme-fluid</code>，但改配置的时候虽然有文档，但各项配置的位置不知道是怎么嵌套的，就选择了方式二。</li>
+<li>本地配置好之后，要部署到Github Pages上。<a href="https://hexo.io/zh-cn/docs/github-pages"  target="_blank" rel="noopener" >Hexo所提供的教程</a>中，所使用的是<code>Github Action</code> 内置的 token 变量<code>GITHUB_TOKEN</code>。根据<a href="https://docs.github.com/en/actions/security-guidesautomatic-token-authentication?query=PA#using-the-github_token-in-a-workflow"  target="_blank" rel="noopener" >官方源文档的描述</a>,为了防止递归构建发生，使用<code>GITHUB_TOKEN</code>推送的代码不会再次触发任何action。而考虑到我希望后续能进一步触发和进一步了解<code>Github Action</code>,我选择自己设置key。</li>
+<li>这个花的时间最多。走了不少弯路，最终是参考了<a href="https://vuepress-theme-reco.recoluan.com/views/other/github-actions.html"  target="_blank" rel="noopener" >使用 GitHub Actions 自动部署博客</a>。</li>
+<li>action已经跑成功了，但访问时却发现还是404，检查后发现是自己未<a href="https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site"  target="_blank" rel="noopener" >Configuring a publishing source for your GitHub Pages site</a>。</li>
+<li>添加谷歌验证：
+参考了<a href="https://jactorsue.github.io/blog/2018/04/how-blog-on-githubpages-can-be-searched-by-google.html"  target="_blank" rel="noopener" >让Google搜索到搭建在Github Pages上的博客</a>
+<ol>
+<li>（前略）验证网站所有权时，选择使用HTML标记方式来验证。fluid主题的head路径为<code>\themes\fluid\layout\_partials\head.ejs</code></li>
+</ol>
+</li>
+<li>减少加载时间，尚未实操，先记录几篇看到的好文
+<ul>
+<li><a href="https://www.voidking.com/dev-hexo-accelerate/"  target="_blank" rel="noopener" >Hexo加速访问</a></li>
+<li><a href="https://www.voidking.com/dev-hexo-gulp/"  target="_blank" rel="noopener" >Hexo使用Gulp压缩静态资源</a></li>
+</ul>
+</li>
+<li>插入图片，这篇写得挺完整的：
+<a href="https://fuhailin.github.io/Hexo-images/"  target="_blank" rel="noopener" >在Hexo博客中插入图片的各种方式</a></li>
+<li>添加最后修改时间:
+T将主题配置文件<code>_config.yml</code>中的<code>post:copyright:update_date:enable:</code>设置为<code>enable</code>即可+08:00</li>
+</ol>
+<h2 id="quick-start">Quick Start</h2>
+<h3 id="create-a-new-post">Create a new post</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ hexo new <span class="s2">&#34;My New Post&#34;</span>
+</span></span></code></pre></div><p>More info: <a href="https://hexo.io/docs/writing.html"  target="_blank" rel="noopener" >Writing</a></p>
+<h3 id="run-server">Run server</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ hexo server
+</span></span></code></pre></div><p>More info: <a href="https://hexo.io/docs/server.html"  target="_blank" rel="noopener" >Server</a></p>
+<h3 id="generate-static-files">Generate static files</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ hexo generate
+</span></span></code></pre></div><p>More info: <a href="https://hexo.io/docs/generating.html"  target="_blank" rel="noopener" >Generating</a></p>
+<h3 id="deploy-to-remote-sites">Deploy to remote sites</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ hexo deploy
+</span></span></code></pre></div><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html"  target="_blank" rel="noopener" >Deployment</a></p>
+]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>network</title>
+      <link>https://euds63.github.io/2023/network/</link>
+      <pubDate>Sat, 11 Mar 2023 19:32:04 +0800</pubDate>
+      
+      <guid>https://euds63.github.io/2023/network/</guid>
+      <description>网络配置学习</description>
+      <content:encoded><![CDATA[<h1 id="网络">网络</h1>
+<h2 id="过程">过程</h2>
+<ul>
+<li>先是看<a href="https://www.jianshu.com/p/53457e21fcd4"  target="_blank" rel="noopener" >如何让国内的阿里云服务器可以高速下载Github代码</a>，但这个是纯命令行的，用的是pm2</li>
+<li>因为延迟比较大，想切换节点，首先是研究怎么用命令行实现.确实可以，<a href="https://sakronos.github.io/Note/2021/03/06/%E4%BD%BF%E7%94%A8Clash-APIj%E5%88%87%E6%8D%A2%E8%8A%82%E7%82%B9/"  target="_blank" rel="noopener" >使用Clash-API切换节点</a>有介绍，但我去操作的话不行，返回<code>{&quot;message&quot;:&quot;Body invalid&quot;}  </code>。看也有人提issue，但我还是不能成功更改。加上这样更改的话，就挺麻烦的。于是想着能不能搞个ui。</li>
+<li>然后参考<a href="https://blog.zzsqwq.cn/posts/how-to-use-clash-on-linux/"  target="_blank" rel="noopener" >如何在Linux上优雅的使用Clash</a>这篇，docker让这些配置变得简单多了。但我还是遇到了些问题：主要是自作聪明，修改了</li>
+</ul>
+<pre tabindex="0"><code> - ./config.yaml:/root/.config/clash/config.yaml
+ - ./Country.mmdb:/root/.config/clash/Country.mmdb
+</code></pre><p>调试后才发现并不用修改。另一个是配置<code>external-controller: :9090</code>时，自己改成了<code>127.0.0.1:9090</code></p>
+<ul>
+<li>上面那篇文章少了暴露接口这一步，<a href="https://juejin.cn/post/7054941050216906760"  target="_blank" rel="noopener" >如何为实验室服务器配置终端代理</a>，<a href="https://zhuanlan.zhihu.com/p/46973701"  target="_blank" rel="noopener" >Linux 让终端走代理的几种方法</a>,这两篇讲得挺好的</li>
+</ul>
+<h2 id="收获">收获</h2>
+<ul>
+<li>了解了配置文件怎么写的</li>
+<li>学到了如何检查是处于代理状态：<code>curl cip.cc</code>，但得到的地址和我实际走的节点不一样</li>
+</ul>
+<h2 id="参考链接">参考链接</h2>
+<ul>
+<li><a href="https://sakronos.github.io/Note/2021/03/06/%E4%BD%BF%E7%94%A8Clash-APIj%E5%88%87%E6%8D%A2%E8%8A%82%E7%82%B9/"  target="_blank" rel="noopener" >使用Clash-API切换节点</a></li>
+<li><a href="https://github.com/Dreamacro/clash/issues/659"  target="_blank" rel="noopener" >通过RESTful API更改节点代理返回{&ldquo;message&rdquo;:&ldquo;Body invalid&rdquo;}</a></li>
+<li><a href="https://www.jianshu.com/p/53457e21fcd4"  target="_blank" rel="noopener" >如何让国内的阿里云服务器可以高速下载Github代码</a></li>
+<li><a href="https://blog.zzsqwq.cn/posts/how-to-use-clash-on-linux/"  target="_blank" rel="noopener" >如何在Linux上优雅的使用Clash</a></li>
+<li><a href="https://juejin.cn/post/7054941050216906760"  target="_blank" rel="noopener" >如何为实验室服务器配置终端代理</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/46973701"  target="_blank" rel="noopener" >Linux 让终端走代理的几种方法</a></li>
+<li><a href="https://github.com/Dreamacro/clash/wiki/configuration"  target="_blank" rel="noopener" >Configuration</a></li>
+</ul>
+]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>RSS折腾记</title>
+      <link>https://euds63.github.io/2023/rss%E6%8A%98%E8%85%BE%E8%AE%B0/</link>
+      <pubDate>Wed, 08 Mar 2023 15:59:18 +0800</pubDate>
+      
+      <guid>https://euds63.github.io/2023/rss%E6%8A%98%E8%85%BE%E8%AE%B0/</guid>
+      <description>记录ttrss的搭建过程和rss相关的内容</description>
+      <content:encoded><![CDATA[<h1 id="rss折腾记">RSS折腾记</h1>
+<p>3月7日，下午没有课，很闲。玩了会吸血鬼幸存者觉得索然无味，就想着试下之前没有成功的服务器。</p>
+<p>先是试了下AZURE，但学生验证没过，放弃了。然后尝试阿里云。他有一个飞天加速3.0-高校计划，可以领取七个月的ECS。还是蛮顺利的。</p>
+<p>领取后第一个想法是搭自己的RSS服务。基本上是照着<a href="https://sspai.com/post/57498#!"  target="_blank" rel="noopener" >找不到满意的 RSS 服务？你可以自己搭建一个</a>，来完成的。但中间还是有些曲折，踩了一些坑。</p>
+<ul>
+<li>
+<p>首先是网络问题。文中给的地址都是Github上的，但下载速度实在不行。16M的文件要下载半个多小时。这个有两种解决方式是。首先尝试的是用镜像站，但因为尝试的镜像站有问题，再加上我后续还想在服务器上搭telegram机器人。于是选择用代理。参考了<a href="https://www.jianshu.com/p/53457e21fcd4"  target="_blank" rel="noopener" >如何让国内的阿里云服务器可以高速下载Github代码</a>,和所用机场的教程。但关于如何更换节点，还不清楚。现在会了，记录在<a href="https://euds63.github.io/2023/03/11/network/"  target="_blank" rel="noopener" >网络</a></p>
+</li>
+<li>
+<p>其次是文中给的ttrss 的 docker-compose 配置文件有问题，自己修改后下的东西也不对。然后就想到直接复制过来。但对vim的操作实在是不熟悉，加上yml对间隔格式要求很严，在这上面折腾了好一会儿。
+(发现是自己愚蠢，GitHub提供了相应的下载方式：点raw，跳转到的就是所需的网址了。比如我这步所需的代码就是<code>curl -fLo a.yml https://raw.githubusercontent.com/HenryQW/Awesome-TTRSS/main/docker-compose.yml</code>)</p>
+</li>
+<li>
+<p>容器启动后，按照描述，我访问<code>{服务器 IP}:181</code>，应该可以直接看到 Tiny Tiny RSS 的 Web 前端。但却报502。后来想到，默认的181端口是不开放的，在安全组中添加了就可以了。</p>
+</li>
+<li>
+<p>阅读器的选择也花了我很多时间，先是试已经使用过一段时间的<code>Fluent Reader</code>,但按照文档里所给的地址不成功，然后是选用<code>TTRSS-Reader</code>,这个就很顺利，但界面比较复古，加上功能不够多，也可能是我还没有发掘出来，就转而使用<code>FeedMe</code>,首先用的是TTRSS的api，但出现的问题是订阅地址能过来，但内容拉取不到，看issue才发现这是好几个月前就出现的bug，还没被修复，解决方法是转用fever api。但这个也是坑。首先是网页给的地址是<code>http:/[您的地址]/plugins.local/fever/</code>,而文档给的地址是<code>https://[您的地址]/plugins/fever</code>。但可能是不同阅读器设置的过滤方法不一样，<code>FeedMe</code>能用的地址是<code>http://[您的地址]/</code>,而<code>Fluent Reader</code>则是<code>http://[您的地址]//plugins/fever/</code>。</p>
+</li>
+</ul>
+<p>以上就是整个搭建过程中所遇到的问题，目前发现<code>FeedMe</code>的功能明显得多，还有RSSHub也想用起来，订阅源想扩大到除了个人博客之外的其他。</p>
+]]></content:encoded>
+    </item>
+    
+  </channel>
+</rss>

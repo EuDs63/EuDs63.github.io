@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Categories on EuDs&#39;s Blog</title>
+    <link>https://euds63.github.io/categories/</link>
+    <description>Recent content in Categories on EuDs&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 21 Oct 2023 12:50:17 +0800</lastBuildDate><atom:link href="https://euds63.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>学习</title>
+      <link>https://euds63.github.io/categories/%E5%AD%A6%E4%B9%A0/</link>
+      <pubDate>Sat, 21 Oct 2023 12:50:17 +0800</pubDate>
+      
+      <guid>https://euds63.github.io/categories/%E5%AD%A6%E4%B9%A0/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>想法</title>
+      <link>https://euds63.github.io/categories/%E6%83%B3%E6%B3%95/</link>
+      <pubDate>Wed, 18 Oct 2023 01:36:40 +0800</pubDate>
+      
+      <guid>https://euds63.github.io/categories/%E6%83%B3%E6%B3%95/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>什锦</title>
+      <link>https://euds63.github.io/categories/%E4%BB%80%E9%94%A6/</link>
+      <pubDate>Tue, 16 May 2023 00:43:47 +0800</pubDate>
+      
+      <guid>https://euds63.github.io/categories/%E4%BB%80%E9%94%A6/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
+  </channel>
+</rss>

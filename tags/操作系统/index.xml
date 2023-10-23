@@ -1,0 +1,2171 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>操作系统 on EuDs&#39;s Blog</title>
+    <link>https://euds63.github.io/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/</link>
+    <description>Recent content in 操作系统 on EuDs&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 27 Jun 2023 18:37:47 +0800</lastBuildDate><atom:link href="https://euds63.github.io/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>《操作系统：设计与实现》笔记</title>
+      <link>https://euds63.github.io/2023/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Tue, 27 Jun 2023 18:37:47 +0800</pubDate>
+      
+      <guid>https://euds63.github.io/2023/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0%E7%AC%94%E8%AE%B0/</guid>
+      <description>操作系统就是状态机</description>
+      <content:encoded><![CDATA[<p><strong><a href="https://space.bilibili.com/202224425/channel/collectiondetail?sid=192498"  target="_blank" rel="noopener" >操作系统：设计与实现 (2022 春季学期)</a>的学习笔记</strong></p>
+<h3 id="p3-多处理器编程从入门到放弃-线程库现代处理器和宽松内存模型">p3 多处理器编程：从入门到放弃 (线程库；现代处理器和宽松内存模型)</h3>
+<ul>
+<li>
+<p>并发程序的三个麻烦</p>
+<ul>
+<li>原子性</li>
+<li>顺序</li>
+<li>可见性</li>
+</ul>
+</li>
+<li>
+<p>gcc 编译</p>
+<ul>
+<li>不优化,并查看汇编代码
+<code>gcc -c -O1 sum.c &amp;&amp; objdump -d sum.o</code></li>
+<li><code>asm volatile(&quot;&quot; : : &quot;memory&quot;); // compiler barrier</code></li>
+</ul>
+</li>
+<li>
+<p>统计次数
+<code> ./a.out | head -n 1000 | sort | uniq -c</code></p>
+</li>
+<li>
+<p>现代处理器</p>
+<ul>
+<li>也是动态编译器：汇编指令也是由多个uop所组成的。</li>
+<li>维护一个uop的“池子” 指令的有向无环图</li>
+<li>乱序执行，顺序提交</li>
+</ul>
+</li>
+</ul>
+<h3 id="p4-理解并发程序执行-peterson算法模型检验与软件自动化工具">p4 理解并发程序执行 (Peterson算法、模型检验与软件自动化工具)</h3>
+<ul>
+<li>C语言的形式语义
+<ul>
+<li>全局变量加多个栈帧；每个栈帧有其局部变量和pc</li>
+</ul>
+</li>
+<li>Peterson算法
+<ul>
+<li>看上去是谦让的，但其实是自私的</li>
+<li>证明正确性：画出状态机
+<ul>
+<li>困境：不敢不画，不敢乱画</li>
+<li>解决： <a href="https://jyywiki.cn/pages/OS/2022/demos/model-checker.py"  target="_blank" rel="noopener" >model-checker</a></li>
+<li>把程序的问题变成图论的问题
+<ul>
+<li>safety 红色状态不可达</li>
+<li>liveness : 从任意状态出发，都能到达绿/蓝色状态 强连通分量</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>许多重要的想法，凝练以后就是概念</li>
+</ul>
+</li>
+<li>并发程序 = 状态机</li>
+<li>Python generator
+<ul>
+<li>e.g.
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Python" data-lang="Python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">numbers</span><span class="p">(</span><span class="n">init</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">n</span> <span class="o">=</span> <span class="n">init</span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="n">Trye</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">n</span> <span class="o">+=</span> <span class="n">step</span>
+</span></span><span class="line"><span class="cl">    <span class="k">yield</span> <span class="n">n</span>
+</span></span><span class="line"><span class="cl"><span class="n">g</span> <span class="o">=</span> <span class="n">numbers</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">g</span><span class="o">.</span><span class="fm">__next__</span><span class="p">()</span>
+</span></span></code></pre></div></li>
+</ul>
+</li>
+</ul>
+<h3 id="p5-并发控制互斥-自旋锁互斥锁和-futex">p5 并发控制：互斥 (自旋锁、互斥锁和 futex)</h3>
+<ul>
+<li>不能解决问题的时候，可以找到所依赖的假设，并大胆地打破它</li>
+<li>spin 线程直接共享 locked</li>
+<li>mutex 通过系统调用访问 locked</li>
+<li>futex(Fast Userspace muTexes)
+<ul>
+<li>Fast path: 一条原子指令，上锁成功立即返回</li>
+<li>Slow path: 上锁失败，执行系统调用睡眠</li>
+</ul>
+</li>
+</ul>
+<h2 id="p6-并发控制同步-条件变量信号量生产者-消费者和哲学家吃饭问题">p6 并发控制：同步 (条件变量、信号量、生产者-消费者和哲♂学家吃饭问题)</h2>
+<ul>
+<li>思考： 有一堆任务，平均切分成n堆。有x个线程负责完成该任务(x &lt; n) 一个线程一次只能完成一个任务，完成后会自动去做下一个任务。要怎么实现？</li>
+<li>有万能的方法，就要用万能的方法。
+<ul>
+<li>他是这样诠释的。当项目代码量不大（一千行以内），项目还是比较好维护的，这时候用写聪明的写法没问题。但当项目到了几万行甚至几百万行时，这时候就需要多个人来进行协作。而人和人之间最大的障碍就是无法完全沟通，理解对方的心意。</li>
+<li>不要试图用聪明的办法解决并发问题</li>
+<li>个人想法：第一次听这种说法，有一定道理。</li>
+</ul>
+</li>
+<li>万能同步方法 —— 条件变量(Conditional Variables )
+<ul>
+<li>API
+<ul>
+<li>wait(cv, mutex) 💤
+调用时必须保证已经获得 mutex
+释放 mutex、进入睡眠状态</li>
+<li>signal/notify(cv) 💬 私信：走起
+如果有线程正在等待 cv，则唤醒其中一个线程</li>
+<li>broadcast/notifyAll(cv) 📣 所有人：走起
+唤醒全部正在等待 cv 的线程</li>
+</ul>
+</li>
+<li>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="c1">// 需要等待条件满足时
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nf">mutex_lock</span><span class="p">(</span><span class="o">&amp;</span><span class="n">mutex</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">cond</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">wait</span><span class="p">(</span><span class="o">&amp;</span><span class="n">cv</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">mutex</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nf">assert</span><span class="p">(</span><span class="n">cond</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// ...
+</span></span></span><span class="line"><span class="cl"><span class="c1">// 互斥锁保证了在此期间条件 cond 总是成立
+</span></span></span><span class="line"><span class="cl"><span class="c1">// ...
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nf">mutex_unlock</span><span class="p">(</span><span class="o">&amp;</span><span class="n">mutex</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 其他线程条件可能被满足时
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nf">broadcast</span><span class="p">(</span><span class="o">&amp;</span><span class="n">cv</span><span class="p">);</span>
+</span></span></code></pre></div></li>
+<li>debug -&gt; 隔离出bug触发的最小条件</li>
+</ul>
+</li>
+</ul>
+<h2 id="p7-真实世界的并发编程-高性能计算数据中心人机交互中的并发编程">p7 真实世界的并发编程 (高性能计算/数据中心/人机交互中的并发编程)</h2>
+<ul>
+<li>谈block chain &gt; 是个很好的技术。但觉得不太对。因为造成了相当大的资源浪费。</li>
+<li><a href="https://www.youtube.com/watch?v=FFftmWSzgmk&amp;ab_channel=Numberphile"  target="_blank" rel="noopener" >What&rsquo;s so special about the Mandelbrot Set? - Numberphile</a></li>
+<li><a href="https://github.com/atanunq/viu"  target="_blank" rel="noopener" >atanunq/viu</a></li>
+<li>搜索降低了知识的获取成本，ChatGPT等再一次降低了成本。</li>
+<li>go语言，编程友好、性能优化</li>
+<li>博客是web2.0 的第一步</li>
+<li>Ajax (Asynchronous JavaScript + XML)</li>
+<li>这次课中讲了三种并发编程，根据不同的需要，实现并发的方式也不同。</li>
+</ul>
+<h2 id="p8-并发-bug-和应对-死锁数据竞争原子性违反防御性编程和动态分析">p8 并发 bug 和应对 (死锁/数据竞争/原子性违反；防御性编程和动态分析)</h2>
+<ul>
+<li>软件是需求在计算机数字世界的投影。</li>
+<li>assert的使用</li>
+<li>没有工具不做系统</li>
+<li>premature optimization is root of all evil</li>
+<li>编程语言的缺陷——对程序员的完全信任：因为计算资源的宝贵</li>
+<li>动态分析工具 <code>-fsanitize</code></li>
+<li>Canary msvc 中 debug mode 的canary  <code>(b'\xcc' * 80).decode('gb2312')</code></li>
+</ul>
+<h2 id="p9-操作系统的状态机模型-操作系统的加载-thread-os-代码讲解">p9 操作系统的状态机模型 (操作系统的加载; thread-os 代码讲解)</h2>
+<ul>
+<li>大学的真正意义:f将已有的知识和方法重新消化，为大家建立好 “台阶”，在有限的时间里迅速赶上数十年来建立起的学科体系。</li>
+</ul>
+<h2 id="p10-状态机模型的应用-细胞自动机-gdbrrperf-代码验证工具">p10 状态机模型的应用 (细胞自动机; gdb/rr/perf; 代码验证工具)</h2>
+<ul>
+<li>分布式系统也是一种并发程序，但要更复杂。因为并发程序假设了每个thread都能正常运行，而分布式系统则要考虑节点丢失的情况。</li>
+</ul>
+<h2 id="p11-操作系统上的进程-最小-linux-fork-execve-和-exit">p11 操作系统上的进程 (最小 Linux; fork, execve 和 exit)</h2>
+<ul>
+<li>Linux 操作系统启动流程
+CPU Reset → Firmware → Loader → Kernel _start() → 第一个程序 /bin/init → 程序 (状态机) 执行 + 系统调用</li>
+<li>Fork Bomb:
+<code>:(){:|:&amp;};:</code>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">:<span class="o">()</span> <span class="o">{</span>         <span class="c1"># 格式化一下</span>
+</span></span><span class="line"><span class="cl">: <span class="p">|</span> : <span class="p">&amp;</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span><span class="p">;</span> :
+</span></span></code></pre></div></li>
+<li>stdout:
+终端: line buffer
+pipe , file :full buffer (除非显示地调用fflush)
+<pre tabindex="0"><code></code></pre></li>
+<li><strong>fork</strong>
+<ul>
+<li>程序就是状态机，正在执行的程序也是状态机，fork创建状态机的副本；</li>
+<li>创建的进程返回+1，子进程返回为0</li>
+<li>把所有的寄存器和内存都复制</li>
+</ul>
+</li>
+<li><strong>execve</strong>
+<ul>
+<li>将当前运行的状态机重置成成另一个程序的初始状态</li>
+</ul>
+</li>
+<li><strong>_exit</strong></li>
+</ul>
+<h2 id="p12-进程的地址空间-pmap-vdso-mmap-游戏修改器外挂">p12 进程的地址空间 (pmap; vdso; mmap; 游戏修改器/外挂)</h2>
+<ul>
+<li>端序
+<ul>
+<li>大端 (big endian): 低地址存放<em>高</em>有效字节</li>
+<li>小端 (little endian): 低字节存放<em>低</em>有效字节</li>
+</ul>
+</li>
+<li>工具使用
+<ul>
+<li>gdb</li>
+<li>readelf</li>
+<li>pmap</li>
+</ul>
+</li>
+<li>计算机世界没有魔法。因为程序就是状态机。</li>
+<li>vdso:不进入操作系统内核，实现系统调用</li>
+<li>mmap：</li>
+<li>文件=字节序列；内存=字节序列； everything is a file</li>
+</ul>
+<h2 id="p13-系统调用和-shell-freestanding-shell-终端和-job-control">p13 系统调用和 Shell (freestanding shell, 终端和 job control)</h2>
+<ul>
+<li>cd是内部命令：改变当前目录是用系统调用实现的</li>
+<li><code>strace -f gcc a.c 2&gt;&amp;1 | vim -</code> This will pipe both stdout and stderr to vim. The <code>-</code> argument tells vim to read from stdin.</li>
+<li><code>strace pmap 152 |&amp; vim - </code>
+<code>|&amp;</code> : This is a shorthand for <code>2&gt;&amp;1 |</code> in bash and zsh. It passes both standard output and standard error of one command as input to another.</li>
+<li>fish, zsh 和 bash 都是常用的命令行 shell; sh是比较原始的</li>
+<li>clear 清屏</li>
+<li><code>,./a.out &amp;</code>  后台执行./a.out</li>
+</ul>
+<h2 id="p14-c-标准库的实现-系统调用的封装内存空间管理">p14 C 标准库的实现 (系统调用的封装；内存空间管理)</h2>
+<ul>
+<li>文件描述符还是不理解。印象中这是第二次谈到了&quot;everything is a file&quot;
+<ul>
+<li>os的对象和对象的访问</li>
+</ul>
+</li>
+<li>gdn的使用
+<ul>
+<li><code>No symbol table is loaded.  Use the &quot;file&quot; command</code>。可能是编译选项未包含debug信息,如gcc没有添加-g选项。</li>
+</ul>
+</li>
+<li>premature optimization is the root of all evil.</li>
+<li>脱离workload谈优化就是耍流氓</li>
+<li>经典的设计：
+<ul>
+<li>fast path</li>
+<li>slow path</li>
+</ul>
+</li>
+</ul>
+<h2 id="p15-fork-的应用-文件描述符的复制写时复制创建平行宇宙的魔法">p15 fork 的应用 (文件描述符的复制；写时复制；创建平行宇宙的魔法)</h2>
+<ul>
+<li>fork 状态机复制包括持有的所有操作系统对象</li>
+<li>包括持有的所有操作系统对象</li>
+<li>文件描述符（file discriptor）
+<ul>
+<li>一个指向操作系统内对象的 “指针”</li>
+<li>dup() 的两个文件描述符是共享 offset</li>
+</ul>
+</li>
+<li>访问空指针也会造成缺页中断</li>
+<li>“Copy-on-write” 只有被写入的页面才会复制一份
+<ul>
+<li>被复制后，整个地址空间都被标记为 “只读”</li>
+<li>操作系统捕获 Page Fault 后酌情复制页面</li>
+<li>fork-execve 效率得到提升</li>
+</ul>
+</li>
+<li>操作系统会维护每个页面的引用计数</li>
+<li>定义进程所占用的内存</li>
+<li>page是归os所有的，而非进程</li>
+<li>使用fork来搜索并行化。</li>
+</ul>
+<h2 id="p16-什么是可执行文件-调试信息stack-unwinding静态链接中的重定位">p16 什么是可执行文件 (调试信息；Stack Unwinding；静态链接中的重定位)</h2>
+<ul>
+<li>可执行文件描述了状态机，是一个描述了状态机的初始状态 + 迁移的数据结构</li>
+<li>os没有魔法，所有东西都有解释</li>
+<li><code>She-bang</code> <code>#! interpreter [optional-arg]</code></li>
+<li>GNU binutils
+<ul>
+<li>生成可执行文件
+<ul>
+<li>ld (linker), as (assembler)</li>
+<li>ar, ranlib</li>
+</ul>
+</li>
+<li>分析可执行文件
+<ul>
+<li>objcopy/objdump/readelf</li>
+<li>addr2line, size, nm</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>objdump -d a.out | less</code> disasm</li>
+<li><code>addr2line 401122 a.out</code></li>
+<li>elf: 小精灵；dwarf：矮人</li>
+<li>将一个 assembly (机器) 状态映射到 “C 世界” 状态很难</li>
+<li>gcc等仍存在着许多不完美</li>
+<li>编译器，汇编器，链接器</li>
+</ul>
+<h2 id="p17-动态链接和加载-静态-elf-加载器实现调试-linux-内核动态链接和加载">p17 动态链接和加载 (静态 ELF 加载器实现；调试 Linux 内核；动态链接和加载)</h2>
+<ul>
+<li>自定义了一个二进制格式文件</li>
+<li>GOT ： global offset table</li>
+<li>PLT : procedure linkage table</li>
+</ul>
+<h2 id="p23-1-bit-数据的存储-延迟线磁芯dramsram磁带磁盘光盘flash-ssd">p23 1-Bit 数据的存储 (延迟线/磁芯/DRAM/SRAM/磁带/磁盘/光盘/Flash SSD)</h2>
+<ul>
+<li>volatile: 确保该变量的实际值与内存中的值一致,每次读取都是最新值,也禁止编译器对其进行优化。</li>
+<li>core dumped 磁性内存年代开始的概念。</li>
+<li>局部性原理 -&gt; 可以按照大块来读写</li>
+</ul>
+<h2 id="p24-输入输出设备模型-串口键盘磁盘打印机总线中断控制器dma-和-gpu">p24 输入输出设备模型 (串口/键盘/磁盘/打印机/总线/中断控制器/DMA 和 GPU</h2>
+<ul>
+<li>DMA: direct memory access : 一个专门执行&quot;memcpy&quot;程序的cpu</li>
+<li>IPC: Instruction per second</li>
+<li>GPU:
+<ul>
+<li>一个通用计算设备</li>
+<li>大量并行相似的任务</li>
+</ul>
+</li>
+<li>异构计算：都能做，但选那个最合适的。（jjy在22年说的现在已经能感觉到有相关的趋势了。不过倒不是里面举例的挖矿，而是llm模型）</li>
+</ul>
+<h2 id="p25-设备驱动程序-linux-设备驱动-gpu-和-cuda-存储设备抽象">p25 设备驱动程序 (Linux 设备驱动; GPU 和 CUDA; 存储设备抽象)</h2>
+<ul>
+<li>设备抽象成 支持各类操作的对象 (文件)
+<ul>
+<li>read - 从设备某个指定的位置读出数据</li>
+<li>write - 向设备某个指定位置写入数据</li>
+<li>ioctl - 读取/设置设备的状态</li>
+</ul>
+</li>
+<li><code>stty -a</code></li>
+<li>GPU
+<ul>
+<li>Single Instruction, Multiple Thread</li>
+</ul>
+</li>
+<li>读优先的正确性</li>
+</ul>
+<h2 id="p26-文件系统-api-设备在应用间的共享目录和文件-api">p26 文件系统 API (设备在应用间的共享；目录和文件 API)</h2>
+<ul>
+<li>信息的局部性</li>
+<li>Windows从c盘开始时是受其前身Dos系统的影响，那个有a、b</li>
+<li><code>mount disk.img  /mnt</code></li>
+<li><code>umount /mnt</code></li>
+<li>硬（hard）链接
+<ul>
+<li><code>ln /usr/local/python3 python</code></li>
+<li>目录中仅存储指向文件数据的指针</li>
+<li>允许一个文件被多个目录引用.</li>
+<li>无法用来链接目录，也不能跨文件系统</li>
+<li>通过<code>ls -i</code>查看是否为硬链接</li>
+</ul>
+</li>
+<li>软 (symbolic) 链接
+<ul>
+<li>“快捷方式”</li>
+<li><code> ln -s ../p24 p24</code></li>
+<li>目录从“树”变为了“图”，还是有环图</li>
+</ul>
+</li>
+<li><code>cd</code>的特殊性
+<ul>
+<li>每个进程都有一个对应的工作目录（pwd），而这个目录只有系统调用才能够修改</li>
+</ul>
+</li>
+</ul>
+<h2 id="p27-fat-和-unix-文件系统-数据结构视角的文件系统-fat-手册导读和目录树遍历">p27 FAT 和 UNIX 文件系统 (数据结构视角的文件系统; FAT 手册导读和目录树遍历)</h2>
+<ul>
+<li>数据结构的假设：数据是以字节来存储的。</li>
+<li>RAM 和 block的区别</li>
+<li>FAT(File Allocation Table)
+<ul>
+<li>将指针集中存放在文件系统的某个区域</li>
+<li>适合小文件</li>
+<li>会产生碎片（fragmentation）</li>
+<li>基本假设
+<ul>
+<li>链表无环且长度和文件大小一致</li>
+<li>FREE的cluster不能有入边</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>cluster</li>
+<li>sector</li>
+<li>ext2
+<ul>
+<li>大文件的随机读写性能提升明显 (O(1))</li>
+<li>支持链接 (一定程度减少空间浪费)</li>
+<li>inode 在磁盘上连续存储，便于缓存/预取</li>
+<li>碎片</li>
+</ul>
+</li>
+</ul>
+<h2 id="p28-持久数据的可靠性-raid-崩溃一致性-fsck-和日志">p28 持久数据的可靠性 (RAID; 崩溃一致性; FSCK 和日志)</h2>
+<ul>
+<li>虚拟化
+<ul>
+<li>cpu的虚拟化：通过分时等技术让多个进程并行，相当于虚拟出了多个cpu</li>
+<li>内存的虚拟化：一份内存通过mmu，虚拟成每个进程的地址空间</li>
+<li>RAID：反向的虚拟化：多个磁盘虚拟化一个磁盘</li>
+</ul>
+</li>
+<li>RAID
+<ul>
+<li>RAID0 : 交错排列： 提升容量和带宽</li>
+<li>RAID1 : 提升容错和读带宽</li>
+<li>RAID4 : 额外的一块校验盘
+<ul>
+<li>致命缺陷：随机写的性能只能有校验盘性能的一半</li>
+</ul>
+</li>
+<li>RAID5 : Rotating Parity</li>
+</ul>
+</li>
+<li>RAID带来的联想：
+多个磁盘虚拟化为一个又大又快又可靠的磁盘，多台电脑虚拟化为一个又大又快又可靠的电脑
+那能不能多个神经网络虚拟化为一个更好的神经网络</li>
+<li>崩溃一致性  (Crash Consistency)
+<ul>
+<li>场景：写入的时候突然断电了怎么办？</li>
+<li>方法1：按照一定顺序来写，且 “all or nothing”
+<ul>
+<li>困难：磁盘不提供多块读写 “all or nothing” 的支持，甚至为了性能，没有顺序保证。</li>
+</ul>
+</li>
+<li>方法2： File System Checking (FSCK)
+<ul>
+<li>根据磁盘上已有的信息，恢复出 “最可能” 的数据结构</li>
+<li>困难：难；如果修复的时候再掉一次电？</li>
+</ul>
+</li>
+<li>方法3： 日志</li>
+<li>具体：
+<ul>
+<li>数据结构操作发生时，用 (2) append-only 记录日志</li>
+<li>日志落盘后，用 (1) 更新数据结构</li>
+<li>崩溃后，重放日志并清除 (称为 redo log；相应也可以 undo log)</li>
+</ul>
+</li>
+<li>优化: journaling (jdb2)</li>
+</ul>
+</li>
+</ul>
+<h2 id="p30-现代存储系统-关系数据库和分布式存储系统">p30 现代存储系统 (关系数据库和分布式存储系统)</h2>
+<ul>
+<li>数据库
+<ul>
+<li>关键
+<ul>
+<li>索引</li>
+<li>查询优化</li>
+</ul>
+</li>
+<li>magic：你只管写sql语句，相应的搜索优化它来做</li>
+<li>要求：acid
+<ul>
+<li>Atoming</li>
+<li>Consistency</li>
+<li>Isolation</li>
+<li>Durability</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>图灵奖
+<ul>
+<li>这门课听下来，听到了好多知识点背后都是获得过图灵奖的研究，甚至开创了一整个产业。</li>
+</ul>
+</li>
+<li>关系型数据库跟不上社交网络的需求</li>
+<li>cap theorem
+<ul>
+<li>Consistency</li>
+<li>Availability</li>
+<li>Partition Tolerance</li>
+</ul>
+</li>
+<li>分布式存储系统</li>
+</ul>
+<h2 id="感想">感想</h2>
+<p>蒋炎炎这门课还是别人推荐的。第一次看到还不以为意，但出现的次数多了就觉得有必要去看看。发现是一大惊喜。</p>
+<h2 id="收获">收获</h2>
+<ol>
+<li>原版书能看得下来了。大段的英文，之前看着有点怕，现在觉得也能看下来，并且速度还可以。</li>
+</ol>
+<h2 id="课外资料">课外资料</h2>
+<ul>
+<li><a href="https://plantegg.github.io/2022/06/05/%E4%B8%8A%E4%B8%8B%E6%96%87%E5%88%87%E6%8D%A2%E5%BC%80%E9%94%80/"  target="_blank" rel="noopener" >上下文切换的代价</a></li>
+<li><a href="https://plantegg.github.io/2021/06/01/CPU%E7%9A%84%E5%88%B6%E9%80%A0%E5%92%8C%E6%A6%82%E5%BF%B5/"  target="_blank" rel="noopener" >CPU的制造和概念</a></li>
+</ul>
+]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>操作系统复习笔记</title>
+      <link>https://euds63.github.io/2023/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Mon, 19 Jun 2023 18:35:11 +0800</pubDate>
+      
+      <guid>https://euds63.github.io/2023/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
+      <description>操作系统复习笔记</description>
+      <content:encoded><![CDATA[<h1 id="期末复习">期末复习</h1>
+<h2 id="chpter-3-process">Chpter 3 Process</h2>
+<ul>
+<li>操作系统进行任务调度和资源分配的基本单位</li>
+<li>Process include:
+<ol>
+<li>Program code</li>
+</ol>
+<ul>
+<li>text section</li>
+</ul>
+<ol start="2">
+<li>program counter and processors’ registers</li>
+<li>Stack</li>
+</ol>
+<ul>
+<li>Function parameters</li>
+<li>Return address</li>
+<li>Local variables</li>
+</ul>
+<ol start="4">
+<li>data section</li>
+</ol>
+<ul>
+<li>Global variables</li>
+</ul>
+<ol start="5">
+<li>Heap</li>
+</ol>
+<ul>
+<li>Dynamically allocated memory</li>
+</ul>
+</li>
+<li>Process State
+<ul>
+<li>五态模型
+<ul>
+<li>new</li>
+<li>ready:waiting to be assigned to a processor</li>
+<li>waiting: waiting for some event to occur</li>
+<li>running</li>
+<li>terminated</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Process control block（PCB）
+<ul>
+<li>包含信息有：
+<ul>
+<li>Process number</li>
+<li>Process state</li>
+<li>Program counter
+<ul>
+<li>下条指令的地址</li>
+</ul>
+</li>
+<li>CPU registers</li>
+<li>CPU scheduling information</li>
+<li>Memory-management information</li>
+<li>Accounting information</li>
+<li>I/O status information</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="process-scheduling">Process Scheduling</h3>
+<ul>
+<li>
+<p>Scheduling queues</p>
+<ol>
+<li>Job queue</li>
+</ol>
+<ul>
+<li>set of all processes in the system</li>
+<li>As processes/job enter the system，they are put into the job queue</li>
+</ul>
+<ol start="2">
+<li>Ready queue</li>
+</ol>
+<ul>
+<li>set of all processes residing in “(main) memory”, ready and “waiting” to execute</li>
+</ul>
+<ol start="3">
+<li>Device queues</li>
+</ol>
+<ul>
+<li>set of processes waiting for an I/O device</li>
+</ul>
+</li>
+<li>
+<p>Scheduler(调度器)</p>
+<ol>
+<li>Long-term scheduler or job scheduler</li>
+</ol>
+<ul>
+<li>job queue -&gt; ready queue</li>
+<li>may  be absent on Time-sharing system such as UNIX  and Windows
+<ul>
+<li>They put every new process in memory for the short-term scheduler</li>
+</ul>
+</li>
+</ul>
+<ol start="2">
+<li>Short-term scheduler Or CPU scheduler: 进程调度</li>
+</ol>
+<ul>
+<li>selects which process should be executed next and allocates CPU</li>
+<li>因为其执行十分频繁，所以每次选择不能耗时太长，否则就overhead</li>
+</ul>
+<ol start="3">
+<li>Medium-term scheduler Or swapping</li>
+</ol>
+<ul>
+<li>swap out: removes processes from memory to disk and reduces the degree of multiprogramming</li>
+<li>swap in: introduce process into memory</li>
+</ul>
+</li>
+<li>
+<p>Context Switch</p>
+<ul>
+<li>CPU switches to another process</li>
+</ul>
+</li>
+</ul>
+<h3 id="operations-on-processes">Operations on Processes</h3>
+<ol>
+<li>fork()
+<ul>
+<li>The new process consists of a copy of the address space of the original process</li>
+<li>The return code for the fork() is zero for the child process</li>
+<li>子进程会复制父进程的地址空间和资源，但并不会复制父进程的线程</li>
+</ul>
+</li>
+</ol>
+<h3 id="interprocess-communication">Interprocess Communication</h3>
+<ul>
+<li>Shared memory</li>
+<li>Message passing</li>
+</ul>
+<h3 id="名词解释">名词解释：</h3>
+<ul>
+<li>multiprogramming： is to have some process running at all times, to maximize CPU utilization</li>
+<li>time sharing ： is to switch the CPU among processes so frequently that users can interact with each process</li>
+</ul>
+<h2 id="chapter-4-thread">Chapter 4 Thread</h2>
+<ul>
+<li>进程 vs 线程
+<ul>
+<li>线程是CPU的分布单位</li>
+<li>进程是资源的分布单位</li>
+<li>线程是进程中的执行单元
+<ul>
+<li>一个进程可以包含多个线程，它们共享相同的地址空间和系统资源，如open files, signals。</li>
+<li>每个线程有自己的栈空间和执行上下文，但它们在同一个进程内共享代码段、数据段和堆等资源。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>benefits of multithreaded programming
+<ol>
+<li>Responsiveness</li>
+<li>Resource sharing</li>
+<li>Economy</li>
+<li>utilization of multiprocessor architectures</li>
+</ol>
+</li>
+</ul>
+<h3 id="multithreading-models">Multithreading Models</h3>
+<ul>
+<li>
+<p>两种线程</p>
+<ul>
+<li>User Threads
+<ul>
+<li>Provided by a thread library at the user level</li>
+</ul>
+</li>
+<li>Kernel Threads
+<ul>
+<li>Provided and managed by the OS directly</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Relationship between kernel threads and user threads</p>
+<ol>
+<li>Many-to-one model</li>
+<li>One-to-one model-</li>
+<li>Many-to-many model</li>
+<li>Two-level Model
+<ul>
+<li>主体是Many-to-many model</li>
+<li>A user thread (important task) can be bound to a kernel thread</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>
+<p>Two versions of fork() in UNIX systems</p>
+<ol>
+<li>To duplicate all the threads
+<ul>
+<li>If exec() is not called after forking, then to duplicate all threads</li>
+</ul>
+</li>
+<li>To only duplicate the thread that invoked the fork() system call
+<ul>
+<li>If exec() is called immediately after forking, then only to duplicate the calling threads</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<h2 id="chapter-5-cpu-scheduling">Chapter 5 CPU Scheduling</h2>
+<h3 id="basic-concepts">Basic Concepts</h3>
+<ul>
+<li>CPU scheduling decisions may take place when a process:
+<ol>
+<li>Switches from running to waiting state
+<ul>
+<li>The result of  an I/O request</li>
+<li>An invocation of wait for the termination of one of the child processes （e.g. wait(NULL);）</li>
+</ul>
+</li>
+<li>Switches from running to ready state
+<ul>
+<li>When a interrupt occurs</li>
+</ul>
+</li>
+<li>Switches from waiting to ready
+<ul>
+<li>Completion of I/O</li>
+</ul>
+</li>
+<li>Terminates</li>
+</ol>
+</li>
+<li>Non-preemptive (非剥夺)
+<ul>
+<li>Once the CPU has been allocated to a process, the process keeps the CPU until it releases the CPU</li>
+<li>调度只可能发生在情况 1. 和 4.</li>
+<li>简单，硬件要求低</li>
+</ul>
+</li>
+<li>Preemptive(剥夺)</li>
+</ul>
+<h3 id="scheduling-criteria">Scheduling Criteria</h3>
+<ol>
+<li>CPU utilization</li>
+<li>CPU throughout
+<ul>
+<li>number of processes that complete their execution per time unit.</li>
+</ul>
+</li>
+<li>Process turnaround time
+<ul>
+<li>From the time of submission of a process to the time of completion, include
+<ul>
+<li>Waiting to get into memory</li>
+<li>Waiting in the ready queue</li>
+<li>Executing on the CPU</li>
+<li>Doing I/O</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Process waiting time (等待时间)
+<ul>
+<li>amount of time that a process spent waiting in the ready queue.</li>
+</ul>
+</li>
+<li>Process response time (响应时间)
+<ul>
+<li>amount of the time from the submission of a request until the first response/result is produced</li>
+</ul>
+</li>
+</ol>
+<h3 id="scheduling-algorithms">Scheduling Algorithms</h3>
+<ol>
+<li>First come first served (FCFS)
+<ul>
+<li>non-preemptive</li>
+<li>Convoy effect (护航效应)</li>
+</ul>
+</li>
+<li>Shortest job first (SJF)
+<ul>
+<li>minimum average waiting time</li>
+<li>种类
+<ol>
+<li>Preemptive SJF allows to preempt the currently executing process</li>
+<li>Non-preemptive</li>
+</ol>
+</li>
+<li>比较适用于长程调度</li>
+</ul>
+</li>
+<li>Priority scheduling
+<ul>
+<li>问题：starvation</li>
+<li>解决： Aging (时效) – as time progresses increase the priority of the process</li>
+</ul>
+</li>
+<li>Round robin (RR)
+<ul>
+<li>Is designed for especially for time-sharing systems</li>
+<li>preemptive</li>
+<li>time quantum
+<ul>
+<li>需要保证 80%的cpu bursts &lt; the time quantum</li>
+</ul>
+</li>
+<li>Response time = 2*(n-1)*q</li>
+</ul>
+</li>
+<li>Multilevel queue algorithm</li>
+<li>Multilevel feedback queue algorithm
+<ul>
+<li>the most general scheduling algorithm</li>
+</ul>
+</li>
+</ol>
+<h3 id="multiple-processor-scheduling">Multiple-Processor Scheduling</h3>
+<ul>
+<li>homogeneous vs. heterogeneous CPUs
+<ul>
+<li>homogeneous: 各处理器都一样</li>
+</ul>
+</li>
+<li>Approaches to multiple-processor scheduling
+<ul>
+<li>Asymmetric multiprocessing
+<ul>
+<li>only one processor (the master server) has all scheduling decision, I/O processing</li>
+</ul>
+</li>
+<li>Symmetric multiprocessing
+<ul>
+<li>each processor is self-scheduling</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="chapter-6-process-synchronization">Chapter 6 Process synchronization</h2>
+<ul>
+<li>Race condition
+<ul>
+<li>The situation where several processes access and manipulate shared data concurrently.</li>
+<li>The final value of the shared data depends upon which process finishes last.</li>
+</ul>
+</li>
+</ul>
+<h3 id="the-critical-section-problem">The Critical-Section Problem</h3>
+<ul>
+<li>
+<p>critical section</p>
+<ul>
+<li>Each process has a code segment, called critical section, in which the shared data is accessed</li>
+<li>有几个共享变量就有几个临界区</li>
+</ul>
+</li>
+<li>
+<p>Criteria for the critical section problem solution</p>
+<ol>
+<li>Mutual exclusion 互斥</li>
+<li>progress 空闲让进</li>
+<li>Bounded waiting 有限等待</li>
+</ol>
+</li>
+<li>
+<p>Peterson’s Solution</p>
+<ul>
+<li>举手+令牌</li>
+</ul>
+</li>
+<li>
+<p>hardware-based solution</p>
+<ul>
+<li>关中断
+<ul>
+<li>多处理机不适合</li>
+</ul>
+</li>
+<li>原子操作</li>
+</ul>
+</li>
+</ul>
+<h3 id="semaphores">Semaphores</h3>
+<ul>
+<li>
+<p>A Semaphore S – integer variable</p>
+<ul>
+<li>may be initialized via a non-negative value</li>
+<li>Can only be accessed via two indivisible (atomic) operations: P() and V()</li>
+</ul>
+</li>
+<li>
+<p>P(): the wait() operation</p>
+<pre tabindex="0"><code>wait (S) { 
+  while (S.value &lt;= 0) ; 	// no-op
+    S.value--;
+}
+</code></pre></li>
+<li>
+<p>V() The signal() operation</p>
+<pre tabindex="0"><code>signal(S){
+  S.value++;
+}
+</code></pre></li>
+<li>
+<p>main problem : busy waiting (spinlock)</p>
+<ul>
+<li>advantages
+<ol>
+<li>No context switch is required when a process must wait on a lock</li>
+<li>If locks are expected to be held for short times, the spinlocks are useful</li>
+</ol>
+</li>
+<li>disadvantages
+<ol>
+<li>wastes the CPU cycles that can be used by other processes productively</li>
+</ol>
+</li>
+<li>解决：modify the definition of the wait() and signal() <strong>适用于 multiprocessor system</strong>
+<ul>
+<li>Wait(): the process can block() itself rather than engaging in busy waiting</li>
+<li>Signal(): change the blocking process from the waiting state to the ready state</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>implementation</p>
+<ol>
+<li>In a single-processor environment</li>
+</ol>
+<ul>
+<li>Disable interrupt</li>
+</ul>
+<ol start="2">
+<li>In a multi-processor environment</li>
+</ol>
+<ul>
+<li>Critical section can be applied</li>
+</ul>
+</li>
+</ul>
+<h2 id="chapter-7-deadlocks">Chapter 7 Deadlocks</h2>
+<ul>
+<li>Necessary conditions
+<ol>
+<li>Mutual exclusion</li>
+<li>Hold and wait</li>
+<li>No preemption</li>
+<li>Circular wait</li>
+</ol>
+</li>
+</ul>
+<h3 id="methods-for-handling-deadlocks">Methods for Handling Deadlocks</h3>
+<ol>
+<li>
+<p>Prevention</p>
+<ul>
+<li>Provides a set of methods for ensuring that at least one of necessary conditions cannot be held</li>
+<li>针对条件2： all or nothing; 没有资源的时候才去申请</li>
+<li>针对条件3： 谦让； 抢夺</li>
+<li>针对条件4： 顺序执行</li>
+<li>缺点： low device utilization and reduce system throughput.</li>
+</ul>
+</li>
+<li>
+<p>Avoidance</p>
+<ul>
+<li>using the addition information,decide whether the current request can be satisfied or must be delay</li>
+<li>方法：
+<ol>
+<li>Resource-allocation graph
+<ul>
+<li>有环：处于unsafe state;可能处于死锁状态</li>
+</ul>
+</li>
+<li>Banker&rsquo;s algorithm</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>
+<p>Detection and recovery</p>
+<ul>
+<li>方法:
+<ul>
+<li>Wait-for graph
+<ul>
+<li>not appilcable to a resource-allocation system with multiple instances of each resource type</li>
+</ul>
+</li>
+<li>Banker’s Algorithm</li>
+</ul>
+</li>
+<li>When, and how often, to invoke detection algorithm. it depends on:
+<ul>
+<li>How often a deadlock is likely to occur?</li>
+<li>How many processes will need to be rolled back?</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Ignorance</p>
+</li>
+</ol>
+<h2 id="chapter-8">Chapter 8</h2>
+<ul>
+<li>
+<p>Address may be represented in</p>
+<ol>
+<li>symbolic address</li>
+<li>re-locatable address</li>
+<li>absolute address</li>
+</ol>
+</li>
+<li>
+<p>address binding</p>
+<ul>
+<li>转换：
+<ul>
+<li>symbolic address -&gt; re-locatable address : compiler</li>
+<li>re-locatable address -&gt; absolute address : linkage editor or loader</li>
+</ul>
+</li>
+<li>发生的时期
+<ol>
+<li>Compile time
+<ul>
+<li>If memory location known at compile time, absolute code can be generated</li>
+<li>If memory location is not known at compile time, Must generate re-locatable code</li>
+</ul>
+</li>
+<li>Load time （+linkage time）
+<ul>
+<li>if memory location is known at load time, absolute code can be generated at this time</li>
+</ul>
+</li>
+<li>Execution time
+<ul>
+<li>If memory location is not known at compile time and load time, Binding is delayed until run time</li>
+<li>absolute code must be generated at run time</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="logical-vs-physical-address-space">Logical vs. Physical Address Space</h3>
+<ul>
+<li>
+<p>Logical address ：CPU</p>
+<ul>
+<li>also referred to as virtual address</li>
+<li>重定位地址和逻辑地址没有直接关系</li>
+</ul>
+</li>
+<li>
+<p>Physical address ：memory unit</p>
+</li>
+<li>
+<p>logical (virtual) and physical addresses differ in execution-time address-binding scheme</p>
+<ul>
+<li>re-locatable code are seen by CPU</li>
+<li>absolute code are seen by the memory unit</li>
+</ul>
+</li>
+<li>
+<p>Memory-Management Unit (MMU)</p>
+<ul>
+<li>Hardware device that maps virtual address to physical address in the run-time</li>
+</ul>
+</li>
+<li>
+<p>Dynamic load</p>
+<ul>
+<li>not loaded the entire program and data of a process be in physical memory for the process to execute until it is called</li>
+<li>好处：
+<ol>
+<li>Better memory-space utilization</li>
+<li>No special support is required from the operating system</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>
+<p>Dynamic linking</p>
+<ul>
+<li>Linking is postponed until execution time</li>
+<li>requires help from the OS</li>
+</ul>
+</li>
+</ul>
+<h3 id="contiguous-memory-allocation">Contiguous Memory Allocation</h3>
+<ol>
+<li>Fixed-Sized Contiguous Partition
+<ul>
+<li>Strengths (advantages)
+<ul>
+<li>Simple to implement</li>
+<li>little overhead</li>
+</ul>
+</li>
+<li>Weaknesses(drawbacks)
+<ul>
+<li>internal fragmentation
+<ul>
+<li>allocated memory may be larger than requested memory</li>
+</ul>
+</li>
+<li>fixed number of processes</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Dynamic Contiguous partition（可变分区）
+<ul>
+<li>Hole – block of available memory</li>
+<li>Allocation algorithms
+<ol>
+<li>first fit:
+<ul>
+<li>从头开始，或者是从当前位置开始</li>
+</ul>
+</li>
+<li>best-fit
+<ul>
+<li>Need to search all entire list, unless the list is ordered by size</li>
+<li>produces the smallest leftover hole that may be wasted</li>
+</ul>
+</li>
+<li>worst-fit
+<ul>
+<li>Need to search all entire list, unless the list is ordered by size</li>
+<li>小进程多的 效果好</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>问题：
+<ul>
+<li>External Fragmentation</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li>
+<p>Solutions to fragmentation</p>
+<ol>
+<li>Compaction(紧凑)
+<ul>
+<li>To reduce external fragmentation</li>
+<li>Shuffle memory contents to place all free memory together in one large block</li>
+<li>It is done at execution time， it’s possible only if relocation is dynamic</li>
+<li>May be expensive in moving the processes and the holes</li>
+</ul>
+</li>
+<li>paging</li>
+<li>segmentation</li>
+</ol>
+</li>
+<li>
+<p>Disadvantage of Contiguous Memory Allocation</p>
+<ul>
+<li>Fragmentation in main memory</li>
+<li>Compaction is impossible on the disk</li>
+</ul>
+</li>
+</ul>
+<h3 id="paging">paging</h3>
+<ul>
+<li>
+<p>frame: Divide physical memory into fixed-sized blocks</p>
+</li>
+<li>
+<p>page : Divide logical memory into fixed-sized blocks</p>
+<ul>
+<li>page size is equal to frame size</li>
+<li>Finding n free frames for loading a program of size n pages</li>
+</ul>
+</li>
+<li>
+<p>Translating logical address to physical address
+If the address space is 2^m and the page size is 2^n</p>
+<ul>
+<li>Every logical address generated by CPU is divided into:
+<ol>
+<li>Page number (p: 页号)
+<ul>
+<li>used as an index into a page table</li>
+<li>页表中包含每一页在physical memory 的 base address (f:块号)</li>
+<li>p =address/2^n   is equal to m-n bit of the address</li>
+</ul>
+</li>
+<li>Page offset (d: 偏移)
+<ul>
+<li>combined with base address (f:块号) to define the physical memory address that is sent to the memory unit</li>
+<li>d =address%2n is equal to n bit of the address</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>Physical address
+<ol>
+<li>frame number（f: 帧号、块号)</li>
+<li>page offset      (d:页偏移、块偏移)</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>
+<p>page size的选择</p>
+<ul>
+<li>越大：
+<ul>
+<li>Disk I/O is more efficient</li>
+<li>page table size 越小</li>
+</ul>
+</li>
+<li>越小：
+<ul>
+<li>internal fragmentation 越小</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Frame table (主存分块表)</p>
+<ul>
+<li>Has one entry for each physical page frame
+Indicating
+<ul>
+<li>whether the frame is free or it is allocated to which process</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>page table</p>
+<ul>
+<li>each process must maintain a copy of the page table</li>
+<li>计算
+<ul>
+<li>if page-table entry is 4 bytes long
+<ul>
+<li>Can point to one of 2^32 physical page frames (1比特=8字节)</li>
+<li>If frame size(= page size) is 4KB, the system can address 2^44 bytes(2^32×2^12=16TB) of physical memory</li>
+</ul>
+</li>
+<li>对于32位cpu
+<ul>
+<li>page size: 4k (=2^12)</li>
+<li>Table size：2^32/2^12=1M</li>
+<li>each entry&rsquo;s size : 4 bytes</li>
+<li>page table 的大小为： 4 MB</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>位置
+<ol>
+<li>直接存放在寄存器中：
+<ul>
+<li>Efficient and expensive</li>
+<li>当page table is reasonable small 时可以</li>
+</ul>
+</li>
+<li>存放在main memory ，然后用Page-table base register (PTBR：页表基址寄存器)存放其位置
+<ul>
+<li>进程切换时，加载页表只需要改变PTBR</li>
+<li>every data/instruction access requires two memory accesses
+<ul>
+<li>One for the page table</li>
+<li>One for the data/instruction</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Translation Look-aside Buffer (TLB) also called Associate Memory(联想寄存器)
+<ul>
+<li>并行查找</li>
+<li>contains only a few of page-table entries</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="structure-of-the-page-table">Structure of the Page Table</h3>
+<ul>
+<li>问题: The page table can be excessively large</li>
+<li>Solution： Divide the page table into smaller pieces
+<ol>
+<li>Hierarchical Paging （分层页表）</li>
+<li>Hashed Page Tables（哈希页表）</li>
+<li>Inverted Page Tables（反置页表）</li>
+</ol>
+</li>
+</ul>
+<ol>
+<li>Hierarchical Paging （分层页表）
+<ul>
+<li>缺陷：</li>
+</ul>
+<ol>
+<li>需遍历，进程太多</li>
+<li>可能有共享，而进程号只能填一个</li>
+<li>不适用于64位</li>
+</ol>
+<ul>
+<li>好：
+<ol>
+<li>需要的空间小</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>Hashed Page Tables
+<ul>
+<li>hash table -&gt; 在链表中遍历匹配</li>
+</ul>
+</li>
+<li>Inverted Page Table(反置页表/主存分块表)</li>
+</ol>
+<ul>
+<li>Only a page table in the system</li>
+<li>One entry for each real page (or physical frame) of memory</li>
+<li>缺点：
+<ul>
+<li>increases time needed to search the table when a page reference occurs</li>
+<li>Lead to memory share difficulty</li>
+</ul>
+</li>
+</ul>
+<h3 id="segmentation">segmentation</h3>
+<ul>
+<li>User’s View of a Program: A program is a collection of segments，a segment is a logical unit such as:
+<ul>
+<li>main program
+<ul>
+<li>procedure ，function，method，object</li>
+<li>local variables, global   variables</li>
+<li>common block</li>
+<li>stack</li>
+<li>symbol table</li>
+<li>arrays</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="chapter-9-virtual-memory">Chapter 9 Virtual Memory</h2>
+<ul>
+<li>
+<p>the entire program is not needed to be in physical memory.这样的好处有：</p>
+<ul>
+<li>程序的大小不再受内存所限制</li>
+<li>更多程序可以同时运行</li>
+<li>Less I/O would be needed to load or swap each user program into memory, so program would start to run faster</li>
+</ul>
+</li>
+<li>
+<p>Virtual memory management</p>
+<ul>
+<li>a term used to describe a technique whereby the computer appears to have much more memory than it actually does</li>
+</ul>
+</li>
+<li>
+<p>Virtual memory can be implemented via:</p>
+<ul>
+<li>Demand paging</li>
+<li>Demand segmentation</li>
+</ul>
+</li>
+</ul>
+<h3 id="demand-paging">Demand paging</h3>
+<ul>
+<li>
+<p>思想： Bring a page into memory only when it is needed</p>
+<ul>
+<li>Be similar to a paging system with swapping</li>
+</ul>
+</li>
+<li>
+<p>Hardware</p>
+<ul>
+<li>Page table. 需要加一位valid–invalid bit
+<ul>
+<li>v -》 The page is legal and in memory</li>
+</ul>
+</li>
+<li>Secondary memory
+<ul>
+<li>A high-speed disk, Swap space</li>
+<li>Hold those page that are not present in memory</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Page Fault</p>
+<ul>
+<li>Access to a page marked invalid causes a page-fault trap</li>
+<li>handle
+<ol>
+<li>Operating system looks at another table (PCB) to decide:
+<ul>
+<li>Invalid reference -&gt; abort</li>
+<li>Just not in memory	（go on to 2））</li>
+</ul>
+</li>
+<li>Get empty frame</li>
+<li>Swap the desired page into the frame</li>
+<li>modify the page table, Set validation bit = v</li>
+<li>Restart the instruction that caused the page fault</li>
+</ol>
+</li>
+<li>特殊：
+<ol>
+<li>一条指令可产生多个缺页中断</li>
+<li>指令复执</li>
+<li>在指令执行时中断。</li>
+</ol>
+</li>
+<li>对比普通中断：
+<ul>
+<li>一条指令在执行完后，检查是否有中断请求
+<ul>
+<li>有：执行中断</li>
+<li>无：执行下一条指令</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="page-replacement">Page Replacement</h3>
+<p><strong>替换算法</strong></p>
+<ol>
+<li>
+<p>FIFO page Replacement</p>
+<ul>
+<li>Belady’s Anomaly : more frames -&gt; more page faults</li>
+</ul>
+</li>
+<li>
+<p>Optimal Page Replacement (OPT)</p>
+<ul>
+<li>替换最晚才用的页 或 后面最长时间用不到的页</li>
+</ul>
+</li>
+<li>
+<p>Least Recently Used (LRU) Algorithm</p>
+<ul>
+<li>思想： The recent past as an approximation of the near future</li>
+<li>实现：</li>
+<li>counters</li>
+<li>stack</li>
+</ul>
+</li>
+<li>
+<p>LRU Approximation Algorithms</p>
+<ol>
+<li>Additional-reference-bits algorithm</li>
+<li>Second chance (clock)</li>
+<li>Enhanced second-chance algorithm</li>
+</ol>
+</li>
+<li>
+<p>Counting-Based Page Replacement</p>
+<ul>
+<li>Least Frequently used</li>
+<li>Most Frequently used</li>
+</ul>
+</li>
+<li>
+<p>Page-Buffering Algorithm</p>
+<ul>
+<li>Assistant procedure to a page-replacement algorithm</li>
+</ul>
+</li>
+</ol>
+<h3 id="allocation-of-frames">Allocation of Frames</h3>
+<ul>
+<li>
+<p>Two major allocation schemes</p>
+<ol>
+<li>fixed allocation
+<ul>
+<li>Equal allocation</li>
+<li>Proportional allocation</li>
+</ul>
+</li>
+<li>priority allocation
+<ul>
+<li>Use a proportional allocation scheme using priorities rather than size</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>
+<p>Global vs. Local Allocation</p>
+<ol>
+<li>Local replacement
+<ul>
+<li>To allow a process to select from only its own set of allocated frames.</li>
+<li>Cannot increase the number of frames allocated</li>
+<li>Not affected by external circumstances</li>
+</ul>
+</li>
+<li>Global replacement
+<ul>
+<li>To allow a process to select a replacement frame from the set of all frames, even if that frame is currently allocated to some other process</li>
+<li>Can increase the number of frames allocated</li>
+<li>Cannot control its page-fault rate.</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li>In general, global replacement is better.</li>
+</ul>
+</li>
+</ul>
+<h3 id="thrashing">Thrashing</h3>
+<ul>
+<li>A process is thrashing （颠簸）if it is spending more time paging than executing</li>
+<li>approach
+<ol>
+<li>Using a local replacement algorithm</li>
+<li>Working-set strategy
+<ul>
+<li>To compute the working-set size for each process in the system</li>
+</ul>
+</li>
+<li>Page-Fault Frequency (PFF) Scheme  (水多了加面，面多了加水)
+<ul>
+<li>If actual rate too low, remove  a frame from the process</li>
+<li>If actual rate too high, allocate another frame to the process</li>
+<li>If no frames are free, suspend it</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<h3 id="other-considerations">Other Considerations</h3>
+<ul>
+<li>page size 大小的选择要考虑到：
+<ol>
+<li>内碎片</li>
+<li>页表的大小</li>
+<li>I/O overhead (seek time, latency time, transfer time)</li>
+<li>Locality</li>
+<li>Page fault rate
+<ul>
+<li>顺序访问： page size越大，则缺页中断率越小</li>
+<li>随机访问： page size越大，则more paging action could ensue because fewer pages can be kept in memory and more data is transferred per page fault.</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>Install a faster hard disk, or multiple controllers with multiple hard disks
+<ul>
+<li>for as the disk bottleneck is removed by faster response and more throughput to the disks, the CPU will get more data more quickly</li>
+</ul>
+</li>
+</ul>
+<h2 id="chapter-10-file-system-interface">Chapter 10 File-System Interface</h2>
+<ul>
+<li>File
+<ul>
+<li>A file is named collection of related information that is recorded on secondary storage</li>
+<li>Six basic operations
+<ol>
+<li>create</li>
+<li>read/write/seek</li>
+<li>delete</li>
+<li>truncate: to erase the contents of a file but keep its attributes except for it’s length</li>
+</ol>
+</li>
+<li>Assistant operations
+<ul>
+<li>open(F):
+<ol>
+<li>search the directory structure on disk for entry F</li>
+<li>copy the directory entry into the open-file table</li>
+<li>allocate a file descriptor</li>
+</ol>
+</li>
+<li>close(F):
+<ol>
+<li>copy the directory entry in the open-file table to the directory structure on disk</li>
+<li>free the file descriptor</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="access-methods">Access Methods</h3>
+<ul>
+<li>The information in the file can be accessed in
+<ol>
+<li>sequentical access</li>
+<li>direct access</li>
+<li>other access
+<ul>
+<li>involve the construction of an index for the file</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<h3 id="directory-structure">Directory Structure</h3>
+<ul>
+<li>
+<p>symbol table</p>
+<ul>
+<li>The directory can be viewed as a symbol table that translates file names into their directory entries</li>
+</ul>
+</li>
+<li>
+<p>Criteria</p>
+<ol>
+<li>efficiency</li>
+<li>naming</li>
+<li>grouping</li>
+</ol>
+</li>
+<li>
+<p>shemes</p>
+<ol>
+<li>Single-Level Directory</li>
+<li>Two-Level Directory
+<ul>
+<li>Positive
+<ul>
+<li>Efficient searching</li>
+</ul>
+</li>
+<li>Negative
+<ul>
+<li>No grouping capability</li>
+<li>Difficult to share file among different users</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Tree-Structured Directories
+<ul>
+<li>Positive
+<ul>
+<li>Efficient searching</li>
+<li>Grouping Capability</li>
+</ul>
+</li>
+<li>Negative
+<ul>
+<li>Difficult to share file among different users</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Acyclic-Graph Directories
+<ul>
+<li>Tree-structured directory + shared subdirectories or files</li>
+<li>Created a new directory entry  called a link to implement sharing</li>
+<li>The difficulty is to avoid cycles as new links are added</li>
+</ul>
+</li>
+<li>General Graph Directory
+<ul>
+<li>Add the links to an existing tree-structure directory</li>
+<li>Acyclic-Graph Directories更好</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>
+<p>硬（hard）链接</p>
+<ul>
+<li><code>ln /usr/local/python3 python</code></li>
+<li>目录中仅存储指向文件数据的指针</li>
+<li>允许一个文件被多个目录引用.</li>
+<li>无法用来链接目录，也不能跨文件系统</li>
+<li>通过<code>ls -i</code>查看是否为硬链接</li>
+</ul>
+</li>
+<li>
+<p>软 (symbolic) 链接</p>
+<ul>
+<li>“快捷方式”</li>
+<li>软链接也是一个文件</li>
+<li><code> ln -s ../p24 p24</code></li>
+<li>目录从“树”变为了“图”，还是有环图</li>
+</ul>
+</li>
+<li>
+<p>ACL: access-control list</p>
+<ul>
+<li>Each file or directory has an ACL</li>
+</ul>
+</li>
+</ul>
+<h2 id="file-system-implementation">File-System Implementation</h2>
+<ul>
+<li>File system organized into layers
+<ol>
+<li>application program</li>
+<li>logical file system
+<ul>
+<li>FCB: file control blocks</li>
+</ul>
+</li>
+<li>file-organizational module</li>
+<li>basic file system</li>
+<li>I/O control</li>
+<li>devices</li>
+</ol>
+</li>
+</ul>
+<h3 id="allocation-methods">Allocation Methods</h3>
+<ul>
+<li>
+<p>An allocation method refers to how disk blocks are allocated for files</p>
+</li>
+<li>
+<p>Contiguous allocation</p>
+<ul>
+<li>Each file occupies a set of contiguous blocks on the disk</li>
+<li>Supports both sequential access and direct access （Random access）</li>
+<li>问题：
+<ol>
+<li>External fragmentation</li>
+<li>Files cannot grow</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>
+<p>Linked allocation</p>
+<ul>
+<li>Each file is a linked list of disk blocks: blocks may be scattered anywhere on the disk</li>
+<li>优点
+<ol>
+<li>容易实现</li>
+<li>无外碎片</li>
+<li>文件增长方便</li>
+</ol>
+</li>
+<li>缺点：
+<ol>
+<li>No random access</li>
+<li>Poor reliability</li>
+<li>慢（链表是保存在磁盘上的，所以需要多次查询）</li>
+</ol>
+</li>
+<li>改进： File-allocation table (FAT)
+<ul>
+<li>把链表信息放到了一个单独的FAT表中，而不是各个数据块中，且进行备份</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Indexed allocation</p>
+<ul>
+<li>
+<p>Bringing all the pointers together into one location: index block</p>
+</li>
+<li>
+<p>Solutions to large files</p>
+<ol>
+<li>Linked sheme
+<ul>
+<li>Link blocks of index table</li>
+</ul>
+</li>
+<li>Multilevel index</li>
+<li>Combined scheme
+<ul>
+<li>一部分是 direct pointers ，一部分是multi-indirect block</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>
+<p>Criteria</p>
+<ol>
+<li>storage utilization efficiency</li>
+<li>data block access time</li>
+</ol>
+<ul>
+<li>Contiguous allocation: Good for known-size file</li>
+<li>Linked allocation: Good for storage utilization</li>
+<li>Indexed allocation: Access time depends on index structure, file size, block position</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="free-space-management">Free-Space Management</h3>
+<ul>
+<li>The free-space list 的实现
+<ol>
+<li>Bit vector
+<ul>
+<li>优点
+<ul>
+<li>Simple to implement</li>
+<li>Efficient to find the first free block</li>
+</ul>
+</li>
+<li>缺点
+<ul>
+<li>Bit map requires extra space</li>
+<li>Inefficient unless the entire vector is kept in main memory</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Linked Lists (free list)
+<ul>
+<li>优点
+<ul>
+<li>No waste of space</li>
+</ul>
+</li>
+<li>缺点
+<ul>
+<li>Inefficient when traversing the list</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Grouping</li>
+</ol>
+<ul>
+<li>The first free block store the addresses of n free blocks</li>
+<li>Easier to find a large number of free blocks</li>
+</ul>
+</li>
+</ul>
+<h2 id="mass-storage-systems">Mass-Storage Systems</h2>
+<ul>
+<li>
+<p>Magnetic disk&rsquo;s structure</p>
+<ul>
+<li>Disk platter</li>
+<li>track</li>
+<li>sector
+<ul>
+<li>each track is subdivided into several sectors</li>
+</ul>
+</li>
+<li>cylinder
+<ul>
+<li>is the set of tracks that are at one arm position</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>CLV vs. CAV</p>
+<ol>
+<li>ClV : constant linear velocity
+<ul>
+<li>CD-ROM， DVD-ROM</li>
+<li>Tracks in the outermost zone hold more sectors</li>
+</ul>
+</li>
+<li>CAV : constant angular velocity
+<ul>
+<li>Magnetic disk</li>
+<li>The density of bits decreases from inner tracks to outer tracks to keep the data rate constant</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<h3 id="disk-scheduling">Disk Scheduling</h3>
+<ul>
+<li>Access time
+<ol>
+<li>Seek time is the time for the disk are to move the heads to the cylinder containing the desired sector
+<ul>
+<li>Seek time  seek distance</li>
+</ul>
+</li>
+<li>Rotational latency
+<ul>
+<li>waiting for the disk to rotate the desired sector to the disk head</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>Disk bandwidth
+<ul>
+<li>The total number of bytes transferred / the total time  between the first request for service and the completion of the last transfer</li>
+</ul>
+</li>
+</ul>
+<ol>
+<li>FCFS Scheduling</li>
+<li>SSTF：Shortest-seek-time-first (SSTF)
+<ul>
+<li>最短寻道时间优先</li>
+<li>问题：
+<ul>
+<li>往返跑&mdash;距离很短，但速度不一定很快</li>
+<li>may cause starvation of some requests</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>SCAN</li>
+</ol>
+<ul>
+<li>Sometimes called the elevator algorithm</li>
+</ul>
+<ol start="4">
+<li>C-SCAN (Circular SCAN)</li>
+</ol>
+<ul>
+<li>The head moves from one end of the disk to the other, servicing requests as it goes</li>
+<li>When it reaches the other end, however, it immediately returns to the beginning of the disk, without servicing any requests on the return trip</li>
+<li>回途不载客</li>
+</ul>
+<ol start="5">
+<li>LOOK / C-LOOK</li>
+</ol>
+<ul>
+<li>
+<p>Similar to SCAN/C-SCAN</p>
+</li>
+<li>
+<p>Arm only goes as far as the last request in each direction, then reverses direction immediately, without first going all the way to the end of the disk.</p>
+</li>
+<li>
+<p>选择
+<strong>Performance depends on the number and types of requests</strong></p>
+<ul>
+<li>SCAN and C-SCAN perform better for systems that place a heavy load on the disk</li>
+<li>Either SSTF or LOOK is a reasonable choice for the default algorithm</li>
+</ul>
+</li>
+</ul>
+<h3 id="disk-management">Disk Management</h3>
+<ul>
+<li>Disk formatting
+<ul>
+<li>Low-Level Formatting (physical formatting )
+<ul>
+<li>Dividing a disk into sectors that the disk controller can read and write</li>
+</ul>
+</li>
+<li>logical Formatting
+<ul>
+<li>Creation of a file system</li>
+<li>Build the metadata structures for a file system</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="raid-structure">RAID Structure</h3>
+<ul>
+<li>
+<p>Redundant Array of Inexpensive Disks (past)</p>
+</li>
+<li>
+<p>Redundant Array of Independent Disks (now)</p>
+<ul>
+<li>Used for their higher reliability and higher data-transfer rate(performance)</li>
+</ul>
+</li>
+<li>
+<p>levels</p>
+<ol>
+<li>RAID 0
+<ul>
+<li>Disk arrays with data striping at the level of blocks but without any redundancy</li>
+</ul>
+</li>
+<li>RAID 1
+<ul>
+<li>Disk mirroring</li>
+</ul>
+</li>
+<li>RAID 2
+<ul>
+<li>Bit-level striping or Byte-level striping</li>
+<li>Memory-style error-correcting-code (ECC)</li>
+</ul>
+</li>
+<li>RAID 3
+<ul>
+<li>Bit-interleaved parity</li>
+</ul>
+</li>
+<li>RAID 4
+<ul>
+<li>Block-interleaved parity organization</li>
+</ul>
+</li>
+<li>RAID 5
+<ul>
+<li>Block-interleaved distributed parity</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<hr>
+<h2 id="常用单词">常用单词</h2>
+<ul>
+<li>simultaneously : 同时地</li>
+<li>idle : 空闲，懒</li>
+<li>reside : 位于，居住</li>
+<li>uni-processor : 单处理器</li>
+<li>interleave: 交织</li>
+<li>allocation : 分配</li>
+<li>dashed line ： 虚线</li>
+<li>minuscule : 微小的</li>
+<li>concrete : 具体的</li>
+<li>mandatory: 强制的</li>
+<li>mediate : 调解</li>
+<li>strip : 脱掉；条</li>
+</ul>
+]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>Linux学习笔记</title>
+      <link>https://euds63.github.io/2023/linux%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Sun, 19 Mar 2023 18:38:50 +0800</pubDate>
+      
+      <guid>https://euds63.github.io/2023/linux%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
+      <description>Linux学习笔记</description>
+      <content:encoded><![CDATA[<h2 id="linux命令">Linux命令</h2>
+<ul>
+<li><code>ctrl + C</code> 打断执行</li>
+<li><code>pwd</code> 输出当前位置</li>
+<li><code>cmd1;cmd2</code> 首先运行命令1，然后运行命令2</li>
+<li><code>cmd1&amp;&amp;cmd2</code> 仅在命令1成功结束时才运行命令2</li>
+<li><code>cmd1||cmd2</code> 仅当命令1失败时才运行命令2</li>
+<li><code>strace</code>  追踪程序系统调用</li>
+<li><code>touch</code> 新建文件,内容为空</li>
+<li><code>cat</code>
+<ul>
+<li><code>cat filename</code> To view a single file</li>
+<li><code>cat [filename-whose-contents-is-to-be-copied] &gt; [destination-filename]</code> Copy the contents of one file to another file.</li>
+<li><code>cat file1 &gt;&gt; file2</code> Cat command can append the contents of one file to the end of another file.</li>
+</ul>
+</li>
+<li>管道；用<code>|</code>连接两个命令，以前面一个命令的输出作为后面命令的输入
+<ul>
+<li><code>strace -f gcc a.c 2&gt;&amp;1 | vim -</code> This will pipe both stdout and stderr to vim. The <code>-</code> argument tells vim to read from stdin.</li>
+<li><code>strace pmap 152 |&amp; vim - </code>
+<code>|&amp;</code> : This is a shorthand for <code>2&gt;&amp;1 |</code> in bash and zsh. It passes both standard output and standard error of one command as input to another.</li>
+</ul>
+</li>
+<li><code>sort -nk 6</code> 依第6列升序排列</li>
+<li>执行多次，或循环执行
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1">#for i in {1..5}; do  // while true; do</span>
+</span></span><span class="line"><span class="cl">&gt;  <span class="nb">command</span> 
+</span></span><span class="line"><span class="cl">&gt;done
+</span></span></code></pre></div></li>
+<li>crontab的使用
+<ul>
+<li><code>crontab -e</code></li>
+<li>注意：crontab运行的环境并不包含docker命令。需要指定完整的路径。</li>
+</ul>
+</li>
+<li><code>lsof -i:端口号</code>查看端口占用情况</li>
+<li><code>kill -9 PID</code> 杀掉对应的进程</li>
+<li><code>grep</code> (global regular expression)  用于查找文件里符合条件的字符串或正则表达式</li>
+<li><code>which</code> 查找安装路径 如<code>which docker</code></li>
+<li><code>ls -l</code> 详细信息</li>
+<li><code>~/.bashrc</code>是 Bash shell 在每次启动时都会自动执行的一个脚本文件,可以用于设置环境变量、别名和一些其他 Bash shell 配置。
+<ul>
+<li><code>source /opt/rh/devtoolset-9/enable</code> 更新gcc版本</li>
+<li>export PS1=&rsquo;[][\W]$ []&rsquo; 修改PS1变量，让其更加简洁。PS1的默认设置为<code>\[\][\u@\h \W]\$ \[\]</code></li>
+</ul>
+</li>
+<li><code>tar</code>
+<ul>
+<li><code>tar cvf file.tar *.c</code> creates a tar file called file.tar which is the Archive of all .c files in current directory.</li>
+<li><code>tar xvf file.tar</code> extracts files from Archives.</li>
+<li><code>z</code>tells tar command that creates tar file using gzip 即<code>tar.gz</code></li>
+</ul>
+</li>
+<li>可以利用 TAB 补全查看所有可用的命令选项(连按两次 TAB 键)</li>
+</ul>
+<h2 id="汇编相关">汇编相关</h2>
+<ul>
+<li><code>objdump -d filename</code> print the assembler content of the sections capable of execution.</li>
+<li><code>objdump -s filename</code>  print the complete content of all the sections of the file</li>
+</ul>
+<h2 id="gcc">gcc</h2>
+<ul>
+<li><code>gcc - E a.c</code> 对a.c进行宏展开</li>
+<li>升级gcc版本到gcc9 <a href="https://blog.csdn.net/xunye_dream/article/details/108918316"  target="_blank" rel="noopener" >CentOS7 升级gcc版本到gcc9</a>
+<code>source /opt/rh/devtoolset-9/enable</code></li>
+<li><code>-static</code> 静态编译，省去动态链接相关的系统调用</li>
+</ul>
+<h2 id="vim">vim</h2>
+<ul>
+<li>cmd模式
+<ul>
+<li><code>:!cmd </code> execute a shell command from within Vim
+<ul>
+<li><code>!gcc %</code> 编译</li>
+<li><code>!xxd</code>  将当前文件转换为十六进制表示并显示在终端中</li>
+<li><code>%!xxd</code> 将当前文件的内容通过管道传递给外部命令xxd，并将其输出替换为当前文件的内容</li>
+</ul>
+</li>
+<li><code>:set nu</code> 显示行号</li>
+<li><code>:set wrap</code></li>
+<li><code>:%!grep execve</code></li>
+<li><code>:%! grep -v ENOENT</code></li>
+<li><code>:%s/term/another_term/g </code> 替换</li>
+</ul>
+</li>
+<li>visual模式 按v进入
+<ul>
+<li><code>y</code> 复制选中内容</li>
+<li><code>d</code> 删除</li>
+</ul>
+</li>
+<li><code>u</code> undo</li>
+<li></li>
+</ul>
+<h2 id="gdb">gdb</h2>
+<ul>
+<li>编译时要带<code>-g</code></li>
+<li><code>bt</code> :but trace</li>
+</ul>
+<hr>
+<h2 id="参考链接">参考链接</h2>
+<ul>
+<li><a href="https://www.geeksforgeeks.org/cat-command-in-linux-with-examples/"  target="_blank" rel="noopener" >Cat command in Linux with examples</a></li>
+<li><a href="https://blog.csdn.net/xunye_dream/article/details/108918316"  target="_blank" rel="noopener" >CentOS7 升级gcc版本到gcc9</a></li>
+<li><a href="https://jyywiki.cn/OS/2022/"  target="_blank" rel="noopener" >操作系统：设计与实现 (2022 春季学期)</a></li>
+<li><a href="https://blog.csdn.net/lc013/article/details/103775702"  target="_blank" rel="noopener" >Linux 定时执行shell 脚本</a></li>
+<li><a href="https://www.geeksforgeeks.org/tar-command-linux-examples"  target="_blank" rel="noopener" >tar command in Linux with examples</a></li>
+</ul>
+]]></content:encoded>
+    </item>
+    
+  </channel>
+</rss>

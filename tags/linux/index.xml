@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Linux on EuDs&#39;s Blog</title>
+    <link>https://euds63.github.io/tags/linux/</link>
+    <description>Recent content in Linux on EuDs&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 19 Mar 2023 18:38:50 +0800</lastBuildDate><atom:link href="https://euds63.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Linux学习笔记</title>
+      <link>https://euds63.github.io/2023/linux%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Sun, 19 Mar 2023 18:38:50 +0800</pubDate>
+      
+      <guid>https://euds63.github.io/2023/linux%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
+      <description>Linux学习笔记</description>
+      <content:encoded><![CDATA[<h2 id="linux命令">Linux命令</h2>
+<ul>
+<li><code>ctrl + C</code> 打断执行</li>
+<li><code>pwd</code> 输出当前位置</li>
+<li><code>cmd1;cmd2</code> 首先运行命令1，然后运行命令2</li>
+<li><code>cmd1&amp;&amp;cmd2</code> 仅在命令1成功结束时才运行命令2</li>
+<li><code>cmd1||cmd2</code> 仅当命令1失败时才运行命令2</li>
+<li><code>strace</code>  追踪程序系统调用</li>
+<li><code>touch</code> 新建文件,内容为空</li>
+<li><code>cat</code>
+<ul>
+<li><code>cat filename</code> To view a single file</li>
+<li><code>cat [filename-whose-contents-is-to-be-copied] &gt; [destination-filename]</code> Copy the contents of one file to another file.</li>
+<li><code>cat file1 &gt;&gt; file2</code> Cat command can append the contents of one file to the end of another file.</li>
+</ul>
+</li>
+<li>管道；用<code>|</code>连接两个命令，以前面一个命令的输出作为后面命令的输入
+<ul>
+<li><code>strace -f gcc a.c 2&gt;&amp;1 | vim -</code> This will pipe both stdout and stderr to vim. The <code>-</code> argument tells vim to read from stdin.</li>
+<li><code>strace pmap 152 |&amp; vim - </code>
+<code>|&amp;</code> : This is a shorthand for <code>2&gt;&amp;1 |</code> in bash and zsh. It passes both standard output and standard error of one command as input to another.</li>
+</ul>
+</li>
+<li><code>sort -nk 6</code> 依第6列升序排列</li>
+<li>执行多次，或循环执行
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1">#for i in {1..5}; do  // while true; do</span>
+</span></span><span class="line"><span class="cl">&gt;  <span class="nb">command</span> 
+</span></span><span class="line"><span class="cl">&gt;done
+</span></span></code></pre></div></li>
+<li>crontab的使用
+<ul>
+<li><code>crontab -e</code></li>
+<li>注意：crontab运行的环境并不包含docker命令。需要指定完整的路径。</li>
+</ul>
+</li>
+<li><code>lsof -i:端口号</code>查看端口占用情况</li>
+<li><code>kill -9 PID</code> 杀掉对应的进程</li>
+<li><code>grep</code> (global regular expression)  用于查找文件里符合条件的字符串或正则表达式</li>
+<li><code>which</code> 查找安装路径 如<code>which docker</code></li>
+<li><code>ls -l</code> 详细信息</li>
+<li><code>~/.bashrc</code>是 Bash shell 在每次启动时都会自动执行的一个脚本文件,可以用于设置环境变量、别名和一些其他 Bash shell 配置。
+<ul>
+<li><code>source /opt/rh/devtoolset-9/enable</code> 更新gcc版本</li>
+<li>export PS1=&rsquo;[][\W]$ []&rsquo; 修改PS1变量，让其更加简洁。PS1的默认设置为<code>\[\][\u@\h \W]\$ \[\]</code></li>
+</ul>
+</li>
+<li><code>tar</code>
+<ul>
+<li><code>tar cvf file.tar *.c</code> creates a tar file called file.tar which is the Archive of all .c files in current directory.</li>
+<li><code>tar xvf file.tar</code> extracts files from Archives.</li>
+<li><code>z</code>tells tar command that creates tar file using gzip 即<code>tar.gz</code></li>
+</ul>
+</li>
+<li>可以利用 TAB 补全查看所有可用的命令选项(连按两次 TAB 键)</li>
+</ul>
+<h2 id="汇编相关">汇编相关</h2>
+<ul>
+<li><code>objdump -d filename</code> print the assembler content of the sections capable of execution.</li>
+<li><code>objdump -s filename</code>  print the complete content of all the sections of the file</li>
+</ul>
+<h2 id="gcc">gcc</h2>
+<ul>
+<li><code>gcc - E a.c</code> 对a.c进行宏展开</li>
+<li>升级gcc版本到gcc9 <a href="https://blog.csdn.net/xunye_dream/article/details/108918316"  target="_blank" rel="noopener" >CentOS7 升级gcc版本到gcc9</a>
+<code>source /opt/rh/devtoolset-9/enable</code></li>
+<li><code>-static</code> 静态编译，省去动态链接相关的系统调用</li>
+</ul>
+<h2 id="vim">vim</h2>
+<ul>
+<li>cmd模式
+<ul>
+<li><code>:!cmd </code> execute a shell command from within Vim
+<ul>
+<li><code>!gcc %</code> 编译</li>
+<li><code>!xxd</code>  将当前文件转换为十六进制表示并显示在终端中</li>
+<li><code>%!xxd</code> 将当前文件的内容通过管道传递给外部命令xxd，并将其输出替换为当前文件的内容</li>
+</ul>
+</li>
+<li><code>:set nu</code> 显示行号</li>
+<li><code>:set wrap</code></li>
+<li><code>:%!grep execve</code></li>
+<li><code>:%! grep -v ENOENT</code></li>
+<li><code>:%s/term/another_term/g </code> 替换</li>
+</ul>
+</li>
+<li>visual模式 按v进入
+<ul>
+<li><code>y</code> 复制选中内容</li>
+<li><code>d</code> 删除</li>
+</ul>
+</li>
+<li><code>u</code> undo</li>
+<li></li>
+</ul>
+<h2 id="gdb">gdb</h2>
+<ul>
+<li>编译时要带<code>-g</code></li>
+<li><code>bt</code> :but trace</li>
+</ul>
+<hr>
+<h2 id="参考链接">参考链接</h2>
+<ul>
+<li><a href="https://www.geeksforgeeks.org/cat-command-in-linux-with-examples/"  target="_blank" rel="noopener" >Cat command in Linux with examples</a></li>
+<li><a href="https://blog.csdn.net/xunye_dream/article/details/108918316"  target="_blank" rel="noopener" >CentOS7 升级gcc版本到gcc9</a></li>
+<li><a href="https://jyywiki.cn/OS/2022/"  target="_blank" rel="noopener" >操作系统：设计与实现 (2022 春季学期)</a></li>
+<li><a href="https://blog.csdn.net/lc013/article/details/103775702"  target="_blank" rel="noopener" >Linux 定时执行shell 脚本</a></li>
+<li><a href="https://www.geeksforgeeks.org/tar-command-linux-examples"  target="_blank" rel="noopener" >tar command in Linux with examples</a></li>
+</ul>
+]]></content:encoded>
+    </item>
+    
+  </channel>
+</rss>

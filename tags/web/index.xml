@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>web on EuDs&#39;s Blog</title>
+    <link>https://euds63.github.io/tags/web/</link>
+    <description>Recent content in web on EuDs&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 30 Mar 2023 23:52:16 +0800</lastBuildDate><atom:link href="https://euds63.github.io/tags/web/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>表单学习</title>
+      <link>https://euds63.github.io/2023/%E8%A1%A8%E5%8D%95%E5%AD%A6%E4%B9%A0/</link>
+      <pubDate>Thu, 30 Mar 2023 23:52:16 +0800</pubDate>
+      
+      <guid>https://euds63.github.io/2023/%E8%A1%A8%E5%8D%95%E5%AD%A6%E4%B9%A0/</guid>
+      <description>发现原来表单要做得符合直觉也是有些学问在里面的，遂记录如下。</description>
+      <content:encoded><![CDATA[<h1 id="表单学习">表单学习</h1>
+<p><em>偶然间看到了篇不错的文档，<a href="https://www.chromium.org/developers/design-documents/create-amazing-password-forms/"  target="_blank" rel="noopener" >Create Amazing Password Forms</a>,才发现原来表单要做得符合直觉也是有些学问在里面的，遂记录如下。</em></p>
+<h2 id="group-related-fields-in-a-single-form">Group related fields in a single form</h2>
+<p>我之前习惯把注册和登录分开来做，使用的不少网站也是这样。所以就导致了一种情况，在使用浏览器的密码自动保存时，往往注册完后要登录，就得再输一遍代码。但是我还不知道具体要怎么实现。</p>
+<h2 id="use-autocomplete-attributes">Use autocomplete attributes</h2>
+<p>autocomplete这个attribute我还是第一次见，查阅文档后，发现这个还蛮有用的。<a href="https://www.chromium.org/developers/design-documents/form-styles-that-chromium-understands/"  target="_blank" rel="noopener" >Password Form Styles that Chromium Understands</a>
+e.g. <code>&lt;input name=bc autocomplete=&quot;section-home homeAddress&quot;&gt;</code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"> <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span> <span class="na">autocomplete</span><span class="o">=</span><span class="s">&#34;username&#34;</span><span class="p">&gt;</span> 
+</span></span><span class="line"><span class="cl"> <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;password&#34;</span> <span class="na">autocomplete</span><span class="o">=</span><span class="s">&#34;current-password&#34;</span><span class="p">&gt;</span> 
+</span></span><span class="line"><span class="cl"> <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;submit&#34;</span> <span class="na">value</span><span class="o">=</span><span class="s">&#34;Sign In!&#34;</span><span class="p">&gt;</span> 
+</span></span></code></pre></div><p>而关于autocomplete和autofill的区别</p>
+<p>我查了下有这样的回答</p>
+<ul>
+<li>autocomplete是HTML5新增的属性，用于指定浏览器是否应该启用表单自动完成功能，以及提供有关字段中预期信息类型的指导。</li>
+<li>autofill是浏览器自带的自动填充功能，它会根据用户之前输入过的值来预测用户下一次可能输入的值，并在用户输入时自动填充。autofill不仅考虑了之前输入过的值，还考虑了字段的含义和结构。例如，Google Chrome实现了解析输入字段以猜测其类型和结构。</li>
+</ul>
+<h2 id="use-hidden-fields-for-implicit-information">Use hidden fields for implicit information</h2>
+<p>这点对于我来说也是挺新鲜的。才知道尽管有些信息没必要让用户输入，但还是有必要在表单中所包含，以便于密码管理器。</p>
+<p>文档中是这样讲的</p>
+<blockquote>
+<p>the user agent is allowed to provide the user with autocompletion values, but does not provide any further information about what kind of data the user might be expected to enter. User agents would have to use heuristics to decide what autocompletion values to suggest.</p>
+</blockquote>
+<p>目前我的理解是，autocomplete用来提升浏览器字段的类型，而autofill用来控制是否使用该功能</p>
+<h2 id="尾巴">尾巴</h2>
+<p>还是第一次看html的文档，不是太能看得下去，因为内容太多了，信息量比较大，但确实有用</p>
+<ul>
+<li>参考链接
+<ul>
+<li><a href="https://www.chromium.org/developers/design-documents/create-amazing-password-forms/"  target="_blank" rel="noopener" >Create Amazing Password Forms</a></li>
+<li><a href="https://www.chromium.org/developers/design-documents/form-styles-that-chromium-understands/"  target="_blank" rel="noopener" >Password Form Styles that Chromium Understands</a></li>
+<li><a href="https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#autofilling-form-controls%3A-the-autocomplete-attribute"  target="_blank" rel="noopener" >autocomplete</a></li>
+</ul>
+</li>
+</ul>
+]]></content:encoded>
+    </item>
+    
+  </channel>
+</rss>

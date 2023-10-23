@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>游戏 on EuDs&#39;s Blog</title>
+    <link>https://euds63.github.io/tags/%E6%B8%B8%E6%88%8F/</link>
+    <description>Recent content in 游戏 on EuDs&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 15 Sep 2023 15:59:21 +0800</lastBuildDate><atom:link href="https://euds63.github.io/tags/%E6%B8%B8%E6%88%8F/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>由Unity收费想到的</title>
+      <link>https://euds63.github.io/2023/%E7%94%B1unity%E6%94%B6%E8%B4%B9%E6%83%B3%E5%88%B0%E7%9A%84/</link>
+      <pubDate>Fri, 15 Sep 2023 15:59:21 +0800</pubDate>
+      
+      <guid>https://euds63.github.io/2023/%E7%94%B1unity%E6%94%B6%E8%B4%B9%E6%83%B3%E5%88%B0%E7%9A%84/</guid>
+      <description>Long may the Free Software Movement!</description>
+      <content:encoded><![CDATA[<p><em>Unity宣布收取安装费这件事自9月12日引发许多讨论，我的想法也有一定的改变</em></p>
+<h2 id="开始">开始</h2>
+<p>我是认可收费的，原因有：</p>
+<ol>
+<li>游戏开发人员使用了Unity的服务，并以此盈利，那就应该支付相应的费用。</li>
+<li>收费是有一定门槛的，这个门槛在我看来似乎还挺高？</li>
+</ol>
+<h2 id="了解">了解</h2>
+<p>我发现反对的言论明显多于支持或者中立的言论，就决定自己去了解。</p>
+<p>从<a href="https://blog.unity.com/news/plan-pricing-and-packaging-updates"  target="_blank" rel="noopener" >Unity的官方网站</a>，我了解到：</p>
+<ol>
+<li>Unity已经有相关的收费：Unity Plus、Unity Pro	等等</li>
+<li>新的收费内容是按照New installs per month进行收费，这个我觉得很不合理。
+<ul>
+<li>如何知道用户安装了几次</li>
+<li>如何确保有人恶意安装，导致开发人员蒙受不必要的损失。</li>
+</ul>
+</li>
+</ol>
+<h2 id="游戏开发人员">游戏开发人员</h2>
+<p>Unity的收费标准对于person和Enterprise是有区别的，而且相当大。person是$0.2 per new install,而Enterprise甚至可以低到$0.01。所以我也分开来调查。</p>
+<h3 id="有一定体量的公司">有一定体量的公司</h3>
+<p>以下是<a href="https://garry.net/posts/unity-can-get-fucked"  target="_blank" rel="noopener" >Unity can get fucked</a>的部分摘抄，作者是Garry&rsquo;s Mod的创作者。</p>
+<blockquote>
+<p>Let me be clear.. the cost isn&rsquo;t a big issue to us. If everything worked out, the tracking was flawless and it was 10p per sale, no biggy really. If that&rsquo;s what it costs, then that&rsquo;s what it costs.</p>
+</blockquote>
+<p><strong>这个收费是他们可承受的，甚至似乎可以说是无伤大雅</strong></p>
+<blockquote>
+<p>It hurts because we didn&rsquo;t agree to this. We used the engine because you pay up front and then ship your product. We weren&rsquo;t told this was going to happen. We weren&rsquo;t warned. We weren&rsquo;t consulted.</p>
+</blockquote>
+<blockquote>
+<p>We have spent 10 years making Rust on Unity&rsquo;s engine. We&rsquo;ve paid them every year. And now they changed the rules.</p>
+</blockquote>
+<p><strong>指出愤怒点：未经提前告知、商讨，就更改条款</strong></p>
+<blockquote>
+<p>We had 10 years to make our own engine and never did. I&rsquo;m sure a lot of game companies are feeling the same today.</p>
+</blockquote>
+<p><strong>后悔没有做自己的引擎</strong></p>
+<h3 id="个人制作者">个人制作者</h3>
+<p><a href="https://www.youtube.com/watch?v=1jKVt98fgEY"  target="_blank" rel="noopener" >Unity Ruined Their Game Engine Forever</a>里举了这样一个例子：
+有些独立游戏开发者制作了一些小游戏，下载量高达数百万，但游戏中的广告系统或者收费内容没办法cover所需要支付的安装费，那就会变成一个很荒谬的情况：因为游戏受欢迎而破产。</p>
+<h2 id="引申">引申</h2>
+<p><a href="https://www.youtube.com/watch?v=1jKVt98fgEY"  target="_blank" rel="noopener" >Unity Ruined Their Game Engine Forever</a>里还有一句我很喜欢&quot;the beauty of Open Source is it&rsquo;s not run by one scumbag company that can absolutely decide to bring this any time day in shape you can just download this engine and start working on your project.</p>
+<p>这里我就想到GNU和自由软件运动，太美妙了，太高瞻远瞩了。</p>
+<h2 id="我的收获">我的收获</h2>
+<p>我并不是一个游戏开发者，只是一个臭打游戏的，一个还没有真正踏进社会的学生。</p>
+<p>所以刚开始看到这件事情，我也没有思考、了解太多，仅靠自己的判断就给这件事情下了定论，甚至站了立场。</p>
+<p>但随着了解的深入，我的想法可以说是发生反转性的变化。我想很多事也是如此。</p>
+<p>所以这件事给我最大的收获是：在不了解一件事之前不能往下定论。</p>
+]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>Tears of the Kingdom</title>
+      <link>https://euds63.github.io/2023/tears-of-the-kingdom/</link>
+      <pubDate>Mon, 05 Jun 2023 21:30:39 +0800</pubDate>
+      
+      <guid>https://euds63.github.io/2023/tears-of-the-kingdom/</guid>
+      <description>第一个让我想写点什么，并且真的写了点什么的游戏</description>
+      <content:encoded><![CDATA[<h1 id="王国之泪">王国之泪</h1>
+<p><em>第一个让我想写点什么，并且真的写了点什么的游戏</em></p>
+<h2 id="游戏历程">游戏历程</h2>
+<p>5月3日开始玩偷跑的模拟器版本。（这里先自我检讨，不仅是玩的盗版，而且还是偷跑版本。以后经济独立后尽量补票。）中间间断了几天，昨天打完加侬多夫，算是通关了。打完蛮惆怅的，各种看视频网站、刷贴吧想看看别人的感受，没找着。洗澡的时候有些想法，就想着自己写一写。</p>
+<h2 id="想法">想法</h2>
+<p>23年过年前我下了一堆游戏，但过完年到了二月份就开始对游戏提不起兴趣，一直到5月初接触了《王国之泪》才一发不可收拾，玩游戏玩得熬了好几次夜。</p>
+<p>这游戏为什么有那么大的魔力。我想了几点：</p>
+<ul>
+<li>
+<p>剧情。说实话剧情在我玩不到5天的时候就大概能知道是个什么样的剧情了。但还是觉得是恶搞不错的剧情。很喜欢这作里林克和塞尔达的关系。塞尔达对林克的这种信任，跨越时间、牺牲自己的信任，我着实有被感动到。</p>
+</li>
+<li>
+<p>人物。</p>
+<ul>
+<li>塞尔达。这作的塞尔达真的很美。她在哈特诺学校里当了一段时间的老师，家里还挂着学生给她画的画。她周游海拉鲁大陆，各地的人民那都能听到他的评价。</li>
+<li>加侬多夫。没啥感觉，甚至有点想笑。最终的boss战难度即使手残如我也能一把过，但一万年前却那样的所向披靡。加上boss的一些宣言逼格也感觉不高。不过倒不影响就是了。打完后才知道中途要是死了就得冲怪物大军那边开始，想想就感到庆幸。</li>
+<li>卡卡利特村的村民。最恶心的一个村子。说实话，我玩这作的时候带着“我前几年拯救了世界，你们不要说要怎么崇拜我，至少得尊重我吧”的想法。但在这个村子却觉得地位比普通村民还低。一个村民直接躺石板上睡觉不让我直接叫醒，还得我去找生命松露来；而我只是要去摸一下石板都会被喝止。更不用说有一个地点我尝试了多种方式也不让进。虽然后面才知道这是剧情的要求，但还是觉得很不爽。</li>
+<li>沃特里村的村民。这反倒和卡卡利特村形成了鲜明了对比，在这里感受到了尊重。任务做起来也有意思。</li>
+</ul>
+</li>
+<li>
+<p>和前作的关系：
+这作的时间线应该是在旷野之息之后的几年。可以说是续作。但前作的希卡科技几乎消失殆尽。这点也被许多老玩家所吐槽。我虽然也有玩过旷野之息，但只通了风、水两个神殿，加上玩的时候过度使用金手指，导致游戏体验并不好。所以对前作没什么感情。因此反倒是影响不大。</p>
+<p>另外，这作还成功勾起了我对塞尔达传说全作的兴趣。在了解了一些相关信息后（云了几个视频），现在更能感受到本作里埋的一些彩蛋。羡慕那些早早入坑的玩家，他们得有多幸福啊。</p>
+</li>
+<li>
+<p>配乐。印象最深的风神殿那段，太棒了。虽然进神殿前的跳跳乐我跳了快一个下午，但这并不影响其给我带来的震撼。</p>
+</li>
+</ul>
+<p>上面说了这么多，还没有说到点子上。我觉得最吸引我的是这几点：</p>
+<ul>
+<li>开发人员的周到：玩的时候能感受到开发人员是真的有很细致地玩过，这点做起来似乎也不难：趁手的工具，丰富的文本，能让我有一种感觉：开发人员把我能想到的都想到了。但实际上我玩过的游戏中，似乎只有赛尔达传说真正做到了这点。</li>
+<li>合乎直觉。这点似乎和上一点是相同的。但我还是把它单独列出来了。因为这点太棒了。我一直觉得一个好的设计的最高标准就是合乎直觉，你拿到一个产品，你不需要看说明书，不需要问别人，你拿到手就能用，我觉得这就是一个很棒的体验。而要做得合乎直觉，特别是游戏这种，就需要开发人员想得够多。</li>
+<li>探索欲。看过一篇讲旷野之息的文章，说任天堂通过塔、神庙、宝箱等将一个大的地图切分成了一个个的三角。我觉得说得很在理。而王国之泪更是加强了这一点，因为有了鸟望塔的存在。射向高空后，看到特殊的地形、神庙、龙之泪，就有忍不住想一一探索的冲动。这也是导致一玩就难以停止，永远想着这个结束就暂停，永远都会冒出来新的可探索点。</li>
+<li>能力。这作的能力十分出彩。通天术增强了机动性。余料建造对武器系统的丰富。究极手更是被玩出花来。我玩游戏一向很菜，不仅手残而且创意也一般，但看网上各种脑洞大开的拼法也是我这一个月以来的一大乐趣。</li>
+<li>手残友好。难度设计不高，且有较合适的引导，而且不乏逃课手段，这让我能更好地去体验游戏的乐趣。</li>
+<li>技术。我一直记得自己在知道超级玛丽的程序员为了去适配游戏机的性能所做的各种奇淫巧技时的震撼，太magic了。而王国之泪的技术力也很强，16g左右的大小在今天已经不能算大，但这作的丰富程度却是很多其他游戏所不能比拟的。而且bug也不多，除了一些复制bug，我好像没有看到有说什么影响游戏体验的恶性bug。</li>
+</ul>
+<p>再说下模拟器。模拟器从偷跑刚出时候的明显卡顿、不断闪退、贴图错误，到现在的流畅体验，离不开模拟器开发和维护者的不断努力。而刚出的那几天，相关社区里的氛围也十分好。很多都是分享自己增强游戏体验的设置。说句可能不是很恰当的话，我在这点上感受到了互联网精神 —— 互帮互助、不求回报、持续钻研。我是这样理解的。这也可以说是王国之泪吸引我的一点。</p>
+<h2 id="尾巴">尾巴</h2>
+<p>今天看到一句话“突然明白了什么才是好游戏，就连看它的玩家们怎么玩都是一件很有趣的事”。说得真好。</p>
+]]></content:encoded>
+    </item>
+    
+  </channel>
+</rss>
