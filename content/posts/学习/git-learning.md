@@ -8,13 +8,6 @@ categories:
 date: 2022-09-04T12:31:47+08:00
 summary: 记录git学习
 ---
-# git学习笔记
-
-## 使用技巧
-### Github项目内搜索
-在仓库页面上按 T ，然后直接输入文件名
-
----
 ## 记录
 ### Gitee配置的记录
 因为srtp项目是用gitee作托管，所以今天试着配置了下Gitee，还是花了些时间的，记录如下：
@@ -25,13 +18,12 @@ summary: 记录git学习
 ### 多人协作时的流程
 这次小组项目用的是华为云，所以流程也都是基于华为云来说的。
 ```bash
-# 注：代码中的中文请根据实际情况进行替换
 #确定好本次代码开发所要完成的任务，开好远程分支x，相关信息(分支名称，描述，关联工作项）要注明好
 git pull #确保代码、分支是最新的
-git checkout -b 本地分支名 origin/远程分支名   #检出远程分支到本地
+git checkout -b 本地分支名 origin/远程分支名x   #检出远程的x分支到本地
 # 代码开发
 git add .
-git commit -m"适当的批注"
+git commit -m"{$适当的批注}"
 git push #将代码推送到远程分支，开发过程中这个操作可以频繁点，好处是：代码备份和版本管理
 # 完成本次代码开发所要完成的任务后（请确定功能实现，本地调试没问题）
 # 接下来进行分支的合并 
@@ -39,67 +31,10 @@ git push #将代码推送到远程分支，开发过程中这个操作可以频�
 # 合并完成后（默认设置是分支合并后，源分支是删除的）
 git remote prune origin #当华为云上显示远程分支已经删除，但git branch -r仍然看到所删除的分支，执行该命令
 git checkout master #切回master分支（一次任务完成后，建议切回master分支，这样pull的时候可以避免自己写的代码丢失的问题）
-git branch -d 本地分支名 #删除本次任务所用的本地分支（也可以不删，当作备份）
-```
-### 对remote branch的认识
-There are potentially three versions of every remote branch:
-1. The actual branch on the remote repository
-2. The snapshot of that branch locally
-3. A local branch that might be tracking the remote branch
-
----
-## 常用命令
-### add
-- `git add .` 会根据。gitignore做过滤
-- `git add *` 会忽略。gitignore把任何文件都加入
-
-### 推送
-文件推送的三个步骤：
-```
-git add 
-git commit -m"输入想说的话"
-git push
-```
-
-### 查看状况
-`git status`
-
-### 分支
-- 转到另一个分支 `git checkout {分支名}
-
-- 查看本地分支 `git branch`
-- 查看远程分支 `git branch -r`
-- 查看本地和远程分支 `git branch -a`
-
-- 删除本地分支 `git branch -d {本地分支名}`
-- 强制删除本地分支`git branch -D {本地分支名}`
-- 删除远程分支 `git push origin --delete {远程分支名}`
-- 已经删除的远程分支但仍`git branch -a`时仍显示 ：`git remote prune origin`
-
-### 日志
-- `git log` 查看分支提交历史
-- `git reflog` 也是查看日志，主要区别是会显示`reset --hard`
-
-### 代码回退
-- `git reset --hard {commit_id}`
-- `git reset --hard HEAD^ ` 回退到上一版本
-
----
-
-## submodule
-1. 删除特定的Git子模块
-```git
-# 以取消themes/PaperMod为例
-# 取消子模块的初始化
-git submodule deinit -f -- themes/PaperMod
-# 从项目中删除子模块的目录
-git rm -f themes/PaperMod
-# git rm -f themes/PaperMod
-rm -rf .git/modules/themes/PaperMod
+git branch -d {$本地分支名} #删除本次任务所用的本地分支（也可以不删，当作备份）
 ```
 
 ---
-
 ## 报错与解决
 1. 报错：
    >Updates were rejected because the remote contains work that you donot have locally.
@@ -120,16 +55,27 @@ rm -rf .git/modules/themes/PaperMod
 3. 
    - **场景**:push时报错,大意是网络问题
    - **解决**：
-        ```
-        git config --global http.proxy 'http://127.0.0.1:7890'
-        git config --global https.proxy 'http://127.0.0.1:7890'
-        ```
-
+      ```bash
+         # usually
+         git config --global http.proxy 'http://127.0.0.1:7890'
+         git config --global https.proxy 'http://127.0.0.1:7890'
+         # in wsl2 
+         git config --global http.proxy 'http://172.19.80.1:7890'
+         git config --global https.proxy 'http://172.19.80.1:7890'
+      ```
 ---
 
+## 使用技巧
+### Github项目内搜索
+在仓库页面上按 T ，然后直接输入文件名
+
+---
 
 # 可供参考的链接
 - [git教程](https://www.yiibai.com/git)
 - [Git reflog vs. log: How these commit history tools differ](https://www.theserverside.com/video/Git-reflog-vs-log-How-these-commit-history-tools-differ)
 - [【杂】git学习](http://blog.ch3nyang.top/miscellaneous/git%E5%AD%A6%E4%B9%A0/)
 - [拜托，不要再问我Git如何回滚代码](https://zhuanlan.zhihu.com/p/137856034)
+- [What are the differences between git remote prune, git prune, git fetch --prune, etc](https://stackoverflow.com/questions/20106712/what-are-the-differences-between-git-remote-prune-git-prune-git-fetch-prune)
+- [Git实际问题](https://rehoni.github.io/cn/2019/2019-10-11-git-problems/)
+- [In a git repository, where do your files live?](https://jvns.ca/blog/2023/09/14/in-a-git-repository--where-do-your-files-live-/)
