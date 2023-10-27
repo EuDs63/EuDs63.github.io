@@ -5,6 +5,7 @@ lastmod: 2023-10-24T13:18:01+08:00
 tags:
   - 记录
   - git
+  - 笔记
 categories:
   - 学习
 summary: a cheatsheet of git commands
