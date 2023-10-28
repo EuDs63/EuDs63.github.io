@@ -15,6 +15,16 @@ summary: a cheatsheet of git commands
 - `git add .` 会根据.gitignore做过滤
 - `git add *` 会忽略.gitignore把任何文件都加入
 
+## 常见的提交消息前缀
+- feat：表示新增功能（feature）
+- fix：表示修复问题
+- docs：表示文档更改
+- style：表示代码风格或格式更改，不影响代码的功能。
+- refactor：表示重构代码。
+- test：表示添加或修改测试用例。
+- chore：表示维护性任务。这个前缀用于与构建工具、依赖项、部署等维护性任务相关的提交。
+- perf：表示性能优化。
+
 ## push
 文件推送的三个步骤：
 ```
