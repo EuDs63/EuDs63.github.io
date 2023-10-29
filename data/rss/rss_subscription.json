@@ -166,6 +166,11 @@
             "html_url": "https://manjusaka.blog/"
         },
         {
+            "title": "Max's Zone",
+            "feed_url": "https://blog.maxxsoft.net/index.php/feed/",
+            "html_url": "https://blog.maxxsoft.net/"
+        },
+        {
             "title": "No Headback",
             "feed_url": "http://xargin.com/rss/",
             "html_url": "http://xargin.com/"
@@ -234,6 +239,11 @@
             "title": "To the Lighthouse",
             "feed_url": "https://owlswims.com/feed/",
             "html_url": "https://owlswims.com/"
+        },
+        {
+            "title": "Tw93 的博客",
+            "feed_url": "https://tw93.fun/feed.xml",
+            "html_url": "https://tw93.fun"
         },
         {
             "title": "Verne in GitHub",
@@ -491,6 +501,6 @@
             "html_url": "https://coolshell.cn"
         }
     ],
-    "last_updated": "2023-10-23",
-    "count": 98
+    "last_updated": "2023-10-29",
+    "count": 100
 }
