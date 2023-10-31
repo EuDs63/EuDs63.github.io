@@ -9,8 +9,6 @@ categories:
 date: 2023-04-29T00:59:40+08:00
 summary: 记录[EuDs63/TinyTinyRSS-OPML-to-MD-Table](https://github.com/EuDs63/TinyTinyRSS-OPML-to-MD-Table) 的过程
 ---
-# TinyTinyRSS-OPML-to-MD-Table
-
 ## 需求由来：
 我很喜欢读博客。但发现总有些很有趣的博客等着发现。所以我关注了些推荐博客的频道。同时，我也想分享些自己喜欢的博客，但每次去手动复制又显得太麻烦了。所以就想着做一个自动化的方式，顺带着也可以学习下Github Action.
 
