@@ -5,8 +5,8 @@ tags:
   - 记录
 categories:
   - 什锦
-date: 2023-04-30T16:06:34+08:00
-summary: 博客和文章的推荐
+date: 2023-04-30 16:06:34
+excerpt: 博客和文章的推荐
 ---
 # 博客与文章
 *打算记录些我看过的觉得有意思的博客和文章*
@@ -22,9 +22,13 @@ summary: 博客和文章的推荐
 - [JM233333's Blog](https://blog.jm233333.com/) 作者是南大在读博士生，也是jyy操作系统课的助教
 - [SEUITE](https://seuite.github.io/) 偶然间发现的学校曾存在过的一个协会。从仅存的内容中可以看出是一个很有意思的社团，很可惜它没有传承下来。
 - [灵魂逻辑](https://soulogic.com/about) 先关注的Twitter才发现的博客。作者的经历蛮羡慕的。
-- [罗皓的个人博客](https://rehoni.github.io/cn/) 一个学长/学姐的blog。从17年还在大学，到最后一篇博文是痛风的注意事项，能看出ta经历了很多。很吸引我的是ta对每个月支出的总结，虽然可能没太多参考夹着，但还是能让我对以后可能的生活一窥一二。
+- [罗皓的个人博客](https://rehoni.github.io/cn/) 一个学长/学姐的blog。从17年还在大学，到最后一篇博文是痛风的注意事项，能看出ta经历了很多。很吸引我的是ta对每个月支出的总结，让我对以后可能的生活一窥一二。
 - [Blog of Insanity](http://paulsin.blogspot.com/) 05年更新至今，内容很足。博主知识很渊博。博客的slogan是“读书，是为了遮眼睛”。还没悟到是啥意思。
 - [::Nothing but SAi](http://blog.orzotl.com/1?page=1) 博主为Bangumi的创始者。博客从05年一直活跃到11年，11年这时候博主大概21岁，就已经很有成就了。我现在也刚好是21岁，相比之下实感汗颜。
+- [Tw93](https://tw93.fun/) 博客风格简约而舒服。[这篇博文](https://tw93.fun/2023-08-03/pake.html)还能展示ppt，我感觉好神奇。
+- [Julia Evans](https://jvns.ca/) 
+  > showing how topics traditionally considered “hard” and “scary” are actually accessible and interesting and fun"
+- [To the Lighthouse - ..A Touch and yet not a touch](https://owlswims.com/) 博主几乎每个月都会更新一期《精神食粮》，很佩服，很向往。
 
 ## 文章
 - [你所热爱的，就是你的生活](https://plumz.me/archives/12906/)
@@ -85,3 +89,16 @@ summary: 博客和文章的推荐
 - [浅谈编程中的命名（短文） | 春水煎茶 - 王超的个人博客](https://writings.sh/post/naming)
    - 基本上都认可。第二点我之前有注意到，但一直没有去落实。
    - 我最近命名的时候喜欢用全称，因为觉得缩写时间久了很容易忘。
+
+- [又到了这个时间，博客总共写了四年了。 来个2021年的小总结吧 | 编码妙♂妙♂屋](https://www.skypyb.com/2021/12/rizhi/1936/)
+
+  评论区有几句话值得记录。
+  > 其实通过博客来了解一个人还是比较片面的， 毕竟要写博客的时候只有两种心情： 
+  >
+  > 1、我学了啥技术极度的需要整理归纳。 2、 我心情澎湃，得释放表达欲。
+  >
+  > 你看，无论哪种，其实都和一个人日常生活中的样子相差甚远。
+
+- [如果人类是卵生的 | 椒盐豆豉](https://blog.douchi.space/if-human-were-ovipara/#gsc.tab=0)
+
+有趣
