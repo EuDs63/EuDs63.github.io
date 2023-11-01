@@ -36,3 +36,4 @@ lastmod: 2023-10-21T16:56:38+08:00
 - [x] 更换网站icon
 - [x] 更换about页头像
 - [ ] 根据最后修改时间，对[Posts | EuDs's Blog](https://ds63.eu.org/posts/)进行排序
+- [ ] 修改[My Rss Subscription | EuDs's Blog](https://ds63.eu.org/rss_subscription/)，添加特别推荐，内容来自于[博客与文章 | EuDs's Blog](https://ds63.eu.org/2023/%E5%8D%9A%E5%AE%A2%E4%B8%8E%E6%96%87%E7%AB%A0/)
