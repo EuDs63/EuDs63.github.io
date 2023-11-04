@@ -150,8 +150,8 @@ markup:
 # 最后修改时间的获取顺序： git > lastmod(自设定) > fileModTime > default
 frontmatter:
   lastmod:
-  - :git
   - lastmod
+  - :git
   - :fileModTime
   - :default
 
