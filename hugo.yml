@@ -150,6 +150,8 @@ markup:
 frontmatter:
   lastmod:
   - lastmod
+  - :git
+  - :lastmod
   - :fileModTime
   - :default
 

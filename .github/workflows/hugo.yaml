@@ -27,6 +27,9 @@ defaults:
   run:
     shell: bash
 
+env:
+  TZ: Asia/Shanghai
+
 jobs:
   # Build job
   build:
