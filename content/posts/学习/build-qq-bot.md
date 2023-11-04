@@ -6,9 +6,9 @@ tags:
 categories:
   - 学习
 date: 2023-10-11T01:23:34+08:00
+lastmod: 2023-11-04T14:34:14+08:00
 summary: 短时间内也不想再进一步折腾了
 ---
-# qqBot 搭建
 
 **这两天在搭qqBot，记录一下**
 
@@ -36,6 +36,7 @@ summary: 短时间内也不想再进一步折腾了
    1. [Create an account · PyPI](https://pypi.org/account/register/)的username要求是我见过的最苛刻的。但也能理解。
       > Choose a strong password that contains letters (uppercase and lowercase), numbers and special characters. Avoid common words or repetition.
    2. [About NoneFlow](https://github.com/apps/noneflow) 好强大。有机会想自己试试写一个类似的，或者了解是怎么做到的。
+- 今天[go-cqhttp](https://github.com/Mrs4s/go-cqhttp)在[QQ Bot的未来以及迁移建议](https://github.com/Mrs4s/go-cqhttp/issues/2471)宣布不再维护了。感受到一种无力感。
 
 ## 感想 
 1. 想起搭telegram bot时，只需要申请一个token，甚至教程官方都有在写。而这里却是道高一尺魔高一丈般的猫鼠游戏。不免五味杂陈。
@@ -46,12 +47,11 @@ summary: 短时间内也不想再进一步折腾了
 1. `nohup`
 - 使用: 例: `nphup nb run`
 - 关闭: 例:
-         ```
-         ps aux | grep `nb` #找到对应的进程号
-         kill $进程号
-         ```
+  ```
+  ps aux | grep `nb` #找到对应的进程号
+  kill $进程号
+  ```
 2. `守护进程（Systemd）`
-   
     *注：以下复制自[使用 NoneBot2 和 go-cqhttp 打造自己的 FF14 QQ 机器人](https://blog.cysi.me/2022/04/make-a-qqbot.html#%E5%AE%88%E6%8A%A4%E8%BF%9B%E7%A8%8Bsystemd)*
    - 创建
     ```
@@ -91,6 +91,14 @@ summary: 短时间内也不想再进一步折腾了
    source ./qqVenv/bin/activate.fish # fish
 
    ```
+
+## 尾巴
+1. [go-cqhttp](https://github.com/Mrs4s/go-cqhttp)在[QQ Bot的未来以及迁移建议](https://github.com/Mrs4s/go-cqhttp/issues/2471)中宣布不再维护
+2. 不久后，[QQ Bot的未来以及迁移建议](https://github.com/Mrs4s/go-cqhttp/issues/2471)上所提到的可能的替代方案也相继无法使用
+
+我感谢这些作者！
+
+
 
 ## 参考
 - [nonebot/nonebot2: 跨平台 Python 异步聊天机器人框架 / Asynchronous multi-platform chatbot framework written in Python](https://github.com/nonebot/nonebot2)
