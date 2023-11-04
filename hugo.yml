@@ -147,11 +147,11 @@ markup:
 #         lineNos: true
 #         style: monokai
 
+# 最后修改时间的获取顺序： git > lastmod(自设定) > fileModTime > default
 frontmatter:
   lastmod:
-  - lastmod
   - :git
-  - :lastmod
+  - lastmod
   - :fileModTime
   - :default
 
