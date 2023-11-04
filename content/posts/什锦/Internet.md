@@ -8,7 +8,7 @@ categories:
 date: 2023-05-05T22:51:21+08:00
 summary: 打算用来记录互联网带给我激动的事情。可以是网站，或者是事件
 ---
-# 互联网
+
 **暂时用这个标题，还没想好**
 
 **打算用来记录互联网带给我激动的事情。可以是网站，或者是事件**
@@ -33,6 +33,8 @@ summary: 打算用来记录互联网带给我激动的事情。可以是网站�
 
 ## 2023年5月2日
 发现了这个网站[Game of Life](https://playgameoflife.com/)。我一直有自己实现一个生命游戏的想法，但始终没有动手。这个网站做得很好，可以用来参考。
+
+实现了[EuDs63/game_of_life](https://github.com/EuDs63/game_of_life)
 
 ## 2023年5月5日
 今天经历了一个很有意思的事情。
@@ -65,3 +67,21 @@ summary: 打算用来记录互联网带给我激动的事情。可以是网站�
 11年的网站一直持续到现在，并且还有一定的用户量。我觉得很厉害。
 
 可惜的是，作者在11年时提出的[创意](http://yume.ly/dream/1)，似乎都现在还没有一个比较好的实现。（也可能是我还没发现）
+
+## 2023年10月16日
+发现了一个不错的拓展。[Wikiwand - home](https://www.wikiwand.com/)。
+
+用来美化Wikipedia的。虽然原来的风格我觉得也不错。
+
+逛博客的时候发现[今日诗词 - 一言API - 诗词实时智能推荐 - 今日诗词开放接口 - 今日诗词 API - 个人文章分享](https://www.jinrishici.com/#)。想起之前想给自己的[EuDs63/Faye_Bot: my telegram Bot](https://github.com/EuDs63/Faye_Bot)加个诗词功能的时候，花了好些时间在找到好用的api接口。而找到的这个接口就是这个项目的前身。缘
+
+## 2023年10月30日
+今天在看[About - Mastodon](https://mastodon.social/about)时。发现有好长一串Moderated servers。遂好奇为什么被封。
+
+瞥到`cachapa.xyz`因为"Hate speech"而被"Suspended"。好奇访问了该网址。
+
+[About – cachapa.xyz](https://cachapa.xyz/about/)中的内容蛮有趣的。有些言论确实有点冒犯，但更冒犯的我也见多了，也不会放在心上。
+
+更让我印象深刻的是这位博主的三个要素。委内瑞拉，30多岁的程序员，宅文化。这三者的结合是我第一次见到的，让我再一次感受到互联网的美妙。
+
+值得一提的是他称呼[自己的博客](https://blog.cachapa.xyz/)为"a place where I can write polite and civilized stuff."。这种说法我也觉得有趣。
