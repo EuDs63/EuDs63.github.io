@@ -1,0 +1,76 @@
+---
+title: 记两次迁移
+date: 2023-11-01T13:56:12+08:00
+lastmod: 2023-11-01T13:56:12+08:00
+tags:
+  - 记录
+  - 感受
+  - 感想 
+categories:
+  - 想法
+summary: switching to Zepp and Spotify
+---
+
+**最近更换了两个使用的app，记录一下**
+
+## Mi Fitness -> Zepp
+我的小米手环戴了两年多了，依然很好用。续航还算长，也能记录些我需要的数据。
+
+我一直使用的是官方提供的Mi Fitness作为配套的app，也还凑合。
+
+但最近想导出之前的数据，发现查无此功能。我的数据不是我的，听起来很讽刺，但却是事实。
+
+在[[TODO]有人需要小米运动么？ · Issue #76 · yihong0618/running_page](https://github.com/yihong0618/running_page/issues/76)找到了一个替代选择。
+
+Zepp并绑定Strava。
+
+目前我的使用体验非常好。
+
+而且最重要的一点是，我的运动数据终于是属于我的了。
+
+## 网易云音乐 -> Spotify
+我使用网易云大概有7年多，原因有两点：
+1. 推荐功能做得确实可以。
+2. 惯性。 
+
+但最近有几点让我决定换掉它：
+1. 广告。我开了会员，会员权益说可以去广告。但实际上我还是得忍受敏感的开屏广告和各种续费宣传。
+2. 不全的曲库。
+3. 臃肿且我不需要的功能。
+
+几经寻找，我最终选择了Spotify。
+
+### 使用体验
+Spotify的体验很棒，我目前感受到的有几点。
+- 手机和电脑同步进度，再配上耳机，我几乎可以做到音乐随身。
+- 曲库的话，相比于我之前使用的网易云，是多了不少，但也有些没有的，比如[Happy End - 歌手 - 网易云音乐](https://music.163.com/artist?id=19710)，我似乎没有找到。
+- 支持播客。之前就有听播客的想法，以后可以试试。  
+- 无广告
+- 简洁，没有乱七八糟的内容。手机app是一百来兆，Windows端则是两百多兆。而网易云，单是app就是五百多兆。哈哈
+- 歌单支持添加本地音乐。这点是我的一大需求。
+- 推荐功能，看[越听越上瘾，Spotify 是如何推荐新歌的？ | 极客公园](https://www.geekpark.net/news/244856)和[How Does Spotify Know You So Well?](https://medium.com/@sophiaciocca/spotifys-discover-weekly-how-machine-learning-finds-your-new-music-19a41ab76efe)里面说得很厉害，但可能是号还没养好，目前我体验一遍。
+
+### 迁移记录
+1. 歌单迁移
+参考了[两分钟将网易云的歌单导入Spotify | Gridea](https://biteliang.github.io/post/liang-fen-zhong-jiang-wang-yi-yun-de-ge-dan-dao-ru-spotify/)
+
+主要是用到了以下两个网站：
+- [迁移 网易云 / QQ 音乐到 Apple Music, Youtube Music, Spotify | yyrcd](https://yyrcd.com/n2s/)
+- [Textbox Search - Spotlistr](https://www.spotlistr.com/search/textbox)
+
+2. 添加本地音乐
+参考了：[如何将本地文件添加到 Spotify [完整指南]](https://www.tunefab.com/zh-CN/tutorials/add-songs-to-spotify.html)
+
+## 尾巴
+新换的这两款软件都让我感受到了：诶，原来软件是可以做得这么让人舒服。
+
+我相信一些软件本可以也能做得让人舒服的，但它们偏不。那么这时候用户用脚投票，离开它，放弃它,这也是理所当然的。
+
+## 参考链接
+- [越听越上瘾，Spotify 是如何推荐新歌的？ | 极客公园](https://www.geekpark.net/news/244856)
+- [How Does Spotify Know You So Well?](https://medium.com/@sophiaciocca/spotifys-discover-weekly-how-machine-learning-finds-your-new-music-19a41ab76efe)
+- [两分钟将网易云的歌单导入Spotify | Gridea](https://biteliang.github.io/post/liang-fen-zhong-jiang-wang-yi-yun-de-ge-dan-dao-ru-spotify/)
+- [迁移 网易云 / QQ 音乐到 Apple Music, Youtube Music, Spotify | yyrcd](https://yyrcd.com/n2s/)
+- [Textbox Search - Spotlistr](https://www.spotlistr.com/search/textbox)
+- [如何将本地文件添加到 Spotify [完整指南]](https://www.tunefab.com/zh-CN/tutorials/add-songs-to-spotify.html)
+    
