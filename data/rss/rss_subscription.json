@@ -91,6 +91,11 @@
             "html_url": "https://blog.zgsec.cn/"
         },
         {
+            "title": "Ash Furrow's Blog",
+            "feed_url": "https://ashfurrow.com//feed.xml",
+            "html_url": "https://ashfurrow.com"
+        },
+        {
             "title": "Design Scenes",
             "feed_url": "https://fenx.work/rss/",
             "html_url": "https://fenx.work/"
@@ -331,6 +336,11 @@
             "html_url": "https://rehoni.github.io/cn/"
         },
         {
+            "title": "云风的 BLOG",
+            "feed_url": "https://blog.codingnow.com/atom.xml",
+            "html_url": "https://blog.codingnow.com/"
+        },
+        {
             "title": "余光的部落格",
             "feed_url": "https://idawnlight.com/atom.xml",
             "html_url": "https://idawnlight.com/"
@@ -409,6 +419,11 @@
             "title": "浣心",
             "feed_url": "https://blog.loikein.one/index.xml",
             "html_url": "https://blog.loikein.one/"
+        },
+        {
+            "title": "潮流周刊",
+            "feed_url": "https://weekly.tw93.fun/rss.xml",
+            "html_url": "https://weekly.tw93.fun/"
         },
         {
             "title": "生活不在别处",
@@ -501,6 +516,6 @@
             "html_url": "https://coolshell.cn"
         }
     ],
-    "last_updated": "2023-10-29",
-    "count": 100
+    "last_updated": "2023-11-05",
+    "count": 103
 }
