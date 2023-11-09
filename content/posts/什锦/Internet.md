@@ -85,3 +85,10 @@ summary: 打算用来记录互联网带给我激动的事情。可以是网站�
 更让我印象深刻的是这位博主的三个要素。委内瑞拉，30多岁的程序员，宅文化。这三者的结合是我第一次见到的，让我再一次感受到互联网的美妙。
 
 值得一提的是他称呼[自己的博客](https://blog.cachapa.xyz/)为"a place where I can write polite and civilized stuff."。这种说法我也觉得有趣。
+
+## 2023年11月5日
+[I Can Eat Glass - Wikiwand](https://www.wikiwand.com/en/I_Can_Eat_Glass)
+
+有趣，尤其是这段：
+
+Saying "I can eat glass, it does not hurt me", however, ensures that the speaker "will be viewed as an insane native, and treated with dignity and respect".
