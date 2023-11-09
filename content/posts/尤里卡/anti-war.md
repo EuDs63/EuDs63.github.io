@@ -9,8 +9,6 @@ categories:
 date: 2023-10-18T01:36:40+08:00
 summary: 止战之殇
 ---
-# 反战
-
 如果要说什么是人类历史中一直存在的，可能战争就是其中一个。
 
 描写战争的作品有许多，它们可能视角不同，形式不同，但很多都有着同样一个主题：反战。
@@ -74,8 +72,23 @@ Goodbye, Blue sky.
 
 想家啊，回不去啊。
 
-## 止战之殇 (周杰伦)
+## 一封电子邮件
+```
+Date: Thu, 01 Apr 1999 06:37:30 -0800
+From: insomnia <insomnia@EUnet.yu>
+Subject: thursday, april 1 
 
+dear everybody,
+the main novi sad bridge has been taken down completely. we are cut off from belgrade. no water today. shortage of bread and milk. if you do not hear from me anything more, this means i fled from the city, because life becomes insupportable here.
+
+everything hurts, everybody hurts. now i feel like an island — cut off, cut off, cut off from everything.
+
+peace with you all.
+```
+
+不是名作，只是被战争所困的普通人所发出的一封邮件。我在[<nettime> insomnia x3](https://nettime.org/Lists-Archives/nettime-l-9904/msg00006.html)看到，并摘抄了过来。
+
+`life becomes insupportable here.`这句看得揪心。
 
 ## 另一种视角
 当然了，描写战争的作品这么多，也不都是反战的。
@@ -199,7 +212,7 @@ Goodbye, Blue sky.
 
 我很认可这点，我也十分支持这点。
 
-**有没有不打仗的方法？**
+**有没有不打仗的方法**
 
 有不少人为之努力着，但目前似乎并没有找到一个彻底的、有效的、通用的办法
 
