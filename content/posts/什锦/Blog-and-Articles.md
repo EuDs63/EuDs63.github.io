@@ -29,6 +29,7 @@ excerpt: 博客和文章的推荐
 - [Julia Evans](https://jvns.ca/) 
   > showing how topics traditionally considered “hard” and “scary” are actually accessible and interesting and fun"
 - [To the Lighthouse - ..A Touch and yet not a touch](https://owlswims.com/) 博主几乎每个月都会更新一期《精神食粮》，很佩服，很向往。
+- [浣心／Heart of Sleeve](https://blog.loikein.one/) hugo，风格很舒服，我尤其喜欢看网络购物得与失系列
 
 ## 文章
 - [你所热爱的，就是你的生活](https://plumz.me/archives/12906/)
@@ -37,44 +38,64 @@ excerpt: 博客和文章的推荐
   
   我有好多时间是用来刷Twitter，贴吧，尽管这些碎片化的东西常常就是刷过去就忘了。我觉得我的这些时间值得更好的去处。
 
+---
+
 - [Practicing AI research](https://www.jasonwei.net/blog/practicing-ai-research)
   - 这句让我印象很深。有被激励到。
     >doing research is a skill that can be learned through practice, much like sports or music.
   - 作者谈到沉没成本时，是这样说的"it’s important to identify sunk cost fallacies"。我的理解是当断则断，不要过多地去考虑沉没成本。
+
+---
 
 - [GFW之父方滨兴讲座后杂想](https://luolei.org/gfw/)
   - 看到这篇的时候觉得很巧。因为我之前就follow了作者的Twitter。现在无意间看到了他十年前还在上大学时听讲座的想法。这种感觉很棒。
   - 另一个感触是尽管十年过去，这篇文章依旧没有过时。甚至墙更高了些。作者文中的畅想"不知20年后，如果我们走进了一个开放、自由的公民社会，那堵墙不再，方校长还在的话，他会怎么回味自己的所作所为。"距离当时的二十年后，还有十年。
   - 但最近有一个现象我看着很欣喜。我看到周围好多同学都在用着ChatGPT。而用它是需要用代理的。
 
+---
+
 - [Elden Ring PvP and Theory of Mind](https://freemind.pluskid.org/misc/elden-ring-pvp-and-theory-of-mind/)
   - 很有趣，作者从pvp讲到ToM。并科普了ToM的概念。我觉得作者科普的很好。既讲明白了概念，还让读者——至少是我，对此有了进一步了解的兴趣。
   - 文中谈到 AI 语言模型。让我想到之前看过的LLM继续发展下去，可能会有类似读心术的效果，能预测你下一步要做什么，甚至是在想什么。我觉得这在一定程度是可行的。因为现代所谓的一些读心术，很多都是基于微表情的观察和分析其过去的行为模式和经历上。
+
+---
 
 - [记一次有意义的熬夜](https://freemind.pluskid.org/electronics/5x12-keyboard-debugging2/)
   - 作者客制化键盘的经历。
   - 我自己算是半个机械键盘爱好者，也接触了些客制化键盘，但一直只停留在很初级的阶段。所以看得很起劲。
 
+---
+
 - [我的郑老三死了](https://soulogic.com/item/3294) 
   - 作者纪念自己的猫
   - 很有感觉
 
+---
+
 - [互联网技术比游戏后端技术领先十年吗？](https://www.skywind.me/blog/archives/2719)
   - 现在已经习以为然的互联网体验，其背后的技术令人咋舌。
 
+---
+
 - [关于 初码先生 某推中典型诡辩论部分的拆解](https://www.kivinsae.com/2023/05/17/2023-05-17-no_sophism/)
   - 有趣
+
+---
 
 - [Fire And Motion](https://web.archive.org/web/20060207013551/http://www.joelonsoftware.com/articles/fog0000000339.html)
   - 作者在文中有个观点：大公司不断地技术迭代，有一部分原因是为了让竞争对手疲于奔命，“has no choice but to spend all their time porting and keeping up, time that they can't spend writing new features.”
   - 
   > Maybe as a software developer I really can't control when I'm productive, and I just have to take the slow times with the fast times and hope that they average out to enough lines of code to make me employable”
 
+---
+
 - [The past is not true](https://sive.rs/pnt)
   - 文章还没看，先被这个网站所震撼到。好短，好漂亮。
   - 读完后让我十分怀念，让我想到以前做的英文阅读题。 差不多相同的结构：故事、作者的感悟。
   - 里面一句话我觉得值得记录：
     > We think of the past like it’s a physical fact - like it’s real. But the past is what we call our memory and stories about it. Imperfect memories, and stories built on one interpretation of incomplete information. That’s “the past”.
+
+---
 
 - [读博第一年总结]
   - 读博对我来说太遥远，但最后一段我觉得值得记录：
@@ -83,12 +104,18 @@ excerpt: 博客和文章的推荐
     > 我想，在现在这样的时代，确实需要一些这样的觉悟，才能活得更轻松一些。
   - 我最近偶尔会觉得焦虑，不过找到了一个自己觉得还算不错的排解方法。就是假设最坏的结果发生，然后我就会想，就算是那样我也是不能活，一旦接受了这个可能的最坏结果，我一般就没那么焦虑了。所以看到这段后，我会心一笑。
 
+---
+
 - [Information Processing in Human Body](https://vadim.oversigma.com/MAS862/Project.html)
   人体真奇妙
+
+---
 
 - [浅谈编程中的命名（短文） | 春水煎茶 - 王超的个人博客](https://writings.sh/post/naming)
    - 基本上都认可。第二点我之前有注意到，但一直没有去落实。
    - 我最近命名的时候喜欢用全称，因为觉得缩写时间久了很容易忘。
+
+---
 
 - [又到了这个时间，博客总共写了四年了。 来个2021年的小总结吧 | 编码妙♂妙♂屋](https://www.skypyb.com/2021/12/rizhi/1936/)
 
@@ -102,3 +129,29 @@ excerpt: 博客和文章的推荐
 - [如果人类是卵生的 | 椒盐豆豉](https://blog.douchi.space/if-human-were-ovipara/#gsc.tab=0)
 
 有趣
+
+---
+
+- [回归本地教程——序 - 清新小甜的个人博客](https://blog.dewsweet.cc/archives/1690105326035)
+
+  一个科普系列，关于动漫下载，写得很好
+
+---
+
+- [My Personal Journey and Why I'm building a New Earth](https://shaleenjain.com/blog/personal-story-and-new-earth/)
+
+印象最深的是这句：
+
+` If I could make this world a better place, perhaps it would be able to love me or at least acknowledge me for who I am and I could grow to love it as well. `
+
+---
+
+- [Embrace the Grind - Jacob Kaplan-Moss](https://jacobian.org/2021/apr/7/embrace-the-grind/)
+  
+  大一的c++老师很喜欢说一句话，“聪明的程序员也是懒程序员”。这篇文章提供了另一种观点：
+
+  `magic is mundane. If you’re willing to embrace the grind, you can pull off the impossible.`
+
+- [Yugoslavia's Digital Twin — The Dial](https://www.thedial.world/issue-9/yugolsav-wars-yu-domain-history-icann)
+
+  一个国家解体了，其域名还会存在吗？南斯拉夫的`.yu`给出了答案。
