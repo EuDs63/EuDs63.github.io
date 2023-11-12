@@ -6,37 +6,67 @@ tags:
 categories:
   - 什锦
 date: 2023-04-30 16:06:34
-summary: 博客和文章的推荐
+excerpt: 博客和文章的推荐
 ---
-# 博客与文章
-*打算记录些我看过的觉得有意思的博客和文章*
-*博客会简单写下推荐的理由，其实也说不上推荐，因为我觉得这些博主都可以称得上是我需要向之学习的大佬*
-*文章会简单记录下自己读的感受，但会避免变成是对文章的梗概*
+**打算记录些我看过的觉得有意思的博客和文章**
+
+**博客会简单写下推荐的理由，其实也说不上推荐，因为我觉得这些博主都可以称得上是我需要向之学习的大佬**
+
+**文章会简单记录下自己读的感受，但会避免变成是对文章的梗概**
 
 ~~**感觉这个题目不能很好地概括我这篇的内容，但现在又没想好**~~
 
 ## 博客
-- [plantegg](https://plantegg.github.io/) 计算机网络相关的，干货很多
-- [Plum's Blog](https://plumz.me/) 作者很有趣，涉猎也很广泛。博客持续更新了十几年了。
-- [Free Mind](https://freemind.pluskid.org/) 有思考，有科普，内容足。
-- [JM233333's Blog](https://blog.jm233333.com/) 作者是南大在读博士生，也是jyy操作系统课的助教
-- [SEUITE](https://seuite.github.io/) 偶然间发现的学校曾存在过的一个协会。从仅存的内容中可以看出是一个很有意思的社团，很可惜它没有传承下来。
-- [灵魂逻辑](https://soulogic.com/about) 先关注的Twitter才发现的博客。作者的经历蛮羡慕的。
-- [罗皓的个人博客](https://rehoni.github.io/cn/) 一个学长/学姐的blog。从17年还在大学，到最后一篇博文是痛风的注意事项，能看出ta经历了很多。很吸引我的是ta对每个月支出的总结，让我对以后可能的生活一窥一二。
-- [Blog of Insanity](http://paulsin.blogspot.com/) 05年更新至今，内容很足。博主知识很渊博。博客的slogan是“读书，是为了遮眼睛”。还没悟到是啥意思。
-- [::Nothing but SAi](http://blog.orzotl.com/1?page=1) 博主为Bangumi的创始者。博客从05年一直活跃到11年，11年这时候博主大概21岁，就已经很有成就了。我现在也刚好是21岁，相比之下实感汗颜。
-- [Tw93](https://tw93.fun/) 博客风格简约而舒服。[这篇博文](https://tw93.fun/2023-08-03/pake.html)还能展示ppt，我感觉好神奇。
+- [plantegg](https://plantegg.github.io/)
+  
+  **计算机网络相关的，干货很多**
+- [Plum's Blog](https://plumz.me/) 
+  
+  **作者很有趣，涉猎也很广泛。博客持续更新了十几年了。**
+- [Free Mind](https://freemind.pluskid.org/) 
+  
+  *有思考，有科普，内容足。*
+- [JM233333's Blog](https://blog.jm233333.com/) 
+  
+  **作者是南大在读博士生，也是jyy操作系统课的助教**
+- [SEUITE](https://seuite.github.io/) 
+  
+  **偶然间发现的学校曾存在过的一个协会。从仅存的内容中可以看出是一个很有意思的社团，很可惜它没有传承下来。**
+- [灵魂逻辑](https://soulogic.com/about) 
+  
+  **先关注的Twitter才发现的博客。作者的经历蛮羡慕的。**
+- [罗皓的个人博客](https://rehoni.github.io/cn/) 
+  
+  **一个学长/学姐的blog。从17年还在大学，到最后一篇博文是痛风的注意事项，能看出ta经历了很多。很吸引我的是ta对每个月支出的总结，让我对以后可能的生活一窥一二。**
+- [Blog of Insanity](http://paulsin.blogspot.com/) 
+  
+  **05年更新至今，内容很足。博主知识很渊博。博客的slogan是“读书，是为了遮眼睛”。还没悟到是啥意思。**
+- [::Nothing but SAi](http://blog.orzotl.com/1?page=1) 
+  
+  **博主为Bangumi的创始者。博客从05年一直活跃到11年，11年这时候博主大概21岁，就已经很有成就了。我现在也刚好是21岁，相比之下实感汗颜。**
+- [Tw93](https://tw93.fun/) 
+  
+  **博客风格简约而舒服。[这篇博文](https://tw93.fun/2023-08-03/pake.html)还能展示ppt，我感觉好神奇。**
 - [Julia Evans](https://jvns.ca/) 
+  
   > showing how topics traditionally considered “hard” and “scary” are actually accessible and interesting and fun"
-- [To the Lighthouse - ..A Touch and yet not a touch](https://owlswims.com/) 博主几乎每个月都会更新一期《精神食粮》，很佩服，很向往。
-- [浣心／Heart of Sleeve](https://blog.loikein.one/) hugo，风格很舒服，我尤其喜欢看网络购物得与失系列
+- [To the Lighthouse - ..A Touch and yet not a touch](https://owlswims.com/) 
+  
+  **博主几乎每个月都会更新一期《精神食粮》，很佩服，很向往。**
+- [浣心／Heart of Sleeve](https://blog.loikein.one/) 
+  
+  **网站风格很舒服，我尤其喜欢看网络购物得与失系列**
 
 ## 文章
+### 2023年4月
+
 - [你所热爱的，就是你的生活](https://plumz.me/archives/12906/)
-  我还蛮喜欢看别人写的年度总结的。像是开了一扇窗去了解一个陌生人一年来的生活。但自己却没啥勇气去写年度总结，并将之放之网上。再说回来这篇文章，我很认同这段话。
+  我还蛮喜欢看别人写的年度总结的。像是开了一扇窗去了解一个陌生人一年来的生活。但自己却没啥勇气去写年度总结，并将之放之网上。
+  
+  再说回来这篇文章，我很认同这段话。
   >有时候我想想，互联网给我带来的是更多时光的消磨，有的时候，我是不是应该返璞归真，多多做一些“远离网络”的事情。比如翻出自己曾经买过的那些书，拿出自己还没有拆封的音乐 CD，找到自己当年吃灰的 3DS，享受那些我们还没有被浮躁的互联网绑架时候的珍贵东西，或许这样对我来说是更好的选择，自己也会得到更多的提高。
   
-  我有好多时间是用来刷Twitter，贴吧，尽管这些碎片化的东西常常就是刷过去就忘了。我觉得我的这些时间值得更好的去处。
+  我有好多时间是用来刷Twitter，贴吧，这些碎片化的东西常常就是刷过去就忘了。我觉得我的这些时间值得更好的去处。
 
 ---
 
@@ -53,6 +83,8 @@ summary: 博客和文章的推荐
   - 但最近有一个现象我看着很欣喜。我看到周围好多同学都在用着ChatGPT。而用它是需要用代理的。
 
 ---
+
+### 2023年5月
 
 - [Elden Ring PvP and Theory of Mind](https://freemind.pluskid.org/misc/elden-ring-pvp-and-theory-of-mind/)
   - 很有趣，作者从pvp讲到ToM。并科普了ToM的概念。我觉得作者科普的很好。既讲明白了概念，还让读者——至少是我，对此有了进一步了解的兴趣。
@@ -72,6 +104,8 @@ summary: 博客和文章的推荐
 
 ---
 
+### 2023年6月
+
 - [互联网技术比游戏后端技术领先十年吗？](https://www.skywind.me/blog/archives/2719)
   - 现在已经习以为然的互联网体验，其背后的技术令人咋舌。
 
@@ -81,6 +115,8 @@ summary: 博客和文章的推荐
   - 有趣
 
 ---
+
+### 2023年7月
 
 - [Fire And Motion](https://web.archive.org/web/20060207013551/http://www.joelonsoftware.com/articles/fog0000000339.html)
   - 作者在文中有个观点：大公司不断地技术迭代，有一部分原因是为了让竞争对手疲于奔命，“has no choice but to spend all their time porting and keeping up, time that they can't spend writing new features.”
@@ -97,6 +133,8 @@ summary: 博客和文章的推荐
 
 ---
 
+### 2023年8月
+
 - [读博第一年总结]
   - 读博对我来说太遥远，但最后一段我觉得值得记录：
     > 当然，对于我个人而言最重要的是，相信一切都是能结束的。 之前碰到同学的室友，隔壁专业的，聊如果挂科了，找不到工作，不得不回到国内，被卷进新文革，该怎么办。我说，大不了我还能跳楼，他说，大不了我就趴在泥里，吃草吃土地活下去。屋子内外充满了快活的空气。
@@ -105,6 +143,8 @@ summary: 博客和文章的推荐
   - 我最近偶尔会觉得焦虑，不过找到了一个自己觉得还算不错的排解方法。就是假设最坏的结果发生，然后我就会想，就算是那样我也是不能活，一旦接受了这个可能的最坏结果，我一般就没那么焦虑了。所以看到这段后，我会心一笑。
 
 ---
+
+### 2023年9月
 
 - [Information Processing in Human Body](https://vadim.oversigma.com/MAS862/Project.html)
   人体真奇妙
@@ -117,6 +157,8 @@ summary: 博客和文章的推荐
 
 ---
 
+### 2023年10月
+
 - [又到了这个时间，博客总共写了四年了。 来个2021年的小总结吧 | 编码妙♂妙♂屋](https://www.skypyb.com/2021/12/rizhi/1936/)
 
   评论区有几句话值得记录。
@@ -126,11 +168,15 @@ summary: 博客和文章的推荐
   >
   > 你看，无论哪种，其实都和一个人日常生活中的样子相差甚远。
 
+---
+
 - [如果人类是卵生的 | 椒盐豆豉](https://blog.douchi.space/if-human-were-ovipara/#gsc.tab=0)
 
 有趣
 
 ---
+
+### 2023年11月
 
 - [回归本地教程——序 - 清新小甜的个人博客](https://blog.dewsweet.cc/archives/1690105326035)
 
@@ -150,8 +196,16 @@ summary: 博客和文章的推荐
   
   大一的c++老师很喜欢说一句话，“聪明的程序员也是懒程序员”。这篇文章提供了另一种观点：
 
-  `magic is mundane. If you’re willing to embrace the grind, you can pull off the impossible.`
+  `Magic is mundane. If you’re willing to embrace the grind, you can pull off the impossible.`
+
+---
 
 - [Yugoslavia's Digital Twin — The Dial](https://www.thedial.world/issue-9/yugolsav-wars-yu-domain-history-icann)
 
   一个国家解体了，其域名还会存在吗？南斯拉夫的`.yu`给出了答案。
+
+---
+
+- [赛尔号：通信协议逆向与模拟&中间人攻击窃取登录凭证](https://www.52pojie.cn/thread-1468888-1-1.html)
+
+  看得津津有味。
