@@ -96,6 +96,11 @@
             "html_url": "https://ashfurrow.com"
         },
         {
+            "title": "ByteByteGo Newsletter",
+            "feed_url": "https://blog.bytebytego.com/feed",
+            "html_url": "https://blog.bytebytego.com"
+        },
+        {
             "title": "Design Scenes",
             "feed_url": "https://fenx.work/rss/",
             "html_url": "https://fenx.work/"
@@ -206,9 +211,19 @@
             "html_url": "https://www.kuact.com/post/"
         },
         {
+            "title": "PragDave's Blog",
+            "feed_url": "https://pragdave.me/thoughts/index.xml",
+            "html_url": "https://pragdave.me/thoughts/index.html"
+        },
+        {
             "title": "QIWIHUI",
             "feed_url": "https://qiwihui.com/atom.xml",
             "html_url": "https://qiwihui.com/"
+        },
+        {
+            "title": "Shaleen Jain",
+            "feed_url": "https://shaleenjain.com/atom.xml",
+            "html_url": "https://shaleenjain.com"
         },
         {
             "title": "Skywind Inside",
@@ -272,6 +287,11 @@
         },
         {
             "title": "[Unknown]",
+            "feed_url": "https://s3.laisky.com/public/rss.xml",
+            "html_url": null
+        },
+        {
+            "title": "[Unknown]",
             "feed_url": "https://blog.sina.com.cn/rss/1283569510.xml",
             "html_url": "https://blog.sina.com.cn/rss/1283569510.xml"
         },
@@ -294,6 +314,11 @@
             "title": "kekxv 技术博客",
             "feed_url": "https://kekxv.github.io/feed.xml",
             "html_url": "http://kekxv.github.io/"
+        },
+        {
+            "title": "mrchi 的博客",
+            "feed_url": "https://mrchi.cc/index.xml",
+            "html_url": "https://mrchi.cc/"
         },
         {
             "title": "piglei",
@@ -324,6 +349,11 @@
             "title": "zu1k",
             "feed_url": "https://zu1k.com/rss.xml",
             "html_url": "https://zu1k.com/"
+        },
+        {
+            "title": "一个球的博客",
+            "feed_url": "https://jw1.dev/atom.xml",
+            "html_url": "https://jw1.dev/"
         },
         {
             "title": "一派胡言",
@@ -516,6 +546,6 @@
             "html_url": "https://coolshell.cn"
         }
     ],
-    "last_updated": "2023-11-05",
-    "count": 103
+    "last_updated": "2023-11-12",
+    "count": 109
 }
