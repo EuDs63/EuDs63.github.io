@@ -1,6 +1,7 @@
 ---
 title: 诗词
 tags:
+  - 诗词
   - 记录
   - 感想
 categories:
