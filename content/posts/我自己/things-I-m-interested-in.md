@@ -5,7 +5,7 @@ tags:
   - 博客
 categories:
   - 学习
-date: 2023-04-16T16:03:44+08:00
+date: 2023-04-16 16:03:44
 summary: 记录我感兴趣的知识或者说需要细看的内容
 ---
 # 感兴趣的知识/待细看
@@ -28,17 +28,19 @@ summary: 记录我感兴趣的知识或者说需要细看的内容
 ## GPT
 - [ ] [ViperGPT: Visual Inference via Python Execution for Reasoning](https://viper.cs.columbia.edu/)
 - [ ] [Generative Agents: Interactive Simulacra of Human Behavior](https://arxiv.org/abs/2304.03442)
+- [ ] [Generative AI exists because of the transformer](https://ig.ft.com/generative-ai/)
 
 ## diffusion
 - [ ] [High-resolution image reconstruction with latent diffusion models from humanbrain activity](https://www.biorxiv.org/content/10.1101/2022.11.18.517004v2.full.pdf)
 
-## 神经网络
+## Neural Network
 - [ ] [[干货]深入浅出LSTM及其Python代码实现](https://zhuanlan.zhihu.com/p/104475016)
 - [ ] [神经网络浅讲：从神经元到深度学习](https://www.cnblogs.com/subconscious/p/5058741.html)
+- [ ] [博弈论入门教程——从基本概念到具体案例 @ 编程随想的博客](https://program-think.blogspot.com/2020/11/Game-Theory.html)
 
 ## 博客
 - [x] [GFW之父方滨兴讲座后杂想](https://luolei.org/gfw/)
-- [ ] [为什么无法坚持写博客](https://lutaonan.com/blog/reason-why-your-blog-is-not-alive/)
+- [x] [为什么无法坚持写博客](https://lutaonan.com/blog/reason-why-your-blog-is-not-alive/)
 - [ ] [JS初探，给博客首页添加一个贪吃蛇热力图](https://yzyyz.top/archives/js_snake.html)
 - [x] [你所热爱的，就是你的生活](https://plumz.me/archives/12906/)
 - [ ] [译：本地优先软件 Local-first software](https://www.zxch3n.com/local-first/)
@@ -47,18 +49,27 @@ summary: 记录我感兴趣的知识或者说需要细看的内容
 
 ## 开源
 - [ ] [So, what's next?](https://github.com/zloirock/core-js/blob/master/docs/2023-02-14-so-whats-next.md)
+- [ ] [开源富文本编辑器 wangEditor 暂停维护 （但仍可继续使用） - 掘金](https://juejin.cn/post/7272735633458413602)
+- [ ] [基于荷尔蒙开发的开源项目 - EAimTY's Blog](https://www.eaimty.com/2023/opensource-project-based-on-hormone/)
+- [ ] [该以一种怎么样的心态来对待开源 - Tw93](https://tw93.fun/2023-09-18/open.html)
+- [ ] [pragdave - In Praise of Maintainers](https://pragdave.me/thoughts/active/2023-09-21-in-praise-of-maintainers.html)
 
 ## 网络
 - [ ] [就是要你懂网络--一个网络包的旅程](https://plantegg.github.io/2019/05/15/%E5%B0%B1%E6%98%AF%E8%A6%81%E4%BD%A0%E6%87%82%E7%BD%91%E7%BB%9C--%E4%B8%80%E4%B8%AA%E7%BD%91%E7%BB%9C%E5%8C%85%E7%9A%84%E6%97%85%E7%A8%8B/)
 - [ ] [中国的防火长城是如何检测和封锁完全加密流量的](https://gfw.report/publications/usenixsecurity23/zh/)
-- [ ] [「网络编程101」来封装一个简单的TCP服务吧！](https://www.iserica.com/posts/network101-socket-function-wrappers/)
+- [x] [「网络编程101」来封装一个简单的TCP服务吧！](https://www.iserica.com/posts/network101-socket-function-wrappers/)
+- [ ] [如何比较安全的配置 Web 服务器 - TLS 和 HTTPS - 约伊兹的萌狼乡手札](https://blog.yoitsu.moe/security/web_server_configuration_0.html)
+- [ ] [HTTPS 隐私安全的一些实践](https://blog.laisky.com/p/https-in-action/)
 
-## 机械键盘
-- [ ] [记一次有意义的熬夜](https://freemind.pluskid.org/electronics/5x12-keyboard-debugging2/)
-  
 ## 前端
 - [ ] [写一个炫酷的个人名片页](https://xlog.daidr.me/card-page)
 - [ ] [An Interactive Guide to Flexbox](https://www.joshwcomeau.com/css/interactive-guide-to-flexbox/)
+- [ ] [CSS 构建](https://developer.mozilla.org/zh-CN/docs/Learn/CSS/Building_blocks)
+- [ ] [WebGL: 2D and 3D graphics for the web - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API)
+
+## Linux 
+- [ ] [Linux Malware: Defense Evasion Techniques ·](https://mutur4.github.io/posts/linux-malware-development/edr/)
+- [ ] [Multi-queue improvements in Linux kernel Ethernet driver mvneta - Bootlin's blog](https://bootlin.com/blog/multi-queue-improvements-in-linux-kernel-ethernet-mvneta/)
 
 ## 杂
 - [ ] [ON THE ELECTRODYNAMICS OF MOVINGBODIES](https://www.physics.umd.edu/courses/Phys606/spring_2011/einstein_electrodynamics_of_moving_bodies.pdf)
@@ -69,3 +80,9 @@ summary: 记录我感兴趣的知识或者说需要细看的内容
 - [ ] [关于 初码先生 某推中典型诡辩论部分的拆解](https://www.kivinsae.com/2023/05/17/2023-05-17-no_sophism/) 
   学习下辩论技巧
 - [ ] [编程警句 130（1-30）](https://seuite.github.io/blog/2019-04/%E7%BC%96%E7%A8%8B%E8%AD%A6%E5%8F%A5-1301-30/) 有趣的句子
+- [x] [In a git repository, where do your files live?](https://jvns.ca/blog/2023/09/14/in-a-git-repository--where-do-your-files-live-/) 易懂而有趣
+- [ ] [Nightmare - Nightmare](https://guyinatuxedo.github.io/index.html)
+- [ ] [记一次有意义的熬夜](https://freemind.pluskid.org/electronics/5x12-keyboard-debugging2/) 机械键盘
+- [ ] [博弈论入门教程——从基本概念到具体案例 @ 编程随想的博客](https://program-think.blogspot.com/2020/11/Game-Theory.html)
+- [ ] [Theorems for free! ](https://dl.acm.org/doi/pdf/10.1145/99370.99404)
+- [ ] [Programming Projects for Advanced Beginners | Robert Heaton](https://robertheaton.com/2018/12/08/programming-projects-for-advanced-beginners/)
