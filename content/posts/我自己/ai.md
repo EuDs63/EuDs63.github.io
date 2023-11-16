@@ -2,13 +2,12 @@
 title: 我看人工智能
 tags:
   - 感想
+  - 感受
 categories:
   - 想法
 date: 2023-02-17T23:46:49+08:00
 summary: 从2022年12月ChatGPT发布后，人工智能，或者更具体地说LLM，将要或者说已经改变了生活。我将在这里记录下我的一些想法。
 ---
-# 我看人工智能
-
 *从2022年12月ChatGPT发布后，人工智能，或者更具体地说LLM，将要或者说已经改变了生活。我将在这里记录下我的一些想法，我其实应该更早地写下这篇，因为我12月份ChatGPT刚出没多久的时候就用上了，但因为懒，一直没写*
 
 ## 2022年12月15日
@@ -32,6 +31,7 @@ summary: 从2022年12月ChatGPT发布后，人工智能，或者更具体地说L
 ## 2023年4月13日
 逛[博客](https://jacobian.org/2022/oct/14/writing-with-copilot/)看到这样一段话
 >I’m still incredibly ambivalent about the ethics of Copilot specifically and the modern crop of AIs (GPT-3, DALL-E, Midjourney, StableDiffusion, Whisper, …) more generally. These systems are as great as they are because they’ve ingested a massive amount of training data without any sort of consent from creators. The fact that nobody working on creating these AIs seems to give a shit about consent gives me hives. I may still become an “AI vegan”. But I’ll likely keep using Copilot for a bit while I grapple with the ethics.
+
 训练用的数据集，我印象中StableDiffusion等图像生成的模型比较受诟病，但对ChatGPT我看到的比较少。想了想，觉得这样的差异也能理解。这篇博文提到的“AI vegan”这个词挺有意思的。
 
 ## 2023年4月16日
@@ -84,3 +84,24 @@ summary: 从2022年12月ChatGPT发布后，人工智能，或者更具体地说L
 能看到这样的局面，而非某一家独步天下真的很棒。
 
 但还是为自己没能用上GPT-4觉得可惜，特别想试试GPT-4宣传片中的多模态模型。
+
+## 2023年10月13日
+最近在打ctf的比赛，因为其中出现的敏感词。“漏洞”，“攻击”等。ai会默认你在干坏事，然后不予回答。
+
+这时候就需要写一些prompt，比如跟它保证自己不是在干坏事，只是为了学习之类的。
+
+写多了自己都觉得逗。似乎是在哄人一样。
+
+发现ChatGPT会比Claude要严格些。
+
+## 2023年10月15日
+这几天自己搭了个qqBot。用的最多的是图片生成。给了我一定的乐子。它给手残的我一种感觉，诶，自己也能“画”出些有趣的图嘛。相比于stable difussion之类的，我只需要输入prompt，等一会，就能得到一张还算不错的图。这种感觉很棒。
+
+但可惜的是：bing这几天大大收紧了对内容的限制。
+
+## 2023年11月9日
+重看了一遍[Writing With Copilot - Jacob Kaplan-Moss](https://jacobian.org/2022/oct/14/writing-with-copilot/)
+
+虽然其他方面我倒是很经常用ai，但我还是不太愿意借由ai进行写作，尤其是在这里。
+
+算是自己的一种坚持吧，具体是为什么，一下子也想不清楚。
