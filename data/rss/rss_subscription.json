@@ -281,6 +281,11 @@
             "html_url": "https://lewky.cn/"
         },
         {
+            "title": "Zgao's blog",
+            "feed_url": "https://zgao.top/feed/",
+            "html_url": "https://zgao.top"
+        },
+        {
             "title": "Zxch3n's Blog",
             "feed_url": "https://www.zxch3n.com/rss.xml",
             "html_url": "https://www.zxch3n.com"
@@ -386,6 +391,16 @@
             "html_url": "https://www.cnblogs.com/nmydt/rss"
         },
         {
+            "title": "博客园 - 果冻迪迪",
+            "feed_url": "https://www.cnblogs.com/guodongdidi/rss",
+            "html_url": "https://www.cnblogs.com/guodongdidi/rss"
+        },
+        {
+            "title": "吃不饱",
+            "feed_url": "https://www.dostarve.xyz/index.php/feed/",
+            "html_url": "https://www.dostarve.xyz"
+        },
+        {
             "title": "土豆不好吃",
             "feed_url": "https://dmesg.app/feed",
             "html_url": "https://dmesg.app"
@@ -461,6 +476,11 @@
             "html_url": "https://www.kuact.com/"
         },
         {
+            "title": "白水房",
+            "feed_url": "https://xlog.whitewater.wang/feed",
+            "html_url": "https://xlog.whitewater.wang"
+        },
+        {
             "title": "竹林里有冰的博客",
             "feed_url": "https://zhul.in/rss.xml",
             "html_url": "https://zhul.in/"
@@ -494,6 +514,11 @@
             "title": "辛未羊的网络日志",
             "feed_url": "https://panqiincs.me/atom.xml",
             "html_url": "https://panqiincs.me/"
+        },
+        {
+            "title": "银河美术馆 Gallery of Galaxy",
+            "feed_url": "https://blog.beautyyu.one/feed",
+            "html_url": "https://blog.beautyyu.one//"
         },
         {
             "title": "青山绿水",
@@ -546,6 +571,6 @@
             "html_url": "https://coolshell.cn"
         }
     ],
-    "last_updated": "2023-11-12",
-    "count": 109
+    "last_updated": "2023-11-19",
+    "count": 114
 }
