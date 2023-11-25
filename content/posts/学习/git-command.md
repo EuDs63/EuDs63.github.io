@@ -1,29 +1,28 @@
 ---
 title: git常用命令
 date: 2023-05-26T13:18:01+08:00
-lastmod: 2023-10-24T13:18:01+08:00
 tags:
   - 记录
   - git
-  - 笔记
 categories:
   - 学习
 summary: a cheatsheet of git commands
 ---
 
+## clone 
+
+可以仅clone单个分支的最新内容
+```bash
+git clone --single-branch --depth 1 --branch "$TARGET_BRANCH" "$GIT_CMD_REPOSITORY" "$CLONE_DIR"
+
+# 
+GIT_CMD_REPOSITORY="https://$DESTINATION_REPOSITORY_USERNAME:$API_TOKEN_GITHUB@$GITHUB_SERVER/$DESTINATION_REPOSITORY_USERNAME/$DESTINATION_REPOSITORY_NAME.git"
+git clone --single-branch --depth 1 "$GIT_CMD_REPOSITORY" "$CLONE_DIR"
+```
+
 ## add 
 - `git add .` 会根据.gitignore做过滤
 - `git add *` 会忽略.gitignore把任何文件都加入
-
-## 常见的提交消息前缀
-- feat：表示新增功能（feature）
-- fix：表示修复问题
-- docs：表示文档更改
-- style：表示代码风格或格式更改，不影响代码的功能。
-- refactor：表示重构代码。
-- test：表示添加或修改测试用例。
-- chore：表示维护性任务。这个前缀用于与构建工具、依赖项、部署等维护性任务相关的提交。
-- perf：表示性能优化。
 
 ## push
 文件推送的三个步骤：
@@ -52,15 +51,25 @@ git push
 - `git log` 查看分支提交历史
 - `git reflog` 也是查看日志，主要区别是会显示`reset --hard`
 
-### 代码回退
+## reset 
 - `git reset HEAD` 撤销上一次的`add`
 - `git reset HEAD ${filename}` 仅撤销某一文件
 - `git reset --hard {commit_id}`
 - `git reset --hard HEAD^ ` 回退到上一版本
 
-### config
+## config
 - `git config --global user.name "Your Name"` 
 - `git config --global user.email "youremail@example.com"`
 - `git config --global --list` 查看配置
 - `git config --global http.proxy 'http://127.0.0.1:7890'`
 - `git config --global https.proxy 'http://127.0.0.1:7890'`
+
+## tag 
+- `git tag` 列出所有已有的标签
+- tag 分为两种：
+  - lightweight tag，例：`git tag v1.0`
+  - annotated tag, 例： `git tag -a v2.0 -m "version 2.0"`
+- ` git tag -d v1.0` 删除标签
+- `git push origin v2.0` 上传标签到远程仓库
+- `git push origin --tags` 上传所有未推送过的本地标签
+- `git fetch origin tag <tagname>` 下载远程仓库的标签
