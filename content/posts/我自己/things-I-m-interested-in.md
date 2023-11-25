@@ -21,6 +21,7 @@ summary: 记录我感兴趣的知识或者说需要细看的内容
 ## 加密
 - [ ] [数字证书及 CA 的扫盲介绍](https://program-think.blogspot.com/2010/02/introduce-digital-certificate-and-ca.html#verify_file)
 - [ ] [GPG 与端到端加密：论什么才是可以信任的](https://jysperm.me/2017/09/gpg-and-e2ee/)
+- [ ] [The Cryptopals Crypto Challenges](https://cryptopals.com/)
 
 ## interpreter
 - [ ] [https://program-think.blogspot.com/2010/02/introduce-digital-certificate-and-ca.html#verify_file](https://ruslanspivak.com/lsbasi-part1/)
@@ -37,6 +38,7 @@ summary: 记录我感兴趣的知识或者说需要细看的内容
 - [ ] [[干货]深入浅出LSTM及其Python代码实现](https://zhuanlan.zhihu.com/p/104475016)
 - [ ] [神经网络浅讲：从神经元到深度学习](https://www.cnblogs.com/subconscious/p/5058741.html)
 - [ ] [博弈论入门教程——从基本概念到具体案例 @ 编程随想的博客](https://program-think.blogspot.com/2020/11/Game-Theory.html)
+- [ ] [Practical Deep Learning for Coders - Practical Deep Learning](https://course.fast.ai/)
 
 ## 博客
 - [x] [GFW之父方滨兴讲座后杂想](https://luolei.org/gfw/)
@@ -70,6 +72,7 @@ summary: 记录我感兴趣的知识或者说需要细看的内容
 ## Linux 
 - [ ] [Linux Malware: Defense Evasion Techniques ·](https://mutur4.github.io/posts/linux-malware-development/edr/)
 - [ ] [Multi-queue improvements in Linux kernel Ethernet driver mvneta - Bootlin's blog](https://bootlin.com/blog/multi-queue-improvements-in-linux-kernel-ethernet-mvneta/)
+- [ ] [The Linux Programming Interface](https://man7.org/tlpi/)
 
 ## 杂
 - [ ] [ON THE ELECTRODYNAMICS OF MOVINGBODIES](https://www.physics.umd.edu/courses/Phys606/spring_2011/einstein_electrodynamics_of_moving_bodies.pdf)
@@ -82,7 +85,10 @@ summary: 记录我感兴趣的知识或者说需要细看的内容
 - [ ] [编程警句 130（1-30）](https://seuite.github.io/blog/2019-04/%E7%BC%96%E7%A8%8B%E8%AD%A6%E5%8F%A5-1301-30/) 有趣的句子
 - [x] [In a git repository, where do your files live?](https://jvns.ca/blog/2023/09/14/in-a-git-repository--where-do-your-files-live-/) 易懂而有趣
 - [ ] [Nightmare - Nightmare](https://guyinatuxedo.github.io/index.html)
-- [ ] [记一次有意义的熬夜](https://freemind.pluskid.org/electronics/5x12-keyboard-debugging2/) 机械键盘
+- [x] [记一次有意义的熬夜](https://freemind.pluskid.org/electronics/5x12-keyboard-debugging2/) 机械键盘
 - [ ] [博弈论入门教程——从基本概念到具体案例 @ 编程随想的博客](https://program-think.blogspot.com/2020/11/Game-Theory.html)
 - [ ] [Theorems for free! ](https://dl.acm.org/doi/pdf/10.1145/99370.99404)
 - [ ] [Programming Projects for Advanced Beginners | Robert Heaton](https://robertheaton.com/2018/12/08/programming-projects-for-advanced-beginners/)
+- [ ] [WebGL2 理论基础](https://webgl2fundamentals.org/webgl/lessons/zh_cn/)
+- [ ] [Redis 设计与实现（第一版） — Redis 设计与实现](https://redisbook.readthedocs.io/en/latest/)
+- [ ] [Go by Example](https://gobyexample.com/)
