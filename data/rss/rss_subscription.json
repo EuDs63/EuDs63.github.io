@@ -292,13 +292,13 @@
         },
         {
             "title": "[Unknown]",
-            "feed_url": "https://s3.laisky.com/public/rss.xml",
-            "html_url": null
+            "feed_url": "https://blog.sina.com.cn/rss/1283569510.xml",
+            "html_url": "https://blog.sina.com.cn/rss/1283569510.xml"
         },
         {
             "title": "[Unknown]",
-            "feed_url": "https://blog.sina.com.cn/rss/1283569510.xml",
-            "html_url": "https://blog.sina.com.cn/rss/1283569510.xml"
+            "feed_url": "https://s3.laisky.com/public/rss.xml",
+            "html_url": null
         },
         {
             "title": "brianmay.com",
@@ -471,6 +471,11 @@
             "html_url": "https://weekly.tw93.fun/"
         },
         {
+            "title": "猫·仁波切",
+            "feed_url": "https://andelf.github.io/feed.xml",
+            "html_url": "https://andelf.github.io/"
+        },
+        {
             "title": "生活不在别处",
             "feed_url": "https://www.kuact.com/index.xml",
             "html_url": "https://www.kuact.com/"
@@ -571,6 +576,6 @@
             "html_url": "https://coolshell.cn"
         }
     ],
-    "last_updated": "2023-11-19",
-    "count": 114
+    "last_updated": "2023-11-26",
+    "count": 115
 }
