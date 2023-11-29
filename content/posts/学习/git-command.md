@@ -10,7 +10,6 @@ summary: a cheatsheet of git commands
 ---
 
 ## clone 
-
 可以仅clone单个分支的最新内容
 ```bash
 git clone --single-branch --depth 1 --branch "$TARGET_BRANCH" "$GIT_CMD_REPOSITORY" "$CLONE_DIR"
@@ -73,3 +72,12 @@ git push
 - `git push origin v2.0` 上传标签到远程仓库
 - `git push origin --tags` 上传所有未推送过的本地标签
 - `git fetch origin tag <tagname>` 下载远程仓库的标签
+
+## commit message type
+- feat：新功能（feature）
+- fix：修补bug
+- docs：文档（documentation）
+- style： 格式（不影响代码运行的变动）
+- refactor：重构（即不是新增功能，也不是修改bug的代码变动）
+- test：增加测试
+- chore：构建过程或辅助工具的变动
