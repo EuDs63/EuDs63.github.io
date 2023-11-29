@@ -16,6 +16,17 @@ summary: a cheatsheet of vim commands
 ### 查找
 - 光标停留在想要查找的单词的任意一个字母上面， 然后输入`Shift` + `*`  ，即可快速选中该单词，并且可以通过 n  或  N 进行上一个或下一个的匹配。
 
+### cmd模式
+  - `:!cmd ` execute a shell command from within Vim
+    - `!gcc %` 编译
+    - `!xxd`  将当前文件转换为十六进制表示并显示在终端中
+    - `%!xxd` 将当前文件的内容通过管道传递给外部命令xxd，并将其输出替换为当前文件的内容
+  - `:set nu` 显示行号
+  - `:set wrap`
+  - `:%!grep execve`
+  - `:%! grep -v ENOENT`
+  - `:%s/term/another_term/g ` 替换
+
 ---
 
 ## 浏览器 vimium

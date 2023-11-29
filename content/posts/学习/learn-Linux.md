@@ -73,7 +73,6 @@ summary: Linux学习笔记
   - `y` 复制选中内容
   - `d` 删除
 - `u` undo
-- 
 
 ## gdb
 - 编译时要带`-g`
