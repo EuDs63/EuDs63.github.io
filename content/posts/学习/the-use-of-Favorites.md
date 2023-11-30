@@ -50,3 +50,16 @@ summary: 收藏夹和JavaScript的结合实现实用小功能
   ```
 - 收藏夹URL
   `javascript:var currentUrl = window.location.href;var neodbUrl = "https://neodb.social/search/?q=";var resultUrl = neodbUrl+currentUrl;window.open(resultUrl,'_self')`
+
+## 屏蔽google地图
+**这条不是书签相关，但看了看只有这里最相关了**
+
+最近（2023年11月30日）用google搜一些比较冷门的结果时，排在前面的一般是些广告。点进去发现是人为添加的google map，应该是利用google对自家产品的搜索优化。虽然有点感慨其聪明才智，但忍了一周还是不堪其扰。
+我目前的解决方法是修改搜索引擎中的url为
+
+`
+{google:baseURL}search?q=+-site:www.google.com/mymaps
++-site:www.google.com/maps+%s&{google:RLZ}{google:originalQueryForSuggestion}{google:assistedQueryStats}{google:searchFieldtrialParameter}{google:iOSSearchLanguage}{google:prefetchSource}{google:searchClient}{google:sourceId}{google:contextualSearchVersion}ie={inputEncoding}{google:baseURL}search?q=%s&{google:RLZ}{google:originalQueryForSuggestion}{google:assistedQueryStats}{google:searchFieldtrialParameter}{google:iOSSearchLanguage}{google:prefetchSource}{google:searchClient}{google:sourceId}{google:contextualSearchVersion}ie={inputEncoding}
+`
+
+这样的代价是会让搜索框变得很丑，但我没找到更好的解决方法，先凑合这样吧。
