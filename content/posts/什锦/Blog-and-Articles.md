@@ -225,3 +225,42 @@ summary: 博客和文章的推荐
   摘录最后一段。
 
   > 希望对编程感兴趣的同学们，想学就学下去，学不进去就休息休息，没有方向就和别人聊聊。付出总有收获，再不济，付出的过程能体验到充实嘛，总比玩了一天无比空虚好
+
+---
+
+- [My Backup Strategy | Tanner's Site](https://tannercollin.com/my-backup-strategy/)
+  
+  > All software used to create and store the backups should be free and open source so I'm not depending on the survival of a company.
+
+    很认同这句。
+
+  > This backup folder is then synced to encrypted 2.5" 1 TB hard drives which I rotate between my bag, offsite, and my parents' house.
+
+  看到这里我笑出声了。因为我读这篇时有一个词一直在我脑中，“两地三中心”。某种概念上是一致的。
+
+  然后突然意识到，一个人所珍视的数据，只要一块1TB的硬盘就能存储得下。有点感慨，但说不上来为什么。
+
+  这篇提到的备份策略蛮有用的，而且距今两年左右，不算太过时。看得我有些心动。
+
+---
+
+- [上海封城笔记](https://blog.laisky.com/p/shanghai-lockdown/)
+
+  有些东西不应该被忘记。
+
+---
+
+- [Why Is SQLite Coded In C](https://www.sqlite.org/whyc.html)
+  
+  编程语言的选择
+
+---
+
+### 2023年12月
+- [欢迎来到20岁](https://woozy.im/articles/welcome-to-20-year-old/)
+  
+  同样是二十岁的年纪，作者的想法比我高多了。并且作者后来还贡献了好几个star数过百的项目，某种角度上确确实实地为人类文明进步做出了贡献。我很佩服。
+
+  >家里蹲的未来是我想避免的, 我所期望的不仅仅是不饿死, 还要过得好. 为了不饿死去干活是出于人类生理的本能, 要过得好而去干活则要心理上强烈的意志. 我的理想可是为人类文明的进步做出贡献
+
+  另外，作者的个人主页[I'M WOOZY](https://woozy.im/)设计得既简约又有趣，我很喜欢。
