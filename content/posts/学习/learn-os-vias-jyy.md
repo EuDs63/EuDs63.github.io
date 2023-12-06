@@ -1,5 +1,6 @@
 ---
 title: 《操作系统：设计与实现》笔记
+slug: learn-os-vias-jyy
 tags:
   - 操作系统
   - 笔记
