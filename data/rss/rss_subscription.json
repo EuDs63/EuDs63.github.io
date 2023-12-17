@@ -101,6 +101,11 @@
             "html_url": "https://blog.bytebytego.com"
         },
         {
+            "title": "CorrectRoad's Blog",
+            "feed_url": "https://correctroadh.github.io/index.xml",
+            "html_url": "https://correctroadh.github.io/"
+        },
+        {
             "title": "Design Scenes",
             "feed_url": "https://fenx.work/rss/",
             "html_url": "https://fenx.work/"
@@ -576,6 +581,6 @@
             "html_url": "https://coolshell.cn"
         }
     ],
-    "last_updated": "2023-12-10",
-    "count": 115
+    "last_updated": "2023-12-17",
+    "count": 116
 }
