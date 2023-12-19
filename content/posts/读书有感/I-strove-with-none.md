@@ -1,16 +1,16 @@
 ---
 title: I Strove with None
+slug: I-strove-with-none
 date: 2023-04-10T20:44:40+08:00
 tags:
   - 摘抄
   - 感想
   - 翻译
+  - 诗词
 categories:
   - 什锦
 summary: 我和谁都不争
 ---
-# I Strove with None
-
 ## 原文    --Walter Landor
 
 I strove with none , 
