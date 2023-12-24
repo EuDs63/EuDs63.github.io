@@ -211,6 +211,11 @@
             "html_url": "https://plumz.me/"
         },
         {
+            "title": "Pockies",
+            "feed_url": "http://pockies.github.io/feed.xml",
+            "html_url": "http://pockies.github.io/"
+        },
+        {
             "title": "Posts on 生活不在别处",
             "feed_url": "https://www.kuact.com/post/index.xml",
             "html_url": "https://www.kuact.com/post/"
@@ -384,6 +389,11 @@
             "title": "余光的部落格",
             "feed_url": "https://idawnlight.com/atom.xml",
             "html_url": "https://idawnlight.com/"
+        },
+        {
+            "title": "博客园 - ChokCoco",
+            "feed_url": "https://www.cnblogs.com/coco1s/rss",
+            "html_url": "https://www.cnblogs.com/coco1s/rss"
         },
         {
             "title": "博客园 - marsggbo",
@@ -581,6 +591,6 @@
             "html_url": "https://coolshell.cn"
         }
     ],
-    "last_updated": "2023-12-17",
-    "count": 116
+    "last_updated": "2023-12-24",
+    "count": 118
 }
