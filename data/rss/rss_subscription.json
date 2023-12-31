@@ -86,6 +86,11 @@
             "html_url": "http://www.makemusic.sg/blog/"
         },
         {
+            "title": "A Cup of Air",
+            "feed_url": "https://acupofair.github.io/index.xml",
+            "html_url": "https://acupofair.github.io/"
+        },
+        {
             "title": "AabyssZG's Blog",
             "feed_url": "https://blog.zgsec.cn/index.php/feed/",
             "html_url": "https://blog.zgsec.cn/"
@@ -302,13 +307,13 @@
         },
         {
             "title": "[Unknown]",
-            "feed_url": "https://blog.sina.com.cn/rss/1283569510.xml",
-            "html_url": "https://blog.sina.com.cn/rss/1283569510.xml"
+            "feed_url": "https://s3.laisky.com/public/rss.xml",
+            "html_url": null
         },
         {
             "title": "[Unknown]",
-            "feed_url": "https://s3.laisky.com/public/rss.xml",
-            "html_url": null
+            "feed_url": "https://blog.sina.com.cn/rss/1283569510.xml",
+            "html_url": "https://blog.sina.com.cn/rss/1283569510.xml"
         },
         {
             "title": "brianmay.com",
@@ -546,6 +551,11 @@
             "html_url": "https://eirms.com"
         },
         {
+            "title": "静かな森",
+            "feed_url": "https://innei.ren/feed",
+            "html_url": "https://innei.in"
+        },
+        {
             "title": "Li.",
             "feed_url": "https://bye-lemon.github.io/atom.xml",
             "html_url": "http://bye-lemon.github.io/"
@@ -591,6 +601,6 @@
             "html_url": "https://coolshell.cn"
         }
     ],
-    "last_updated": "2023-12-24",
-    "count": 118
+    "last_updated": "2023-12-31",
+    "count": 120
 }
