@@ -126,6 +126,11 @@
             "html_url": "http://freemind.pluskid.org"
         },
         {
+            "title": "F叔的学习笔记",
+            "feed_url": "https://flaneur2020.github.io/atom.xml",
+            "html_url": "https://flaneur2020.github.io/atom.xml"
+        },
+        {
             "title": "Grifel",
             "feed_url": "https://grifel.dev/rss.xml",
             "html_url": "https://grifel.dev/"
@@ -314,6 +319,11 @@
             "title": "[Unknown]",
             "feed_url": "https://blog.sina.com.cn/rss/1283569510.xml",
             "html_url": "https://blog.sina.com.cn/rss/1283569510.xml"
+        },
+        {
+            "title": "blog.thea.codes",
+            "feed_url": "https://blog.thea.codes/feed.xml",
+            "html_url": "https://blog.thea.codes"
         },
         {
             "title": "brianmay.com",
@@ -601,6 +611,6 @@
             "html_url": "https://coolshell.cn"
         }
     ],
-    "last_updated": "2023-12-31",
-    "count": 120
+    "last_updated": "2024-01-07",
+    "count": 122
 }
