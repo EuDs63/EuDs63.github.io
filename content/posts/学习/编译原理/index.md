@@ -107,7 +107,7 @@ until (∀𝑋 ∈ 𝑉_𝑁, 𝐹𝐼𝑅𝑆𝑇(𝑋) unchanged);
 #### 要点
 1. Place $ in 𝐹𝑂𝐿𝐿𝑂𝑊(𝑆), where 𝑆 is the start symbol and $ is the input right end-marker.
 2. If there is 𝐴 → αB𝛽 in 𝐺, then add (𝐹𝐼𝑅𝑆𝑇(𝛽) −{𝜀}) to 𝐹𝑂𝐿𝐿𝑂𝑊(𝐵). (看有弟弟妹妹的非终结符)
-3. If there is A →αB, or A→αB𝛽 where FIRST(𝛽) contains 𝜀，then add FOLLOW(A) to FOLLOW(B). (看住在最右边上的非终结符)
+3. If there is A →αB, then add FOLLOW(A) to FOLLOW(B). (看住在最右边上的非终结符)
 4. If there is A→αB𝛽 where FIRST(𝛽) contains 𝜀，then add FOLLOW(A) to FOLLOW(B). (看不住在最右边，但实际可能暴露在最右边的非终结符)
 
 #### 示例
