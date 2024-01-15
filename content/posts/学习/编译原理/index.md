@@ -20,7 +20,7 @@ summary: 编译原理复习笔记
 ![将有ε产生式的上下文无关文法转化为无ε产生式的上下文无关文法的算法](2024-01-12-22-29-06.png)
 
 - 示例：
-![将有ε产生式的上下文无关文法转化为无ε产生式的上下文无关文法的示例](./2024-01-12-22-31-55.png)
+![将有ε产生式的上下文无关文法转化为无ε产生式的上下文无关文法的示例](2024-01-12-22-31-55.png)
 
 ### construct context-free grammars with ε-free production 
 1. 画状态转换图
@@ -34,22 +34,22 @@ summary: 编译原理复习笔记
 ## 第三章
 ### DFA (Deterministic Finite Automata)
 - 定义 
-![DFA定义](./2023-11-01-00-41-25.png)
+![DFA定义](2023-11-01-00-41-25.png)
 - 特点：
   - no state has an 𝜖-transition(没有𝜖边)
   - for each state 𝑠 and input symbol 𝑎, there is at most one edge labeled 𝑎 leaving 𝑠(每个字符最多一条出边)
 
 ### Regular Expression → NFA
 Thompson’s Construction Rules
-![Thompson’s Construction Rules](./2023-11-01-00-18-14.png)
+![Thompson’s Construction Rules](2023-11-01-00-18-14.png)
 
 ### NFA -> DFA (P153)
 - 算法：**"分身"**
 
-![DFA](./2023-11-01-00-52-27.png)
+![DFA](2023-11-01-00-52-27.png)
 
 - 示例：
-![NFA->DFA示例](./2023-11-01-00-49-41.png)
+![NFA->DFA示例](2023-11-01-00-49-41.png)
 
 ### Minimizing the Number of States of a DFA
 1. Construct an initial partition ∏ of the set of states with two groups: the accepting states F and the non-accepting states 𝑆 − 𝐹. Π＝{𝐼0<sup>1</sup>,𝐼0<sup>2</sup>}（初始化）
@@ -63,13 +63,13 @@ Thompson’s Construction Rules
 ## 第四章 
 ### Elimination of Left Recursion
 1. Elimination of Immediate Left Recursion（消立即左递归）
-![消立即左递归的方法](./2024-01-12-22-37-49.png)
+![消立即左递归的方法](2024-01-12-22-37-49.png)
 
 2. Elimination of Indirect Left Recursion （消间接左递归）
    - 算法：
-   ![消间接左递归的算法](./2024-01-12-22-45-12.png)
+   ![消间接左递归的算法](2024-01-12-22-45-12.png)
    - 示例：
-   ![消间接左递归的示例](./2024-01-13-10-29-57.png)
+   ![消间接左递归的示例](2024-01-13-10-29-57.png)
 
 ### Extract maximum common left factors
 Change productions like 
@@ -81,7 +81,7 @@ Where, 𝛿 is the longest prefix of the alternatives of A
 
 ### 求FIRST
 #### FIRST 
-![FIRST](./2024-01-13-11-02-10.png)
+![FIRST](2024-01-13-11-02-10.png)
 
 #### 𝐸𝑣𝑎𝑙_𝐹𝐼𝑅𝑆𝑇(𝑌<sub>1</sub>𝑌<sub>2</sub> … 𝑌<sub>k</sub>)
 - If 𝑋 is terminal, then 𝐹𝐼𝑅𝑆𝑇(𝑋) = {𝑋}.
@@ -111,8 +111,8 @@ until (∀𝑋 ∈ 𝑉_𝑁, 𝐹𝐼𝑅𝑆𝑇(𝑋) unchanged);
 4. If there is A→αB𝛽 where FIRST(𝛽) contains 𝜀，then add FOLLOW(A) to FOLLOW(B). (看不住在最右边，但实际可能暴露在最右边的非终结符)
 
 #### 示例
-![求FOLLOW示例1](./2024-01-13-13-57-03.png)
-![求FOLLOW示例2](./2024-01-13-13-57-31.png)
+![求FOLLOW示例1](2024-01-13-13-57-03.png)
+![求FOLLOW示例2](2024-01-13-13-57-31.png)
 
 ### 求Predictive Parsing Table 
 - Input: Grammar 𝐺.
@@ -148,14 +148,14 @@ until (∀𝑋 ∈ 𝑉_𝑁, 𝐹𝐼𝑅𝑆𝑇(𝑋) unchanged);
   4. All entries not defined by rules 2 and 3 are made “error”
   5. The initial state of the parser is the one constructed from the set of items containing `[𝑆′→∙ 𝑆, $]`.
 - 示例
-![LR(1) Parsing Tables示例1](./2024-01-13-17-04-53.png)
-![LR(1) Parsing Tables示例2](./2024-01-13-17-05-19.png)
+![LR(1) Parsing Tables示例1](2024-01-13-17-04-53.png)
+![LR(1) Parsing Tables示例2](2024-01-13-17-05-19.png)
 
 ---
 
 ## 第五章
 ### Annotated parse tree
-![Annotated parse tree](./2024-01-14-10-39-23.png)
+![Annotated parse tree](2024-01-14-10-39-23.png)
 
 ### Synthesized Attributes
 Each grammar production 𝐴 → 𝛼 has associated with it a set of semantic rules of the form 𝑏 =𝑓(𝑐1, 𝑐2, … . , 𝑐𝑘), 𝑓 is a function.
@@ -168,8 +168,8 @@ For production 𝐴 → 𝛼 and its associated semantic rule of the form 𝑏 =
 If 𝑏 is an inherited attribute of one of the grammar symbols on the right side of the production, then 𝑐1, 𝑐2, … , 𝑐𝑘 are attributes belonging to the grammar symbols of the production.
 
 ### 题
-![第五章题示例](./2024-01-14-13-55-35.png)
-![第五章题示例解答](./2024-01-14-13-56-03.png)
+![第五章题示例](2024-01-14-13-55-35.png)
+![第五章题示例解答](2024-01-14-13-56-03.png)
 
 ---
 
@@ -193,7 +193,7 @@ If 𝑏 is an inherited attribute of one of the grammar symbols on the right sid
 - Position Numbers(语句序号): 严格编号
 
 ### Quadruples
-![Quadruples](./2024-01-14-17-27-26.png)
+![Quadruples](2024-01-14-17-27-26.png)
 - Conditional and unconditional jumps put the target label in 𝑟𝑒𝑠𝑢𝑙𝑡. 
 
 ### Translate the program fragment into three-address code
