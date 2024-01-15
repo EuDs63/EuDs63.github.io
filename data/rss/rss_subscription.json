@@ -196,6 +196,11 @@
             "html_url": "https://blog.maxxsoft.net/"
         },
         {
+            "title": "MeteorCollector",
+            "feed_url": "https://meteorcollector.github.io//feed.xml",
+            "html_url": "https://meteorcollector.github.io//"
+        },
+        {
             "title": "No Headback",
             "feed_url": "http://xargin.com/rss/",
             "html_url": "http://xargin.com/"
@@ -214,6 +219,11 @@
             "title": "Panda Home",
             "feed_url": "https://old-panda.com/feed/",
             "html_url": "https://old-panda.com"
+        },
+        {
+            "title": "Personal Site of Shengxin Li",
+            "feed_url": "https://mike3090.github.io/index.xml",
+            "html_url": "https://mike3090.github.io/"
         },
         {
             "title": "Plum's Blog",
@@ -521,6 +531,11 @@
             "html_url": "https://zhul.in/"
         },
         {
+            "title": "简单的小站",
+            "feed_url": "https://wangyw15.top/index.xml",
+            "html_url": "https://wangyw15.top/"
+        },
+        {
             "title": "罗磊的独立博客",
             "feed_url": "https://luolei.org/feed/",
             "html_url": "https://luolei.org/"
@@ -611,6 +626,6 @@
             "html_url": "https://coolshell.cn"
         }
     ],
-    "last_updated": "2024-01-07",
-    "count": 122
+    "last_updated": "2024-01-14",
+    "count": 125
 }
