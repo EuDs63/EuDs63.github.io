@@ -174,6 +174,10 @@ If 𝑏 is an inherited attribute of one of the grammar symbols on the right sid
 ---
 
 ## 第六章
+### Symbolic Labels vs. Position Numbers
+- Symbolic Labels(语句标号)： 类比昵称
+- Position Numbers(语句序号): 严格编号
+  
 ### Three-address Code (TAC)
 - A sequence of statements of the general form `𝑥 = 𝑦 𝑜𝑝 z`
 - An address can be one of the following
@@ -188,13 +192,26 @@ If 𝑏 is an inherited attribute of one of the grammar symbols on the right sid
   5. A conditional jump
   6. ......
 
-### Symbolic Labels vs. Position Numbers
-- Symbolic Labels(语句标号)： 类比昵称
-- Position Numbers(语句序号): 严格编号
-
 ### Quadruples
 ![Quadruples](2024-01-14-17-27-26.png)
 - Conditional and unconditional jumps put the target label in 𝑟𝑒𝑠𝑢𝑙𝑡. 
+
+### Short-Circuit
+#### Short-Circuit (or jumping) Code of Boolean Expressions
+1. B1 || B2
+```
+if B1 goto B.true 
+goto B1.false 
+B1.false: if B2 goto B.true 
+          goto B.false 
+```
+2. B1 && B2 
+```
+if B1 goto B1.true 
+goto B.false 
+B1.true: if B2 goto B.true 
+         goto B.false 
+```
 
 ### Translate the program fragment into three-address code
 - 例题
