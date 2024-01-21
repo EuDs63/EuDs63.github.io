@@ -156,6 +156,11 @@
             "html_url": "https://www.jungley.net/"
         },
         {
+            "title": "Just My Simple Life",
+            "feed_url": "https://chils27.wordpress.com/feed/",
+            "html_url": "https://chils27.wordpress.com"
+        },
+        {
             "title": "Kivinsae's Nest",
             "feed_url": "https://www.kivinsae.com/atom.xml",
             "html_url": "https://www.kivinsae.com/"
@@ -276,6 +281,11 @@
             "html_url": "https://www.sulvblog.cn/"
         },
         {
+            "title": "TL;DR",
+            "feed_url": "https://mazzzystar.github.io/atom.xml",
+            "html_url": "https://mazzzystar.github.io/"
+        },
+        {
             "title": "TheCollector",
             "feed_url": "https://www.thecollector.com/rss",
             "html_url": "https://www.thecollector.com"
@@ -386,6 +396,11 @@
             "html_url": "https://ximu.xlog.app"
         },
         {
+            "title": "zmt",
+            "feed_url": "https://zmt.pub/feed/",
+            "html_url": "https://zmt.pub"
+        },
+        {
             "title": "zu1k",
             "feed_url": "https://zu1k.com/rss.xml",
             "html_url": "https://zu1k.com/"
@@ -481,6 +496,11 @@
             "html_url": "http://weiwuhui.com"
         },
         {
+            "title": "文章 - 硬盘在歌唱 on 硬盘在歌唱",
+            "feed_url": "https://disksing.com/post/index.xml",
+            "html_url": "http://disksing.com/post/"
+        },
+        {
             "title": "春水煎茶",
             "feed_url": "https://writings.sh/feed.xml",
             "html_url": "https://writings.sh/"
@@ -504,6 +524,11 @@
             "title": "浣心",
             "feed_url": "https://blog.loikein.one/index.xml",
             "html_url": "https://blog.loikein.one/"
+        },
+        {
+            "title": "游戏程序员的自我修养",
+            "feed_url": "https://neil3d.github.io/rss-feed.xml",
+            "html_url": "https://neil3d.github.io"
         },
         {
             "title": "潮流周刊",
@@ -626,6 +651,6 @@
             "html_url": "https://coolshell.cn"
         }
     ],
-    "last_updated": "2024-01-14",
-    "count": 125
+    "last_updated": "2024-01-21",
+    "count": 130
 }
