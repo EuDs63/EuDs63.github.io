@@ -256,6 +256,11 @@
             "html_url": "https://qiwihui.com/"
         },
         {
+            "title": "Richard Stallman's Political Notes",
+            "feed_url": "https://stallman.org/rss/rss.xml",
+            "html_url": "https://stallman.org/archives/polnotes.html"
+        },
+        {
             "title": "Shaleen Jain",
             "feed_url": "https://shaleenjain.com/atom.xml",
             "html_url": "https://shaleenjain.com"
@@ -332,13 +337,13 @@
         },
         {
             "title": "[Unknown]",
-            "feed_url": "https://s3.laisky.com/public/rss.xml",
-            "html_url": null
+            "feed_url": "https://blog.sina.com.cn/rss/1283569510.xml",
+            "html_url": "https://blog.sina.com.cn/rss/1283569510.xml"
         },
         {
             "title": "[Unknown]",
-            "feed_url": "https://blog.sina.com.cn/rss/1283569510.xml",
-            "html_url": "https://blog.sina.com.cn/rss/1283569510.xml"
+            "feed_url": "https://s3.laisky.com/public/rss.xml",
+            "html_url": null
         },
         {
             "title": "blog.thea.codes",
@@ -384,6 +389,11 @@
             "title": "rxliuli blog",
             "feed_url": "https://blog.rxliuli.com/atom.xml",
             "html_url": "https://blog.rxliuli.com/"
+        },
+        {
+            "title": "tonsky.me",
+            "feed_url": "https://tonsky.me/atom.xml",
+            "html_url": "https://tonsky.me/"
         },
         {
             "title": "walterlv",
@@ -451,6 +461,11 @@
             "html_url": "https://www.cnblogs.com/guodongdidi/rss"
         },
         {
+            "title": "叁叁得久",
+            "feed_url": "https://blogatlarge.com/chicaho/?feed=rss2",
+            "html_url": "https://blogatlarge.com/chicaho"
+        },
+        {
             "title": "吃不饱",
             "feed_url": "https://www.dostarve.xyz/index.php/feed/",
             "html_url": "https://www.dostarve.xyz"
@@ -499,6 +514,11 @@
             "title": "文章 - 硬盘在歌唱 on 硬盘在歌唱",
             "feed_url": "https://disksing.com/post/index.xml",
             "html_url": "http://disksing.com/post/"
+        },
+        {
+            "title": "新世界的大门",
+            "feed_url": "https://blog.xinshijiededa.men/atom.xml",
+            "html_url": "https://blog.xinshijiededa.men/"
         },
         {
             "title": "春水煎茶",
@@ -651,6 +671,6 @@
             "html_url": "https://coolshell.cn"
         }
     ],
-    "last_updated": "2024-01-21",
-    "count": 130
+    "last_updated": "2024-01-28",
+    "count": 134
 }
