@@ -266,6 +266,11 @@
             "html_url": "https://shaleenjain.com"
         },
         {
+            "title": "ShrekShao",
+            "feed_url": "http://shrekshao.github.io/feed.xml",
+            "html_url": "http://shrekshao.github.io/"
+        },
+        {
             "title": "Skywind Inside",
             "feed_url": "https://www.skywind.me/blog/feed",
             "html_url": "https://www.skywind.me/blog"
@@ -337,13 +342,13 @@
         },
         {
             "title": "[Unknown]",
-            "feed_url": "https://blog.sina.com.cn/rss/1283569510.xml",
-            "html_url": "https://blog.sina.com.cn/rss/1283569510.xml"
+            "feed_url": "https://s3.laisky.com/public/rss.xml",
+            "html_url": null
         },
         {
             "title": "[Unknown]",
-            "feed_url": "https://s3.laisky.com/public/rss.xml",
-            "html_url": null
+            "feed_url": "https://blog.sina.com.cn/rss/1283569510.xml",
+            "html_url": "https://blog.sina.com.cn/rss/1283569510.xml"
         },
         {
             "title": "blog.thea.codes",
@@ -671,6 +676,6 @@
             "html_url": "https://coolshell.cn"
         }
     ],
-    "last_updated": "2024-01-28",
-    "count": 134
+    "last_updated": "2024-02-04",
+    "count": 135
 }
