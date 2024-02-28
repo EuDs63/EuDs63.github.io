@@ -44,6 +44,7 @@ summary: 聪明的程序员也是懒程序员
 5. 发现[nkoppel/push-files-to-another-repository](https://github.com/nkoppel/push-files-to-another-repository)的文档写得不全，甚至有误，而作者似乎也不再维护。但好在代码不长，于是读源码然后自己进行修改。我主要做了两个修改：
    - 原本的代码不支持私有仓库，会报错：
    >fatal: could not read Username for 'https://github.com': No such device or address
+
    改成`git clone "https://$API_TOKEN_GITHUB@github.com/$GITHUB_REPOSITORY.git" repo`就好了。
    - 原本的代码不支持相对路径，我改成了
     ```bash
@@ -61,7 +62,7 @@ summary: 聪明的程序员也是懒程序员
     ```
 
 ## 碎碎念
-这个需求其实我很早就有了，而且思路也很清晰，但一直拖到了现在，而且还是踩了不少坑。写这篇的时候总是想起某位老师的“聪明的程序员也是懒程序员”，我自知并不聪明，但尽量向这个道路走去。
+这个需求其实我很早就有了，实现的思路也很清晰。但一直拖到了现在，而且还是踩了不少坑。写这篇的时候总是想起某位老师的“聪明的程序员也是懒程序员”，我自知并不聪明，但尽量向这个道路走去。
 
 ## 参考
 - [git diff获取差异文件名显示中文乱码的解决办法_git diff获取差异文件中文乱码的解决办法-CSDN博客](https://blog.csdn.net/hanlizhong85/article/details/80642571)
