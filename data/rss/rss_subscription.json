@@ -211,6 +211,11 @@
             "html_url": "http://xargin.com/"
         },
         {
+            "title": "Normal Mode",
+            "feed_url": "https://normalmo.de/index.xml",
+            "html_url": "https://normalmo.de/"
+        },
+        {
             "title": "OhYee 博客",
             "feed_url": "https://www.ohyee.cc/rss.xml",
             "html_url": "https://www.ohyee.cc"
@@ -606,6 +611,11 @@
             "html_url": "https://lruihao.cn/"
         },
         {
+            "title": "西绪福斯的神话",
+            "feed_url": "https://blogatlarge.com/camus/?feed=rss2",
+            "html_url": "https://blogatlarge.com/camus"
+        },
+        {
             "title": "贤民的博客",
             "feed_url": "https://www.xianmin.org/index.xml",
             "html_url": "https://www.xianmin.org/"
@@ -676,6 +686,6 @@
             "html_url": "https://coolshell.cn"
         }
     ],
-    "last_updated": "2024-02-25",
-    "count": 135
+    "last_updated": "2024-03-03",
+    "count": 137
 }
