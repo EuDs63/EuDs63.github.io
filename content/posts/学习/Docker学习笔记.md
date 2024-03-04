@@ -92,6 +92,7 @@ Docker官方仓库域名被墙，国内已无法正常访问。
 
 ## 容器逃逸
 - [容器逃逸常用方法-云社区-华为云](https://bbs.huaweicloud.com/blogs/278683)
+- [CVE-2024-21626 从容器内逃逸到宿主机文件系统 | 卡瓦邦噶！](https://www.kawabangga.com/posts/5785)
 
 ## 原理
 - [Docker (容器) 的原理 | 卡瓦邦噶！](https://www.kawabangga.com/posts/4224)
