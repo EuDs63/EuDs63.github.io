@@ -8,7 +8,7 @@ tags:
   - web
 categories:
   - 学习
-summary: docker pull learn
+summary: Thinking in React
 --- 
 
 ## 2023年9月12日
@@ -107,9 +107,37 @@ summary: docker pull learn
 
   解决方法很简单，只需将useEffect调用移动到组件的顶层，并使用条件语句来决定是否执行其内部的逻辑即可。
 
+- [Render and Commit – React](https://react.dev/learn/render-and-commit)
+  - Process of requesting and serving UI has three steps:
+    1. Triggering a render
+    2. Rendering
+    3. Committing to the DOM 
+  - Two reasons for a component to render:
+    1. It’s the component’s initial render.
+    2. The component’s (or one of its ancestors’) state has been updated.
+
+## 2024年3月5日
+- [Developer Way: The mystery of React Element, children, parents and re-renders](https://www.developerway.com/posts/react-elements-children-parents) 
+
+- [Developer Way: React components composition: how to get it right](https://www.developerway.com/posts/components-composition-how-to-get-it-right)
+  - The core React development and decomposition rules:
+    1. always start implementation from the top
+    2. extract components only when there is an actual need for it
+    3. always start from “simple” components, introduce other composition techniques only when there is an actual need for them
+  - A component should be described either as a “component that implements various stuff” or as a “component that composes various components together”, not both.
+  - Extract Container components when there is a need to share some visual or behavioural logic that wraps elements that still need to be under “consumer” control
+  - What makes a good component?
+    1. 易读
+    2. 命名清晰准确
+    3.  doesn’t do things that are irrelevant to its declared purpose
+
+
+
 ## 参考
 - [为什么你不应该在 React 中直接使用 useEffect 从 API 获取数据 | Sukka's Blog](https://blog.skk.moe/post/why-you-should-not-fetch-data-directly-in-use-effect/)
 - [javascript - Uncaught Invariant Violation: Rendered more hooks than during the previous render - Stack Overflow](https://stackoverflow.com/questions/55622768/uncaught-invariant-violation-rendered-more-hooks-than-during-the-previous-rende)
 - [Jotai, primitive and flexible state management for React](https://jotai.org/)
 - [真的不可以在 React 组件内部嵌套定义子组件吗？ - PRIN BLOG](https://prin.pw/react-unstable-nested-components/)
 - [useCallback – React](https://react.dev/reference/react/useCallback)
+- [React 为什么重新渲染 | Sukka's Blog](https://blog.skk.moe/post/react-re-renders-101/)
+- [Render and Commit – React](https://react.dev/learn/render-and-commit)
