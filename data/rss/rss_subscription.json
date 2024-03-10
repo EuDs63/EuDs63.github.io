@@ -116,6 +116,11 @@
             "html_url": "https://fenx.work/"
         },
         {
+            "title": "Developer Way: improve your technical skills with in-depth explanations, practical advices and useful tips and tricks.",
+            "feed_url": "https://www.developerway.com/rss.xml",
+            "html_url": "https://www.developerway.com"
+        },
+        {
             "title": "EuDs's Blog",
             "feed_url": "https://ds63.eu.org/index.xml",
             "html_url": "https://ds63.eu.org/"
@@ -296,6 +301,11 @@
             "html_url": "https://www.sulvblog.cn/"
         },
         {
+            "title": "TARESKY",
+            "feed_url": "https://taresky.com/feed.xml",
+            "html_url": "https://taresky.com/"
+        },
+        {
             "title": "TL;DR",
             "feed_url": "https://mazzzystar.github.io/atom.xml",
             "html_url": "https://mazzzystar.github.io/"
@@ -379,6 +389,11 @@
             "title": "kekxv 技术博客",
             "feed_url": "https://kekxv.github.io/feed.xml",
             "html_url": "http://kekxv.github.io/"
+        },
+        {
+            "title": "laike9m's blog",
+            "feed_url": "https://laike9m.com/blog/rss/",
+            "html_url": "https://laike9m.com/blog/rss"
         },
         {
             "title": "mrchi 的博客",
@@ -471,6 +486,11 @@
             "html_url": "https://www.cnblogs.com/guodongdidi/rss"
         },
         {
+            "title": "卡瓦邦噶！",
+            "feed_url": "https://www.kawabangga.com/feed",
+            "html_url": "https://www.kawabangga.com"
+        },
+        {
             "title": "叁叁得久",
             "feed_url": "https://blogatlarge.com/chicaho/?feed=rss2",
             "html_url": "https://blogatlarge.com/chicaho"
@@ -504,6 +524,11 @@
             "title": "岁寒",
             "feed_url": "https://lvwenhan.com/rss.php",
             "html_url": "https://lvwenhan.com/"
+        },
+        {
+            "title": "我的小米粥分你一半",
+            "feed_url": "https://corvo.myseu.cn/atom.xml",
+            "html_url": "https://corvo.myseu.cn/"
         },
         {
             "title": "戴兜的小屋",
@@ -581,6 +606,11 @@
             "html_url": "https://xlog.whitewater.wang"
         },
         {
+            "title": "离别歌",
+            "feed_url": "https://www.leavesongs.com/feed/",
+            "html_url": "https://www.leavesongs.com"
+        },
+        {
             "title": "竹林里有冰的博客",
             "feed_url": "https://zhul.in/rss.xml",
             "html_url": "https://zhul.in/"
@@ -629,6 +659,11 @@
             "title": "银河美术馆 Gallery of Galaxy",
             "feed_url": "https://blog.beautyyu.one/feed",
             "html_url": "https://blog.beautyyu.one//"
+        },
+        {
+            "title": "雨探青鸟",
+            "feed_url": "https://lmzyoyo.top/atom.xml",
+            "html_url": "https://lmzyoyo.top"
         },
         {
             "title": "青山绿水",
@@ -686,6 +721,6 @@
             "html_url": "https://coolshell.cn"
         }
     ],
-    "last_updated": "2024-03-03",
-    "count": 137
+    "last_updated": "2024-03-10",
+    "count": 144
 }
