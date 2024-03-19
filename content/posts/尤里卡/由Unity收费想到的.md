@@ -1,5 +1,6 @@
 ---
 title: 由Unity收费想到的
+slug: reason-for-boycott-Unity
 tags:
   - 感想
   - 开源
@@ -48,12 +49,15 @@ Unity的收费标准对于person和Enterprise是有区别的，而且相当大�
 
 ### 个人制作者
 [Unity Ruined Their Game Engine Forever](https://www.youtube.com/watch?v=1jKVt98fgEY)里举了这样一个例子：
+
 有些独立游戏开发者制作了一些小游戏，下载量高达数百万，但游戏中的广告系统或者收费内容没办法cover所需要支付的安装费，那就会变成一个很荒谬的情况：因为游戏受欢迎而破产。
 
 ## 引申
-[Unity Ruined Their Game Engine Forever](https://www.youtube.com/watch?v=1jKVt98fgEY)里还有一句我很喜欢"the beauty of Open Source is it's not run by one scumbag company that can absolutely decide to bring this any time day in shape you can just download this engine and start working on your project.
+[Unity Ruined Their Game Engine Forever](https://www.youtube.com/watch?v=1jKVt98fgEY)里还有一句我很喜欢:
 
-这里我就想到GNU和自由软件运动，太美妙了，太高瞻远瞩了。
+>the beauty of Open Source is it's not run by one scumbag company that can absolutely decide to bring this any time day in shape you can just download this engine and start working on your project.
+
+这里我就想到GNU和自由软件运动，高瞻远瞩了。
 
 ## 我的收获
 我并不是一个游戏开发者，只是一个臭打游戏的，一个还没有真正踏进社会的学生。
