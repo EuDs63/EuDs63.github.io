@@ -1,7 +1,7 @@
 ---
 title: SAP VT项目面试记录
+slug: sap-experience
 date: 2023-11-16T17:04:55+08:00
-lastmod: 2023-11-16T17:04:55+08:00
 tags:
   - 记录
   - 面试
