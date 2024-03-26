@@ -377,13 +377,13 @@
         },
         {
             "title": "[Unknown]",
-            "feed_url": "https://s3.laisky.com/public/rss.xml",
-            "html_url": null
+            "feed_url": "https://blog.sina.com.cn/rss/1283569510.xml",
+            "html_url": "https://blog.sina.com.cn/rss/1283569510.xml"
         },
         {
             "title": "[Unknown]",
-            "feed_url": "https://blog.sina.com.cn/rss/1283569510.xml",
-            "html_url": "https://blog.sina.com.cn/rss/1283569510.xml"
+            "feed_url": "https://s3.laisky.com/public/rss.xml",
+            "html_url": null
         },
         {
             "title": "blog.thea.codes",
@@ -476,6 +476,11 @@
             "html_url": "https://rehoni.github.io/cn/"
         },
         {
+            "title": "云游君的小站",
+            "feed_url": "https://www.yunyoujun.cn/atom.xml",
+            "html_url": "https://www.yunyoujun.cn/"
+        },
+        {
             "title": "云风的 BLOG",
             "feed_url": "https://blog.codingnow.com/atom.xml",
             "html_url": "https://blog.codingnow.com/"
@@ -484,6 +489,11 @@
             "title": "余光的部落格",
             "feed_url": "https://idawnlight.com/atom.xml",
             "html_url": "https://idawnlight.com/"
+        },
+        {
+            "title": "前端小武的博客",
+            "feed_url": "https://xuexb.com/rss.html",
+            "html_url": "https://xuexb.com"
         },
         {
             "title": "博客园 - ChokCoco",
@@ -741,6 +751,6 @@
             "html_url": "https://coolshell.cn"
         }
     ],
-    "last_updated": "2024-03-17",
-    "count": 148
+    "last_updated": "2024-03-24",
+    "count": 150
 }
