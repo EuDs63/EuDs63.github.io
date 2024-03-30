@@ -25,9 +25,9 @@ summary: Long may the Free Software Movement!
 1. Unity已经有相关的收费：Unity Plus、Unity Pro	等等
 2. 新的收费内容是按照New installs per month进行收费，这个我觉得很不合理。
    - 如何知道用户安装了几次
-   - 如何确保有人恶意安装，导致开发人员蒙受不必要的损失。
+   - 如何防止恶意安装导致开发人员蒙受不必要的损失事件的发生。
 
-## 游戏开发人员
+## 游戏开发人员的观点
 Unity的收费标准对于person和Enterprise是有区别的，而且相当大。person是$0.2 per new install,而Enterprise甚至可以低到$0.01。所以我也分开来调查。
 
 ### 有一定体量的公司
