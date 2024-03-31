@@ -151,6 +151,11 @@
             "html_url": "https://grifel.dev/"
         },
         {
+            "title": "Huli's blog",
+            "feed_url": "https://life.huli.tw/atom.xml",
+            "html_url": "https://life.huli.tw/"
+        },
+        {
             "title": "Joel on Software",
             "feed_url": "https://www.joelonsoftware.com/feed/",
             "html_url": "https://www.joelonsoftware.com"
@@ -254,6 +259,11 @@
             "title": "Personal Site of Shengxin Li",
             "feed_url": "https://mike3090.github.io/index.xml",
             "html_url": "https://mike3090.github.io/"
+        },
+        {
+            "title": "Pig Fang",
+            "feed_url": "https://blog.gplane.win/atom.xml",
+            "html_url": "https://blog.gplane.win/"
         },
         {
             "title": "Plum's Blog",
@@ -377,13 +387,13 @@
         },
         {
             "title": "[Unknown]",
-            "feed_url": "https://blog.sina.com.cn/rss/1283569510.xml",
-            "html_url": "https://blog.sina.com.cn/rss/1283569510.xml"
+            "feed_url": "https://s3.laisky.com/public/rss.xml",
+            "html_url": null
         },
         {
             "title": "[Unknown]",
-            "feed_url": "https://s3.laisky.com/public/rss.xml",
-            "html_url": null
+            "feed_url": "https://blog.sina.com.cn/rss/1283569510.xml",
+            "html_url": "https://blog.sina.com.cn/rss/1283569510.xml"
         },
         {
             "title": "blog.thea.codes",
@@ -544,6 +554,11 @@
             "title": "好好学习的郝",
             "feed_url": "https://www.voidking.com/atom.xml",
             "html_url": "https://www.voidking.com/"
+        },
+        {
+            "title": "小霖的梦花园",
+            "feed_url": "https://www.xiaolin.in/rss2.xml",
+            "html_url": "https://www.xiaolin.in/"
         },
         {
             "title": "尚弟的小笔记",
@@ -751,6 +766,6 @@
             "html_url": "https://coolshell.cn"
         }
     ],
-    "last_updated": "2024-03-24",
-    "count": 150
+    "last_updated": "2024-03-31",
+    "count": 153
 }
