@@ -89,6 +89,7 @@ summary: Thinking in React
    2. `useCallback` caches a **function** between re-renders until its dependencies change
    3. usage:Skipping re-rendering of components
    4. `useMemo` caches the **result** of calling your function
+   5. The only benefit to `useCallback` is that it lets you avoid writing an extra nested function inside. It doesn’t do anything else.
 - [真的不可以在 React 组件内部嵌套定义子组件吗？ - PRIN BLOG](https://prin.pw/react-unstable-nested-components/)
   - 永远不要在 React 组件内部嵌套定义子组件。
   - 「渲染函数」和「函数组件」的区别:
@@ -99,7 +100,7 @@ summary: Thinking in React
       5. 渲染函数命名一般以 render 开头，首字母小写（否则容易和组件搞混）
       6. 调用方式
   - [shuding/tilg: A magical React Hook that helps you debug components.](https://github.com/shuding/tilg)可以用来展示组件生命周期。
-- 报错：`"useEffect` is called conditionally
+- 报错：`useEffect` is called conditionally
   
   完整报错如下:
 
@@ -108,6 +109,9 @@ summary: Thinking in React
   解决方法很简单，只需将useEffect调用移动到组件的顶层，并使用条件语句来决定是否执行其内部的逻辑即可。
 
 - [Render and Commit – React](https://react.dev/learn/render-and-commit)
+  - 在 React 中，每次更新都分为 两个阶段：
+    1. 在 渲染 阶段， React 调用你的组件来确定屏幕上应该显示什么。
+    2. 在 提交 阶段， React 把变更应用于 DOM。
   - Process of requesting and serving UI has three steps:
     1. Triggering a render
     2. Rendering
@@ -117,8 +121,6 @@ summary: Thinking in React
     2. The component’s (or one of its ancestors’) state has been updated.
 
 ## 2024年3月5日
-- [Developer Way: The mystery of React Element, children, parents and re-renders](https://www.developerway.com/posts/react-elements-children-parents) 
-
 - [Developer Way: React components composition: how to get it right](https://www.developerway.com/posts/components-composition-how-to-get-it-right)
   - The core React development and decomposition rules:
     1. always start implementation from the top
@@ -131,6 +133,96 @@ summary: Thinking in React
     2. 命名清晰准确
     3.  doesn’t do things that are irrelevant to its declared purpose
 
+## 2024年3月6日
+- [Composition vs Inheritance – React](https://legacy.reactjs.org/docs/composition-vs-inheritance.html#containment)
+  - "children" is just a prop. The fancy “composition” pattern that we use is a syntax sugar.
+  - Inheritance is not recommended. If you want to reuse non-UI functionality between components, we suggest **extracting it into a separate JavaScript module**. The components may import it and use that function, object, or class, without extending it.
+
+- [Developer Way: The mystery of React Element, children, parents and re-renders](https://www.developerway.com/posts/react-elements-children-parents) 
+  - Components that are passed as props don’t re-render.
+  - If children are passed as a render function, they start re-rendering.
+
+## 2024年3月7日
+- 读[<Fragment> (<>...</>) – React 中文文档](https://zh-hans.react.dev/reference/react/Fragment)，原来`<>`是`<Fragment`的简写。
+
+## 2024年3月8日
+- 受控组件 v.s 非受控组件 
+  - 参考[重新认识受控与非受控组件](https://muyunyun.cn/blog/56hn38ez)
+  - In a controlled component, form data is handled by a React component.
+  - In a uncontrolled component, form data is handled by the DOM itself.
+  - 受控以及非受控组件的边界划分取决于当前组件对于子组件值的变更是否拥有控制权。
+- [当我输入时，输入框光标会跳到开头– React 中文文档](https://zh-hans.react.dev/reference/react-dom/components/input#my-input-caret-jumps-to-the-beginning-on-every-keystroke)
+  > 有可能是因为每次输入时输入框都从 DOM 中删除并重新添加。同样，如果在每次重新渲染时不小心 重置了 state，就会发生这种情况。例如，如果输入框或其祖先组件总是接收不同的 key，或者嵌套使用组件（这在 React 中是不允许的，并且会导致“内部”组件在每次渲染时重新挂载），就会发生这种情况。
+
+  我在写[EuDs63/postkid](https://github.com/EuDs63/postkid)就遇到了这个问题，原来如此。
+
+## 2024年3月9日
+- redux 
+
+- useContext的使用
+
+- 自定义hook
+
+### ref 
+- ref 是一个普通的 JavaScript 对象，具有可以被读取和修改的 current 属性。
+- [ref 和 state 的不同之处](https://zh-hans.react.dev/learn/referencing-values-with-refs#differences-between-refs-and-state)
+  1. 更改不会触发渲染
+  2. 无set
+  3. 可变 —— 你可以在渲染过程之外修改和更新 current 的值。
+  4. 不应在渲染期间读取（或写入） current 值。
+- 使用时机
+  1. 当一条信息仅被事件处理器需要，并且更改它不需要重新渲染时，使用 ref 可能会更高效。
+  2. 你的组件需要“跳出” React 并与外部 API 通信时
+  3. 存储和操作 DOM 元素
+  4. 存储不需要被用来计算 JSX 的其他对象
+- `ref`回调函数
+  1. 参考[ref 回调函数 – React 中文文档](https://zh-hans.react.dev/reference/react-dom/components/common#ref-callback)
+  2. 不要从 ref 回调函数中返回任何内容。
+  3. 当回调函数被附加在 ref 属性后，触发回调时，该参数为对应的 DOM 节点。当 ref 被分离时值为 null。除非在每次渲染时都传递相同的函数引用作为 ref 回调，否则该回调将在组件的每次重新渲染期间被暂时分离和重新连接。
+- 默认情况下，React 不允许组件访问其他组件的 DOM 节点:可使用`forwardRef`,例：
+  ```JavaScript
+  const MyInput = forwardRef((props, ref) => {
+    return <input {...props} ref={ref} />;
+  });
+  ```
+- [使用命令句柄暴露一部分 API](https://zh-hans.react.dev/learn/manipulating-the-dom-with-refs#exposing-a-subset-of-the-api-with-an-imperative-handle)
+- React 在提交阶段设置 `ref.current`。在更新 DOM 之前，React 将受影响的` ref.current`值设置为 null。更新 DOM 后，React 立即将它们设置到相应的 DOM 节点。
+
+## 2024年3月10日
+### Fiber
+- 参考[React Fiber很难？六个问题助你理解 React Fiber - 知乎](https://zhuanlan.zhihu.com/p/390409316)
+  - 一套更新机制,让 React 的更新过程变得可控
+  - 栈递归 -> 链表遍历
+
+## 2024年3月14日
+- 什么hooks不能写在if/else等语句里
+- 你是怎么理解React的？（答得非常烂，建议从数据驱动 ui = f(state)、响应式 fiber + 异步可中断更新、组件化 component，hooks、跨平台 scheduler；reconciler；render；vdom，合成事件系统等方面答）
+- React18新特性（concurrent）
+- react有没有什么缺点（能没有缺点吗，死怼运行时，hooks凭啥不能写在if/else里，useXXX到底怎么个use法，过期闭包，依赖全得手动写，如果用eslint那么里面用过的都会要你加到依赖数组里）
+- react hooks为啥不能写在if/else里（底层实现就是个链表，一个有序的东西）
+- react hooks能实现类里面的所有生命周期吗
+- 路由怎么做的 什么守卫
+
+## 2024年3月21日
+组件间通信
+自定义hook
+- react hook
+- react 组件传值
+- react父组件怎么获取子组件的值   useRef
+- react provider标签以及其使用原理
+- react 路由的两种模式
+
+## 2024年3月26日
+### 自定义hook
+- [超性感的React Hooks（五）：自定义hooks](https://mp.weixin.qq.com/s?__biz=MzI4NjE3MzQzNg==&mid=2649865889&idx=1&sn=2549fb3da7608aa8e3cce0623fbd8d25)
+> 自定义hook能够跟随函数组件重复执行，并且每次都返回最新结果。因此，我们可以非常放心大胆的封装异步逻辑。
+
+- 看[超性感的React Hooks（六）自定义hooks的思维方式](https://mp.weixin.qq.com/s/GPcwIPJBc9I_NtixyU-U4Q)，摘录其中一段
+>准确来说，应该是逻辑片段复用。
+>
+>和组件化思维不同，这是另外一个粒度更细的代码复用思维。例如我们之前提到的，获取同样的数据。在组件化思维中，一个完整的组件，包括了这份数据，以及这份数据在页面上的展示结果。因此这是不同的复用思维。
+>
+>处理获取数据过程中的公用逻辑，处理公用的登陆逻辑等。自定义hooks封装的大多数情况下不是一个完整的页面逻辑实现，而是其中的一个片段。
 
 
 ## 参考
@@ -141,3 +233,5 @@ summary: Thinking in React
 - [useCallback – React](https://react.dev/reference/react/useCallback)
 - [React 为什么重新渲染 | Sukka's Blog](https://blog.skk.moe/post/react-re-renders-101/)
 - [Render and Commit – React](https://react.dev/learn/render-and-commit)
+- [<Fragment> (<>...</>) – React 中文文档](https://zh-hans.react.dev/reference/react/Fragment)
+- [使用 ref 引用值 – React 中文文档](https://zh-hans.react.dev/learn/referencing-values-with-refs#differences-between-refs-and-state)
