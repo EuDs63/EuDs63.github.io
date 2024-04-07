@@ -106,6 +106,11 @@
             "html_url": "https://blog.bytebytego.com"
         },
         {
+            "title": "Ch3nyang’s Blog",
+            "feed_url": "https://ch3nyang.top/feed.xml",
+            "html_url": "https://ch3nyang.top/"
+        },
+        {
             "title": "Chrissy LeMaire's blog on netnerds.net",
             "feed_url": "https://blog.netnerds.net/index.xml",
             "html_url": "https://blog.netnerds.net/"
@@ -306,6 +311,11 @@
             "html_url": "https://shaleenjain.com"
         },
         {
+            "title": "Shimmer RSS",
+            "feed_url": "https://wp-boke.work/rss",
+            "html_url": "https://wp-boke.work"
+        },
+        {
             "title": "ShrekShao",
             "feed_url": "http://shrekshao.github.io/feed.xml",
             "html_url": "http://shrekshao.github.io/"
@@ -369,6 +379,11 @@
             "title": "Vincent's Notes",
             "feed_url": "https://missuo.me/index.xml",
             "html_url": "https://missuo.me/"
+        },
+        {
+            "title": "Web技术试炼地",
+            "feed_url": "https://www.52cik.com/atom.xml",
+            "html_url": "http://www.52cik.com/"
         },
         {
             "title": "Yulin Lewis' Blog",
@@ -454,6 +469,11 @@
             "title": "walterlv",
             "feed_url": "https://blog.walterlv.com/feed.xml",
             "html_url": "https://blog.walterlv.com/"
+        },
+        {
+            "title": "www.micahlerner.com",
+            "feed_url": "https://www.micahlerner.com/feed.xml",
+            "html_url": "http://www.micahlerner.com/"
         },
         {
             "title": "ximu",
@@ -766,6 +786,6 @@
             "html_url": "https://coolshell.cn"
         }
     ],
-    "last_updated": "2024-03-31",
-    "count": 153
+    "last_updated": "2024-04-07",
+    "count": 157
 }
