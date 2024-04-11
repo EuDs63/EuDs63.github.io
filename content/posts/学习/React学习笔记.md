@@ -1,14 +1,15 @@
 ---
-title: React学习笔记
+title: React学习经历
 slug: learn_react
 date: 2023-09-12T15:34:14+08:00
 tags:
   - 笔记
   - 前端
   - web
+  - React
 categories:
   - 学习
-summary: Thinking in React
+summary: 记录学习React的经历，按日期进行排序，会比较乱
 --- 
 
 ## 2023年9月12日
@@ -120,6 +121,8 @@ summary: Thinking in React
     1. It’s the component’s initial render.
     2. The component’s (or one of its ancestors’) state has been updated.
 
+---
+
 ## 2024年3月5日
 - [Developer Way: React components composition: how to get it right](https://www.developerway.com/posts/components-composition-how-to-get-it-right)
   - The core React development and decomposition rules:
@@ -133,6 +136,8 @@ summary: Thinking in React
     2. 命名清晰准确
     3.  doesn’t do things that are irrelevant to its declared purpose
 
+---
+
 ## 2024年3月6日
 - [Composition vs Inheritance – React](https://legacy.reactjs.org/docs/composition-vs-inheritance.html#containment)
   - "children" is just a prop. The fancy “composition” pattern that we use is a syntax sugar.
@@ -142,8 +147,12 @@ summary: Thinking in React
   - Components that are passed as props don’t re-render.
   - If children are passed as a render function, they start re-rendering.
 
+---
+
 ## 2024年3月7日
 - 读[<Fragment> (<>...</>) – React 中文文档](https://zh-hans.react.dev/reference/react/Fragment)，原来`<>`是`<Fragment`的简写。
+
+---
 
 ## 2024年3月8日
 - 受控组件 v.s 非受控组件 
@@ -156,12 +165,16 @@ summary: Thinking in React
 
   我在写[EuDs63/postkid](https://github.com/EuDs63/postkid)就遇到了这个问题，原来如此。
 
+---
+
 ## 2024年3月9日
 - redux 
 
 - useContext的使用
 
 - 自定义hook
+
+---
 
 ### ref 
 - ref 是一个普通的 JavaScript 对象，具有可以被读取和修改的 current 属性。
@@ -188,11 +201,15 @@ summary: Thinking in React
 - [使用命令句柄暴露一部分 API](https://zh-hans.react.dev/learn/manipulating-the-dom-with-refs#exposing-a-subset-of-the-api-with-an-imperative-handle)
 - React 在提交阶段设置 `ref.current`。在更新 DOM 之前，React 将受影响的` ref.current`值设置为 null。更新 DOM 后，React 立即将它们设置到相应的 DOM 节点。
 
+---
+
 ## 2024年3月10日
 ### Fiber
 - 参考[React Fiber很难？六个问题助你理解 React Fiber - 知乎](https://zhuanlan.zhihu.com/p/390409316)
   - 一套更新机制,让 React 的更新过程变得可控
   - 栈递归 -> 链表遍历
+
+---
 
 ## 2024年3月14日
 - 什么hooks不能写在if/else等语句里
@@ -203,6 +220,8 @@ summary: Thinking in React
 - react hooks能实现类里面的所有生命周期吗
 - 路由怎么做的 什么守卫
 
+---
+
 ## 2024年3月21日
 组件间通信
 自定义hook
@@ -211,6 +230,8 @@ summary: Thinking in React
 - react父组件怎么获取子组件的值   useRef
 - react provider标签以及其使用原理
 - react 路由的两种模式
+
+---
 
 ## 2024年3月26日
 ### 自定义hook
@@ -223,6 +244,13 @@ summary: Thinking in React
 >和组件化思维不同，这是另外一个粒度更细的代码复用思维。例如我们之前提到的，获取同样的数据。在组件化思维中，一个完整的组件，包括了这份数据，以及这份数据在页面上的展示结果。因此这是不同的复用思维。
 >
 >处理获取数据过程中的公用逻辑，处理公用的登陆逻辑等。自定义hooks封装的大多数情况下不是一个完整的页面逻辑实现，而是其中的一个片段。
+
+---
+
+## 2024年4月9日
+看[Responsive React File Upload Component With Drag And Drop - DEV Community](https://dev.to/chandrapantachhetri/responsive-react-file-upload-component-with-drag-and-drop-4ef8)
+
+尤其是“Why are we setting the title and value attribute to ""?”这段，之前我看别人的代码这样写还以为是错的，原来是有其独特作用的。
 
 
 ## 参考
