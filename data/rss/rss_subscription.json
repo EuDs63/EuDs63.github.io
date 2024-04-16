@@ -111,6 +111,11 @@
             "html_url": "https://ch3nyang.top/"
         },
         {
+            "title": "Chew’s Everyday Blog",
+            "feed_url": "https://excitedspider.github.io/feed.xml",
+            "html_url": "https://excitedspider.github.io/"
+        },
+        {
             "title": "Chrissy LeMaire's blog on netnerds.net",
             "feed_url": "https://blog.netnerds.net/index.xml",
             "html_url": "https://blog.netnerds.net/"
@@ -786,6 +791,6 @@
             "html_url": "https://coolshell.cn"
         }
     ],
-    "last_updated": "2024-04-07",
-    "count": 157
+    "last_updated": "2024-04-14",
+    "count": 158
 }
