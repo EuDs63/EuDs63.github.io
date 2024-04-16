@@ -6,8 +6,6 @@ date: 2023-10-21T16:56:38+08:00
 ## About Me
 
 - A student
-  - study at Southeast University
-  - major in Software Engineering
 
 ## About EuDs’s Blog
 
@@ -36,4 +34,7 @@ date: 2023-10-21T16:56:38+08:00
 - [x] 更换about页头像
 - [x] 根据最后修改时间，对[Posts | EuDs's Blog](https://ds63.eu.org/posts/)进行排序
 - [ ] 修改[My Rss Subscription | EuDs's Blog](https://ds63.eu.org/rss_subscription/)，添加特别推荐，内容来自于[博客与文章 | EuDs's Blog](https://ds63.eu.org/2023/%E5%8D%9A%E5%AE%A2%E4%B8%8E%E6%96%87%E7%AB%A0/)
-- [ ] 优化代码块显示
+- [ ] 优化代码块显示,可参考[如何在 Hugo 中添加复制代码按钮（键盘友好型） - 浣心／Heart of Sleeve](https://blog.loikein.one/posts/2022-08-11-hugo-copy-code-button/ )
+- [ ] 引入脚注，参考[续・深入探究 Hugo 短代码：我今天还就非得把这个脚注写出来不可 - 浣心／Heart of Sleeve](https://blog.loikein.one/posts/2023-11-22-deep-dive-hugo-shortcodes-revisit/ )
+- [ ] 修改链接样式
+- [ ] 支持Mermaid,参考[Diagrams | Hugo](https://gohugo.io/content-management/diagrams/#complex )
