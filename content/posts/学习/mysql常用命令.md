@@ -1,6 +1,6 @@
 ---
 title: Mysql常用命令
-date: 2024-04-04T13:12:49+08:00
+date: 2024-04-04T13:13:49+08:00
 slug: mysql_cheatsheet
 tags:
   - 笔记
