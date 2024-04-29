@@ -17,7 +17,7 @@ summary: 聪明的程序员也是懒程序员
 以前我的操作是在xxx更新完后，再手动去更新EuDs63.github.io。但难免有时候会忘记，而且久了也觉得麻烦。
 
 我计划使用action来简化我的操作，思路如下：
-1. 当我向[EuDs63/xxx](https://github.com/EuDs63/xxx)push的时候，这时候触发检查，检查本次push修改的文件中是否有特定的表头。
+1. 当我向[EuDs63/xxx](https://github.com/EuDs63/xxx)push的时候，触发action，检查本次push修改的文件中是否有特定的表头。
 2. 如果有，那就推送给[EuDs63/EuDs63.github.io: my blog](https://github.com/EuDs63/EuDs63.github.io)。
 3. 这样只要我保证，我每次想新增内容的时候，都是在xxx这里先写就可以了。
 
@@ -63,6 +63,16 @@ summary: 聪明的程序员也是懒程序员
 
 ## 碎碎念
 这个需求其实我很早就有了，实现的思路也很清晰。但一直拖到了现在，而且还是踩了不少坑。写这篇的时候总是想起某位老师的“聪明的程序员也是懒程序员”，我自知并不聪明，但尽量向这个道路走去。
+
+## 2024年4月29日
+实际使用时经常会run failed，报错为`Error: Unable to process file command 'env' successfully.`
+
+查了下发现是$GITHUB_ENV的multiline strings需要一个特殊的写法，具体参考[Workflow commands for GitHub Actions - GitHub Docs](https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions#multiline-strings )。
+
+于是我的解决方案是，将[过程中的第五步](#过程)改为 
+```bash 
+{ echo 'sync_files<<EOF'; cat sync_files.txt; echo 'EOF'; } >> $GITHUB_ENV
+```
 
 ## 参考
 - [git diff获取差异文件名显示中文乱码的解决办法_git diff获取差异文件中文乱码的解决办法-CSDN博客](https://blog.csdn.net/hanlizhong85/article/details/80642571)
