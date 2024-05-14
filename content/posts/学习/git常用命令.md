@@ -84,7 +84,7 @@ git push
 - chore：构建过程或辅助工具的变动
 
 ## Git 查询
-Git 查询运行你在之前的所有提交信息里进行搜索，找到其中和搜索条件相匹配的最近的一条。
+在之前的所有提交信息里进行搜索，找到其中和搜索条件相匹配的最近的一条。
 
 ```bash
 $ git show :/query
@@ -97,7 +97,7 @@ $ git show :/typo
 ```
 ![git show :/query](http://i.imgur.com/icaGiNt.png)
 
-* 按 `q` 键退出命令。*
+注：按 `q` 键退出命令
 
 ## 检出 Pull Requests
 对 Github 仓库来说，Pull Request 是种特殊分支， 可以通过以下多种方式取到本地：
@@ -116,3 +116,6 @@ $ git fetch origin '+refs/pull/*/head:refs/remotes/origin/pr/*'
 
 ## 参考
 - [github-cheat-sheet/README.zh-cn.md at master · tiimgreen/github-cheat-sheet](https://github.com/tiimgreen/github-cheat-sheet/blob/master/README.zh-cn.md)
+- [This gist consist of the rules and best practice of good conventional git commit message](https://gist.github.com/rishavpandey43/84665ffe3cea76400d8e5a1ad7133a79)
+- [Commit message guidelines](https://gist.github.com/robertpainsi/b632364184e70900af4ab688decf6f53)
+- [如何高效配置你的 Git - Frank 的个人博客](https://blog.frankzhao.cn/config_your_git/ )
