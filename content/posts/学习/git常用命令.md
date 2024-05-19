@@ -114,8 +114,18 @@ $ git fetch origin refs/pull/[PR-Number]/head
 $ git fetch origin '+refs/pull/*/head:refs/remotes/origin/pr/*'
 ```
 
+## stash
+``` bash 
+git stash # when you want to record the current state of the working directory and the index, but want to go back to a clean working directory
+git stash list 
+git stash pop
+git stash apply
+```
+
+
 ## 参考
 - [github-cheat-sheet/README.zh-cn.md at master · tiimgreen/github-cheat-sheet](https://github.com/tiimgreen/github-cheat-sheet/blob/master/README.zh-cn.md)
 - [This gist consist of the rules and best practice of good conventional git commit message](https://gist.github.com/rishavpandey43/84665ffe3cea76400d8e5a1ad7133a79)
 - [Commit message guidelines](https://gist.github.com/robertpainsi/b632364184e70900af4ab688decf6f53)
 - [如何高效配置你的 Git - Frank 的个人博客](https://blog.frankzhao.cn/config_your_git/ )
+- [Git - git-stash Documentation](https://git-scm.com/docs/git-stash )
