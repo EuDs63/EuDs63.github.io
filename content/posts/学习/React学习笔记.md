@@ -253,12 +253,26 @@ summary: 记录学习React的经历，按日期进行排序，会比较乱
 尤其是“Why are we setting the title and value attribute to ""?”这段，之前我看别人的代码这样写还以为是错的，原来是有其独特作用的。
 
 ---
+
 ## 2024年4月28日
 - [useEffect(fn, []) 不等于 componentDidMount() - 掘金](https://juejin.cn/post/7132786097922736164 )
 - [React 组件库都是怎么打包？ - 掘金](https://juejin.cn/post/7277917854430674959 )
 - [useImperativeHandle – React](https://react.dev/reference/react/useImperativeHandle )
 
 这几篇打开来很久了，一直没看，记录下。
+
+---
+
+## 2024年5月20日
+- 参考
+  - [forwardRef – React](https://react.dev/reference/react/forwardRef )
+  - [useImperativeHandle – React](https://react.dev/reference/react/useImperativeHandle )
+  - [React Basics: How to Use ForwardRef](https://www.telerik.com/blogs/react-basics-how-to-use-forwardref )
+- forwardRef lets your component expose a DOM node to parent component with a ref.
+- useImperativeHandle is a React Hook that lets you customize the handle exposed as a ref.
+  `useImperativeHandle(ref, createHandle, dependencies?)`
+
+
 
 
 ## 参考
