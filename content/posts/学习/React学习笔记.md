@@ -208,6 +208,7 @@ summary: 记录学习React的经历，按日期进行排序，会比较乱
 - 参考[React Fiber很难？六个问题助你理解 React Fiber - 知乎](https://zhuanlan.zhihu.com/p/390409316)
   - 一套更新机制,让 React 的更新过程变得可控
   - 栈递归 -> 链表遍历
+- [A deep dive into React Fiber - LogRocket Blog](https://blog.logrocket.com/deep-dive-react-fiber/ )
 
 ---
 
@@ -223,13 +224,15 @@ summary: 记录学习React的经历，按日期进行排序，会比较乱
 ---
 
 ## 2024年3月21日
-组件间通信
-自定义hook
+- 组件间通信
+- 自定义hook
 - react hook
 - react 组件传值
 - react父组件怎么获取子组件的值   useRef
 - react provider标签以及其使用原理
 - react 路由的两种模式
+- redux 
+  - [Redux Essentials, Part 1: Redux Overview and Concepts | Redux](https://redux.js.org/tutorials/essentials/part-1-overview-concepts )
 
 ---
 
@@ -271,6 +274,8 @@ summary: 记录学习React的经历，按日期进行排序，会比较乱
 - forwardRef lets your component expose a DOM node to parent component with a ref.
 - useImperativeHandle is a React Hook that lets you customize the handle exposed as a ref.
   `useImperativeHandle(ref, createHandle, dependencies?)`
+
+---
 
 
 
