@@ -151,6 +151,11 @@
             "html_url": "http://freemind.pluskid.org"
         },
         {
+            "title": "Frost's Blog",
+            "feed_url": "https://frostming.com/feed.xml",
+            "html_url": "https://frostming.com/"
+        },
+        {
             "title": "F叔的学习笔记",
             "feed_url": "https://flaneur2020.github.io/atom.xml",
             "html_url": "https://flaneur2020.github.io/atom.xml"
@@ -422,13 +427,18 @@
         },
         {
             "title": "[Unknown]",
-            "feed_url": "https://s3.laisky.com/public/rss.xml",
+            "feed_url": "https://pichu.moe/feed.xml",
             "html_url": null
         },
         {
             "title": "[Unknown]",
             "feed_url": "https://blog.sina.com.cn/rss/1283569510.xml",
             "html_url": "https://blog.sina.com.cn/rss/1283569510.xml"
+        },
+        {
+            "title": "[Unknown]",
+            "feed_url": "https://s3.laisky.com/public/rss.xml",
+            "html_url": null
         },
         {
             "title": "blog.thea.codes",
@@ -806,6 +816,6 @@
             "html_url": "https://coolshell.cn"
         }
     ],
-    "last_updated": "2024-05-26",
-    "count": 161
+    "last_updated": "2024-06-02",
+    "count": 163
 }
