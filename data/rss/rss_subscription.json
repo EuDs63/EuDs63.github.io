@@ -101,6 +101,11 @@
             "html_url": "https://ashfurrow.com"
         },
         {
+            "title": "Bigbyto",
+            "feed_url": "https://wiyi.org/feed.xml",
+            "html_url": "https://wiyi.org/"
+        },
+        {
             "title": "ByteByteGo Newsletter",
             "feed_url": "https://blog.bytebytego.com/feed",
             "html_url": "https://blog.bytebytego.com"
@@ -432,13 +437,13 @@
         },
         {
             "title": "[Unknown]",
-            "feed_url": "https://blog.sina.com.cn/rss/1283569510.xml",
-            "html_url": "https://blog.sina.com.cn/rss/1283569510.xml"
+            "feed_url": "https://s3.laisky.com/public/rss.xml",
+            "html_url": null
         },
         {
             "title": "[Unknown]",
-            "feed_url": "https://s3.laisky.com/public/rss.xml",
-            "html_url": null
+            "feed_url": "https://blog.sina.com.cn/rss/1283569510.xml",
+            "html_url": "https://blog.sina.com.cn/rss/1283569510.xml"
         },
         {
             "title": "blog.thea.codes",
@@ -816,6 +821,6 @@
             "html_url": "https://coolshell.cn"
         }
     ],
-    "last_updated": "2024-06-02",
-    "count": 163
+    "last_updated": "2024-06-09",
+    "count": 164
 }
