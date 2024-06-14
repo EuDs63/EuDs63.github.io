@@ -48,9 +48,43 @@ summary: 为了更好的看番体验
 - [win10/linux一键搭建webdav服务和公网访问教程 – 萌萌哒赫萝的小站](https://www.horosama.com/archives/259 )
 
 ## EMBY
-说明： 以下过程参考了
-- [Emby - The open media solution](https://emby.media/index.html )
-- [WINNAS轻松搭：EMBY媒体资源库进阶刮削方案 – 梦雨玲音](https://www.rainlain.com/index.php/2024/02/28/2023/ )
+注： 以下过程参考了
+  - [Emby - The open media solution](https://emby.media/index.html )
+  - [WINNAS轻松搭：EMBY媒体资源库进阶刮削方案 – 梦雨玲音](https://www.rainlain.com/index.php/2024/02/28/2023/ )
+
+1. 在 docker-compose.yml 底下加入以下内容：
+```docker
+emby:
+  image: lovechen/embyserver:latest
+  container_name: emby
+  # network_mode: host
+  ports:
+    - 8096:8096
+    - 8920:8920
+    - 1900:1900/udp
+    - 7359:7359/udp
+  environment:
+    - PUID=1000
+    - PGID=1000
+    - GIDLIST=0
+    - TZ=Asia/Shanghai
+    - HTTP_PROXY="http://你的代理IP:端口/"
+    - HTTPS_PROXY="http://你的代理IP:端口/"
+  devices:
+    - /dev/dri:/dev/dri
+  volumes:
+    - ./emby:/config
+    - 宿主机媒体文件夹的地址:/media/Bangumi # 挂载媒体库，可按个人喜欢进行修改，不一定就得映射到/media/Bangumi
+  restart: unless-stopped
+```
+2. 重启镜像 
+3. 访问`http://127.0.0.1:8096/`进行设置 
+4. 媒体库路径按照先前在`docker-compose.yml`文件中设置的，比如我这里就是`/media/Bangumi`
+5. 局域网内访问
+   - 按照[Connectivity | Emby Documentation](https://emby.media/support/articles/Connectivity.html )进行排查，主要是开放端口。
+   - 仪表盘显示的访问地址无法使用的话，可访问`本地ip地址:8096`
+   - 校园网环境下，几乎可以做到拖哪播哪
+6. todo: 尝试使用ipv6+ddns实现访问地址固定
 
 ## 初体验的感受 
 刚接触没多久，我就意识到这其中的魅力：
