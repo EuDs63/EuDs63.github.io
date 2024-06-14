@@ -27,13 +27,30 @@ summary: 为了更好的看番体验
 后来我参照的是[AutoBangumi：自动追番，解放双手 - 初之音](https://www.himiku.com/archives/auto-bangumi.html )
 
 这个教程写得很棒。以下只补充几点自己遇到的问题：
-1. 教程里所说的qBittorent的默认密码并不为`adminadmin`，而是要去运行日志里找，类似于 
+- 教程里所说的qBittorent的默认密码并不为`adminadmin`，而是要去运行日志里找，类似于 
    > 未设置 WebUI 管理员密码。为此会话提供了一个临时密码：gkNJ3xcz2
-2. 播放器似乎目前只支持Plex/Emby/Jellyfin
-3. 开机自启可参考
-   - [Potplayer 挂载 Alist，播放网盘视频，看阿里云/百度/115网盘电影资源](https://www.bilibili.com/video/BV1oC4y1f7uY/ )
-   - [用nssm简易设置任意应用程序exe为Windows系统服务 - 米八说](https://www.mibashuo.com/post/set-exe-as-system-service-with-nssm )
-4. AutoBangumi的web ui没提供的功能，可以去qBittorrent那边找
+- 播放器似乎目前只支持Plex/Emby/Jellyfin
+- AutoBangumi的web ui没提供的功能，可以去qBittorrent那边找
+- 重命名通过qBittorrent下载的，但是想让 AB 重命名的番剧(好像不起作用？)
+   - 先限制qBittorrent的做种
+   - 配合`advance`模式，将这些番剧手动移动至 番剧名/Season x 的文件夹内，再将其分类设置为 Bangumi ，就可以被 AB 重命名
+
+## 开机自启
+可参考：
+
+- [Potplayer 挂载 Alist，播放网盘视频，看阿里云/百度/115网盘电影资源](https://www.bilibili.com/video/BV1oC4y1f7uY/ )
+- [用nssm简易设置任意应用程序exe为Windows系统服务 - 米八说](https://www.mibashuo.com/post/set-exe-as-system-service-with-nssm )
+
+## Windows 开启webdav
+可参考： 
+- [Windows开启WebDAV - 少数派](https://sspai.com/post/78540 )
+- [Windows搭建WebDav流程以及踩坑记录 | Forever Study](https://www.yydnas.cn/2023/08/2023.08.01-Windows%E6%90%AD%E5%BB%BAWebDav%E6%B5%81%E7%A8%8B%E4%BB%A5%E5%8F%8A%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/index.html )
+- [win10/linux一键搭建webdav服务和公网访问教程 – 萌萌哒赫萝的小站](https://www.horosama.com/archives/259 )
+
+## EMBY
+说明： 以下过程参考了
+- [Emby - The open media solution](https://emby.media/index.html )
+- [WINNAS轻松搭：EMBY媒体资源库进阶刮削方案 – 梦雨玲音](https://www.rainlain.com/index.php/2024/02/28/2023/ )
 
 ## 初体验的感受 
 刚接触没多久，我就意识到这其中的魅力：
