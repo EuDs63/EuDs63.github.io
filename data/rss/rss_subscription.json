@@ -432,12 +432,12 @@
         },
         {
             "title": "[Unknown]",
-            "feed_url": "https://pichu.moe/feed.xml",
+            "feed_url": "https://s3.laisky.com/public/rss.xml",
             "html_url": null
         },
         {
             "title": "[Unknown]",
-            "feed_url": "https://s3.laisky.com/public/rss.xml",
+            "feed_url": "https://pichu.moe/feed.xml",
             "html_url": null
         },
         {
@@ -556,6 +556,11 @@
             "html_url": "https://idawnlight.com/"
         },
         {
+            "title": "初之音",
+            "feed_url": "https://www.himiku.com/feed/",
+            "html_url": "https://www.himiku.com/"
+        },
+        {
             "title": "前端小武的博客",
             "feed_url": "https://xuexb.com/rss.html",
             "html_url": "https://xuexb.com"
@@ -626,6 +631,11 @@
             "html_url": "https://lvwenhan.com/"
         },
         {
+            "title": "惶心博客",
+            "feed_url": "https://huangxin.dev/atom.xml",
+            "html_url": "https://huangxin.dev/"
+        },
+        {
             "title": "我的小米粥分你一半",
             "feed_url": "https://corvo.myseu.cn/atom.xml",
             "html_url": "https://corvo.myseu.cn/"
@@ -671,6 +681,11 @@
             "html_url": "https://gythialy.github.io/"
         },
         {
+            "title": "桃罐",
+            "feed_url": "https://freshp0325.xyz/feed/post.xml",
+            "html_url": "https://freshp0325.xyz/posts/"
+        },
+        {
             "title": "此方方有限公司",
             "feed_url": "https://blog.konata.co/?feed=rss2",
             "html_url": "https://blog.konata.co"
@@ -689,6 +704,11 @@
             "title": "潮流周刊",
             "feed_url": "https://weekly.tw93.fun/rss.xml",
             "html_url": "https://weekly.tw93.fun/"
+        },
+        {
+            "title": "澄沨的漫游茶记",
+            "feed_url": "https://champhoon.xyz/atom.xml",
+            "html_url": "https://champhoon.xyz/"
         },
         {
             "title": "猫·仁波切",
@@ -821,6 +841,6 @@
             "html_url": "https://coolshell.cn"
         }
     ],
-    "last_updated": "2024-06-09",
-    "count": 164
+    "last_updated": "2024-06-16",
+    "count": 168
 }
