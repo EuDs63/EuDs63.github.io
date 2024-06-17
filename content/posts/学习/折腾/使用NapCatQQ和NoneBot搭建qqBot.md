@@ -32,7 +32,7 @@ summary: 新的开始
 ## Todo 
 - [ ] 写个脚本，使得可以开机自启
 - [ ] 部署到服务器上，不知道会不会再遇到风控问题
-- [ ] 插件：去年今日
+- [ ] 插件：~~去年今日~~
 
 ## 参考 
 - [NapCatQQ](https://napneko.github.io/zh-CN/guide/getting-started )
