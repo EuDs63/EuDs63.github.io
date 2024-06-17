@@ -41,7 +41,15 @@ summary: 为了更好的看番体验
 - [Potplayer 挂载 Alist，播放网盘视频，看阿里云/百度/115网盘电影资源](https://www.bilibili.com/video/BV1oC4y1f7uY/ )
 - [用nssm简易设置任意应用程序exe为Windows系统服务 - 米八说](https://www.mibashuo.com/post/set-exe-as-system-service-with-nssm )
 
-## Windows 开启webdav
+## Windows 开启WebDAV
+> WebDAV stands for "Web-based Distributed Authoring and Versioning". It is a set of extensions to the HTTP protocol which allows users to collaboratively edit and manage files on remote web servers.
+
+我的理解是它能让本地的文件在其他设备上访问，而不仅局限于Windows。
+
+Potplayer还支持WebDav源的视频的直接播放。
+
+但我只是了解，没进一步折腾，因为感觉不太适合我的需求。
+
 可参考： 
 - [Windows开启WebDAV - 少数派](https://sspai.com/post/78540 )
 - [Windows搭建WebDav流程以及踩坑记录 | Forever Study](https://www.yydnas.cn/2023/08/2023.08.01-Windows%E6%90%AD%E5%BB%BAWebDav%E6%B5%81%E7%A8%8B%E4%BB%A5%E5%8F%8A%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/index.html )
@@ -105,6 +113,20 @@ emby:
 
 不过我乐意！
 
+## 比较 
+从昨天初体验冷静后，我对NAS和网盘进行了比较
+- 价格方面: NAS优势不大
+- 隐私方面: NAS可以免于审查，但真正隐私的内容，我倾向于连NAS都不信任。最安全的方式还是敏感信息不上网,至少公网无法访问。
+- 从访问速度方面: 局域网内访问，NAS优于网盘，但异地公网访问，NAS很难强于网盘。
+
+但让我选的话，我会选NAS，因为它更能给我一种数据是掌握在你自己手里的感觉，而且，我喜欢折腾。
+
+## Todo 
+- [ ] 蜜柑计划感觉还是比较偏新番(主要是2013年之前)，我想下点老番，该去哪里找呢 
+      - [动漫BT网站收集](https://iblog.ren/posts/40/ )
+- [ ] 直接在qb下的番，不知道怎么让ab重命名之类的
+
 - 参考 
   - [高阶教程-追剧全流程自动化 | sleele的博客](https://sleele.com/2020/03/16/%E9%AB%98%E9%98%B6%E6%95%99%E7%A8%8B-%E8%BF%BD%E5%89%A7%E5%85%A8%E6%B5%81%E7%A8%8B%E8%87%AA%E5%8A%A8%E5%8C%96/ )
   - [本地自动追番+影视剧刮削整理(局域网多设备播放)(无NAS)](https://feng.red/300%20%E8%AF%84%E4%BB%B7/s/%E6%9C%AC%E5%9C%B0%E8%87%AA%E5%8A%A8%E8%BF%BD%E7%95%AA+%E5%BD%B1%E8%A7%86%E5%89%A7%E5%88%AE%E5%89%8A%E6%95%B4%E7%90%86(%E5%B1%80%E5%9F%9F%E7%BD%91%E5%A4%9A%E8%AE%BE%E5%A4%87%E6%92%AD%E6%94%BE)(%E6%97%A0nas)/ )
+  - [如何管理自己的数字与生活资源？(Anime篇) - 桃罐](https://freshp0325.xyz/posts/2023071701 )

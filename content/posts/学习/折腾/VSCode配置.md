@@ -41,3 +41,12 @@ Windows下可以在`C:\Windows:\Fonts`找到本机安装的字体。
     - 最终我将该文件拆分为两个文件，现在似乎好多了。
     - 另一种解决方式可能是：将`Editor: Quick Suggestions Delay`调大点。这个Delay我是理解成防抖的等待时间，不知道对不对。
     - 这个issue提到了类似的问题：[可否在文件较大时自动设置 syntaxDecorations 呢？ · Issue #489 · yzhang-gh/vscode-markdown](https://github.com/yzhang-gh/vscode-markdown/issues/489 )
+
+## 2024年6月17日
+- 问题描述：Win11下，“通过code打开”位于右键选项的二级菜单，我希望将其移到一级菜单 
+- 过程：
+  - [BluePointLilac/ContextMenuManager: 🖱️ 纯粹的Windows右键菜单管理程序](https://github.com/BluePointLilac/ContextMenuManager )该软件在Win10很好用，但未适配Win11。作者在21年就有适配Win11的计划，但因其工作繁忙未能成行。
+  - [ikas-mc/ContextMenuForWindows11: Add Custom Context Menu For Windows11](https://github.com/ikas-mc/ContextMenuForWindows11 )。看文档感觉与我需求不符
+  - [Easy Context menu v1.6](https://www.sordum.org/7615/easy-context-menu-v1-6/ )。似乎可用，但未开源，我不信任
+  - [Integrate with the Windows 11 Context Menu · Issue #127365 · microsoft/vscode](https://github.com/microsoft/vscode/issues/127365 )，开发人员称该功能在inside版本实现，但因[Uninstalling VS Code takes a long time, when enabling the Windows 11 context menu action · Issue #164689 · microsoft/vscode](https://github.com/microsoft/vscode/issues/164689 )，没有将其在稳定版本集成该功能的打算。（难绷，Win11都出几年了，能玩得转这右键菜单的软件怎么还是少数）
+  - 最终选择：修改注册表
