@@ -4,17 +4,24 @@ date: 2023-10-21T16:56:38+08:00
 ---
 
 ## About Me
+我认为难以用几个词准确地描述一个人,也不愿意将自己束缚在某几个词的定义中。
 
-- A student
+但这并不代表就无法了解一个人。比如本博客就能在一定程度上反映我,这里我推荐以下几篇:
+- [我的独特之处 | EuDs's Blog](https://ds63.eu.org/2022/my-uniqueness/ )
+- [感兴趣的知识/待细看 | EuDs's Blog](https://ds63.eu.org/2023/things-i-am-interested-in/ )
+- [我看人工智能 | EuDs's Blog](https://ds63.eu.org/2023/my-opinion-about-ai/ )
 
 ## About EuDs’s Blog
-
 - 框架：[Hugo](https://gohugo.io/)
 - 主题：[hugo-PaperModX](https://github.com/reorx/hugo-PaperModX/)
 - 内容：本博客的内容包括但不限于：
-  - 阅读时的感受和摘抄
-  - 记录遇到的问题和解决方式
-  - 笔记
+  - 什锦
+    - 阅读时的感受和摘抄
+  - 学习
+    - 折腾时遇到的问题和解决方式的记录
+    - 学习笔记
+  - 想法 
+    - 所闻所间所感
 
 - 曾用
   1. 时间: March 13, 2023 - October 21, 2023
