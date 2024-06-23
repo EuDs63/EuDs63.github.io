@@ -93,6 +93,7 @@ emby:
    - 仪表盘显示的访问地址无法使用的话，可访问`本地ip地址:8096`
    - 校园网环境下，几乎可以做到拖哪播哪
 6. todo: 尝试使用ipv6+ddns实现访问地址固定
+   - [为 Plex 配置 IPv6 网络 - 初之音](https://www.himiku.com/archives/plex-with-ipv6.html )
 
 ## 初体验的感受 
 刚接触没多久，我就意识到这其中的魅力：
