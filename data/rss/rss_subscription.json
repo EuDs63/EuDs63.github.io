@@ -411,6 +411,11 @@
             "html_url": "https://missuo.me/"
         },
         {
+            "title": "Water Space",
+            "feed_url": "https://www.waterwater.moe/atom.xml",
+            "html_url": "http://lawvs.github.io/"
+        },
+        {
             "title": "Web技术试炼地",
             "feed_url": "https://www.52cik.com/atom.xml",
             "html_url": "http://www.52cik.com/"
@@ -419,6 +424,11 @@
             "title": "Yulin Lewis' Blog",
             "feed_url": "https://lewky.cn/index.xml",
             "html_url": "https://lewky.cn/"
+        },
+        {
+            "title": "Zar_SY | 小屋",
+            "feed_url": "https://daftneko.com/atom.xml",
+            "html_url": "https://daftneko.com"
         },
         {
             "title": "Zgao's blog",
@@ -666,6 +676,11 @@
             "html_url": "https://blog.xinshijiededa.men/"
         },
         {
+            "title": "旅行者的随想",
+            "feed_url": "https://blog.besscroft.com/atom.xml",
+            "html_url": "https://blog.besscroft.com/"
+        },
+        {
             "title": "春水煎茶",
             "feed_url": "https://writings.sh/feed.xml",
             "html_url": "https://writings.sh/"
@@ -841,6 +856,6 @@
             "html_url": "https://coolshell.cn"
         }
     ],
-    "last_updated": "2024-06-16",
-    "count": 168
+    "last_updated": "2024-06-23",
+    "count": 171
 }
