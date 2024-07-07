@@ -236,6 +236,11 @@
             "html_url": "https://newzone.top/"
         },
         {
+            "title": "Log4D",
+            "feed_url": "https://blog.alswl.com/atom.xml",
+            "html_url": "https://blog.alswl.com/"
+        },
+        {
             "title": "MINIRPLUS",
             "feed_url": "https://blog.minirplus.com/feed/",
             "html_url": "https://blog.minirplus.com"
@@ -442,11 +447,6 @@
         },
         {
             "title": "[Unknown]",
-            "feed_url": "https://blog.sina.com.cn/rss/1283569510.xml",
-            "html_url": "https://blog.sina.com.cn/rss/1283569510.xml"
-        },
-        {
-            "title": "[Unknown]",
             "feed_url": "https://s3.laisky.com/public/rss.xml",
             "html_url": null
         },
@@ -454,6 +454,11 @@
             "title": "[Unknown]",
             "feed_url": "https://pichu.moe/feed.xml",
             "html_url": null
+        },
+        {
+            "title": "[Unknown]",
+            "feed_url": "https://blog.sina.com.cn/rss/1283569510.xml",
+            "html_url": "https://blog.sina.com.cn/rss/1283569510.xml"
         },
         {
             "title": "blog.thea.codes",
@@ -856,6 +861,6 @@
             "html_url": "https://coolshell.cn"
         }
     ],
-    "last_updated": "2024-06-30",
-    "count": 171
+    "last_updated": "2024-07-07",
+    "count": 172
 }
