@@ -447,6 +447,11 @@
         },
         {
             "title": "[Unknown]",
+            "feed_url": "https://blog.sina.com.cn/rss/1283569510.xml",
+            "html_url": "https://blog.sina.com.cn/rss/1283569510.xml"
+        },
+        {
+            "title": "[Unknown]",
             "feed_url": "https://s3.laisky.com/public/rss.xml",
             "html_url": null
         },
@@ -454,11 +459,6 @@
             "title": "[Unknown]",
             "feed_url": "https://pichu.moe/feed.xml",
             "html_url": null
-        },
-        {
-            "title": "[Unknown]",
-            "feed_url": "https://blog.sina.com.cn/rss/1283569510.xml",
-            "html_url": "https://blog.sina.com.cn/rss/1283569510.xml"
         },
         {
             "title": "blog.thea.codes",
@@ -569,6 +569,11 @@
             "title": "余光的部落格",
             "feed_url": "https://idawnlight.com/atom.xml",
             "html_url": "https://idawnlight.com/"
+        },
+        {
+            "title": "兮陌",
+            "feed_url": "https://www.simaek.com/feed/",
+            "html_url": "https://www.simaek.com/"
         },
         {
             "title": "初之音",
@@ -861,6 +866,6 @@
             "html_url": "https://coolshell.cn"
         }
     ],
-    "last_updated": "2024-07-07",
-    "count": 172
+    "last_updated": "2024-07-14",
+    "count": 173
 }
