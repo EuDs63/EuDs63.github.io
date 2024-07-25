@@ -106,6 +106,17 @@ summary: docker pull learn
 - [群晖 NAS - 代理设置 | Darren's Blog](https://www.odszz.com/posts/nas-proxy/ )
 - [群晖 Docker 的迷惑配置 - 晨鹤部落格](https://chenhe.me/post/synology-docker-configuration )
 - [群晖Non-Root非特权账户执行Docker指令 - 兮陌](https://www.simaek.com/archives/467/ )
+- 报错: `/usr/local/bin/docker-compose: line 1: Not: command not found`
+  - 我之前在群晖上使用`docker-compose`都很正常，但某天突然报以上错误。一开始一头雾水，但尝试去找这个文件，发现并不存在。那问题就转变成如果在群晖上安装`docker-compose`了，搜到[原来，群晖也能用 Docker Compose！ - 初之音](https://www.himiku.com/archives/docker-compose-for-synology-nas.html )这篇，摘抄命令如下
+```bash 
+DOCKER_CONFIG=${DOCKER_CONFIG:-$HOME/.docker}
+mkdir -p $DOCKER_CONFIG/cli-plugins
+COMPOSE_VERSION=$(curl -s https://api.github.com/repos/docker/compose/releases/latest | grep 'tag_name' | cut -d\" -f4)
+sh -c "curl -L https://github.com/docker/compose/releases/download/${COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > $DOCKER_CONFIG/cli-plugins/docker-compose"
+# or 
+sh -c "curl -L https://mirror.ghproxy.com/https://github.com/docker/compose/releases/download/${COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > $DOCKER_CONFIG/cli-plugins/docker-compose"
+chmod +x $DOCKER_CONFIG/cli-plugins/docker-compose
+```
 
 ## 时间线
 ### 2023年5月18日
