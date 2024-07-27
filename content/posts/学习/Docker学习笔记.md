@@ -106,6 +106,14 @@ summary: docker pull learn
 - [群晖 NAS - 代理设置 | Darren's Blog](https://www.odszz.com/posts/nas-proxy/ )
 - [群晖 Docker 的迷惑配置 - 晨鹤部落格](https://chenhe.me/post/synology-docker-configuration )
 - [群晖Non-Root非特权账户执行Docker指令 - 兮陌](https://www.simaek.com/archives/467/ )
+```bash 
+#创建群组并分配用户：
+sudo synogroup --add docker
+sudo synogroup --memberadd docker <username1> <username2> ...
+sudo synogroup --get docker
+#更改docker权限：
+sudo chgrp docker /var/run/docker.sock
+```
 - 报错: `/usr/local/bin/docker-compose: line 1: Not: command not found`
   - 我之前在群晖上使用`docker-compose`都很正常，但某天突然报以上错误。一开始一头雾水，但尝试去找这个文件，发现并不存在。那问题就转变成如果在群晖上安装`docker-compose`了，搜到[原来，群晖也能用 Docker Compose！ - 初之音](https://www.himiku.com/archives/docker-compose-for-synology-nas.html )这篇，摘抄命令如下
 ```bash 
