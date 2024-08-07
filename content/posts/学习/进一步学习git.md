@@ -146,6 +146,11 @@ to do!
 ## git rebase
 to do!
 
+## git hook
+- [Git - Git 钩子](https://git-scm.com/book/zh/v2/%E8%87%AA%E5%AE%9A%E4%B9%89-Git-Git-%E9%92%A9%E5%AD%90 )
+- 如何在本地监听git tag事件
+
+
 ## 收获
 - 之前看过一句话，"In Linux and UNIX, everything is a file"。现在发现git中也是这样设计的。
 - 了解平时使用的工具是怎么做到的，尤其是一些不了解之前觉得很神奇的操作背后的原理，我觉得这挺有趣。
