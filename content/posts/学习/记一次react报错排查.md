@@ -6,11 +6,11 @@ tags:
   - 笔记
   - 前端
   - web
+  - React
 categories:
   - 学习
 summary: Failed to execute 'removeChild' on 'Node'
 --- 
-
 ## 场景
 在[EuDs63/postkid: A lightweight tool offering key functionalities inspired by Postman.](https://github.com/EuDs63/postkid),当我发送一次请求之后，再次发送时报错：
 

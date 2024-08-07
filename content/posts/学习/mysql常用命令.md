@@ -35,9 +35,12 @@ summary: a cheatsheet of mysql
 - 注：如果无`IDENTIFIED BY '密码'`,则不会设置密码
 
 ## 权限
-- 赋予权限: `GRANT CREATE,SELECT ON database_name.* TO 'username'@'domain';`
+- 赋予权限: 
+  - `GRANT CREATE,SELECT ON database_name.* TO 'username'@'domain';`
+  - grant file on *.* to 'root'@'%';
 - 赋予所有权限：`GRANT ALL PRIVILEGES ON *.* TO 'keanu'@'%' WITH GRANT OPTION;`
 - 撤销权限: `REVOKE INSERT ON database_name.* FROM 'username'@'domain';`
+- 刷新： `flush privileges;`
 
 ## Host 'xxx.xx.xxx.xxx' is not allowed to connect to this MySQL server 
 - `GRANT ALL PRIVILEGES ON *.* TO '用户名'@'%' WITH GRANT OPTION;`
@@ -59,3 +62,17 @@ summary: a cheatsheet of mysql
 - 当前用户: `select user();`
 - 数据库： `show databases;`
 - 表： `show tables;`
+- 变量配置：例：`show variables like '%secure%'\G`
+- `my.cnf`配置文件：参考[Linux下MySQL的配置文件（my.cnf）的存放路径_linux my.cnf 位置-CSDN博客](https://blog.csdn.net/yerenyuan_pku/article/details/109919451 )
+
+## 导出导入
+- 导出：`select * from scott.emp into outfile '/data/mysql/emp.txt' fields terminated by ',' optionally enclosed by '"' lines terminated by '\n' ;`
+- 导入：
+```mysql 
+use hr;
+create table hr.emp like scott.emp;
+LOAD DATA INFILE '/data/mysql/emp.txt' INTO TABLE hr.emp FIELDS TERMINATED BY ',' ENCLOSED BY '"' LINES TERMINATED BY '\n' ;
+```
+
+## 列宽
+- `\G`: 选项能够将查询结果以垂直方式展示，而不是默认的水平方式。这种方式下，每个字段值都会单独占据一行，使得每个字段的宽度都能够根据内容自动调整。

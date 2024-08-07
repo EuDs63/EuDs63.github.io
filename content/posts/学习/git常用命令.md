@@ -9,6 +9,7 @@ categories:
   - 学习
 summary: a cheatsheet of git commands
 ---
+**本篇内容大部分非我原创，只是我自己整理的笔记，具体出处请见[参考](#参考)**
 
 ## clone 
 可以仅clone单个分支的最新内容
@@ -23,6 +24,13 @@ git clone --single-branch --depth 1 "$GIT_CMD_REPOSITORY" "$CLONE_DIR"
 ## add 
 - `git add .` 会根据.gitignore做过滤
 - `git add *` 会忽略.gitignore把任何文件都加入
+- `git add -p` 会逐个显示文件中的每组改动，并询问是否要加入 index
+
+## commit 
+可以通过环境变量更改提交时间哦
+- `export GIT_COMMITTER_DATE=”Jan 11 17:11:18 2018 +0800”`
+- `export GIT_AUTHOR_DATE=”Jan 11 17:11:18 2018 +0800”`
+- `git commit –amend –date=date -R`
 
 ## push
 文件推送的三个步骤：
@@ -99,20 +107,23 @@ $ git show :/typo
 
 注：按 `q` 键退出命令
 
-## 检出 Pull Requests
-对 Github 仓库来说，Pull Request 是种特殊分支， 可以通过以下多种方式取到本地：
+## fetch 
+- **同步其他分支**
+在远端 PR 被合并之后往往需要切换到主分支然后重现拉取代码，这会无意义地去重新触发一次旧版本的索引，下面这条命令可以在不切换分支的情况下更新 master 到最新: `git fetch origin master:master`
+- **检出 Pull Requests**
+  对 Github 仓库来说，Pull Request 是种特殊分支， 可以通过以下多种方式取到本地：
 
-取出某个特定的 Pull Request 并临时作为本地的 `FETCH_HEAD` 中以便进行快速查看更改( diff )以及合并( merge )：
+  取出某个特定的 Pull Request 并临时作为本地的 `FETCH_HEAD` 中以便进行快速查看更改( diff )以及合并( merge )：
 
-```bash
-$ git fetch origin refs/pull/[PR-Number]/head
-```
+  ```bash
+  $ git fetch origin refs/pull/[PR-Number]/head
+  ```
 
-通过 refspec 获取所有的 Pull Request 为本地分支：
+  通过 refspec 获取所有的 Pull Request 为本地分支：
 
-```bash
-$ git fetch origin '+refs/pull/*/head:refs/remotes/origin/pr/*'
-```
+  ```bash
+  $ git fetch origin '+refs/pull/*/head:refs/remotes/origin/pr/*'
+  ```
 
 ## stash
 ``` bash 
@@ -122,6 +133,17 @@ git stash pop
 git stash apply
 ```
 
+## 二分 debug
+给定两个提交记录 git 辅助你二分查找 bug 的引入时间，同时支持运行脚本
+```bash 
+git bisect start
+git bisect bad
+git bisect good v1.0.0
+git bisect reset
+git bisect start bad_commit good_commit
+git bisect run test-error.sh
+```
+
 
 ## 参考
 - [github-cheat-sheet/README.zh-cn.md at master · tiimgreen/github-cheat-sheet](https://github.com/tiimgreen/github-cheat-sheet/blob/master/README.zh-cn.md)
@@ -129,3 +151,4 @@ git stash apply
 - [Commit message guidelines](https://gist.github.com/robertpainsi/b632364184e70900af4ab688decf6f53)
 - [如何高效配置你的 Git - Frank 的个人博客](https://blog.frankzhao.cn/config_your_git/ )
 - [Git - git-stash Documentation](https://git-scm.com/docs/git-stash )
+- [Git 小贴士 | Water Space](https://www.waterwater.moe/2020/06/24/2020-06-24_Git%E5%B0%8F%E8%B4%B4%E5%A3%AB/ )

@@ -101,6 +101,11 @@
             "html_url": "https://ashfurrow.com"
         },
         {
+            "title": "Bigbyto",
+            "feed_url": "https://wiyi.org/feed.xml",
+            "html_url": "https://wiyi.org/"
+        },
+        {
             "title": "ByteByteGo Newsletter",
             "feed_url": "https://blog.bytebytego.com/feed",
             "html_url": "https://blog.bytebytego.com"
@@ -149,6 +154,11 @@
             "title": "Free Mind",
             "feed_url": "https://freemind.pluskid.org/rss.xml",
             "html_url": "http://freemind.pluskid.org"
+        },
+        {
+            "title": "Frost's Blog",
+            "feed_url": "https://frostming.com/feed.xml",
+            "html_url": "https://frostming.com/"
         },
         {
             "title": "F叔的学习笔记",
@@ -224,6 +234,11 @@
             "title": "LearnData-开源笔记",
             "feed_url": "https://newzone.top/rss.xml",
             "html_url": "https://newzone.top/"
+        },
+        {
+            "title": "Log4D",
+            "feed_url": "https://blog.alswl.com/atom.xml",
+            "html_url": "https://blog.alswl.com/"
         },
         {
             "title": "MINIRPLUS",
@@ -401,6 +416,11 @@
             "html_url": "https://missuo.me/"
         },
         {
+            "title": "Water Space",
+            "feed_url": "https://www.waterwater.moe/atom.xml",
+            "html_url": "http://lawvs.github.io/"
+        },
+        {
             "title": "Web技术试炼地",
             "feed_url": "https://www.52cik.com/atom.xml",
             "html_url": "http://www.52cik.com/"
@@ -411,6 +431,11 @@
             "html_url": "https://lewky.cn/"
         },
         {
+            "title": "Zar_SY | 小屋",
+            "feed_url": "https://daftneko.com/atom.xml",
+            "html_url": "https://daftneko.com"
+        },
+        {
             "title": "Zgao's blog",
             "feed_url": "https://zgao.top/feed/",
             "html_url": "https://zgao.top"
@@ -419,6 +444,11 @@
             "title": "Zxch3n's Blog",
             "feed_url": "https://www.zxch3n.com/rss.xml",
             "html_url": "https://www.zxch3n.com"
+        },
+        {
+            "title": "[Unknown]",
+            "feed_url": "https://pichu.moe/feed.xml",
+            "html_url": null
         },
         {
             "title": "[Unknown]",
@@ -541,6 +571,16 @@
             "html_url": "https://idawnlight.com/"
         },
         {
+            "title": "兮陌",
+            "feed_url": "https://www.simaek.com/feed/",
+            "html_url": "https://www.simaek.com/"
+        },
+        {
+            "title": "初之音",
+            "feed_url": "https://www.himiku.com/feed/",
+            "html_url": "https://www.himiku.com/"
+        },
+        {
             "title": "前端小武的博客",
             "feed_url": "https://xuexb.com/rss.html",
             "html_url": "https://xuexb.com"
@@ -611,6 +651,11 @@
             "html_url": "https://lvwenhan.com/"
         },
         {
+            "title": "惶心博客",
+            "feed_url": "https://huangxin.dev/atom.xml",
+            "html_url": "https://huangxin.dev/"
+        },
+        {
             "title": "我的小米粥分你一半",
             "feed_url": "https://corvo.myseu.cn/atom.xml",
             "html_url": "https://corvo.myseu.cn/"
@@ -641,6 +686,11 @@
             "html_url": "https://blog.xinshijiededa.men/"
         },
         {
+            "title": "旅行者的随想",
+            "feed_url": "https://blog.besscroft.com/atom.xml",
+            "html_url": "https://blog.besscroft.com/"
+        },
+        {
             "title": "春水煎茶",
             "feed_url": "https://writings.sh/feed.xml",
             "html_url": "https://writings.sh/"
@@ -654,6 +704,11 @@
             "title": "机械境",
             "feed_url": "https://gythialy.github.io/atom.xml",
             "html_url": "https://gythialy.github.io/"
+        },
+        {
+            "title": "桃罐",
+            "feed_url": "https://freshp0325.xyz/feed/post.xml",
+            "html_url": "https://freshp0325.xyz/posts/"
         },
         {
             "title": "此方方有限公司",
@@ -674,6 +729,11 @@
             "title": "潮流周刊",
             "feed_url": "https://weekly.tw93.fun/rss.xml",
             "html_url": "https://weekly.tw93.fun/"
+        },
+        {
+            "title": "澄沨的漫游茶记",
+            "feed_url": "https://champhoon.xyz/atom.xml",
+            "html_url": "https://champhoon.xyz/"
         },
         {
             "title": "猫·仁波切",
@@ -806,6 +866,6 @@
             "html_url": "https://coolshell.cn"
         }
     ],
-    "last_updated": "2024-05-26",
-    "count": 161
+    "last_updated": "2024-08-04",
+    "count": 173
 }
