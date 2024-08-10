@@ -65,6 +65,8 @@ summary: a cheatsheet of vim commands
 ### Vim Life 
 看[Vim Life - Normal Mode](https://normalmo.de/vimlife/#footnotereturn3)，作者使用macro，实现了一个生命游戏。
 
+### esc的替代 
+- 默认的代替Esc键的组合键是CTRL C 或者 Ctrl+[ 
 
 ## 参考链接
 - [mudi24/keyborad-man](https://github.com/mudi24/keyborad-man/tree/main/%E6%B5%8F%E8%A7%88%E5%99%A8)

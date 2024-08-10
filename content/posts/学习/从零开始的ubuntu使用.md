@@ -37,7 +37,8 @@ summary: Long may the Jammy Jellyfish!
 
 ## 代理 
 - [求助， Linux 如何使用全局代理？ - V2EX](https://v2ex.com/t/988113 )
-- [juewuy/ShellCrash: Run sing-box/mihomo as client in shell](https://github.com/juewuy/ShellCrash )
+- ShellCrash
+  - [juewuy/ShellCrash: Run sing-box/mihomo as client in shell](https://github.com/juewuy/ShellCrash )
 - v2rayA 
   - [v2rayA/v2rayA: A web GUI client of Project V which supports VMess, VLESS, SS, SSR, Trojan, Tuic and Juicity protocols. 🚀](https://github.com/v2rayA/v2rayA )
   - [V2RayA——新一代Linux客户端安装配置教程 | SKY博客](https://www.sky350.com/1210.html ) 
@@ -56,6 +57,8 @@ summary: Long may the Jammy Jellyfish!
 - electron-ssr 
   - [shadowsocksrr/electron-ssr: Shadowsocksr client using electron](https://github.com/shadowsocksrr/electron-ssr )
   - [linux配置SSR | Victrid's Personal Site](https://victrid.dev/2020/linux-pei-zhi-ssr/ )
+- clash   
+  - [配置透明代理，实现无感上网 | Victrid's Personal Site](https://victrid.dev/2021/pei-zhi-tou-ming-dai-li-shi-xian-wu-gan-shang-wang/ )
 
 ps: 在这上折腾最久，最终使用的是v2raya。
 
@@ -66,6 +69,11 @@ sudo apt install openssh-server
 sudo systemctl enable --now ssh
 ```
 
+- [Connecting to GitHub with SSH - GitHub Docs](https://docs.github.com/en/authentication/connecting-to-github-with-ssh )
+
 ## 杂
 - [Weird error when shutting down after update : r/archlinux](https://www.reddit.com/r/archlinux/comments/11dqzj0/weird_error_when_shutting_down_after_update/ )
 - [查看Linux系统架构的命令，查看linux系统是哪种架构：AMD、ARM、x86、x86_64、pcc 或 查看Ubuntu的版本号 - 掘金](https://juejin.cn/post/7097032561092165640 )
+
+## steam 
+之前看SteamDeck用的系统是Linux魔改，以为现在Linux上跑游戏很成熟了，但自己实际体验后，发现支持Linux的还不算多。
