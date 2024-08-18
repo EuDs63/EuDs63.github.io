@@ -13,7 +13,7 @@ pygmentsUseClasses: true
 permalinks:
   # posts: /:year/:title/
   posts: /:year/:slug/
-# googleAnalytics: UA-123-45
+googleAnalytics: G-35P2TK84D2
 
 minify:
     disableXML: true
