@@ -447,12 +447,12 @@
         },
         {
             "title": "[Unknown]",
-            "feed_url": "https://pichu.moe/feed.xml",
+            "feed_url": "https://s3.laisky.com/public/rss.xml",
             "html_url": null
         },
         {
             "title": "[Unknown]",
-            "feed_url": "https://s3.laisky.com/public/rss.xml",
+            "feed_url": "https://pichu.moe/feed.xml",
             "html_url": null
         },
         {
@@ -866,6 +866,6 @@
             "html_url": "https://coolshell.cn"
         }
     ],
-    "last_updated": "2024-08-04",
+    "last_updated": "2024-08-11",
     "count": 173
 }

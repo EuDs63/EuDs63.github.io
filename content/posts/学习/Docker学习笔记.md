@@ -126,6 +126,14 @@ sh -c "curl -L https://mirror.ghproxy.com/https://github.com/docker/compose/rele
 chmod +x $DOCKER_CONFIG/cli-plugins/docker-compose
 ```
 
+## 容器逃逸
+- [容器逃逸常用方法-云社区-华为云](https://bbs.huaweicloud.com/blogs/278683)
+- [CVE-2024-21626 从容器内逃逸到宿主机文件系统 | 卡瓦邦噶！](https://www.kawabangga.com/posts/5785)
+
+## 原理
+- [Docker (容器) 的原理 | 卡瓦邦噶！](https://www.kawabangga.com/posts/4224)
+
+
 ## 时间线
 ### 2023年5月18日
 Docker官方仓库域名被墙，国内已无法正常访问。
@@ -137,12 +145,9 @@ Docker官方仓库域名被墙，国内已无法正常访问。
 - [docker 容器内使用宿主机的代理配置 | Zach Ke's Notes](https://kebingzao.com/2019/02/22/docker-container-proxy/ )
 - [如何为终端、docker 和容器设置代理 | Moralok](https://www.moralok.com/2023/06/13/how-to-configure-proxy-for-terminal-docker-and-container/ )
 
-## 容器逃逸
-- [容器逃逸常用方法-云社区-华为云](https://bbs.huaweicloud.com/blogs/278683)
-- [CVE-2024-21626 从容器内逃逸到宿主机文件系统 | 卡瓦邦噶！](https://www.kawabangga.com/posts/5785)
-
-## 原理
-- [Docker (容器) 的原理 | 卡瓦邦噶！](https://www.kawabangga.com/posts/4224)
+## 2024年8月11日
+- [Recent Docker BuildKit Features You're Missing Out On | Martin Heinz | Personal Website & Blog](https://martinheinz.dev/blog/111 )
+  - `docker buildx debug`
 
 ## 参考链接
 - [如何更新docker容器镜像](https://blog.minirplus.com/12138/)
