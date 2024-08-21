@@ -131,5 +131,12 @@ summary: 自己学习过程中整理的关于React的知识点
 ### 参考
 - [An Introduction to React Fiber - The Algorithm Behind React](https://www.velotio.com/engineering-blog/react-fiber-algorithm)
 
+---
+
+## useId
+- [useId – React](https://react.dev/reference/react/useId )
+- generate a unique ID
+- A component may be rendered more than once on the page—but IDs have to be unique! Instead of hardcoding an ID, generate a unique ID with useId.
+
 ## 参考
 - [sudheerj/reactjs-interview-questions: List of top 500 ReactJS Interview Questions & Answers....Coding exercise questions are coming soon!!](https://github.com/sudheerj/reactjs-interview-questions)
