@@ -426,6 +426,11 @@
             "html_url": "http://www.52cik.com/"
         },
         {
+            "title": "Wilson's blog",
+            "feed_url": "https://wilsonxia.cn/atom.xml",
+            "html_url": "https://wilsonxia.cn/"
+        },
+        {
             "title": "Yulin Lewis' Blog",
             "feed_url": "https://lewky.cn/index.xml",
             "html_url": "https://lewky.cn/"
@@ -447,7 +452,7 @@
         },
         {
             "title": "[Unknown]",
-            "feed_url": "https://pichu.moe/feed.xml",
+            "feed_url": "https://s3.laisky.com/public/rss.xml",
             "html_url": null
         },
         {
@@ -457,7 +462,7 @@
         },
         {
             "title": "[Unknown]",
-            "feed_url": "https://s3.laisky.com/public/rss.xml",
+            "feed_url": "https://pichu.moe/feed.xml",
             "html_url": null
         },
         {
@@ -476,6 +481,11 @@
             "html_url": "https://brr.fyi/"
         },
         {
+            "title": "fatedier blog",
+            "feed_url": "https://blog.fatedier.com/index.xml",
+            "html_url": "https://blog.fatedier.com/"
+        },
+        {
             "title": "jacobian.org",
             "feed_url": "https://jacobian.org/index.xml",
             "html_url": "https://jacobian.org/"
@@ -484,6 +494,11 @@
             "title": "kekxv 技术博客",
             "feed_url": "https://kekxv.github.io/feed.xml",
             "html_url": "http://kekxv.github.io/"
+        },
+        {
+            "title": "kxxt's blog",
+            "feed_url": "https://www.kxxt.dev/rss.xml",
+            "html_url": "https://www.kxxt.dev"
         },
         {
             "title": "laike9m's blog",
@@ -866,6 +881,6 @@
             "html_url": "https://coolshell.cn"
         }
     ],
-    "last_updated": "2024-08-18",
-    "count": 173
+    "last_updated": "2024-08-25",
+    "count": 176
 }
