@@ -82,6 +82,7 @@ console.log(str === false) //false
 - `??` 空值合并操作符（Nullish Coalescing Operator），用于提供默认值
   - 当左侧操作数为null或undefined时，返回右侧操作数，否则返回左侧操作数。
   - 与逻辑或（||）操作符不同，空值合并操作符只在左侧操作数为null或undefined时返回右侧操作数，对于其他假值（如0、''等）不会触发返回右侧操作数。
+  - [?? "" is a Code Smell / Jordan Eldredge](https://jordaneldredge.com/blog/defaulting-to-empty-string-is-a-code-smell/ )
 
 ## Object 
 - 在 JavaScript 中，对象,可以被看作是一组属性的集合。它是唯一可变的值。事实上，函数也是具有额外可调用能力的对象。
@@ -124,6 +125,10 @@ console.log(str === false) //false
   ```
 - 参考：[Object.entries() - JavaScript | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/entries)
 
+## Object.assign()
+- copies all enumerable own properties from one or more source objects to a target object. It returns the modified target object.
+- [Object.assign() - JavaScript | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign )
+
 ## 遍历Object
 ### for in 和 for of  
 - `for in`遍历的是"key"，`for of`遍历的是"value"
@@ -155,6 +160,9 @@ console.log(str === false) //false
   // TypeError: person is not iterable
   ```
 - 总结: `for in` 一般用来遍历对象的key、`for of` 一般用来遍历数组的value
+
+## 序列化与反序列化
+- 见[json的序列化与反序列化](https://ds63.eu.org/2024/serialization_and_deserialization)
 
 ## 原型
 - `__proto__`：
