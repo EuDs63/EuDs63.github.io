@@ -186,6 +186,11 @@
             "html_url": "https://life.huli.tw/"
         },
         {
+            "title": "Huli's blog",
+            "feed_url": "https://blog.huli.tw/atom-ch.xml",
+            "html_url": "https://blog.huli.tw/"
+        },
+        {
             "title": "Jesse Li",
             "feed_url": "https://blog.jse.li/index.xml",
             "html_url": "https://blog.jse.li/"
@@ -462,13 +467,13 @@
         },
         {
             "title": "[Unknown]",
-            "feed_url": "https://blog.sina.com.cn/rss/1283569510.xml",
-            "html_url": "https://blog.sina.com.cn/rss/1283569510.xml"
+            "feed_url": "https://s3.laisky.com/public/rss.xml",
+            "html_url": null
         },
         {
             "title": "[Unknown]",
-            "feed_url": "https://s3.laisky.com/public/rss.xml",
-            "html_url": null
+            "feed_url": "https://blog.sina.com.cn/rss/1283569510.xml",
+            "html_url": "https://blog.sina.com.cn/rss/1283569510.xml"
         },
         {
             "title": "blog.thea.codes",
@@ -886,6 +891,6 @@
             "html_url": "https://coolshell.cn"
         }
     ],
-    "last_updated": "2024-09-15",
-    "count": 177
+    "last_updated": "2024-09-22",
+    "count": 178
 }
