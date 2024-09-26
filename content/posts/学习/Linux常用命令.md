@@ -109,6 +109,7 @@ summary: a cheatsheet of vim commands
   - `alias name='command line'`
   - 列出目前所有的别名设置 `alias`
   - 持久化: 添加到`~/.bashrc`即可
+- [Retrieve Contents over HTTP without curl or wget](https://i.hsfzxjy.site/a-trick-to-retrieve-web-contents-without-curl-or-wget/ )
 
 --- 
 

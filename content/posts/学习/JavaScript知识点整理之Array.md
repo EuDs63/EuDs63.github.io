@@ -1,0 +1,160 @@
+---
+title: JavaScript知识点整理之Array
+slug: javascript_points_of_array
+date: 2024-02-25T15:34:14+08:00
+tags:
+  - 笔记
+  - 前端
+  - web
+  - JavaScript
+categories:
+  - 学习
+summary: 自己学习过程中整理的关于JavaScript中Array的知识点
+--- 
+
+## 初始化
+### new 
+```javascript
+// 新建一个n行n列的二维数组
+ const dp = new Array(n).fill(0).map(() => new Array(n).fill(0));
+```
+
+### Array.from 
+- 示例:
+```javascript
+const data = Array.from({ length: 100 * 1024 }, () => Math.floor(Math.random() * 256))
+```
+
+- 格式
+```javascript
+Array.from(arrayLike)
+Array.from(arrayLike, mapFn)
+Array.from(arrayLike, mapFn, thisArg)
+```
+
+### 参考 
+- [将 Base64 编码的数据快速转换为 Uint8Array](https://i.hsfzxjy.site/fast-conversion-from-base64-binary-to-uint8-array/ )
+- [Array.from() - JavaScript | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from )
+
+
+## 遍历数组
+1. `forEach`
+   - `Array.prototype.forEach(function(value, index, arr), thisValue)`
+2. `every`
+  ```JavaScript
+  const arr = [0, 1, 2, 3, 4, 5, 6, 7]
+  let a = arr.every((value) => value > -1)//判断数组元素是否都大于-1
+  console.log(a);//true
+  ```
+3. `some()`
+  ```JavaScript
+  const arr = [0, 1, 2, 3, 4, 5, 6, -7]
+  let a = arr.every((value) => value > -1)//判断数组元素是否有小于-1的
+  console.log(a);//true
+  ```
+4. `filter()`
+  ```JavaScript
+  const arr = [0, 1, 2, 3, 4, 5, 6, 7]
+  let newArr = arr.filter((value) => value > 3) //判断数组元素是否大于3
+  console.log(newArr); //[ 4, 5, 6, 7 ]
+  ```
+5. `map()`
+  ```JavaScript
+  const arr = [0, 1, 2, 3, 4, 5, 6, 7]
+  let newArr = arr.map((value) => value * 2) //将数组中每一个元素都乘以2
+  console.log(newArr); //[0,  2,  4,  6, 8, 10, 12, 14]
+  ```
+6. `reduce()`
+  ```JavaScript
+  const array = [1,2,3,4,5]
+
+  const sumWithInitial = array.reduce(
+    (previousValue,currentValue,currentIndex) => 
+        previousValue*2 + currentValue - currentIndex,1);
+
+  console.log(sumWithInitial) // 63
+  ```
+7. `for...in` 和 `for...of`
+  - for in 一般用来遍历对象的key、for of 一般用来遍历数组的value
+  - 示例：
+    ```JavaScript
+    var obj  {a:1,b:2,c:3};
+
+    for (let key in obj){
+      console.log(key);
+    }
+
+    const array = ['a','b','c'];
+    for (let val of array){
+      console.log(val);
+    }
+  ```
+
+### 参考
+- [js遍历数组的10种方法 - 掘金](https://juejin.cn/post/6854573211699380237)
+- [javascript - for…in和for…of的用法与区别 - 前端开发随笔 - SegmentFault 思否](https://segmentfault.com/a/1190000022348279)
+- [Array.prototype.reduce() - JavaScript | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce)
+
+## 实现forEach, map, filter
+- forEach 
+```JavaScript
+Array.protype.forEach = function(){
+  const array = this; // 调用 forEach 方法的数组实例
+  const [callbackFn,thisArg] = [].slice.call(arguments);
+  if (typeof callbackFn !== 'function'){
+    throw new TypeError(callbackFn + 'is not a function')
+  }
+  for (let i =0;i<ary.length;i++){
+    callbackFn.call(thisArg,array[i],i,array);
+  }
+}
+```
+- map 
+```JavaScript
+function map(arr,fn) {
+  const res = [];
+  arr.forEach((item,i)=>{
+    res[i] = fn(item,i);
+  })
+  return res;
+}
+```
+- filter 
+```JavaScript
+function filter(arr,fn){
+  const res =[];
+  arr.forEach((item,i)=>{
+    const isOk = fn(item,i);
+    if(isOk){
+      res.push[item];
+    }
+  })
+  return res;
+}
+```
+
+## 数组去重
+### reduce()
+  ```JavaScript
+  const myArray = ["a", "b", "a", "b", "c", "e", "e", "c", "d", "d", "d", "d"];
+  const myArrayWithNoDuplicates = myArray.reduce((accumulator, currentValue) => {
+    if (!accumulator.includes(currentValue)) {
+      return [...accumulator, currentValue];
+    }
+    return accumulator;
+  }, []);
+
+  console.log(myArrayWithNoDuplicates);
+  ```
+
+### 参考
+- [JavaScript 数组去重的方法（12 种方法，史上最全） - 前端开发随笔 - SegmentFault 思否](https://segmentfault.com/a/1190000016418021)
+
+## 扁平数组
+wip
+
+## 参考
+- [Array.from() - JavaScript | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from )
+- [超性感的React Hooks（六）自定义hooks的思维方式](https://mp.weixin.qq.com/s/GPcwIPJBc9I_NtixyU-U4Q)
+- [JavaScript 数组去重的方法（12 种方法，史上最全） - 前端开发随笔 - SegmentFault 思否](https://segmentfault.com/a/1190000016418021)
+
