@@ -126,6 +126,11 @@
             "html_url": "https://blog.netnerds.net/"
         },
         {
+            "title": "Cmj's Blog",
+            "feed_url": "https://blog.caomingjun.com/atom.xml",
+            "html_url": "https://blog.caomingjun.com/"
+        },
+        {
             "title": "CorrectRoad's Blog",
             "feed_url": "https://correctroadh.github.io/index.xml",
             "html_url": "https://correctroadh.github.io/"
@@ -182,13 +187,13 @@
         },
         {
             "title": "Huli's blog",
-            "feed_url": "https://life.huli.tw/atom.xml",
-            "html_url": "https://life.huli.tw/"
+            "feed_url": "https://blog.huli.tw/atom-ch.xml",
+            "html_url": "https://blog.huli.tw/"
         },
         {
             "title": "Huli's blog",
-            "feed_url": "https://blog.huli.tw/atom-ch.xml",
-            "html_url": "https://blog.huli.tw/"
+            "feed_url": "https://life.huli.tw/atom.xml",
+            "html_url": "https://life.huli.tw/"
         },
         {
             "title": "Jesse Li",
@@ -462,12 +467,12 @@
         },
         {
             "title": "[Unknown]",
-            "feed_url": "https://pichu.moe/feed.xml",
+            "feed_url": "https://s3.laisky.com/public/rss.xml",
             "html_url": null
         },
         {
             "title": "[Unknown]",
-            "feed_url": "https://s3.laisky.com/public/rss.xml",
+            "feed_url": "https://pichu.moe/feed.xml",
             "html_url": null
         },
         {
@@ -891,6 +896,6 @@
             "html_url": "https://coolshell.cn"
         }
     ],
-    "last_updated": "2024-09-22",
-    "count": 178
+    "last_updated": "2024-09-29",
+    "count": 179
 }
