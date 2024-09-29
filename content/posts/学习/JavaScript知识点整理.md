@@ -13,49 +13,6 @@ summary: 自己学习过程中整理的关于JavaScript的知识点
 --- 
 **本文记录了我学习过程中整理的关于JavaScript的知识点,以摘抄为主，绝大部分非原创。未能全部都标明出处，在此致歉**
 
-## JavaScript基本类型
-1. 数值（Number）：用于表示数字，包括整数和浮点数。
-2. 字符串（String）：用于表示文本，由单引号或双引号括起来的字符序列。
-3. 布尔值（Boolean）：用于表示逻辑值，只有两个取值，true和false。
-4. 空值（Null）：表示"没有对象"，即该处不应该有值; `typeof null === "object"`
-5. 未定义（Undefined）：表示"缺少值"，就是此处应该有一个值，但是还没有定义
-   - 在ES5标准中，`undefined`被设置为不可写
-   - 但在其之前，`undefined`实际上是一个全局属性,可以被修改。所以babel会将其编译成`void 0`,来确保兼容性
-6. 大整数（BigInt）：用于表示任意精度的整数，通常用于表示超出Number类型范围的整数。
-   - 不可以把 bigint 和常规数字类型混合使用
-   - 创建 bigint 的方式有两种：在一个整数字面量后面加 n 或者调用 BigInt 函数，该函数从字符串、数字等中生成 bigint
-7. 符号（Symbol）：用于表示唯一的标识符。
-    ```JavaScript
-    console.log(Symbol('foo') === Symbol('foo'));
-    // Expected output: false
-    ```
-8. 永远不会有返回值的类型（Never）：表示那些永远不会有返回值的函数的返回值类型。通常用于抛出异常或无限循环等情况。
-9.  任意类型（Any）：表示可以是任何类型的值，通常用于在编写代码时不确定变量的类型，或者需要处理多种类型的情况。
-
-- 参考：
-  - [JavaScript 数据类型和数据结构 - JavaScript | MDN](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Data_structures)
-  - [BigInt](https://zh.javascript.info/bigint)
-  - [undefined与null的区别 - 阮一峰的网络日志](https://www.ruanyifeng.com/blog/2014/03/undefined-vs-null.html)
-
-## typeof 和instance of
-- `typeof`: 用于检查变量的数据类型。它返回一个表示变量类型的字符串
-- `instance of`: 用于检查一个对象是否是另一个对象的实例，或者是否属于某个类的实例
-- 示例:
-    ```JavaScript
-    class Animal {}
-    class Dog extends Animal {}
-
-    const dog = new Dog();
-    console.log(dog instanceof Dog); // 返回 true
-    console.log(dog instanceof Animal); // 返回 true
-    ```
-- 手写instanceof
-
-## 类型判断 
-- type of 
-- instance of 
-- Object.toString.call 
-
 ## 双等号和三等号
 - `==` 只比较值是否相等。在比较数值之前，它将变量的类型转换为相互匹配
 - `===` 不执行类型转换。它将验证被比较的变量是否具有相同的值和相同的类型。
@@ -92,6 +49,39 @@ console.log(str === false) //false
 - 对象的原型（prototype）指向另一个对象或者 null
 - [Object 和 Map 的比较 | MDN](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Map#object_%E5%92%8C_map_%E7%9A%84%E6%AF%94%E8%BE%83)
 - 对象注入攻击：[The Dangers of Square Bracket Notation](https://github.com/eslint-community/eslint-plugin-security/blob/main/docs/the-dangers-of-square-bracket-notation.md)
+
+## 静态属性和静态方法
+- 静态方法用于实现属于整个类，但不属于该类任何实例的函数。
+  ```JavaScript
+  class Article {
+    constructor(title, date) {
+      this.title = title;
+      this.date = date;
+    }
+
+    // 静态方法
+    static compare(articleA, articleB) {
+      return articleA.date - articleB.date;
+    }
+  }
+  // 直接将其作为属性赋值的作用相同
+  Article.compare = function (articleA, articleB) {
+      return articleA.date - articleB.date;
+  }
+  // 可以在类上调用，而不是在单个对象上
+  let article = new Article("HTML", new Date(2019, 1, 1));
+  article.compare() /// Error: article.createTodays is not a function
+  ```
+- 静态属性
+  - 等同于直接给类赋值
+- 静态属性和方法是可被继承的。
+- 参考 
+  - [静态属性和静态方法](https://zh.javascript.info/static-properties-methods )
+
+## 私有属性
+- 参考[私有属性 - JavaScript | MDN](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Classes/Private_properties)
+- 私有属性通过添加`#`前缀来创建，在类的外部无法合法地引用。
+- 私有属性不是原型继承模型的一部分，因为它们只能在当前类内部被访问，而且不能被子类继承。
 
 ## 访问和设置对象的属性
 - **访问**
@@ -520,10 +510,7 @@ console.log(str === false) //false
 
 
 
-## 私有属性
-- 参考[私有属性 - JavaScript | MDN](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Classes/Private_properties)
-- 私有属性通过添加`#`前缀来创建，在类的外部无法合法地引用。
-- 私有属性不是原型继承模型的一部分，因为它们只能在当前类内部被访问，而且不能被子类继承。
+
 
 ## Rest参数 与 Spread 语法
 - 参考[Rest 参数与 Spread 语法](https://zh.javascript.info/rest-parameters-spread)

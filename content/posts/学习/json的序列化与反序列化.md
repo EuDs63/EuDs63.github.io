@@ -20,6 +20,23 @@ summary: 整理JavaScript知识点时发现内容还挺多，于是干脆独立�
   - 将字符串“序列”转换为json对象
   - `JSON.parse(text, reviver)` 
 
+## JSON.stringify()的特殊情况 
+1. undefined、任意的函数以及 symbol 值在序列化过程中有两种情况
+   - 被忽略（出现在非数组对象的属性值中时）
+   - 被转换成 null（出现在数组中时）。
+    ```JavaScript 
+    JSON.stringify({a:new Function})
+    // '{}'
+    JSON.stringify([new Function])
+    // '[null]'
+    ```
+2. 函数、undefined 被**单独转换**时，会返回 undefined。
+    ```JavaScript 
+    JSON.stringify(function()) or JSON.stringify(undefined).
+    ```
+3. Date 日期调用了 toJSON() 将其转换为了 string 字符串（同 Date.toISOString()），因此会被当做字符串处理。
+4. 其他类型的对象，包括 Map/Set/WeakMap/WeakSet，仅会序列化可枚举的属性。
+
 ## reviver的理解
 ### 一个出乎我意料的例子
 粗略扫了遍文档，我以为我已经完全掌握了序列化和反序列化，但
@@ -91,7 +108,7 @@ console.log(transformedObj1);
 - [javascript - 关于 JSON.parse(JSON.stringify(obj)) 实现深拷贝的一些坑 - 超级有温度的代码 - SegmentFault 思否](https://segmentfault.com/a/1190000020297508 )
 
 我将其中的主要内容摘录如下：
-1. 只适用于一般数据的拷贝
+1. 只适用于一般数据的拷贝(结合上文，可以发现这里的问题主要来自JSON.stringify对特殊情况的处理)
 > 1.如果json里面有时间对象，则序列化结果：时间对象=>字符串的形式；
 > 2.如果json里有RegExp、Error对象，则序列化的结果将只得到空对象 RegExp、Error => {}；
 > 3.如果json里有 function,undefined，则序列化的结果会把 function,undefined 丢失；
@@ -99,7 +116,7 @@ console.log(transformedObj1);
 > 5.如果json里有对象是由构造函数生成的，则序列化的结果会丢弃对象的 constructor；
 > 6.如果对象中存在循环引用的情况也无法实现深拷贝
 2. 性能问题： 
->能不用JSON.parse()和JSON.stringify()就不用，采用替代方案且性能更优的。PS：特别是需要多次执行的代码块，特别是这个JSON数据比较庞大时
+>能不用JSON.parse()和JSON.stringify()就不用，采用替代方案且性能更优的。PS：特别是需要多次执行的代码块或是这个JSON数据比较庞大时
 
 这里的第二点我深有体会，之前我便写过这样一段代码，它将一张100kb左右的图片转码为base64，塞进了json中，并序列化为字符串进行传输，接收端再将其反序列化后提取出来。后来重构代码时，这一段代码就成了提升性能的一大突破口。
 
@@ -109,7 +126,7 @@ console.log(transformedObj1);
 
 
 
-- 参考 
-  - [JSON.parse() - JavaScript | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse )
-  - [javascript - 关于JSON.parse()和JSON.stringify()的性能小测试 - 超级有温度的代码 - SegmentFault 思否](https://segmentfault.com/a/1190000018495737 )
-  - [javascript - 关于 JSON.parse(JSON.stringify(obj)) 实现深拷贝的一些坑 - 超级有温度的代码 - SegmentFault 思否](https://segmentfault.com/a/1190000020297508 )
+## 参考 
+- [JSON.parse() - JavaScript | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse )
+- [javascript - 关于JSON.parse()和JSON.stringify()的性能小测试 - 超级有温度的代码 - SegmentFault 思否](https://segmentfault.com/a/1190000018495737 )
+- [javascript - 关于 JSON.parse(JSON.stringify(obj)) 实现深拷贝的一些坑 - 超级有温度的代码 - SegmentFault 思否](https://segmentfault.com/a/1190000020297508 )
