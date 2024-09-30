@@ -155,35 +155,6 @@ console.log(str === false) //false
 ## 序列化与反序列化
 - 见[json的序列化与反序列化](https://ds63.eu.org/2024/serialization_and_deserialization)
 
-## 原型
-- `__proto__`：
-   - `__proto__` 是每个 JavaScript 对象都具有的一个属性，它指向该对象的原型（prototype）。原型链的实现就是通过 `__proto__` 实现的。
-   - 当你访问对象的属性或方法时，如果对象本身没有定义，JavaScript 就会沿着原型链（通过 `__proto__`）向上查找，直到找到匹配的属性或方法或者到达原型链的顶端（Object.prototype）为止。
-   - 尽管 `__proto__` 在历史上被广泛使用，但它在 ECMAScript 6 中被标记为过时，推荐使用 `Object.getPrototypeOf()` 和 `Object.setPrototypeOf()` 来访问和设置对象的原型。
-
-- `.prototype`：
-   - `.prototype` 是**函数对象特有**的属性。每个函数对象都有一个 `.prototype` 属性，它指向一个对象。这个对象被称为该函数的原型对象。
-   - 当你使用 `new` 操作符来创建一个实例时，JavaScript 会将实例的 `__proto__` 属性指向该函数的 `.prototype` 所指向的对象，从而实现原型继承。
-   - `.prototype` 属性主要用于定义构造函数的原型对象，它包含了实例共享的方法和属性。
-   - 通过在构造函数的 `.prototype` 对象上添加属性和方法，可以让所有通过该构造函数创建的实例共享这些属性和方法。
-
-- 示例:
-  ```JavaScript
-  function a() {
-      this.b = 3
-  }
-  a.prototype.b = 7;
-  console.log(b); //undefined
-  var t = new a(); //创建一个新的实例
-  console.log(b); //undefined
-  var b = 2;
-  console.log(b) //2
-  console.log(t.b); // 3
-  console.log(b); // 2
-  a();
-  console.log(b); //3
-  ```
-
 ## new 
 - new 运算符创建一个**用户定义的对象类型**的实例或**具有构造函数的内置对象**的实例。 ——（来自于MDN）
 - 不可以使用 `new Symbol()`，因为 symbol 是基本数据类型，每个从Symbol()返回的 symbol 值都是唯一的。
@@ -210,33 +181,6 @@ console.log(str === false) //false
   car.start(); // black car start
   ```
 - 参考：[深度解析 new 原理及模拟实现 | 木易杨前端进阶](https://muyiy.cn/blog/3/3.5.html)
-
-
-## 原型，原型链和实例的关系
-- 原型链（prototype chain）
-  - 在 JavaScript 中，每个对象都有一个指向其原型的链接，这个链接被称为原型链。
-  - 当你尝试访问对象的属性或方法时，如果该对象本身没有这个属性或方法，JavaScript 引擎会沿着原型链向上查找，直到找到对应的属性或方法，或者查找到达原型链的末端（Object.prototype）。
-- 实例 (instance)
-  - 根据某个类或构造函数创建的具体对象
-  - 当你实例化一个类时，你创建了一个新的对象，该对象继承了类的属性和方法，同时拥有了自己的状态和行为。每个实例都是独立的，它们之间的状态和行为互不影响。
-- 示例:
-  ```JavaScript
-  function Fn() {}
-  console.log(Fn.prototype) // {}
-  Fn.prototype.add = function() {
-    this.count++;
-    console.log(`this.count: ${this.count}`);
-  };
-
-  Fn.prototype.count = 0;
-
-  let fn1 = new Fn();
-  fn1.add(); //1
-  fn1.add(); //2
-
-  let fn2 = new Fn();
-  fn2.add(); //3
-  ```
 
 ## 相等性
 摘自[真的不可以在 React 组件内部嵌套定义子组件吗？ - PRIN BLOG](https://prin.pw/react-unstable-nested-components/#%E5%BC%95%E7%94%A8%E7%9B%B8%E7%AD%89%E6%80%A7%E4%B8%8E%E7%BB%84%E4%BB%B6%E9%87%8D%E6%B8%B2%E6%9F%93)
