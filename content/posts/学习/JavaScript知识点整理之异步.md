@@ -122,4 +122,33 @@ summary: 自己学习过程中整理的关于JavaScript中异步的知识点
   - [如何解决前端常见的竞态问题-腾讯云开发者社区-腾讯云](https://cloud.tencent.com/developer/article/2193937)
 
 ## 问题
-- [setTimeout+Promise+Async输出顺序？很简单呀！本文已参与「掘力星计划」，赢取创作大礼包，挑战创作激 - 掘金](https://juejin.cn/post/7016298598883131423 )
+- [setTimeout+Promise+Async输出顺序？很简单呀！掘金](https://juejin.cn/post/7016298598883131423 )
+- 示例 
+```JavaScript
+// 用一个已解决的 Promise——“resolvedProm”为例，
+// 函数调用“resolvedProm.then(...)”立即返回一个新的 Promise，
+// 但是其中的处理器“(value) => {...}”将被异步调用，正如打印输出所示。
+// 新的 Promise 被赋值给“thenProm”，
+// 并且 thenProm 将被解决为处理函数返回的值。
+const resolvedProm = Promise.resolve(33);
+console.log(resolvedProm);
+
+const thenProm = resolvedProm.then((value) => {
+  console.log(
+    `在主堆栈结束后被调用。收到的值是：${value}，返回的值是：${value + 1}`,
+  );
+  return value + 1;
+});
+console.log(thenProm);
+
+// 使用 setTimeout，我们可以将函数的执行推迟到调用栈为空的时刻。
+setTimeout(() => {
+  console.log(thenProm);
+});
+
+// 按顺序打印：
+// Promise {[[PromiseStatus]]: "resolved", [[PromiseResult]]: 33}
+// Promise {[[PromiseStatus]]: "pending", [[PromiseResult]]: undefined}
+// "在主堆栈结束后被调用。收到的值是：33，返回的值是：34"
+// Promise {[[PromiseStatus]]: "resolved", [[PromiseResult]]: 34}
+```  
