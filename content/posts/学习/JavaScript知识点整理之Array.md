@@ -36,6 +36,7 @@ Array.from(arrayLike, mapFn, thisArg)
 - [将 Base64 编码的数据快速转换为 Uint8Array](https://i.hsfzxjy.site/fast-conversion-from-base64-binary-to-uint8-array/ )
 - [Array.from() - JavaScript | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from )
 
+---
 
 ## 遍历数组
 1. `forEach`
@@ -95,6 +96,8 @@ Array.from(arrayLike, mapFn, thisArg)
 - [javascript - for…in和for…of的用法与区别 - 前端开发随笔 - SegmentFault 思否](https://segmentfault.com/a/1190000022348279)
 - [Array.prototype.reduce() - JavaScript | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce)
 
+---
+
 ## 实现forEach, map, filter
 - forEach 
 ```JavaScript
@@ -133,6 +136,8 @@ function filter(arr,fn){
 }
 ```
 
+---
+
 ## 数组去重
 ### reduce()
   ```JavaScript
@@ -150,8 +155,17 @@ function filter(arr,fn){
 ### 参考
 - [JavaScript 数组去重的方法（12 种方法，史上最全） - 前端开发随笔 - SegmentFault 思否](https://segmentfault.com/a/1190000016418021)
 
+---
+
 ## 扁平数组
+### 实现es6中的flatten()
 wip
+
+---
+
+## shift与pop
+- shift：从数组中删除**第一个**元素，并返回该元素的值。此方法更改数组的长度
+- pop: 从数组中删除**最后一个**元素，并返回该元素的值。此方法更改数组的长度
 
 ## 参考
 - [Array.from() - JavaScript | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from )

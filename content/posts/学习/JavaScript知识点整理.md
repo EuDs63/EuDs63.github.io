@@ -241,6 +241,7 @@ console.log(str === false) //false
   - [干货:import和require如何在项目中混用 - 掘金](https://juejin.cn/post/6844904114183208968)
   - [不要混用 import 和 require | 知更鸟](https://robin-front.github.io/2017/07/10/dont-mixin-import-and-require.html)
   - [关于require和import的疑问 | 道廷途说](https://daotin.netlify.app/qe8yn8.html)
+  - [几分钟了解js的模块化、IIFE。几分钟了解模块化： 1. CommonJS 2. AMD 3. CMD 4. ES6 - 掘金](https://juejin.cn/post/6969800612519084063 )
 
 ## this
 - `this`永远指向，（最内层）调用这个包含"this"关键字的函数的对象,示例:
@@ -452,10 +453,6 @@ console.log(str === false) //false
   let b; // Cannot access 'b' before initialization
   ```
 
-
-
-
-
 ## Rest参数 与 Spread 语法
 - 参考[Rest 参数与 Spread 语法](https://zh.javascript.info/rest-parameters-spread)
 - Rest参数用来从参数列表中获取数组
@@ -539,6 +536,8 @@ sumAll(...array)
 1. js到dom树的单向绑定
 
 2. [牛客网ACM模式下JavaScript(V8)常见输入输出练习_readline(...).split is not a function-CSDN博客](https://blog.csdn.net/SpringRolls/article/details/116506148 )
+
+3. [JavaScript实现封装、继承、多态JavaScript实现封装、继承、多态 - 掘金](https://juejin.cn/post/6979812535557963784 )
 
 ## JavaScript编程中常见的代码坏味道
 ### Pyramid of doom（厄运金字塔）

@@ -54,3 +54,6 @@ summary: 变变变
 
 ### Twitter Cards
 [Getting started with Cards | Docs | Twitter Developer Platform](https://developer.x.com/en/docs/x-for-websites/cards/guides/getting-started )
+
+### 生成
+[frostming/fxzhihu: 为知乎生成可分享的卡片及 Instant View](https://github.com/frostming/fxzhihu/tree/main )
