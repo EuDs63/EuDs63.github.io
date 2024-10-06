@@ -46,45 +46,6 @@ summary: 自己学习过程中整理的关于React的知识点
 
 ---
 
-## hook 
-### 参考
-- [React Hooks原理探究，看完不懂，你打我 - 掘金](https://juejin.cn/post/6891577820821061646)
-- [React Hooks解析（看这一篇就够了） | 骚客](https://coderperson.com/2020/08/02/React%20Hooks%20%E8%A7%A3%E6%9E%90/)
-- [How hooks work | How React Works](https://incepter.github.io/how-react-works/docs/react-dom/how.hooks.work/#thenable)
-
-## 自定义hook
-### hook的理解
-1. Hooks 是一种范式转换，从“生命周期和时间”的思维模式转变为“状态和与DOM的同步”的思维模式
->准确来说，应该是逻辑片段复用。
->
->和组件化思维不同，这是另外一个粒度更细的代码复用思维。例如我们之前提到的，获取同样的数据。在组件化思维中，一个完整的组件，包括了这份数据，以及这份数据在页面上的展示结果。因此这是不同的复用思维。
->
->处理获取数据过程中的公用逻辑，处理公用的登陆逻辑等。自定义hooks封装的大多数情况下不是一个完整的页面逻辑实现，而是其中的一个片段。 自定义hook能够跟随函数组件重复执行，并且每次都返回最新结果。因此，我们可以非常放心大胆的封装异步逻辑。
-### 自己的经历
-在我写[EuDs63/BookRecommend_Front: 图书推荐系统](https://github.com/EuDs63/BookRecommend_Front)，就很经常需要从API获取数据。虽然这时候还没有自定义hook的概念，但很自然地封装了一个函数。在看了[为什么你不应该在 React 中直接使用 useEffect 从 API 获取数据 | Sukka's Blog](https://blog.skk.moe/post/why-you-should-not-fetch-data-directly-in-use-effect/)，了解到[用于数据请求的 React Hooks 库 – SWR](https://swr.vercel.app/zh-CN)。
-
-最近还发现了阿里巴巴开源的[ahooks - React Hooks Library - ahooks 3.0](https://ahooks.js.org/),封装了常用的hook，代码量都不算很大，但都很巧妙，正在学习中。
-
-### 参考
-- [超性感的React Hooks（五）：自定义hooks](https://mp.weixin.qq.com/s?__biz=MzI4NjE3MzQzNg==&mid=2649865889&idx=1&sn=2549fb3da7608aa8e3cce0623fbd8d25)
-- [超性感的React Hooks（六）自定义hooks的思维方式](https://mp.weixin.qq.com/s/GPcwIPJBc9I_NtixyU-U4Q)
-- [为什么你不应该在 React 中直接使用 useEffect 从 API 获取数据 | Sukka's Blog](https://blog.skk.moe/post/why-you-should-not-fetch-data-directly-in-use-effect/)
-
----
-
-## useRef的使用
-
-### 参考
-
----
-
-## useEffect
-### 参考
-- [A Complete Guide to useEffect — overreacted](https://overreacted.io/a-complete-guide-to-useeffect/)
-- [Source code interpretation of React useEffect_javascript_rAc-React](https://devpress.csdn.net/react/62f64ea5c6770329307fc5f1.html)
-
----
-
 ## 虚拟DOM （Virtual Document Object Model）
 在React中，当状态（state）发生变化时，React并不直接操作真实的DOM来更新页面，而是先在内存中构建一个虚拟DOM树，然后通过比较虚拟DOM树和之前渲染的虚拟DOM树之间的差异，最终计算出最小的DOM操作，并将这些操作批量应用到真实的DOM上。
 
@@ -124,6 +85,16 @@ summary: 自己学习过程中整理的关于React的知识点
 ---
 
 ## React Router 
+- state 
+  - An object to store on location state. This is useful for state that doesn’t need to be in the URL but is associated with a route transition. Think of it like “post” data on a server.
+  - 可以用来实现: 用户被踢出后再登陆注册能返回被踢出时的页面
+- replace的作用:
+  >An example is when the user clicks a “purchase” button but needs to log in first, after they log in, you can replace the login screen with the checkout screen you wanted them to be at. Then when they click the back button they won’t see the login page again.
+  >
+  > navigate("/some/where", { replace: true })
+
+### 参考 
+- [Reach Router - navigate(to, { state={}, replace=false })](https://reach.tech/router/api/navigate )
 
 ---
 

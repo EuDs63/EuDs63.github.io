@@ -100,6 +100,7 @@ Array.from(arrayLike, mapFn, thisArg)
 
 ## 实现forEach, map, filter
 - forEach 
+- wip: [Array.prototype.forEach() - JavaScript | MDN](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach#callbackfn )
 ```JavaScript
 Array.protype.forEach = function(){
   const array = this; // 调用 forEach 方法的数组实例
@@ -169,6 +170,4 @@ wip
 
 ## 参考
 - [Array.from() - JavaScript | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from )
-- [超性感的React Hooks（六）自定义hooks的思维方式](https://mp.weixin.qq.com/s/GPcwIPJBc9I_NtixyU-U4Q)
 - [JavaScript 数组去重的方法（12 种方法，史上最全） - 前端开发随笔 - SegmentFault 思否](https://segmentfault.com/a/1190000016418021)
-
