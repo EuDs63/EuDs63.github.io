@@ -472,13 +472,13 @@
         },
         {
             "title": "[Unknown]",
-            "feed_url": "https://pichu.moe/feed.xml",
-            "html_url": null
+            "feed_url": "https://blog.sina.com.cn/rss/1283569510.xml",
+            "html_url": "https://blog.sina.com.cn/rss/1283569510.xml"
         },
         {
             "title": "[Unknown]",
-            "feed_url": "https://blog.sina.com.cn/rss/1283569510.xml",
-            "html_url": "https://blog.sina.com.cn/rss/1283569510.xml"
+            "feed_url": "https://pichu.moe/feed.xml",
+            "html_url": null
         },
         {
             "title": "blog.thea.codes",
@@ -896,6 +896,6 @@
             "html_url": "https://coolshell.cn"
         }
     ],
-    "last_updated": "2024-09-29",
+    "last_updated": "2024-10-06",
     "count": 179
 }
