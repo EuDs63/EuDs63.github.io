@@ -77,6 +77,7 @@ Array.from(arrayLike, mapFn, thisArg)
   ```
 7. `for...in` 和 `for...of`
   - for in 一般用来遍历对象的key、for of 一般用来遍历数组的value
+  - for..in 循环,只会列举出可枚举的属性，也会迭代继承的属性,可以使用`obj.hasOwnProperty(key)`进一步判断
   - 示例：
     ```JavaScript
     var obj  {a:1,b:2,c:3};

@@ -285,50 +285,77 @@ console.log(str === false) //false
   - [Reference Type](https://zh.javascript.info/reference-type)
 
 ## call、bind、apply的作用和区别
-- 参考[彻底弄懂bind，apply，call三者的区别 - 知乎](https://zhuanlan.zhihu.com/p/82340026)
-- apply
-  - 接受两个参数，第一个参数是this的指向，第二个参数是函数接受的参数，以数组的形式传入
-  - 当第一个参数为null、undefined的时候，默认指向window(在浏览器中)
-  - 改变this指向后原函数会立即执行，且此方法只是临时改变thi指向一次。
-  - 示例:
+### apply
+- 接受两个参数，第一个参数是this的指向，第二个参数是函数接受的参数，以**数组**的形式传入,**必须一次性传入所有参数**
+- 当第一个参数为null、undefined的时候，默认指向window(在浏览器中)
+- 改变this指向后原函数会**立即执行**，且此方法只是临时改变thi指向一次。
+- 示例:
     ```JavaScript
     var arr=[1,10,5,8,3];
     console.log(Math.max.apply(null, arr)); //10
     ```
-- call 
-  - 接受两个参数，第一个参数是this的指向，第二个参数是函数接受的参数，以参数列表的形式传入,**必须一次性传入所有参数**
-  - 当第一个参数为null、undefined的时候，默认指向window(在浏览器中)
-  - 改变this指向后原函数会立即执行，且此方法只是临时改变thi指向一次。
-  - 示例：
-    ```JavaScript
-    var arr=[1,10,5,8,3];
-    console.log(Math.max.call(null,arr[0],arr[1],arr[2],arr[3],arr[4])); //10
-    ```
-- bind 
-  - [Function.prototype.bind() - JavaScript | MDN](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/bind)
-  - 接受两个参数，第一个参数是this的指向，如果函数不在严格模式下，null 和 undefined 会被替换为全局对象;
-  - 第二个参数是函数接受的参数，以参数列表的形式传入,**可以分多次传入**
-  - 改变this指向后不会立即执行，而是返回一个永久改变this指向的函数
-  - 可以二次传参，但新绑定的 thisArg 值会被忽略
-  - 示例：
-    ```JavaScript
-    var arr=[1,10,5,8,12];
-    var max=Math.max.bind(null,arr[0],arr[1],arr[2],arr[3])
-    console.log(max(arr[4])); //12，分两次传参
-    ```
-  - 简易实现
-    ```JavaScript
-    Function.prototype.bind=function () {
-      var _this=this;
-      var context=arguments[0];
-      var arg=[].slice.call(arguments,1); //将函数调用时传入的参数转换为数组，并且去掉了第一个参数
+
+### call 
+- 接受两个参数，第一个参数是this的指向，第二个参数是函数接受的参数，以**参数列表**的形式传入,**必须一次性传入所有参数**
+- 当第一个参数为null、undefined的时候，默认指向window(在浏览器中)
+- 改变this指向后原函数会**立即执行**，且此方法只是临时改变this指向一次。
+- 示例：
+  ```JavaScript
+  var arr=[1,10,5,8,3];
+  console.log(Math.max.call(null,arr[0],arr[1],arr[2],arr[3],arr[4])); //10
+  ```
+
+### bind 
+- [Function.prototype.bind() - JavaScript | MDN](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/bind)
+- 接受两个参数，第一个参数是this的指向，如果函数不在严格模式下，null 和 undefined 会被替换为全局对象;
+- 第二个参数是函数接受的参数，以**参数列表**的形式传入,**可以分多次传入**
+- 改变this指向后**不会立即执行**，而是返回一个**永久改变this指向的函数**
+- 可以**二次传参**，但新绑定的 thisArg 值会被忽略
+- 示例：
+  ```JavaScript
+  var arr=[1,10,5,8,12];
+  var max=Math.max.bind(null,arr[0],arr[1],arr[2],arr[3])
+  console.log(max(arr[4])); //12，分两次传参
+  ```
+- 简易实现
+  ```JavaScript
+  Function.prototype.bind=function () {
+    var _this=this;
+    var context=arguments[0];
+    var arg=[].slice.call(arguments,1); //将函数调用时传入的参数转换为数组，并且去掉了第一个参数
 
     return function(){
       arg=[].concat.apply(arg,arguments);
       _this.apply(context,arg);
     }
-    };
+  };
+  ```
+
+### 作用
+- 防止原型链污染
+- 示例:
+  - JavaScript does not protect the property name hasOwnProperty; an object that has a property with this name may return incorrect results
+  - The recommended way to overcome this problem is to instead use Object.hasOwn() (in browsers that support it). Other alternatives include using an external hasOwnProperty:
+  - 代码 
+    ```JavaScript
+    const foo = { bar: "Here be dragons" };
+
+    // Use Object.hasOwn() method - recommended
+    Object.hasOwn(foo, "bar"); // true
+
+    // Use the hasOwnProperty property from the Object prototype
+    Object.prototype.hasOwnProperty.call(foo, "bar"); // true
+
+    // Use another Object's hasOwnProperty
+    // and call it with 'this' set to foo
+    ({}).hasOwnProperty.call(foo, "bar"); // true
     ```
+
+### 参考
+- [彻底弄懂bind，apply，call三者的区别 - 知乎](https://zhuanlan.zhihu.com/p/82340026)
+- [Object.prototype.hasOwnProperty() - JavaScript | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/hasOwnProperty )
+
+---
 
 ## IIFE（立即调用函数表达式）
 - 参考[IIFE（立即调用函数表达式）| MDN](https://developer.mozilla.org/zh-CN/docs/Glossary/IIFE)
@@ -514,6 +541,13 @@ sumAll(...array)
       return obj;
     }
     ```
+  - clone
+  ```JavaScript
+  let clone = Object.create(
+  Object.getPrototypeOf(obj),
+  Object.getOwnPropertyDescriptors(obj)
+  );
+  ```
 
 
 - 参考 
