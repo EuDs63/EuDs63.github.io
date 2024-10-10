@@ -118,6 +118,13 @@ console.log(str === false) //false
 
 ## Object.assign()
 - copies all enumerable own properties from one or more source objects to a target object. It returns the modified target object.
+- 示例 
+  ```JavaScript
+  var name = 'tom'
+  var a = {name:name}
+  var b = Object.assign(a)
+  console.log(b.name) //tom
+  ```
 - [Object.assign() - JavaScript | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign )
 
 ## 遍历Object
@@ -242,120 +249,6 @@ console.log(str === false) //false
   - [不要混用 import 和 require | 知更鸟](https://robin-front.github.io/2017/07/10/dont-mixin-import-and-require.html)
   - [关于require和import的疑问 | 道廷途说](https://daotin.netlify.app/qe8yn8.html)
   - [几分钟了解js的模块化、IIFE。几分钟了解模块化： 1. CommonJS 2. AMD 3. CMD 4. ES6 - 掘金](https://juejin.cn/post/6969800612519084063 )
-
-## this
-- `this`永远指向，（最内层）调用这个包含"this"关键字的函数的对象,示例:
-  ```JavaScript
-  my_element.addEventListener("click", function (e) {
-    console.log(this.className); // 输出 my_element 的 className
-    console.log(e.currentTarget === this); // 输出 `true`
-  });
-
-  ```
-- 如果函数在最外层直接运行，默认绑定的对象是 window，示例:
-  ```JavaScript
-  function test(){
-      var a = 1;
-      console.log(this.a);
-  }
-
-  test(); //undefined
-  ```
-- 对象不构成单独的作用域，而函数有。
-- In arrow functions, `this` retains the value of the enclosing lexical context's `this`.
-- 箭头函数的this，一旦确定后是不可直接更改的，但可间接更改，示例：
-  ```JavaScript
-  function test () {
-      return () => console.log(this); // 这里箭头函数的this指向test()的this
-  }
-  let obj = {
-      aa: 123,
-  }
-
-  let rr = test.call(obj); // test()的this被修改了，导致箭头函数的也跟着修改了
-
-  setTimeout(rr,1000); // obj ，而不是window   因为箭头函数rr的this已经确定了，后面不能更改
-  ```
-
-- 参考 
-  - [Javascript ：this关键字 详解 - 知乎](https://zhuanlan.zhihu.com/p/25349790)
-  - [javascript - 关于箭头函数里的this - 个人文章 - SegmentFault 思否](https://segmentfault.com/a/1190000039881063)
-  - [JavaScript深入之重新认识箭头函数的this | 木易杨前端进阶](https://muyiy.cn/blog/3/3.2.html)
-  - [this - JavaScript | MDN](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/this)
-  - [Reference Type](https://zh.javascript.info/reference-type)
-
-## call、bind、apply的作用和区别
-### apply
-- 接受两个参数，第一个参数是this的指向，第二个参数是函数接受的参数，以**数组**的形式传入,**必须一次性传入所有参数**
-- 当第一个参数为null、undefined的时候，默认指向window(在浏览器中)
-- 改变this指向后原函数会**立即执行**，且此方法只是临时改变thi指向一次。
-- 示例:
-    ```JavaScript
-    var arr=[1,10,5,8,3];
-    console.log(Math.max.apply(null, arr)); //10
-    ```
-
-### call 
-- 接受两个参数，第一个参数是this的指向，第二个参数是函数接受的参数，以**参数列表**的形式传入,**必须一次性传入所有参数**
-- 当第一个参数为null、undefined的时候，默认指向window(在浏览器中)
-- 改变this指向后原函数会**立即执行**，且此方法只是临时改变this指向一次。
-- 示例：
-  ```JavaScript
-  var arr=[1,10,5,8,3];
-  console.log(Math.max.call(null,arr[0],arr[1],arr[2],arr[3],arr[4])); //10
-  ```
-
-### bind 
-- [Function.prototype.bind() - JavaScript | MDN](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/bind)
-- 接受两个参数，第一个参数是this的指向，如果函数不在严格模式下，null 和 undefined 会被替换为全局对象;
-- 第二个参数是函数接受的参数，以**参数列表**的形式传入,**可以分多次传入**
-- 改变this指向后**不会立即执行**，而是返回一个**永久改变this指向的函数**
-- 可以**二次传参**，但新绑定的 thisArg 值会被忽略
-- 示例：
-  ```JavaScript
-  var arr=[1,10,5,8,12];
-  var max=Math.max.bind(null,arr[0],arr[1],arr[2],arr[3])
-  console.log(max(arr[4])); //12，分两次传参
-  ```
-- 简易实现
-  ```JavaScript
-  Function.prototype.bind=function () {
-    var _this=this;
-    var context=arguments[0];
-    var arg=[].slice.call(arguments,1); //将函数调用时传入的参数转换为数组，并且去掉了第一个参数
-
-    return function(){
-      arg=[].concat.apply(arg,arguments);
-      _this.apply(context,arg);
-    }
-  };
-  ```
-
-### 作用
-- 防止原型链污染
-- 示例:
-  - JavaScript does not protect the property name hasOwnProperty; an object that has a property with this name may return incorrect results
-  - The recommended way to overcome this problem is to instead use Object.hasOwn() (in browsers that support it). Other alternatives include using an external hasOwnProperty:
-  - 代码 
-    ```JavaScript
-    const foo = { bar: "Here be dragons" };
-
-    // Use Object.hasOwn() method - recommended
-    Object.hasOwn(foo, "bar"); // true
-
-    // Use the hasOwnProperty property from the Object prototype
-    Object.prototype.hasOwnProperty.call(foo, "bar"); // true
-
-    // Use another Object's hasOwnProperty
-    // and call it with 'this' set to foo
-    ({}).hasOwnProperty.call(foo, "bar"); // true
-    ```
-
-### 参考
-- [彻底弄懂bind，apply，call三者的区别 - 知乎](https://zhuanlan.zhihu.com/p/82340026)
-- [Object.prototype.hasOwnProperty() - JavaScript | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/hasOwnProperty )
-
----
 
 ## IIFE（立即调用函数表达式）
 - 参考[IIFE（立即调用函数表达式）| MDN](https://developer.mozilla.org/zh-CN/docs/Glossary/IIFE)
@@ -549,9 +442,10 @@ sumAll(...array)
   );
   ```
 
-
 - 参考 
   - [面试官：深拷贝浅拷贝的区别？如何实现一个深拷贝？ | web前端面试 - 面试官系列](https://vue3js.cn/interview/JavaScript/copy.html)
+
+---
 
 ## 复制
 - 参考 [JavaScript复制内容到剪贴板 - 掘金](https://juejin.cn/post/6844903567480848391)
@@ -563,8 +457,20 @@ sumAll(...array)
 
   过几年再看看？
 
-## 读取剪贴板
+---
 
+## 读取剪贴板
+wip
+
+---
+
+## JavaScript编程中常见的代码坏味道
+wip
+
+### Pyramid of doom（厄运金字塔）
+- [厄运金字塔（编程）- 维基百科 --- Pyramid of doom (programming) - Wikipedia](https://en.wikipedia.org/wiki/Pyramid_of_doom_(programming))
+
+---
 
 ## 问题
 1. js到dom树的单向绑定
@@ -573,6 +479,45 @@ sumAll(...array)
 
 3. [JavaScript实现封装、继承、多态JavaScript实现封装、继承、多态 - 掘金](https://juejin.cn/post/6979812535557963784 )
 
-## JavaScript编程中常见的代码坏味道
-### Pyramid of doom（厄运金字塔）
-- [厄运金字塔（编程）- 维基百科 --- Pyramid of doom (programming) - Wikipedia](https://en.wikipedia.org/wiki/Pyramid_of_doom_(programming))
+4. `parseInt`
+   - [parseInt() - JavaScript | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt )
+   - 示例代码
+     ```JavaScript
+     let res = ['1', '2', '100'].map(parseInt);
+     console.log(res); // [1, NaN, 4]
+     ```
+   - 解释
+     - 实际上 map 会传递三个参数给 parseInt，而 parseInt 只关心前两个参数：要解析的字符串和进制
+     - 因此解析过程如下:
+       1. 对第一个元素 '1'，parseInt('1', 0)，0 表示根据输入自动检测进制，结果是 1。
+       2. 对第二个元素 '2'，parseInt('2', 1)，1 不是有效的进制，因此结果是 NaN。
+       3. 对第三个元素 '100'，parseInt('100', 2)，以二进制解析 '100'，结果是 4。
+
+5. 箭头函数与普通函数的区别
+   - 函数体内的 this 对象，就是定义时所在的作用域中的 this 值，而不是使用时所在的对象
+   - 不可以使用 arguments 对象，该对象在函数体内不存在。如果要用，可以用 rest 参数代替
+   - 不可以使用 yield 命令，因此箭头函数不能用作 Generator 函数
+   - 不可以使用 new 命令
+     - 没有自己的 this，无法调用 call，apply
+     - 没有 prototype 属性
+   - 参考: [第 58 题：箭头函数与普通函数（function）的区别是什么？构造函数（function）可以使用 new 生成实例，那么箭头函数可以吗？为什么？ · Issue #101 · Advanced-Frontend/Daily-Interview-Question](https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/101 )
+
+6. ES6新特性
+   - 引入了let和const
+   - 模板字符串: `${}`
+   - 箭头函数
+   - 函数参数默认值，Rest参数
+   - 解构赋值 
+   - Promise 
+   - 新增Map,Set,WeakMap,WeakSet
+   - 迭代器和生成器
+     ```JavaScript
+     let arr =[1,2,3];
+     for(let item of arr){
+      console.log(item)
+     }
+
+     ```
+   - 对象和类
+
+

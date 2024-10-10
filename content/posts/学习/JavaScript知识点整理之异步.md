@@ -105,6 +105,10 @@ wip
   -  使 JavaScript 引擎等待该 promise settle，然后：
      1. 如果有 error，就会抛出异常 —— 就像那里调用了 throw error 一样。
      2. 否则，就返回结果
+### 实现 
+wip
+
+### 如何处理错误
 ### 示例
   ```JavaScript
   async function f() {

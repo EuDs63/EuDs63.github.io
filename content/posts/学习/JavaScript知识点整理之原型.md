@@ -62,40 +62,8 @@ summary: 自己学习过程中整理的关于JavaScript中原型的知识点
   console.log(b); //3
   ```
 
----
-
-## this的值
-### 关键
-无论在哪里找到方法：在一个对象还是在原型中。在一个方法调用中，this 始终是点符号`.`前面的对象
-
-### 示例
-```JavaScript
-let user = {
-  name: "John",
-  surname: "Smith",
-
-  set fullName(value) {
-    [this.name, this.surname] = value.split(" ");
-  },
-
-  get fullName() {
-    return `${this.name} ${this.surname}`;
-  }
-};
-
-let admin = {
-  __proto__: user,
-  isAdmin: true
-};
-
-alert(admin.fullName); // John Smith (*)
-
-// setter triggers!
-admin.fullName = "Alice Cooper"; // (**)
-
-alert(admin.fullName); // Alice Cooper，admin 的内容被修改了
-alert(user.fullName);  // John Smith，user 的内容被保护了
-```
+### 补充
+- 箭头函数没有 prototype 属性
 
 ---
 
