@@ -48,11 +48,8 @@ Array.from(arrayLike, mapFn, thisArg)
   console.log(a);//true
   ```
 3. `some()`
-  ```JavaScript
-  const arr = [0, 1, 2, 3, 4, 5, 6, -7]
-  let a = arr.every((value) => value > -1)//判断数组元素是否有小于-1的
-  console.log(a);//true
-  ```
+   wip
+
 4. `filter()`
   ```JavaScript
   const arr = [0, 1, 2, 3, 4, 5, 6, 7]
@@ -164,6 +161,11 @@ function filter(arr,fn){
 ---
 
 ## 数组去重
+### set 
+```JavaScript
+Array.from(new Set(arr))
+```
+
 ### reduce()
   ```JavaScript
   const myArray = ["a", "b", "a", "b", "c", "e", "e", "c", "d", "d", "d", "d"];

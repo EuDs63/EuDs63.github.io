@@ -422,6 +422,11 @@ wip
 1. `Object`：这是一个内置的构造函数，用于创建对象。例如，你可以使用`new Object()`来创建一个新的对象实例。
 2. `object`：这是一个数据类型的名称，表示所有引用类型的对象，包括数组、函数、正则表达式等。它是 JavaScript 中的一种原始类型，用于描述一类数据结构。
 
-
-
 ---
+
+## Function
+### new Function
+- 语法: `let func = new Function ([arg1, arg2, ...argN], functionBody);`
+- 环境: 如果我们使用 new Function 创建一个函数，那么该函数的`[[Environment]]`并不指向当前的词法环境，而是指向全局环境,这样做的好处是避免了与使用压缩程序而产生冲突的问题
+- 使用场景: 在复杂的 Web 应用程序中，我们需要从服务器获取代码或者动态地从模板编译函数时
+- 参考: ["new Function" 语法](https://zh.javascript.info/new-function )

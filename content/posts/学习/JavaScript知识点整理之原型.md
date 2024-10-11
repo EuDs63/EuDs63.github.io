@@ -107,6 +107,24 @@ summary: 自己学习过程中整理的关于JavaScript中原型的知识点
   car.start(); // black car start
   ```
 
+### 代码输出题
+```JavaScript
+Function.prototype.a = 1;
+Object.prototype.b = 2;
+function F() {
+    //
+}
+const f = new F();
+
+console.log(F.a); // 1
+console.log(F.b); // 2
+console.log(f.a); //undefined
+console.log(f.b); // 2
+console.log(f.prototype); //undefined
+console.log(f.__proto__); //{}
+
+```
+
 ### 参考
 - [深度解析 new 原理及模拟实现 | 木易杨前端进阶](https://muyiy.cn/blog/3/3.5.html)
 

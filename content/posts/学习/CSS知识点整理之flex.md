@@ -46,7 +46,7 @@ summary: 自己学习过程中整理的关于CSS中flex的知识点
 - The flex shrink factor is multiplied by the flex base size; this distributes negative space in proportion to how much the item can shrink. This prevents smaller items from shrinking to 0px before a larger item is noticeably reduced.
 - [flex-shrink - CSS: Cascading Style Sheets | MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-shrink )
 
-### flex-basis
+### `flex-basis`
 - 指定了 flex 元素在主轴方向上的初始大小(内容盒)
 
 - flex-basis 优先级比 width(height)高
@@ -72,6 +72,9 @@ summary: 自己学习过程中整理的关于CSS中flex的知识点
 
   3. none
     - 元素会根据自身宽高来设置尺寸。它是完全非弹性的：既不会缩短，也不会伸长来适应 flex 容器。相当于将属性设置为"flex: 0 0 auto"。
+  
+  4. 1
+    - `flex-grow:1 , flex-shrink-1, flex-basis-0`的缩写
 
 ### `gap` 
 - allows us to create space in-between each Flex child
