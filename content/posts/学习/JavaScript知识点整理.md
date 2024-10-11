@@ -83,111 +83,8 @@ console.log(str === false) //false
 - 私有属性通过添加`#`前缀来创建，在类的外部无法合法地引用。
 - 私有属性不是原型继承模型的一部分，因为它们只能在当前类内部被访问，而且不能被子类继承。
 
-## 访问和设置对象的属性
-- **访问**
-  - 点符号表示法 
-    - `obj.propertyName`
-    - 适用于静态属性名
-  - 方括号表示法 
-    - `obj["propertyName"]` 
-    - 适用于动态属性名或包含特殊字符的属性名
-  - 上述二者都属于属性访问器(Property accessors)
-- **设置**
-  - `Object.defineProperty()`
-  - 语法
-    `Object.defineProperty(obj, prop, descriptor)`
-  - 区别
-    1. 使用属性访问器分配一个值, 添加的属性是**可写、可枚举、可配置的**
-    2. 默认情况下，使用`Object.defineProperty() `添加的属性是**不可写、不可枚举和不可配置的**
-- **删除**
-  - 只能删除对象的可配置属性
-  - `delete obj.name;`
-- 参考
-  - [js中对象的点语法与方括号语法的区别 - 掘金](https://juejin.cn/post/7215401973842788411)
-  - [属性访问器 - JavaScript | MDN](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Property_accessors)
-  - [Object.defineProperty() - JavaScript | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty)
-
-## Object.entries()
-- returns an array of a given object's own enumerable string-keyed property key-value pairs.
-- eg:
-  ```JavaScript
-  const obj = { foo: "bar", baz: 42 };
-  console.log(Object.entries(obj)); // [ ['foo', 'bar'], ['baz', 42] ]
-  ```
-- 参考：[Object.entries() - JavaScript | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/entries)
-
-## Object.assign()
-- copies all enumerable own properties from one or more source objects to a target object. It returns the modified target object.
-- 示例 
-  ```JavaScript
-  var name = 'tom'
-  var a = {name:name}
-  var b = Object.assign(a)
-  console.log(b.name) //tom
-  ```
-- [Object.assign() - JavaScript | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign )
-
-## 遍历Object
-### for in 和 for of  
-- `for in`遍历的是"key"，`for of`遍历的是"value"
-  ```JavaScript
-  const arr = [1, 2, 3];
-
-  // for...in循环遍历数组的索引
-  for (let index in arr) {
-    console.log(index); // 输出 0, 1, 2
-  }
-
-  // for...of循环遍历数组的值
-  for (let value of arr) {
-    console.log(value); // 输出 1, 2, 3
-  }
-  ````
-- 用`for in`来遍历Object
-  ```JavaScript
-  for (let key in person) {
-    console.log(key + ': ' + person[key]);
-  }
-  // name: Alice
-  // age: 30
-  // gender: female
-
-  for (let val of person){
-    console.log(val);
-  }
-  // TypeError: person is not iterable
-  ```
-- 总结: `for in` 一般用来遍历对象的key、`for of` 一般用来遍历数组的value
-
 ## 序列化与反序列化
 - 见[json的序列化与反序列化](https://ds63.eu.org/2024/serialization_and_deserialization)
-
-## new 
-- new 运算符创建一个**用户定义的对象类型**的实例或**具有构造函数的内置对象**的实例。 ——（来自于MDN）
-- 不可以使用 `new Symbol()`，因为 symbol 是基本数据类型，每个从Symbol()返回的 symbol 值都是唯一的。
-- 简单实现:
-  ```JavaScript
-  function create() {
-      var obj = new Object(),
-      Con = [].shift.call(arguments);
-      obj.__proto__ = Con.prototype;
-      Con.apply(obj, arguments);
-      return obj;
-  };
-  // 测试用例
-  function Car(color) {
-      this.color = color;
-  }
-  Car.prototype.start = function() {
-      console.log(this.color + " car start");
-  }
-
-  var car = create(Car, "black");
-  car.color; // black
-  
-  car.start(); // black car start
-  ```
-- 参考：[深度解析 new 原理及模拟实现 | 木易杨前端进阶](https://muyiy.cn/blog/3/3.5.html)
 
 ## 相等性
 摘自[真的不可以在 React 组件内部嵌套定义子组件吗？ - PRIN BLOG](https://prin.pw/react-unstable-nested-components/#%E5%BC%95%E7%94%A8%E7%9B%B8%E7%AD%89%E6%80%A7%E4%B8%8E%E7%BB%84%E4%BB%B6%E9%87%8D%E6%B8%B2%E6%9F%93)
@@ -397,29 +294,39 @@ sumAll(...array)
 ```
 
 ## 深拷贝和浅拷贝
-- 数据存储 
-  1. 基本类型数据保存在在栈内存中
-  2. 引用类型数据保存在堆内存中，引用数据类型的变量是一个指向堆内存中实际对象的引用，存在栈中
-- 浅拷贝
-  - 只复制属性指向某个对象的指针，而不复制对象本身，新旧对象还是共享同一块内存，修改对象属性会影响原对象
-  - 实现
-  ```JavaScript
-  function shallowCopy(obj){
-    if(typeof obj !== 'object'){
-      return obj;
-    }
-    let newObj = {};
-    for(let key in obj){
-      if(obj.hasOwnProperty(key)){
-        newObj[key] = obj[key]
+### 数据存储 
+1. 基本类型数据保存在在栈内存中
+2. 引用类型数据保存在堆内存中，引用数据类型的变量是一个指向堆内存中实际对象的引用，存在栈中
+
+### 浅拷贝
+- 定义: 只复制属性指向某个对象的指针，而不复制对象本身，新旧对象还是共享同一块内存，修改对象属性会影响原对象
+- 实现一
+    ```JavaScript
+    function shallowCopy(obj){
+      if(typeof obj !== 'object'){
+        return obj;
       }
+      let newObj = {};
+      for(let key in obj){
+        if(obj.hasOwnProperty(key)){
+          newObj[key] = obj[key]
+        }
+      }
+      return newObj;
     }
-    return newObj;
-  }
-  ```
-- 深拷贝
-  - 创造一个一模一样的对象，新对象跟原对象不共享内存，修改新对象不会影响原对象
-  - 实现 
+    ```
+- 实现二
+    ```JavaScript
+    function shallowCopy(obj){
+      return {...obj}
+    }
+
+    ```
+
+### 深拷贝
+- 定义: 创造一个一模一样的对象，新对象跟原对象不共享内存，修改新对象不会影响原对象
+- 实现一 
+  - 代码
     ```JavaScript
     function deepCopy(obj){
       if(typeof obj !== 'object'){
@@ -434,7 +341,72 @@ sumAll(...array)
       return obj;
     }
     ```
-  - clone
+  - 缺陷:
+    1. 无法处理循环引用
+    2. 递归爆栈
+- 实现二:
+  - 代码
+```JavaScript
+function cloneForce(x){
+    const uniqueList = []; // 用来去重
+    let root = {};
+    // 栈
+    const loopList = [
+        {
+            parent: root,
+            key: undefined,
+            data: x,
+        }
+    ];
+
+    while(loopList.length){
+        // dfs
+        const node = loopList.pop();
+        const {parent, key, data} = node;
+
+        // 初始化赋值目标
+        let res = parent;
+        if(typeof key !== 'undefined'){
+            res = parent[key] = {};
+        }
+        let uniqueData = find(uniqueList, data);
+        if(uniqueData){
+            // 数据已经存在
+            parent[key] = uniqueData.target;
+            continue;
+        }
+        // 数据不存在
+        uniqueList.push({
+            source: data,
+            target: res,
+        });
+        for(let k in data){
+            if(data.hasOwnProperty(k)){
+                if(typeof data[k] === 'object'){
+                    loopList.push({
+                        parent: res,
+                        key: k,
+                        data: data[k],
+                    });
+                }else{
+                    res[k] = data[k];
+                }
+            }
+        }
+    }
+    return root;
+}
+
+function find(arr, item){
+    for(let i = 0; i < arr.length; i++){
+        if(arr[i].source === item){
+            return arr[i];
+        }
+    }
+}
+```
+
+- clone
   ```JavaScript
   let clone = Object.create(
   Object.getPrototypeOf(obj),

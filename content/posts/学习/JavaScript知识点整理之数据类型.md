@@ -139,10 +139,6 @@ ES6新增
 3. Set
 4. WeakSet
 
-### `Object`和`object`的区别
-1. `Object`：这是一个内置的构造函数，用于创建对象。例如，你可以使用 new Object() 来创建一个新的对象实例。
-2. `object`：这是一个数据类型的名称，表示所有引用类型的对象，包括数组、函数、正则表达式等。它是 JavaScript 中的一种原始类型，用于描述一类数据结构。
-
 ### Array 和object的关系
 数组在内部也是对象，但它的原型是`Array.prototype`
 
@@ -222,3 +218,210 @@ wip
 - 参考
   - [Array.isArray() - JavaScript | MDN](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/isArray )
   - [javascript - [译] isArray 背后发生了什么？ - 梦里一路飞奔 - SegmentFault 思否](https://segmentfault.com/a/1190000021089487 )
+
+---
+
+## Object
+### 访问和设置Object的属性
+- **访问**
+  - 点符号表示法 
+    - `obj.propertyName`
+    - 适用于静态属性名
+  - 方括号表示法 
+    - `obj["propertyName"]` 
+    - 适用于动态属性名或包含特殊字符的属性名
+  - 上述二者都属于**属性访问器**(Property accessors)
+
+- **设置**
+  - 语法`Object.defineProperty(obj, prop, descriptor)`
+  - 示例:
+    ```JavaScript
+    const obj = {};
+    Object.defineProperty(obj, 'hiddenProp', {
+      value: 'hidden',
+      configurable:false,//default
+      enumerable: false,//default
+      writable: false //default
+    });
+    ```
+- 设置访问器属性
+  - 不能直接定义
+  - 示例
+    ```JavaScript
+      const book = { 
+        hideYear: 2004, 
+        edition: 1 
+      }; 
+      Object.defineProperty(book, "year", { 
+        get: function(){ 
+          return this.hideYear; 
+        }, 
+        set: function(newValue){ 
+          if (newValue > 2004) { 
+          this.hideYear = newValue; 
+          this.edition += newValue - 2004; 
+          } 
+        } 
+      }); 
+      book.year = 2005; 
+      alert(book.edition); //2
+    ```
+- **区别**
+  1. 使用属性访问器分配一个值, 添加的属性是**可写、可枚举、可配置的**
+  2. 默认情况下，使用`Object.defineProperty() `添加的属性是**不可写、不可枚举和不可配置的**
+  3. 若属性为不可配置的话，那么无法再修改其特性
+
+- **删除**
+  - 只能删除对象的可配置属性,`delete obj.name;`
+  - 若属性为不可配置的话，尝试删除在非严格模式下会被忽略，严格模式下会抛出错误
+
+- 参考
+  - [js中对象的点语法与方括号语法的区别 - 掘金](https://juejin.cn/post/7215401973842788411)
+  - [属性访问器 - JavaScript | MDN](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Property_accessors)
+  - [Object.defineProperty() - JavaScript | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty)
+  - [JavaScript对象的数据属性与访问器属性 - 掘金](https://juejin.cn/post/6844903828580466702 )
+
+### 字面量初始化对象语法
+- 定义:
+  - 一个用大括号（{}）括起来的以逗号分隔的列表，包含了一个对象的零个或多个属性名称和相关值
+  - 是 Object.create() 的一种语法糖
+- 区别于JSON:
+  - JSON 是对象字面语法的一个真子集
+- 简写函数名
+  ```JavaScript
+  const o = {
+    property: function (){}
+  }
+  //等价于
+  const o = {
+    property(){}
+  }
+  ```
+
+- 参考： [对象初始化器 - JavaScript | MDN](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Object_initializer )
+
+### Object.create()
+- 定义: 以一个现有对象作为原型，创建一个新对象
+- 语法: `Object.create(proto, propertiesObject)`
+- 示例:
+  ```JavaScript
+  o = Object.create(Object.prototype, {
+    // foo 是一个常规数据属性
+    foo: {
+      writable: true,
+      configurable: true,
+      value: "hello",
+    },
+    // bar 是一个访问器属性
+    bar: {
+      configurable: false,
+      get() {
+        return 10;
+      },
+      set(value) {
+        console.log("Setting `o.bar` to", value);
+      },
+    },
+  });
+  ```
+- 特点:
+  1. 可以控制每个属性的可枚举性、可配置性等，而这在字面量初始化对象语法中是做不到的
+  2. 直接创建了一个以 传入的第一个参数 作为原型的新对象，不涉及构造函数
+  3. 由于没有构造函数，不会自动初始化属性，所有属性需要手动添加
+- 可用于模拟`new`
+  ```JavaScript
+  function myNew(constructor,...args){
+    const obj = Object.create(constructor.prototype);
+    const res = constructor.apply(obj,args);
+    return res instanceof Object ? res : obj
+  }
+  ```
+- 参考: [Object.create() - JavaScript | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/create )
+
+
+### Object.assign()
+- copies all enumerable own properties from one or more source objects to a target object. It returns the modified target object.
+- 示例 
+  ```JavaScript
+  var name = 'tom'
+  var a = {name:name}
+  var b = Object.assign(a)
+  console.log(b.name) //tom
+  ```
+- 参考：[Object.assign() - JavaScript | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign )
+
+### 遍历Object
+1. for in 和 for of
+  - 对于Object，用`for in`来遍历Object的key,但无法用`for of`来遍历value
+     ```JavaScript
+     const person = {
+       name: "Alice",
+       age: 30,
+       gender: "female"
+     }
+
+     for (let key in person) {
+       console.log(key + ': ' + person[key]);
+     }
+     // name: Alice
+     // age: 30
+     // gender: female
+
+     for (let val of person){
+       console.log(val);
+     }
+     // TypeError: person is not iterable
+     ```
+  - `for in`的缺陷 
+    1. 会遍历原型链上的可枚举属性
+    2. 属性遍历顺序不一定是属性定义顺序
+    3. 只会遍历字符串类型的属性键
+
+2. `Object.entries()`
+   - returns an array of a given object's own enumerable string-keyed property key-value pairs.
+   - 举例:
+     ```JavaScript
+     const obj = { foo: "bar", baz: 42 };
+     console.log(Object.entries(obj)); // [ ['foo', 'bar'], ['baz', 42] ]
+     ```
+   - 参考：[Object.entries() - JavaScript | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/entries)
+3. `Object.keys()`
+4. `Object.values()`
+5. `Object.getOwnPropertyNames()`
+   - 可以返回对象自身的所有**字符串属性名**，**包括**不可枚举的属性
+   - 示例 
+     ```JavaScript
+      const obj = {};
+      Object.defineProperty(obj, 'hiddenProp', {
+        value: 'hidden',
+        enumerable: false
+      });
+      obj.visibleProp = 'visible';
+
+      console.log(Object.getOwnPropertyNames(obj));  // 输出 ["hiddenProp", "visibleProp"]
+     ```
+6. `Object.getOwnPropertyDescriptors()`
+   - 可以返回对象自身所有**字符串属性**的名和属性描述符，包括不可枚举的属性
+7. `Object.getOwnPropertySymbols()`
+   - 获取对象自身的所有 Symbol 属性键
+   - 示例:
+     ```JavaScript
+      const object1 = {};
+      const a = Symbol('a');
+      const b = Symbol.for('b');
+
+      object1[a] = 'localSymbol';
+      object1[b] = 'globalSymbol';
+      object1.c = 'a';
+
+      console.log(Object.getOwnPropertySymbols(object1));
+      //  [Symbol("a"), Symbol("b")]
+      ```
+
+### `Object`和`object`的区别
+1. `Object`：这是一个内置的构造函数，用于创建对象。例如，你可以使用`new Object()`来创建一个新的对象实例。
+2. `object`：这是一个数据类型的名称，表示所有引用类型的对象，包括数组、函数、正则表达式等。它是 JavaScript 中的一种原始类型，用于描述一类数据结构。
+
+
+
+---

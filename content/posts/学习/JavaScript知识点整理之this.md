@@ -157,6 +157,50 @@ summary: 自己学习过程中整理的关于JavaScript中this的知识点
     ({}).hasOwnProperty.call(foo, "bar"); // true
     ```
 
+---
+
+## 代码输出题 
+### 题目一 
+- 代码
+  ```JavaScript
+  const obj = {
+    name: 'eu',
+    sayHi1: ()=>{
+      console.log(this.name);
+    },
+    sayHi2() {
+      (()=>{
+        console.log(this.name);
+      })();
+    }
+  }
+  obj.sayHi1(); // ''
+  obj.sayHi2(); // 'eu'
+  ```
+- 解释：
+  1. `obj.sayHi1()` 的执行
+     - 考察知识点一:  **箭头函数中的 `this`**：
+        箭头函数不会创建自己的 `this` 绑定，它会继承上下文中的 `this`。也就是说，`this` 的值取决于箭头函数定义时所在的上下文，而不是调用时的上下文。
+     - 本题中的应用:
+        在 `sayHi1` 方法中，箭头函数被定义在 `obj` 对象的上下文中，但是由于箭头函数继承的是定义时的 `this`，而不是调用时的 `this`，`this` 将会是**全局上下文**（在严格模式下为 `undefined`，在非严格模式下为 `window`）。
+
+        因为 `this` 不是指向 `obj`，而是指向全局对象，`this.name` 在全局对象中是未定义的，可能返回 `undefined` 或空字符串 `''`，具体取决于运行环境。
+  2. `obj.sayHi2()` 的执行
+     - 考察知识点一: 简写函数定义
+       ```JavaScript
+       sayHi2(){
+        console.log('hi');
+       }
+       // 相当于
+       sayHi2: function(){
+        console.log('hi');
+       }
+       ```
+     - 考察知识点二: 普通方法中的 `this`会根据调用的上下文来决定
+     - 本题中的应用
+      `sayHi2` 是一个普通方法，因此 `this` 会根据调用的上下文来决定。在这个例子中，`obj.sayHi2()` 是调用 `sayHi2`，所以 `this` 指向 `obj`。
+
+
 ### 参考
 - [彻底弄懂bind，apply，call三者的区别 - 知乎](https://zhuanlan.zhihu.com/p/82340026)
 - [Object.prototype.hasOwnProperty() - JavaScript | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/hasOwnProperty )

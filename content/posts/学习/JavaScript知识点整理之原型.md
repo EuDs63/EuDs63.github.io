@@ -67,6 +67,51 @@ summary: 自己学习过程中整理的关于JavaScript中原型的知识点
 
 ---
 
+## new
+### 定义
+- new 运算符创建一个**用户定义的对象类型**的实例或**具有构造函数的内置对象**的实例。 ——（来自于MDN）
+- 不可以使用 `new Symbol()`，因为 symbol 是基本数据类型，每个从Symbol()返回的 symbol 值都是唯一的。
+
+### 工作原理
+当使用`new`调用构造函数时，会发生以下步骤：
+
+1. 创建一个新的空对象。
+2. 将这个新对象的`__proto__`链接到构造函数的`prototype`属性上，建立原型继承关系。
+3. 执行构造函数，将`this`绑定到新创建的对象上，允许修改该对象的属性。
+4. 如果构造函数没有返回对象，则默认返回创建的对象。
+
+### 简单实现
+  ```JavaScript
+  function myNew(constructor, ...args) {
+    // 1. 创建一个空对象，并将其原型链链接到构造函数的 prototype
+    const obj = Object.create(constructor.prototype);
+
+    // 2. 执行构造函数，并将 `this` 绑定到新对象上
+    const result = constructor.apply(obj, args);
+
+    // 3. 如果构造函数返回的是对象类型，则返回该对象；否则返回新创建的对象
+    return result instanceof Object ? result : obj;
+  }
+
+  // 测试用例
+  function Car(color) {
+      this.color = color;
+  }
+  Car.prototype.start = function() {
+      console.log(this.color + " car start");
+  }
+
+  var car = myNew(Car, "black");
+  car.color; // black
+  
+  car.start(); // black car start
+  ```
+
+### 参考
+- [深度解析 new 原理及模拟实现 | 木易杨前端进阶](https://muyiy.cn/blog/3/3.5.html)
+
+---
+
 ## 原型，原型链和实例的关系
 ### 原型链（prototype chain）
 - 在 JavaScript 中，每个对象都有一个指向其原型的链接，这个链接被称为原型链。

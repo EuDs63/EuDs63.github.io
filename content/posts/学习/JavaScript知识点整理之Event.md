@@ -17,6 +17,8 @@ summary: 自己学习过程中整理的关于JavaScript中Event的知识点
 2. 目标阶段（Target phase）—— 事件到达目标元素。
 3. 冒泡阶段（Bubbling phase）—— 事件从元素上开始冒泡。
 
+---
+
 ## 冒泡 
 - 参考[冒泡和捕获](https://zh.javascript.info/bubbling-and-capturing)
 - 当一个事件发生在一个元素上，它会首先运行在该元素上的处理程序，然后运行其父元素上的处理程序，然后一直向上到其他祖先上的处理程序。
@@ -31,6 +33,8 @@ summary: 自己学习过程中整理的关于JavaScript中Event的知识点
   4. mouseLeave & mouseEnter
   5. 注意：mouseout/mouseover **会触发**冒泡
 
+---
+
 ## preventDefault
 - 参考[Event：preventDefault() 方法 - Web API 接口参考 | MDN](https://developer.mozilla.org/zh-CN/docs/Web/API/Event/preventDefault)
 - 如果此事件没有被显式处理，它默认的动作也不应该照常执行
@@ -44,6 +48,8 @@ window.addEventListener("beforeunload", (event) => {
   event.returnValue = "";
 });
 ```
+
+---
 
 ## addEventListener
 - 语法：
@@ -62,10 +68,14 @@ window.addEventListener("beforeunload", (event) => {
   - [EventTarget: addEventListener() method - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener)
   - [滚动事件优化 passive - 孟繁贵 - 博客园](https://www.cnblogs.com/mengfangui/p/11322590.html)
 
+---
+
 ## removeEventListener
 - 参考[EventTarget: removeEventListener() method - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/removeEventListener)
 - 如果同一个事件监听器分别为“事件捕获（capture 为 true）”和“事件冒泡（capture 为 false）”注册了一次，这两个版本的监听器需要分别移除。移除捕获监听器不会影响非捕获版本的相同监听器，反之亦然。
 - `options`只有 capture 配置影响 removeEventListener()
+
+---
 
 ## 事件委托
 - 事件处理模式之一,也称事件代理
@@ -91,6 +101,8 @@ window.addEventListener("beforeunload", (event) => {
   - [js中的事件委托或事件代理详解 - 掘金](https://juejin.cn/post/6844903589052153869)
   - [React 中的事件委托 - 知乎](https://zhuanlan.zhihu.com/p/165089379)
 
+---
+
 ## setTimeout
 - 参考[setTimeout() 全局函数 - Web API 接口参考 | MDN](https://developer.mozilla.org/zh-CN/docs/Web/API/setTimeout)
 - 参数:
@@ -114,6 +126,7 @@ setTimeout(sayHi(), 1000); //这样传入的是sayHi函数的执行结果:undefi
 - setTimeout为啥不准（线程间通信怎么都会有延迟的）
 - 定时器原理setTimeout/setInterval（以前翻过v8的源码，本质上都是二叉堆，与react里的scheduler的实现有异曲同工之处）
 
+---
 
 ## setInterval
 - 参数：
@@ -126,6 +139,8 @@ setTimeout(sayHi(), 1000); //这样传入的是sayHi函数的执行结果:undefi
 - 参考:
   - [setInterval() - Web API 接口 | MDN](https://developer.mozilla.org/zh-CN/docs/Web/API/setInterval)
   - [调度：setTimeout 和 setInterval](https://zh.javascript.info/settimeout-setinterval)
+
+---
 
 ## 事件循环
 - 三种数据结构：
@@ -149,6 +164,8 @@ setTimeout(sayHi(), 1000); //这样传入的是sayHi函数的执行结果:undefi
   -  [事件循环 - JavaScript Guidebook](https://tsejx.github.io/javascript-guidebook/core-modules/executable-code-and-execution-contexts/concurrency-model/event-loop/)
   -  [浅析setTimeout与Promise - 掘金](https://juejin.cn/post/6844903655473152008)
   -  [JS Visualizer 9000](https://www.jsv9000.app/)
+
+---
 
 ## 面试问题
 1. 实现一个事件处理对象，包括绑定，取消，执行功能

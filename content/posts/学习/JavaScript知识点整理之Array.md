@@ -76,21 +76,44 @@ Array.from(arrayLike, mapFn, thisArg)
   console.log(sumWithInitial) // 63
   ```
 7. `for...in` 和 `for...of`
-  - for in 一般用来遍历对象的key、for of 一般用来遍历数组的value
-  - for..in 循环,只会列举出可枚举的属性，也会迭代继承的属性,可以使用`obj.hasOwnProperty(key)`进一步判断
-  - 示例：
-    ```JavaScript
-    var obj  {a:1,b:2,c:3};
+  - 对于数组: `for in`遍历的是index，`for of`遍历的是"value"
+    - 示例
+       ```JavaScript
+       const arr = [1, 2, 3];
 
-    for (let key in obj){
-      console.log(key);
-    }
+       // for...in循环遍历数组的索引
+       for (let index in arr) {
+         console.log(index); // 输出 0, 1, 2
+       }
 
-    const array = ['a','b','c'];
-    for (let val of array){
-      console.log(val);
-    }
-  ```
+       // for...of循环遍历数组的值
+       for (let value of arr) {
+         console.log(value); // 输出 1, 2, 3
+       }
+       ```
+  - for..in的缺陷
+    1. 会迭代继承的属性,可以使用`obj.hasOwnProperty(key)`进一步判断
+       ```JavaScript
+       Array.prototype.customMethod = function() {};
+       const arr = [10, 20, 30];
+       for (let index in arr) {
+         console.log(index);  // 输出 0, 1, 2 , customMethod
+       }
+       ```
+    2. 遍历的是字符串类型的索引
+      ```JavaScript
+      const arr = [10, 20, 30];
+      for (let index in arr) {
+        console.log(typeof index);  // 输出 "string"
+      }
+      ```
+    3. 不适合遍历稀疏数组
+      ```JavaScript
+      const arr = [10, , 30];  // 稀疏数组
+      for (let index in arr) {
+        console.log(index);  // 输出 0, 2 （不会跳过稀疏部分）
+      }
+      ```
 
 ### 参考
 - [js遍历数组的10种方法 - 掘金](https://juejin.cn/post/6854573211699380237)

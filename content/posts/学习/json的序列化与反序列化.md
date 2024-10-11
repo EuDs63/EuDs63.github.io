@@ -102,6 +102,10 @@ console.log(transformedObj1);
 ## JSON.parse(JSON.stringify(obj))
 我第一次读到这行代码的时候还觉得奇怪，为什么要这样写，顺手就想改掉。想了下才意识到这是为了实现深拷贝。
 
+### 优点
+- 代码简单
+- JSON.stringify内部做了循环引用的检测，正是我们上面提到破解循环引用
+
 ### 局限性
 但这样写好吗？搜索后我发现有两篇文章将它的局限性写得很透彻了。
 - [javascript - 关于JSON.parse()和JSON.stringify()的性能小测试 - 超级有温度的代码 - SegmentFault 思否](https://segmentfault.com/a/1190000018495737 )

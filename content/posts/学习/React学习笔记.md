@@ -280,6 +280,37 @@ summary: 记录学习React的经历，按日期进行排序，会比较乱
 ## 2024年9月21日
 - [從 React 到 Vue 的心得感想 - Huli's blog](https://blog.huli.tw/2024/03/13/from-react-to-vue/#%E5%9C%A8%E9%96%8B%E5%A7%8B%E4%B9%8B%E5%89%8D )
 
+---
+
+## 2024年10月11日
+读[my_book/React实战：设计模式和最佳实践/组件设计模式（2）：高阶组件.md at master · paul-ll/my_book](https://github.com/paul-ll/my_book/blob/master/React%E5%AE%9E%E6%88%98%EF%BC%9A%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%92%8C%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/%E7%BB%84%E4%BB%B6%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%882%EF%BC%89%EF%BC%9A%E9%AB%98%E9%98%B6%E7%BB%84%E4%BB%B6.md )
+
+摘录其中内容作为我的笔记
+
+- 高阶组件的定义:
+  - 一个纯函数
+  - 接收组件作为参数
+  - 返回一个新的组件
+  - 高阶组件的命名一般都带 with 前缀，命名中后面的部分代表这个高阶组件的功能
+
+- 示例
+```JSX
+const withLoginAndLogout = (ComponentForLogin, ComponentForLogout) => {
+  const NewComponent = (props) => {
+    if (getUserId()) {
+      return <ComponentForLogin {...props} />;
+    } else {
+      return <ComponentForLogout{...props} />;
+    }
+  }
+  return NewComponent;
+};
+
+const TopButtons = withLoginAndLogout(
+  LogoutButton,
+  LoginButton
+);
+```
 
 
 
