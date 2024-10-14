@@ -1,40 +1,19 @@
 ---
-title: 记一次react报错排查
-slug: a React debug experience 
-date: 2024-03-07T15:34:14+08:00
+title: React知识点整理
+slug: react_points
+date: 2024-03-08T15:34:14+08:00
 tags:
   - 笔记
   - 前端
   - web
   - React
 categories:
-  - 学习
-summary: Failed to execute 'removeChild' on 'Node'
+- 学习
+summary: 自己学习过程中整理的关于React的知识点
 --- 
-## 场景
-在[EuDs63/postkid: A lightweight tool offering key functionalities inspired by Postman.](https://github.com/EuDs63/postkid),当我发送一次请求之后，再次发送时报错：
+**本文记录了我学习过程中整理的关于React的知识点,以摘抄为主，绝大部分非原创。未能全部都标明出处，在此致歉**
 
->NotFoundError: Failed to execute 'removeChild' on 'Node': The node to be removed is not a child of this node.
-
-## 排查
-因为上一个版本并没有这个问题，于是我比较了这几次的commit记录，发现问题很可能出现在Prism的高亮，相关代码如下：
-```typescript
-  useEffect(() => {
-    if (response && response.data) {
-      Prism.highlightAll();
-    }
-  }, [response]);
-```
-
-当我将`Prism.highlightAll();`注释掉后，程序就不再报错了，但这显然不是我所希望的。几经查找后，发现了[Failed to execute 'removeChild' on 'Node' - 掘金](https://juejin.cn/post/6938321875298680845)解决了我的问题，在`pre code`外加一层`<div>`就解决了。
-
-该篇文章也给出了一定的解释:
-
->经过分析发现是使用组件的问题，考虑DOM-DIff算法是比对不同的React节点，而该组件的渲染直接是第三方插件的代码，在componentDidMount阶段才进行DOM节点的挂载，在此之前是没有node节点的，故需要增加一个可识别的node节点。
-
-但对来说比较简略，我希望能彻底搞懂相关的概念，以下是我的笔记。
-
-## Lifecycle
+## 生命周期
 ### there phases
 1. mounting: initial render
 2. updating: is triggered when the props are updated or when the state is updated
@@ -57,6 +36,15 @@ summary: Failed to execute 'removeChild' on 'Node'
         };
     }, []);
     ```
+- 上面的类比只是类比，不能等同，原因：
+  1. 实际原理不同
+  2. 执行时机不同
+
+### 参考 
+- [useEffect(fn, []) 不等于 componentDidMount() - 掘金](https://juejin.cn/post/7132786097922736164)
+- [The React lifecycle: methods and hooks explained](https://retool.com/blog/the-react-lifecycle-methods-and-hooks-explained)
+
+---
 
 ## 虚拟DOM （Virtual Document Object Model）
 在React中，当状态（state）发生变化时，React并不直接操作真实的DOM来更新页面，而是先在内存中构建一个虚拟DOM树，然后通过比较虚拟DOM树和之前渲染的虚拟DOM树之间的差异，最终计算出最小的DOM操作，并将这些操作批量应用到真实的DOM上。
@@ -71,7 +59,6 @@ summary: Failed to execute 'removeChild' on 'Node'
 
 ### diff算法
 - 比较当前的虚拟DOM树和状态变更将要重新渲染时生成的虚拟DOM树的算法。
-- 参考[谈谈虚拟DOM，Diff算法与Key机制_React_beifeng1996_InfoQ写作社区](https://xie.infoq.cn/article/65e938d933cc751fcc008942d)
 - 关键：
   1. 深度优先
   2. 只对同一级别的元素进行比较
@@ -88,9 +75,39 @@ summary: Failed to execute 'removeChild' on 'Node'
        3. remove_node: 
      - 涉及到列表元素顺序的动态变更时，不要用遍历的 index 作为节点的 key 属性值
 
+### 参考
+- [谈谈虚拟DOM，Diff算法与Key机制_React_beifeng1996_InfoQ写作社区](https://xie.infoq.cn/article/65e938d933cc751fcc008942d)
+
+--- 
+
+## 组件间通信方式
+
+---
+
+## React Router 
+- state 
+  - An object to store on location state. This is useful for state that doesn’t need to be in the URL but is associated with a route transition. Think of it like “post” data on a server.
+  - 可以用来实现: 用户被踢出后再登陆注册能返回被踢出时的页面
+- replace的作用:
+  >An example is when the user clicks a “purchase” button but needs to log in first, after they log in, you can replace the login screen with the checkout screen you wanted them to be at. Then when they click the back button they won’t see the login page again.
+  >
+  > navigate("/some/where", { replace: true })
+
+### 参考 
+- [Reach Router - navigate(to, { state={}, replace=false })](https://reach.tech/router/api/navigate )
+
+---
+
+## React Fiber 
+### 参考
+- [An Introduction to React Fiber - The Algorithm Behind React](https://www.velotio.com/engineering-blog/react-fiber-algorithm)
+
+---
+
+## useId
+- [useId – React](https://react.dev/reference/react/useId )
+- generate a unique ID
+- A component may be rendered more than once on the page—but IDs have to be unique! Instead of hardcoding an ID, generate a unique ID with useId.
+
 ## 参考
-- [Failed to execute 'removeChild' on 'Node' - 掘金](https://juejin.cn/post/6938321875298680845)
-- [Understanding Functional Components vs. Class Components in React](https://www.twilio.com/en-us/blog/react-choose-functional-components)
-- [The React lifecycle: methods and hooks explained](https://retool.com/blog/the-react-lifecycle-methods-and-hooks-explained)
-- [React面试：谈谈虚拟DOM，Diff算法与Key机制_React_beifeng1996_InfoQ写作社区](https://xie.infoq.cn/article/65e938d933cc751fcc008942d)
-- [真的不可以在 React 组件内部嵌套定义子组件吗？ - PRIN BLOG](https://prin.pw/react-unstable-nested-components)
+- [sudheerj/reactjs-interview-questions: List of top 500 ReactJS Interview Questions & Answers....Coding exercise questions are coming soon!!](https://github.com/sudheerj/reactjs-interview-questions)

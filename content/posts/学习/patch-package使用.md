@@ -38,3 +38,4 @@ summary: patch everything
 - [修改 node_modules 里文件的正确姿势 - 掘金](https://juejin.cn/post/6949906434997878791)
 - [如何优雅的修改node_modules依赖源码 - 掘金](https://juejin.cn/post/7094556624387309582?from=search-suggest)
 - [The easiest way to patch your npm package when there is a 🐛 - DEV Community](https://dev.to/zhnedyalkow/the-easiest-way-to-patch-your-npm-package-4ece)
+- [奇技淫巧：如何修改第三方npm包？大家好，我是老纪。在开发过程中发现npm包的Bug，首先向原作者提交issue或For - 掘金](https://juejin.cn/post/7356534347509497919 )

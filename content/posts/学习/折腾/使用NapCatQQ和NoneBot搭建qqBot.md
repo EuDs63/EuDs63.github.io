@@ -12,7 +12,7 @@ summary: 新的开始
 
 ## 缘起 
 我在半年前折腾过一次qqBot的搭建，但那次由于风控问题，只能放弃了,具体记录在
-[qqBot 搭建 | EuDs's Blog](https://ds63.eu.org/2023/setup_qqBot/ )。
+[qqBot 搭建 | EuDs's Blog](https://ds63.eu.org/2023/setup_qqbot/ )。
 
 但这两天发现了[NapNeko/NapCatQQ: 基于NTQQ的无头Bot框架](https://github.com/NapNeko/NapCatQQ )，决定再次折腾，以下记录我的过程。
 
@@ -32,7 +32,7 @@ summary: 新的开始
 ## Todo 
 - [ ] 写个脚本，使得可以开机自启
 - [ ] 部署到服务器上，不知道会不会再遇到风控问题
-- [ ] 插件：去年今日
+- [ ] 插件：~~去年今日~~
 
 ## 参考 
 - [NapCatQQ](https://napneko.github.io/zh-CN/guide/getting-started )

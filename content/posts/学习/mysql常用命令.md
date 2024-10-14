@@ -73,3 +73,6 @@ use hr;
 create table hr.emp like scott.emp;
 LOAD DATA INFILE '/data/mysql/emp.txt' INTO TABLE hr.emp FIELDS TERMINATED BY ',' ENCLOSED BY '"' LINES TERMINATED BY '\n' ;
 ```
+
+## 列宽
+- `\G`: 选项能够将查询结果以垂直方式展示，而不是默认的水平方式。这种方式下，每个字段值都会单独占据一行，使得每个字段的宽度都能够根据内容自动调整。

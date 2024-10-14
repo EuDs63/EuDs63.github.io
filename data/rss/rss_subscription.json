@@ -126,6 +126,11 @@
             "html_url": "https://blog.netnerds.net/"
         },
         {
+            "title": "Cmj's Blog",
+            "feed_url": "https://blog.caomingjun.com/atom.xml",
+            "html_url": "https://blog.caomingjun.com/"
+        },
+        {
             "title": "CorrectRoad's Blog",
             "feed_url": "https://correctroadh.github.io/index.xml",
             "html_url": "https://correctroadh.github.io/"
@@ -182,8 +187,18 @@
         },
         {
             "title": "Huli's blog",
+            "feed_url": "https://blog.huli.tw/atom-ch.xml",
+            "html_url": "https://blog.huli.tw/"
+        },
+        {
+            "title": "Huli's blog",
             "feed_url": "https://life.huli.tw/atom.xml",
             "html_url": "https://life.huli.tw/"
+        },
+        {
+            "title": "Jesse Li",
+            "feed_url": "https://blog.jse.li/index.xml",
+            "html_url": "https://blog.jse.li/"
         },
         {
             "title": "Joel on Software",
@@ -234,6 +249,11 @@
             "title": "LearnData-开源笔记",
             "feed_url": "https://newzone.top/rss.xml",
             "html_url": "https://newzone.top/"
+        },
+        {
+            "title": "Log4D",
+            "feed_url": "https://blog.alswl.com/atom.xml",
+            "html_url": "https://blog.alswl.com/"
         },
         {
             "title": "MINIRPLUS",
@@ -411,14 +431,29 @@
             "html_url": "https://missuo.me/"
         },
         {
+            "title": "Water Space",
+            "feed_url": "https://www.waterwater.moe/atom.xml",
+            "html_url": "http://lawvs.github.io/"
+        },
+        {
             "title": "Web技术试炼地",
             "feed_url": "https://www.52cik.com/atom.xml",
             "html_url": "http://www.52cik.com/"
         },
         {
+            "title": "Wilson's blog",
+            "feed_url": "https://wilsonxia.cn/atom.xml",
+            "html_url": "https://wilsonxia.cn/"
+        },
+        {
             "title": "Yulin Lewis' Blog",
             "feed_url": "https://lewky.cn/index.xml",
             "html_url": "https://lewky.cn/"
+        },
+        {
+            "title": "Zar_SY | 小屋",
+            "feed_url": "https://daftneko.com/atom.xml",
+            "html_url": "https://daftneko.com"
         },
         {
             "title": "Zgao's blog",
@@ -437,13 +472,13 @@
         },
         {
             "title": "[Unknown]",
-            "feed_url": "https://pichu.moe/feed.xml",
-            "html_url": null
+            "feed_url": "https://blog.sina.com.cn/rss/1283569510.xml",
+            "html_url": "https://blog.sina.com.cn/rss/1283569510.xml"
         },
         {
             "title": "[Unknown]",
-            "feed_url": "https://blog.sina.com.cn/rss/1283569510.xml",
-            "html_url": "https://blog.sina.com.cn/rss/1283569510.xml"
+            "feed_url": "https://pichu.moe/feed.xml",
+            "html_url": null
         },
         {
             "title": "blog.thea.codes",
@@ -461,6 +496,11 @@
             "html_url": "https://brr.fyi/"
         },
         {
+            "title": "fatedier blog",
+            "feed_url": "https://blog.fatedier.com/index.xml",
+            "html_url": "https://blog.fatedier.com/"
+        },
+        {
             "title": "jacobian.org",
             "feed_url": "https://jacobian.org/index.xml",
             "html_url": "https://jacobian.org/"
@@ -469,6 +509,11 @@
             "title": "kekxv 技术博客",
             "feed_url": "https://kekxv.github.io/feed.xml",
             "html_url": "http://kekxv.github.io/"
+        },
+        {
+            "title": "kxxt's blog",
+            "feed_url": "https://www.kxxt.dev/rss.xml",
+            "html_url": "https://www.kxxt.dev"
         },
         {
             "title": "laike9m's blog",
@@ -554,6 +599,11 @@
             "title": "余光的部落格",
             "feed_url": "https://idawnlight.com/atom.xml",
             "html_url": "https://idawnlight.com/"
+        },
+        {
+            "title": "兮陌",
+            "feed_url": "https://www.simaek.com/feed/",
+            "html_url": "https://www.simaek.com/"
         },
         {
             "title": "初之音",
@@ -664,6 +714,11 @@
             "title": "新世界的大门",
             "feed_url": "https://blog.xinshijiededa.men/atom.xml",
             "html_url": "https://blog.xinshijiededa.men/"
+        },
+        {
+            "title": "旅行者的随想",
+            "feed_url": "https://blog.besscroft.com/atom.xml",
+            "html_url": "https://blog.besscroft.com/"
         },
         {
             "title": "春水煎茶",
@@ -841,6 +896,6 @@
             "html_url": "https://coolshell.cn"
         }
     ],
-    "last_updated": "2024-06-16",
-    "count": 168
+    "last_updated": "2024-10-06",
+    "count": 179
 }

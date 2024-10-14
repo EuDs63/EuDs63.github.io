@@ -2,6 +2,7 @@
 title: Long May the Free Software
 slug: Long May the Free Software
 date: 2023-12-14T17:10:10+08:00
+tags:
   - 感想
   - 感受
   - 开源
@@ -12,6 +13,8 @@ summary: A course report for computer and social
 ---
 
 **This is a course report for one of my university courses: Computers and Society.**
+
+**I made this report with the help of ChatGPT**
 
 Good morning, ladies and gentlemen. Today, I am delighted to share with you a topic that lies at the heart of digital freedom and innovation – "Long May the Free Software."
 
