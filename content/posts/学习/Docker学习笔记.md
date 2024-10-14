@@ -133,6 +133,8 @@ chmod +x $DOCKER_CONFIG/cli-plugins/docker-compose
 ## 原理
 - [Docker (容器) 的原理 | 卡瓦邦噶！](https://www.kawabangga.com/posts/4224)
 
+## 搭建私有docker仓库
+- [搭建私有docker仓库](https://blog.fatedier.com/2016/05/16/install-private-docker-registry/ )
 
 ## 时间线
 ### 2023年5月18日

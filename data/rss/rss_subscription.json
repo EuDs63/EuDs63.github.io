@@ -126,6 +126,11 @@
             "html_url": "https://blog.netnerds.net/"
         },
         {
+            "title": "Cmj's Blog",
+            "feed_url": "https://blog.caomingjun.com/atom.xml",
+            "html_url": "https://blog.caomingjun.com/"
+        },
+        {
             "title": "CorrectRoad's Blog",
             "feed_url": "https://correctroadh.github.io/index.xml",
             "html_url": "https://correctroadh.github.io/"
@@ -182,8 +187,18 @@
         },
         {
             "title": "Huli's blog",
+            "feed_url": "https://blog.huli.tw/atom-ch.xml",
+            "html_url": "https://blog.huli.tw/"
+        },
+        {
+            "title": "Huli's blog",
             "feed_url": "https://life.huli.tw/atom.xml",
             "html_url": "https://life.huli.tw/"
+        },
+        {
+            "title": "Jesse Li",
+            "feed_url": "https://blog.jse.li/index.xml",
+            "html_url": "https://blog.jse.li/"
         },
         {
             "title": "Joel on Software",
@@ -426,6 +441,11 @@
             "html_url": "http://www.52cik.com/"
         },
         {
+            "title": "Wilson's blog",
+            "feed_url": "https://wilsonxia.cn/atom.xml",
+            "html_url": "https://wilsonxia.cn/"
+        },
+        {
             "title": "Yulin Lewis' Blog",
             "feed_url": "https://lewky.cn/index.xml",
             "html_url": "https://lewky.cn/"
@@ -452,13 +472,13 @@
         },
         {
             "title": "[Unknown]",
-            "feed_url": "https://pichu.moe/feed.xml",
-            "html_url": null
+            "feed_url": "https://blog.sina.com.cn/rss/1283569510.xml",
+            "html_url": "https://blog.sina.com.cn/rss/1283569510.xml"
         },
         {
             "title": "[Unknown]",
-            "feed_url": "https://blog.sina.com.cn/rss/1283569510.xml",
-            "html_url": "https://blog.sina.com.cn/rss/1283569510.xml"
+            "feed_url": "https://pichu.moe/feed.xml",
+            "html_url": null
         },
         {
             "title": "blog.thea.codes",
@@ -476,6 +496,11 @@
             "html_url": "https://brr.fyi/"
         },
         {
+            "title": "fatedier blog",
+            "feed_url": "https://blog.fatedier.com/index.xml",
+            "html_url": "https://blog.fatedier.com/"
+        },
+        {
             "title": "jacobian.org",
             "feed_url": "https://jacobian.org/index.xml",
             "html_url": "https://jacobian.org/"
@@ -484,6 +509,11 @@
             "title": "kekxv 技术博客",
             "feed_url": "https://kekxv.github.io/feed.xml",
             "html_url": "http://kekxv.github.io/"
+        },
+        {
+            "title": "kxxt's blog",
+            "feed_url": "https://www.kxxt.dev/rss.xml",
+            "html_url": "https://www.kxxt.dev"
         },
         {
             "title": "laike9m's blog",
@@ -866,6 +896,6 @@
             "html_url": "https://coolshell.cn"
         }
     ],
-    "last_updated": "2024-08-11",
-    "count": 173
+    "last_updated": "2024-10-06",
+    "count": 179
 }
