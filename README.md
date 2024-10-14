@@ -1,8 +1,18 @@
 # EuDs’s Blog
-
-框架：[Hexo](https://hexo.io/)
-主题：[Fluid](https://hexo.fluid-dev.com/)
-
+- 框架：[Hugo](https://gohugo.io/)
+- 主题：[hugo-PaperModX](https://github.com/reorx/hugo-PaperModX/)
+- 内容：本博客的内容包括但不限于：
+  - 什锦
+    - 阅读时的感受和摘抄
+  - 学习
+    - 折腾时遇到的问题和解决方式的记录
+    - 学习笔记
+  - 想法 
+    - 所闻所间所感
+- 曾用
+  1. 时间: March 13, 2023 - October 21, 2023
+     - 框架：[Hexo](https://hexo.io/)
+     - 主题：[Fluid](https://hexo.fluid-dev.com/)
 ## Todo
 - [ ] 图床
 - [x] 提供RSS订阅
