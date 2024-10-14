@@ -36,7 +36,7 @@ Windows下可以在`C:\Windows:\Fonts`找到本机安装的字体。
     通过控制变量法，发现只有在VSCode才有这种问题。进一步测试表面：只有在特定的项目才会出问题。
     
     问题最终锁定在Quick Suggestions上。这个项目中有个markdown文件:十四万字，三百多kb。我将markdown文件的`editor.quickSuggestions`给关掉，就不怎么卡了。但我其实蛮喜欢这功能的,它不一定能有用，但时不时能给我些惊喜的发现。
-    
+
 - 解决
     - 最终我将该文件拆分为两个文件，现在似乎好多了。
     - 另一种解决方式可能是：将`Editor: Quick Suggestions Delay`调大点。这个Delay我是理解成防抖的等待时间，不知道对不对。
@@ -50,3 +50,10 @@ Windows下可以在`C:\Windows:\Fonts`找到本机安装的字体。
   - [Easy Context menu v1.6](https://www.sordum.org/7615/easy-context-menu-v1-6/ )。似乎可用，但未开源，我不信任
   - [Integrate with the Windows 11 Context Menu · Issue #127365 · microsoft/vscode](https://github.com/microsoft/vscode/issues/127365 )，开发人员称该功能在inside版本实现，但因[Uninstalling VS Code takes a long time, when enabling the Windows 11 context menu action · Issue #164689 · microsoft/vscode](https://github.com/microsoft/vscode/issues/164689 )，没有将其在稳定版本集成该功能的打算。（难绷，Win11都出几年了，能玩得转这右键菜单的软件怎么还是少数）
   - 最终选择：修改注册表
+
+### 2024年10月14日
+- 问题描述: 输不了中文句号
+- 过程:
+  - 某个时候开始就输不了中文句号，测试发现只在vscode这样。
+- 解决
+  - 中文输入法下按`Ctrl+.`即可

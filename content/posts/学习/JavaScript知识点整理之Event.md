@@ -52,54 +52,88 @@ window.addEventListener("beforeunload", (event) => {
 ---
 
 ## addEventListener
-- 语法：
-  ```JavaScript
-  addEventListener(type, listener)
-  addEventListener(type, listener, options)
-  addEventListener(type, listener, useCapture) //旧版本的 DOM 的规定
-  ```
-- `options`
-  - capture:boolean
-  - once:boolean
-  - passive:boolean True -> preventDefault() 不会被调用
-  - signal
+### 语法
+```JavaScript
+addEventListener(type, listener)
+addEventListener(type, listener, options)
+addEventListener(type, listener, useCapture) //旧版本的 DOM 的规定
+```
+
+### `options`
+- capture:boolean
+- once:boolean
+- passive:boolean True -> preventDefault() 不会被调用
+- signal
+
+### 注意
 - [处理过程中 this 的值的问题 | MDN](https://developer.mozilla.org/zh-CN/docs/Web/API/EventTarget/addEventListener#%E5%A4%84%E7%90%86%E8%BF%87%E7%A8%8B%E4%B8%AD_this_%E7%9A%84%E5%80%BC%E7%9A%84%E9%97%AE%E9%A2%98)
-- 参考:
-  - [EventTarget: addEventListener() method - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener)
-  - [滚动事件优化 passive - 孟繁贵 - 博客园](https://www.cnblogs.com/mengfangui/p/11322590.html)
+
+### 参考:
+- [EventTarget: addEventListener() method - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener)
+- [滚动事件优化 passive - 孟繁贵 - 博客园](https://www.cnblogs.com/mengfangui/p/11322590.html)
 
 ---
 
 ## removeEventListener
-- 参考[EventTarget: removeEventListener() method - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/removeEventListener)
 - 如果同一个事件监听器分别为“事件捕获（capture 为 true）”和“事件冒泡（capture 为 false）”注册了一次，这两个版本的监听器需要分别移除。移除捕获监听器不会影响非捕获版本的相同监听器，反之亦然。
 - `options`只有 capture 配置影响 removeEventListener()
+- 参考[EventTarget: removeEventListener() method - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/removeEventListener)
 
 ---
 
 ## 事件委托
+### 概念
 - 事件处理模式之一,也称事件代理
 - 对于许多以类似方式处理的元素，不必为每个元素分配一个处理程序，而是将单个处理程序放在它们的共同祖先上
 - 在处理程序中，我们获取`event.target`以查看事件实际发生的位置并进行处理。
-- 优点:
-  1. 减少事件注册，提升性能
-  2. 简化了dom节点更新时，相应事件的更新
-- 缺点:
-  1. 基于冒泡，对于不冒泡的事件不支持
-  2. 层级过多，冒泡过程中，可能会被某层阻止掉。
-  3. 理论上委托会导致浏览器频繁调用处理函数，虽然很可能不需要处理。所以建议就近委托，比如在table上代理td，而不是在document上代理td
+
+### 优点:
+ 1. 减少事件注册，提升性能
+ 2. 简化了dom节点更新时，相应事件的更新
+
+### 缺点:
+1. 基于冒泡，对于不冒泡的事件不支持
+2. 层级过多，冒泡过程中，可能会被某层阻止掉。
+3. 理论上委托会导致浏览器频繁调用处理函数，虽然很可能不需要处理。所以建议就近委托，比如在table上代理td，而不是在document上代理td
+
+### React中的事件委托
+- React 借鉴事件委托的方式将大部分事件委托给了 Document 对象
+- 事件委托需要区分捕获和冒泡，有些事件由于没有冒泡过程，只能在捕获阶段进行事件委托
+- 没有进行委托的事件是`Form`事件和`Media`事件，原因是这些事件针对特性类型元素，委托意义不大，React 将其直接注册到了目标对象
+- React 中的事件分为 3 类。
+  1. DiscreteEvent：click，blur,focus,submit,tuchStart 等。优先级最低。
+  2. UserBlockingEvent：touchMove,mouseMove,scroll,drag,dragOver 等。这些事件会阻塞用户的交互，优先级次之
+  3. ContinuousEvent：load,error,loadStart,abort,animationend 等。优先级最高，不会被打断。
+
+### 示例
+- html
+  ```html
+  <ul>
+    <li>Exercise</li>
+    <li>Write code</li>
+    <li>Play music</li>
+    <li>Relax</li>
+  </ul>
+  ```
+- css
+  ```JavaScript
+  const list = document.querySelector("ul");
+  list.addEventListener(
+    "click",
+    (ev) => {
+      if (ev.target.tagName === "LI") {
+        ev.target.classList.toggle("done");
+      }
+    },
+    false,
+  );
+  ```
+
+### 参考
+- [事件委托](https://zh.javascript.info/event-delegation)
+- [js中的事件委托或事件代理详解 - 掘金](https://juejin.cn/post/6844903589052153869)
 - [React 中的事件委托 - 知乎](https://zhuanlan.zhihu.com/p/165089379)
-  - React 借鉴事件委托的方式将大部分事件委托给了 Document 对象
-  - 事件委托需要区分捕获和冒泡，有些事件由于没有冒泡过程，只能在捕获阶段进行事件委托
-  - 没有进行委托的事件是 Form 事件和 Media 事件，原因是这些事件针对特性类型元素，委托意义不大，React 将其直接注册到了目标对象
-  - React 中的事件分为 3 类。
-    1. DiscreteEvent：click，blur,focus,submit,tuchStart 等。优先级最低。
-    2. UserBlockingEvent：touchMove,mouseMove,scroll,drag,dragOver 等。这些事件会阻塞用户的交互，优先级次之
-    3. ContinuousEvent：load,error,loadStart,abort,animationend 等。优先级最高，不会被打断。
-- 参考
-  - [事件委托](https://zh.javascript.info/event-delegation)
-  - [js中的事件委托或事件代理详解 - 掘金](https://juejin.cn/post/6844903589052153869)
-  - [React 中的事件委托 - 知乎](https://zhuanlan.zhihu.com/p/165089379)
+- [React 中的事件委托 - 知乎](https://zhuanlan.zhihu.com/p/165089379)
 
 ---
 

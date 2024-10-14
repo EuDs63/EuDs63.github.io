@@ -36,7 +36,28 @@ summary: 自己学习过程中整理的关于JavaScript中异步的知识点
     4. 保持输入数组的顺序和输出数组的顺序一致
     5. 传入数组中只要有一个reject，立即返回reject,并带有第一个被拒绝的原因。
     6. 所有数据resolve之后返回一个 Promise
-  - 实现：[手写Promise.all - 掘金](https://juejin.cn/post/7006200103157383175)
+  - 实现: 参考: [手写Promise.all - 掘金](https://juejin.cn/post/7006200103157383175)
+        ```JavaScript
+        function myPromiseAll(iterable){
+            return new Promise((resolve,reject)=>{
+                const promises = Array.from(iterable);
+                const result = [];
+                let count = 0;
+                const len = promises.length;
+                for(let i=0;i<len;i++){
+                    Promise.resolve(promises[i]).then(res=>{
+                        result[i] = res;
+                        count++;
+                        if(count===len){
+                            resolve(result);
+                        }
+                    }).catch(err=>{
+                        reject(err);
+                    })
+                }
+            })
+        }
+        ```
 - `Promise.any()`
   - 当输入的任何一个 Promise 兑现时，这个返回的 Promise 将会兑现，并返回第一个兑现的值。当所有输入 Promise 都被拒绝（包括传递了空的可迭代对象）时，它会以一个包含拒绝原因数组的 AggregateError 拒绝。
 - `Promise.allSettld()`
