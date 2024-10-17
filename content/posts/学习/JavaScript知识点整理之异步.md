@@ -12,6 +12,59 @@ categories:
 summary: 自己学习过程中整理的关于JavaScript中异步的知识点
 --- 
 
+## 回调函数
+- 最基本的方法
+
+### 实例
+```JavaScript
+//有两个函数f1和f2，后者等待前者的执行结果。f1耗时长
+f1();
+f2();
+
+// 可以考虑改写f1，把f2写成f1的回调函数
+function f1(callback){
+　setTimeout(function () {
+　　// f1的任务代码
+　　callback();
+　}, 1000);
+}
+```
+
+### 优点
+- 简单、容易理解和部署
+
+### 缺点
+- 不利于代码的阅读和维护，各个部分之间高度耦合（Coupling），流程会很混乱
+- 每个任务只能指定一个回调函数
+
+---
+
+## 事件监听
+- 任务的执行不取决于代码的顺序，而取决于某个事件是否发生
+
+### 示例
+```JavaScript
+// 为f1绑定一个事件
+f1.on('done',f2);
+
+// 改写f1
+function f1(){
+  setTimeout(function () {
+    f1.emit('done');
+  },1000);  
+}
+```
+
+### 优点
+- 比较容易理解
+- 可以绑定多个事件，每个事件可以指定多个回调函数
+- 可以"去耦合"（Decoupling），有利于实现模块化
+
+### 缺点
+- 整个程序都要变成事件驱动型，运行流程会变得很不清晰
+
+---
+
 ## Promise 
 ### 描述
 - 一个 Promise 是一个**代理**，它代表一个在创建 promise 时不一定已知的值。
@@ -62,6 +115,19 @@ summary: 自己学习过程中整理的关于JavaScript中异步的知识点
   - 当输入的任何一个 Promise 兑现时，这个返回的 Promise 将会兑现，并返回第一个兑现的值。当所有输入 Promise 都被拒绝（包括传递了空的可迭代对象）时，它会以一个包含拒绝原因数组的 AggregateError 拒绝。
 - `Promise.allSettld()`
 - `Promise.race()`
+  - 特点:
+    1. 返回第一个执行完成的 Promise，无论它是被 resolve 还是 reject
+  - 实现:
+    ```JavaScript
+    function myPromiseRace(promises){
+        return new Promise((resolve,reject)=>{
+            for (let promise of promises){
+                Promise.resolve(promise).then(resolve,reject);
+            }
+        })
+    }
+
+    ```
 - `
 
 ### 作用
@@ -125,12 +191,15 @@ wip
 ## async/await
 ### 作用
 - 函数前面的关键字`async`有两个作用：
-  1. 让这个函数总是返回一个 promise。
+  1. 让这个函数总是返回一个 promise
+     - 返回普通值时将自动被包装在一个 resolved 的 promise 中。
+     - 也可以显式地返回一个 promise  
   2. 允许在该函数内使用 await。
 - Promise 前的关键字 `await`
   -  使 JavaScript 引擎等待该 promise settle，然后：
      1. 如果有 error，就会抛出异常 —— 就像那里调用了 throw error 一样。
      2. 否则，就返回结果
+  - 这个行为不会耗费任何 CPU 资源，因为 JavaScript 引擎可以同时处理其他任务：执行其他脚本，处理事件等。
 ### 实现 
 wip
 
@@ -199,3 +268,4 @@ wip
 ### 参考:
   - [blog/Blog/如何解决异步请求的竞态问题.md at master · YuArtian/blog](https://github.com/YuArtian/blog/blob/master/Blog/%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3%E5%BC%82%E6%AD%A5%E8%AF%B7%E6%B1%82%E7%9A%84%E7%AB%9E%E6%80%81%E9%97%AE%E9%A2%98.md)
   - [如何解决前端常见的竞态问题-腾讯云开发者社区-腾讯云](https://cloud.tencent.com/developer/article/2193937)
+  - [Javascript异步编程的4种方法 - 阮一峰的网络日志](https://www.ruanyifeng.com/blog/2012/12/asynchronous%EF%BC%BFjavascript.html )

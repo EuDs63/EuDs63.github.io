@@ -222,6 +222,12 @@ wip
 ---
 
 ## Object
+### 概念
+- 在 JavaScript 中，对象,可以被看作是一组属性的集合。它是唯一可变的值。事实上，函数也是具有额外可调用能力的对象。
+- 对象属性名字可以是任意字符串，包括空串。
+  - 如果对象属性名字不是合法的 javascript 标识符，它必须用引号包裹。
+- 对象的原型（prototype）指向另一个对象或者 null
+
 ### 访问和设置Object的属性
 - **访问**
   - 点符号表示法 
@@ -274,6 +280,8 @@ wip
 - **删除**
   - 只能删除对象的可配置属性,`delete obj.name;`
   - 若属性为不可配置的话，尝试删除在非严格模式下会被忽略，严格模式下会抛出错误
+
+- 对象注入攻击：[The Dangers of Square Bracket Notation](https://github.com/eslint-community/eslint-plugin-security/blob/main/docs/the-dangers-of-square-bracket-notation.md)
 
 - 参考
   - [js中对象的点语法与方括号语法的区别 - 掘金](https://juejin.cn/post/7215401973842788411)
@@ -421,6 +429,32 @@ wip
 ### `Object`和`object`的区别
 1. `Object`：这是一个内置的构造函数，用于创建对象。例如，你可以使用`new Object()`来创建一个新的对象实例。
 2. `object`：这是一个数据类型的名称，表示所有引用类型的对象，包括数组、函数、正则表达式等。它是 JavaScript 中的一种原始类型，用于描述一类数据结构。
+
+### `Object`和`Map`的区别
+- 意外的键
+- 安全性: 
+  - Map 可以安全地与用户提供的键值一起使用。
+  - 可能会导致对象注入攻击,可以通过使用 null 原型对象来缓解
+- 键的类型: 
+  - Map 的键可以为任何值
+  - Object 的键必须为 String 或 Symbol
+- 键的顺序
+  - Map 对象按照插入的顺序迭代条目、键和值。
+  - 没有单一机制可以迭代对象的所有属性
+- 大小
+  - Map 中的项目数量很容易从其 size 属性中获得
+  - 通过获取 Object.keys() 返回的数组的长度
+- 迭代
+  - Map 是可迭代对象，所以它可以直接迭代。
+  - Object 没有实现迭代协议，因此对象默认情况下不能直接通过 JavaScript 的 for...of 语句进行迭代。
+- 性能
+  - Map在涉及频繁添加和删除键值对的场景中表现更好。
+  - Object未针对频繁添加和删除键值对进行优化。
+- 序列化和解析
+  - Map没有对序列化或解析的原生支持。
+  - `JSON.stringify()`, `JSON.parse()`
+
+- 参考: [Object 和 Map 的比较 | MDN](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Map#object_%E5%92%8C_map_%E7%9A%84%E6%AF%94%E8%BE%83)
 
 ---
 

@@ -169,7 +169,25 @@ setTimeout(sayHi(), 1000); //这样传入的是sayHi函数的执行结果:undefi
   // intervalID 可用来作为 clearInterval() 的参数来清除对应的定时器
   // arg1, ..., argN 可选  当计时结束的时候，将被传递给 func 函数的附加参数。
   ```
-- 每间隔给定的时间周期性执行
+- 每间隔给定的时间周期性执行,时间开始计算的位置是调用内部方法的那一刻，因此第一次方法结束到第二次开始之间的时间间隔其实是小于delay的
+- 如果setInterval的内部函数执行耗时大于设定的时间间隔,会发生什么？
+  - a: JavaScript 引擎会等待 func 执行完成，然后检查调度程序，如果时间到了，则 立即 再次执行它。极端情况下，如果函数每次执行时间都超过 delay 设置的时间，那么每次调用之间将完全没有停顿。
+  - 解决办法: 嵌套的 setTimeout
+    ```JavaScript
+    // setInterval
+    let i = 1;
+    setInterval(function(){
+      func(i++);
+    },100);
+    // 嵌套的setTimeout
+    let i = 1;
+    setTimeout(function run(){
+      func(i++);
+      setTimeout(run,100);
+    },100)
+
+    ```
+
 - 参考:
   - [setInterval() - Web API 接口 | MDN](https://developer.mozilla.org/zh-CN/docs/Web/API/setInterval)
   - [调度：setTimeout 和 setInterval](https://zh.javascript.info/settimeout-setinterval)
@@ -194,6 +212,14 @@ setTimeout(sayHi(), 1000); //这样传入的是sayHi函数的执行结果:undefi
   3. 优先级
      - 宏任务的优先级高于微任务
      - 每个宏任务执行完毕后都必须将当前的微任务队列清空
+- 安排（schedule）一个新的 宏任务：
+  - 可使用零延迟的 setTimeout(f)
+  - 好处
+    1. 将繁重的计算任务拆分成多个部分，以使浏览器能够对用户事件作出反应，并在任务的各部分之间显示任务进度。
+    2. 也被用于在事件处理程序中，将一个行为（action）安排（schedule）在事件被完全处理（冒泡完成）后。
+- 安排一个新的 微任务：
+  - 可以使用 queueMicrotask 来在保持环境状态一致的情况下，异步地执行一个函数。
+  - 如果我们想要异步执行（在当前代码之后）一个函数，但是要在更改被渲染或新事件被处理之前执行，那么我们可以使用 queueMicrotask 来对其进行安排（schedule）。
 - 参考
   -  [事件循环 - JavaScript Guidebook](https://tsejx.github.io/javascript-guidebook/core-modules/executable-code-and-execution-contexts/concurrency-model/event-loop/)
   -  [浅析setTimeout与Promise - 掘金](https://juejin.cn/post/6844903655473152008)

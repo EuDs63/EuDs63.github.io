@@ -34,6 +34,11 @@ summary: 自己学习过程中整理的关于CSS中flex的知识点
 
 ### `align-items`
 - a convenient shorthand that automatically sets the alignment on all the children at once
+- flex-start：交叉轴的起点对齐。
+- flex-end：交叉轴的终点对齐。
+- center：交叉轴的中点对齐。
+- baseline: 项目的第一行文字的基线对齐。
+- stretch（默认值）：如果项目未设置高度或设为auto，将占满整个容器的高度
 
 ### `flex-grow`
 - number,默认为0，不能为负数
@@ -83,7 +88,9 @@ summary: 自己学习过程中整理的关于CSS中flex的知识点
 - will gobble up the extra space, and apply it to the element's margin
 
 ### `flex-wrap`
-wip
+- `nowrap` 默认
+- `wrap`
+- `warp-reverse`
 
 ---
 

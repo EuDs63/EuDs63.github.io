@@ -134,8 +134,27 @@ summary: the information manager from hell
 2. go through the various directory trees
 3. search for the filename we wanted
 
+---
+
 ## about git submodule
-todo!
+### 远程仓库的子模块链接错了，指向了一个不同的仓库
+1. 检查并修复 .gitmodules 文件
+   ```bash 
+   [submodule "path/to/submodule"]
+    path = path/to/submodule
+    url = git@correct-url.git
+   ```
+2. 检查 .git/config 中的子模块配置
+   ```bash 
+   [submodule "path/to/submodule"]
+    url = git@correct-url.git
+   ```
+3. 提交 .gitmodules 文件的更改
+4. 更新 Git 子模块配置： `git submodule sync`
+5. 更新子模块的内容： `git submodule update --init --recursive`
+6. 推送更改
+
+---
 
 ## how does git diff works 
 to do!

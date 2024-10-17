@@ -312,7 +312,24 @@ const TopButtons = withLoginAndLogout(
 );
 ```
 
+---
 
+## 2024年10月17日
+react的单向数据流怎么理解，有什么好处？
+
+- 数据流：也就是数据在不同组件或节点之间的流动
+- 单向:  react规定了数据的流向是从外层组件向内层组件进行传递和更新的，而内层组件是无法直接修改props影响外层的。
+- 好处:
+  1. 如果内层的组件可以通过修改props来修改外层的数据，那么外层使用到这个数据或者其他使用到这个数据的地方都会造成数据更新，UI渲染也会改变，这会造成数据紊乱和不可控。所以为了**更好的可控性**，react设计了单向数据流。
+  2. 所有的数据更新是单向的，那么出现问题的时候会更好溯源，因为修改数据的链路是确定的，排查起来顺着调用链就可以一层一层找到问题了。
+- 引申
+  - useContext
+  - forwardRef, useImperativeHandle
+
+- 参考
+  - [70场面试，复盘我遇到的有趣问题（二）_牛客网](https://www.nowcoder.com/feed/main/detail/04aee48cc23f4b09a04d0dba327f0c5d?sourceSSR=search )
+
+---
 
 ## 参考
 - [为什么你不应该在 React 中直接使用 useEffect 从 API 获取数据 | Sukka's Blog](https://blog.skk.moe/post/why-you-should-not-fetch-data-directly-in-use-effect/)

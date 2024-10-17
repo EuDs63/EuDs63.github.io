@@ -13,10 +13,14 @@ summary: 自己学习过程中整理的关于JavaScript的知识点
 --- 
 **本文记录了我学习过程中整理的关于JavaScript的知识点,以摘抄为主，绝大部分非原创。未能全部都标明出处，在此致歉**
 
-## 双等号和三等号
+## 双等号和三等号和Object.is
 - `==` 只比较值是否相等。在比较数值之前，它将变量的类型转换为相互匹配
 - `===` 不执行类型转换。它将验证被比较的变量是否具有相同的值和相同的类型。
-- 示例
+- `Object.is()`
+  - 与 == 运算符并不等价: Object.is() 不会对其操作数进行类型转换
+  - 也不等价于 === 运算符: 唯一区别在于它们处理带符号的 0 和 NaN 值的时候。=== 运算符（和 == 运算符）将数值 -0 和 +0 视为相等，但是会将 NaN 视为彼此不相等
+
+### 示例
 ```JavaScript
 const number = 1234 
 const stringNumber = '1234'  
@@ -32,7 +36,10 @@ const str = ""
 console.log(str == false) //true
 console.log(str === false) //false
 ```
-- 参考 [JavaScript Triple Equals Sign VS Double Equals Sign – Comparison Operators Explained with Examples](https://www.freecodecamp.org/news/javascript-triple-equals-sign-vs-double-equals-sign-comparison-operators-explained-with-examples/)
+### 参考 
+- [JavaScript Triple Equals Sign VS Double Equals Sign – Comparison Operators Explained with Examples](https://www.freecodecamp.org/news/javascript-triple-equals-sign-vs-double-equals-sign-comparison-operators-explained-with-examples/)
+
+---
 
 ## ? and ??
 - `?`  可选链操作符（Optional Chaining Operator）
@@ -42,13 +49,7 @@ console.log(str === false) //false
   - 与逻辑或（||）操作符不同，空值合并操作符只在左侧操作数为null或undefined时返回右侧操作数，对于其他假值（如0、''等）不会触发返回右侧操作数。
   - [?? "" is a Code Smell / Jordan Eldredge](https://jordaneldredge.com/blog/defaulting-to-empty-string-is-a-code-smell/ )
 
-## Object 
-- 在 JavaScript 中，对象,可以被看作是一组属性的集合。它是唯一可变的值。事实上，函数也是具有额外可调用能力的对象。
-- 对象属性名字可以是任意字符串，包括空串。
-  - 如果对象属性名字不是合法的 javascript 标识符，它必须用引号包裹。
-- 对象的原型（prototype）指向另一个对象或者 null
-- [Object 和 Map 的比较 | MDN](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Map#object_%E5%92%8C_map_%E7%9A%84%E6%AF%94%E8%BE%83)
-- 对象注入攻击：[The Dangers of Square Bracket Notation](https://github.com/eslint-community/eslint-plugin-security/blob/main/docs/the-dangers-of-square-bracket-notation.md)
+---
 
 ## 静态属性和静态方法
 - 静态方法用于实现属于整个类，但不属于该类任何实例的函数。
@@ -78,10 +79,16 @@ console.log(str === false) //false
 - 参考 
   - [静态属性和静态方法](https://zh.javascript.info/static-properties-methods )
 
+---
+
 ## 私有属性
-- 参考[私有属性 - JavaScript | MDN](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Classes/Private_properties)
 - 私有属性通过添加`#`前缀来创建，在类的外部无法合法地引用。
 - 私有属性不是原型继承模型的一部分，因为它们只能在当前类内部被访问，而且不能被子类继承。
+- 无法使用方括号表示法动态访问它
+- 访问对象中不存在的私有属性，会抛出 TypeError 错误，而不是像普通属性一样返回 undefined
+- 参考[私有属性 - JavaScript | MDN](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Classes/Private_properties)
+
+---
 
 ## 序列化与反序列化
 - 见[json的序列化与反序列化](https://ds63.eu.org/2024/serialization_and_deserialization)
@@ -147,6 +154,8 @@ console.log(str === false) //false
   - [关于require和import的疑问 | 道廷途说](https://daotin.netlify.app/qe8yn8.html)
   - [几分钟了解js的模块化、IIFE。几分钟了解模块化： 1. CommonJS 2. AMD 3. CMD 4. ES6 - 掘金](https://juejin.cn/post/6969800612519084063 )
 
+---
+
 ## IIFE（立即调用函数表达式）
 - 参考[IIFE（立即调用函数表达式）| MDN](https://developer.mozilla.org/zh-CN/docs/Glossary/IIFE)
 - 一种设计模式
@@ -163,23 +172,26 @@ console.log(str === false) //false
   ```
 
 ## 闭包
-- 参考[闭包 - JavaScript | MDN](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Closures)
+### 概念
 - 闭包是由函数以及声明该函数的词法环境组合而成的，该环境包含了这个闭包创建时作用域内的任何局部变量。
-- 示例:
-  ```JavaScript
-  function makeAdder(x) {
-    return function (y) {
-      return x + y;
-    };
-  }
 
-  var add5 = makeAdder(5);
-  var add10 = makeAdder(10);
+### 示例:
+```JavaScript
+function makeAdder(x) {
+  return function (y) {
+    return x + y;
+  };
+}
 
-  console.log(add5(2)); // 7
-  console.log(add10(2)); // 12
-  ```
-- JavaScript 不原生支持私有方法，但可以用闭包来实现：
+var add5 = makeAdder(5);
+var add10 = makeAdder(10);
+
+console.log(add5(2)); // 7
+console.log(add10(2)); // 12
+```
+
+### 作用一:  模拟私有方法
+- 代码
   ```JavaScript
   var makeCounter = function () {
     var privateCounter = 0;
@@ -209,12 +221,29 @@ console.log(str === false) //false
   console.log(Counter1.value()); /* logs 1 */
   console.log(Counter2.value()); /* logs 0 */
   ```
+- 现在可以通过在属性名之前添加# 前缀来创建，在类的外部无法合法地引用
+
+### 参考
+- [闭包 - JavaScript | MDN](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Closures)
+- [私有属性 - JavaScript | MDN](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Classes/Private_properties )
+
+---
 
 ## 提升
-- 参考[JavaScript变量提升和函数提升详解](https://segmentfault.com/a/1190000038344251)
-- 变量只有声明被提升，初始化不会被提升
-- 声明会被提升到当前作用域的顶端
-- 示例:
+### 会被提升
+1. 变量的声明会被提升到当前作用域的顶端
+2. 函数声明和初始化都会被提升
+
+### 不会被提升
+1. 变量的初始化不会被提升
+2. 函数表达式不会被提升
+
+### 顺序
+1. 函数提升在变量提升之前
+2. 变量被提升过后，先对提升上来的所有对象统一执行一遍声明步骤，然后再对变量执行一次赋值步骤。而执行赋值步骤时，会优先执行函数变量的赋值步骤，再执行普通变量的赋值步骤
+
+### 示例
+1. 示例一 
   ```JavaScript
   var foo = 3;
   function hoistVariable() {
@@ -223,8 +252,7 @@ console.log(str === false) //false
   }
   hoistVariable();
   ```
-- 函数声明和初始化都会被提升
-- 函数表达式不会被提升,示例:
+2. 示例二：函数表达式不会被提升
   ```JavaScript
   console.log(square); // undefined
   console.log(square(5)); // square is not a function =》 初始化并未提升，此时 square 值为 undefined
@@ -232,8 +260,7 @@ console.log(str === false) //false
     return n * n; 
   }
   ```
-- **函数提升在变量提升之前**
-- 变量被提升过后，先对提升上来的所有对象统一执行一遍声明步骤，然后再对变量执行一次赋值步骤。而执行赋值步骤时，会优先执行函数变量的赋值步骤，再执行普通变量的赋值步骤。示例:
+3. 示例二: 顺序 
   ```JavaScript
   // 源代码
   function b(){};
@@ -247,12 +274,31 @@ console.log(str === false) //false
   b = 11;      // =》 变量 b 初始化 =》变量初始化没有被提升，还在原位
   typeof b;    // number
   ```
+4. 示例三: 顺序
+  ```JavaScript
+  let a =1;
+  function foo(a){
+    return (a=a+1);
+  }
+  var b = foo(a);
+  let c = foo(a);
+  function foo(a){
+    return (a=a+2);
+  }
+  const d = foo(a)
+  console.log(a,b,c,d); //1，3，3，3
+  ```
 
-## Var, Let, and Const 
+### 参考
+- [JavaScript变量提升和函数提升详解](https://segmentfault.com/a/1190000038344251)
+
+---
+
+## Var, Let, Const 
 - 参考[Var, Let, and Const – What's the Difference?](https://www.freecodecamp.org/news/var-let-and-const-whats-the-difference/)
 - **作用域**：var 声明是全局作用域或函数作用域，而 let 和 const 是块作用域。
 - **变化**：var 变量可以在其作用域内更新和重新声明；let 变量可以更新但不能重新声明；const 变量既不能更新也不能重新声明。
-- **提升**: 它们都被提升到了作用域的顶部。但是，var 变量是用 undefined 初始化的，而 let 和 const 变量不会被初始化。
+- **提升**: 它们都被提升到了作用域的顶部。但是，var 变量是用 undefined 初始化的，而 let 和 const 变量不会被初始化,在代码实际执行到声明和初始化语句之前，它们的值是不可访问的。
 - **声明**: var 和 let 可以在不初始化的情况下声明，而 const 必须在声明时初始化。
 - 示例:
   ```JavaScript
