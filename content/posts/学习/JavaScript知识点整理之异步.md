@@ -12,6 +12,12 @@ categories:
 summary: 自己学习过程中整理的关于JavaScript中异步的知识点
 --- 
 
+## 单线程
+- 原因:
+  - 与它的用途有关: 作为浏览器脚本语言，JavaScript 的主要用途是与用户互动，以及操作 DOM。若以多线程的方式操作这些 DOM，则可能出现操作的冲突。假设有两个线程同时操作一个 DOM 元素，线程 1 要求浏览器删除 DOM，而线程 2 却要求修改 DOM 样式，这时浏览器就无法决定采用哪个线程的操作。当然，我们可以为浏览器引入“锁”的机制来解决这些冲突，但这会大大提高复杂性，所以 JavaScript 从诞生开始就选择了单线程执行。
+
+- [blog/posts/关于JavaScript单线程的一些事.md at master · JChehe/blog](https://github.com/JChehe/blog/blob/master/posts/%E5%85%B3%E4%BA%8EJavaScript%E5%8D%95%E7%BA%BF%E7%A8%8B%E7%9A%84%E4%B8%80%E4%BA%9B%E4%BA%8B.md )
+
 ## 回调函数
 - 最基本的方法
 
