@@ -41,7 +41,7 @@ Array.from(arrayLike, mapFn, thisArg)
 ## 遍历数组
 1. `forEach`
    - `Array.prototype.forEach(function(value, index, arr), thisValue)`
-   - 除了抛出异常之外，没有其他方法可以停止或中断 forEach() 循环,也就是说不能在 forEach 中使用 break、continue 或 return
+   - 除了**抛出异常**之外，没有其他方法可以停止或中断 forEach() 循环,也就是说不能在 forEach 中使用 break、continue 或 return
    - 原因是 forEach 循环方法有一个应用于数组中每个元素的回调函数
 2. `every`
   ```JavaScript
@@ -232,6 +232,17 @@ Array.from(new Set(arr))
   ```
 
 - 参考: [Array.prototype.indexOf() - JavaScript | MDN](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf )
+
+### concat
+- 语法: `concat(value0, value1, /* … ,*/ valueN)`
+- 如果省略了所有 valueN 参数，则 concat 会返回调用此方法的现存数组的一个浅拷贝
+- 创建一个新数组。该数组将首先由调用它的对象中的元素填充。然后，对于每个参数，它的值将被连接到数组中
+- 如果任何源数组是稀疏数组，concat() 方法会保留空槽
+- 参考: [Array.prototype.concat() - JavaScript | MDN](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/concat )
+
+### reduceRight
+- 对累加器（accumulator）和数组的每个值（按**从右到左**的顺序）应用一个函数，并使其成为单个值。
+- 参考: [Array.prototype.reduceRight() - JavaScript | MDN](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/reduceRight )
 
 ---
 

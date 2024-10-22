@@ -520,7 +520,13 @@ wip
      - 没有 prototype 属性
    - 参考: [第 58 题：箭头函数与普通函数（function）的区别是什么？构造函数（function）可以使用 new 生成实例，那么箭头函数可以吗？为什么？ · Issue #101 · Advanced-Frontend/Daily-Interview-Question](https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/101 )
 
-6. ES6新特性
+6. 为什么会出现箭头函数
+   - 消除函数的二义性
+     - 在出现箭头函数之前，函数可以直接被调用，也可以被new当作构造函数使用，这就是函数的二义性。
+     - 为了消除这种二义性，创造了箭头函数和class，箭头函数只能() => {}，当作普通函数调用，而class只能被new，这就刚好对应二义性的两种用法，解决这种复杂情况了
+   - 解决了this的复杂指向问题
+
+7. ES6新特性
    - 引入了let和const
    - 模板字符串: `${}`
    - 箭头函数

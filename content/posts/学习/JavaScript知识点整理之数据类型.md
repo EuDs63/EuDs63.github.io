@@ -464,3 +464,56 @@ wip
 - 环境: 如果我们使用 new Function 创建一个函数，那么该函数的`[[Environment]]`并不指向当前的词法环境，而是指向全局环境,这样做的好处是避免了与使用压缩程序而产生冲突的问题
 - 使用场景: 在复杂的 Web 应用程序中，我们需要从服务器获取代码或者动态地从模板编译函数时
 - 参考: ["new Function" 语法](https://zh.javascript.info/new-function )
+
+### 将字符串转换为可执行的表达式的方式
+1. `eval()`
+- 可以执行包含 JavaScript 表达式的字符串。
+- 示例
+  ```js
+  const expression = "2 + 2";
+  const result = eval(expression);
+  console.log(result); // 输出: 4
+  ```
+- 注意：由于安全性和性能问题，它在现代 JavaScript 中并不推荐用于不受信任的输入，因为它会执行任意代码，可能引发安全漏洞。
+
+2. `Function` 构造函数
+- 可以将字符串转化为函数，并在调用时执行表达式。
+- 比 `eval()` 更加安全，因为它不访问外部作用域。
+- 示例
+  ```js
+  const expression = "return 2 + 2;";
+  const func = new Function(expression);
+  const result = func();
+  console.log(result); // 输出: 4
+  ```
+
+3. 模板字符串与插值表达式
+- 在模板字符串中使用插值可以直接执行 JavaScript 表达式：
+- 虽然这不是直接将字符串解析为表达式的方式，但在编写包含表达式的字符串时非常有用，尤其是结合模板渲染。
+- 示例
+  ```js
+  const a = 2;
+  const b = 3;
+  const result = `${a + b}`;
+  console.log(result); // 输出: 5
+  ```
+
+4. `setTimeout` / `setInterval`
+- `setTimeout` 和 `setInterval` 允许将字符串作为代码来执行
+- 但这种方式与 `eval()` 类似，同样不推荐用于不受信任的输入
+- 这种方式 JavaScript 中也不提倡，最好传递一个函数。
+- 示例
+  ```js
+  setTimeout("console.log('Executed!')", 1000);
+  ```
+
+5. `import()`（ES2020）
+虽然 `import()` 是用于动态模块加载的，但它可以动态加载 JavaScript 模块文件，将其作为表达式执行。
+
+```js
+import('./module.js').then((module) => {
+  module.someFunction();
+});
+```
+
+虽然不是直接执行字符串表达式，但它可以动态引入外部代码模块。

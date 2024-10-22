@@ -13,6 +13,17 @@ summary: 自己学习过程中整理的关于React的知识点
 --- 
 **本文记录了我学习过程中整理的关于React的知识点,以摘抄为主，绝大部分非原创。未能全部都标明出处，在此致歉**
 
+## JSX
+- 一种JavaScript的语法扩展（extension），也在很多地方称之为JavaScript XML，因为看起就是一段XML语法；
+- 为什么React选择使用jsx？
+  - React认为渲染逻辑本质上与其他UI逻辑存在内在耦合,他们之间是密不可分，所以React没有将标记分离到不同的文件中，而是将它们组合到了一起，这个地方就是组件（Component）
+- 本质
+  - React.createElement(component, props, ...children) 函数的语法糖
+  - 所有的jsx最终都会被转换成React.createElement的函数调用
+- 参考: [第二节：jsx语法深度剖析和jsx本质的探究 - Yaopengfei - 博客园](https://www.cnblogs.com/yaopengfei/p/17299996.html )
+
+---
+
 ## 生命周期
 ### there phases
 1. mounting: initial render
@@ -81,6 +92,7 @@ summary: 自己学习过程中整理的关于React的知识点
 --- 
 
 ## 组件间通信方式
+wip
 
 ---
 
