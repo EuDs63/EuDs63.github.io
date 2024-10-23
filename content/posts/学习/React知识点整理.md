@@ -92,7 +92,116 @@ summary: 自己学习过程中整理的关于React的知识点
 --- 
 
 ## 组件间通信方式
-wip
+### 通过 Props 传递数据（父传子组件通信）
+- **适用场景**：最常见的方式，适用于父组件向子组件传递数据。
+- **原理**：父组件通过 `props` 将数据传递给子组件，子组件通过 `props` 接收并使用这些数据。
+
+
+### 使用回调函数（子传父组件通信）
+- **适用场景**：当子组件需要向父组件传递数据时。
+- **原理**：父组件将一个回调函数作为 `props` 传递给子组件，子组件调用该函数，将数据传递回父组件。
+- **示例**:
+  ```jsx
+   function Parent() {
+     const handleData = (data) => {
+       console.log(data);
+     };
+
+     return <Child sendData={handleData} />;
+   }
+
+   function Child({ sendData }) {
+     return <button onClick={() => sendData("Hello from child!")}>Send Data</button>;
+   }
+   ```
+
+### 通过 Context API
+- **适用场景**：适合深层次的组件树中需要共享的全局状态，避免层层传递 `props`（例如：主题、语言、用户信息等）。
+- **原理**：创建一个 `Context`，并使用 `Provider` 组件来提供状态，任何深层的组件都可以通过 `Consumer` 或 `useContext` 钩子来访问。
+- **示例**:
+   ```jsx
+   const MyContext = React.createContext();
+
+   function Parent() {
+     const value = "Hello from context!";
+     return (
+       <MyContext.Provider value={value}>
+         <Child />
+       </MyContext.Provider>
+     );
+   }
+
+   function Child() {
+     const contextValue = React.useContext(MyContext);
+     return <div>{contextValue}</div>;
+   }
+   ```
+
+### 通过 Redux 或其他状态管理库
+- **适用场景**：在需要管理全局状态或复杂状态时，Redux 是一个强大的工具。
+- **原理**：全局状态存储在 Redux 的 `store` 中，任何组件都可以通过 `connect` 或 `useSelector` 访问状态，通过 `dispatch` 发送 action 来修改状态。
+- **示例**: 
+   ```jsx
+   import { useSelector, useDispatch } from 'react-redux';
+
+   function MyComponent() {
+     const count = useSelector(state => state.counter.value);
+     const dispatch = useDispatch();
+
+     return (
+       <div>
+         <span>{count}</span>
+         <button onClick={() => dispatch({ type: 'INCREMENT' })}>Increment</button>
+       </div>
+     );
+   }
+   ```
+
+### 使用全局事件（EventEmitter 或 Custom Events）
+- **适用场景**：组件之间没有明显的层级关系，适合不频繁的数据交换。
+- **原理**：可以使用事件触发机制，例如 `EventEmitter`，让一个组件监听事件，另一个组件触发事件。
+- **示例**: 
+   ```jsx
+   import { EventEmitter } from 'events';
+
+   const eventEmitter = new EventEmitter();
+
+   // In one component (sender)
+   eventEmitter.emit('message', 'Hello World');
+
+   // In another component (receiver)
+   eventEmitter.on('message', (data) => {
+     console.log(data);
+   });
+   ```
+
+### URL Params / Query Strings（通过路由传递）
+- **适用场景**：组件之间通过 URL 参数传递信息。
+- **原理**：使用 React Router 来通过 URL 将信息从一个页面传递到另一个页面。可以通过 `useParams` 或 `useLocation` 钩子来读取。
+- **示例**: 
+   ```jsx
+   import { useParams } from 'react-router-dom';
+
+   function UserProfile() {
+     const { userId } = useParams();
+     return <div>User ID: {userId}</div>;
+   }
+   ```
+
+### 使用 Web Storage（LocalStorage/SessionStorage）
+- **适用场景**：需要在页面刷新或不同组件间共享数据。
+- **原理**：将数据存储在浏览器的 `localStorage` 或 `sessionStorage` 中，组件可以通过它们来读取和修改数据。
+- **示例**: 
+   ```jsx
+   function setData() {
+     localStorage.setItem('name', 'John');
+   }
+
+   function getData() {
+     const name = localStorage.getItem('name');
+     return <div>{name}</div>;
+   }
+   ```
 
 ---
 

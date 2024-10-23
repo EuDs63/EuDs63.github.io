@@ -67,10 +67,13 @@ addEventListener(type, listener, useCapture) //旧版本的 DOM 的规定
 
 ### 注意
 - [处理过程中 this 的值的问题 | MDN](https://developer.mozilla.org/zh-CN/docs/Web/API/EventTarget/addEventListener#%E5%A4%84%E7%90%86%E8%BF%87%E7%A8%8B%E4%B8%AD_this_%E7%9A%84%E5%80%BC%E7%9A%84%E9%97%AE%E9%A2%98)
+- 同一个元素节点注册了多个相同的 EventListener，那么重复的实例会被抛弃。这么做不会让得 EventListener 被重复调用，也不需要用 removeEventListener 手动清除多余的 EventListener，因为重复的都被自动抛弃了。 
+- 只是针对于命名函数。对于匿名函数，浏览器会将其看做不同的 EventListener
 
-### 参考:
+### 参考
 - [EventTarget: addEventListener() method - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener)
 - [滚动事件优化 passive - 孟繁贵 - 博客园](https://www.cnblogs.com/mengfangui/p/11322590.html)
+- [JS 内存泄露问题该如何排查？ · Issue #76 · pro-collection/interview-question](https://github.com/pro-collection/interview-question/issues/76 )
 
 ---
 

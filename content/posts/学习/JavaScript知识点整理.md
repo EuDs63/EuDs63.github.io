@@ -346,6 +346,9 @@ sumAll(...array)
 
 ### 浅拷贝
 - 定义: 只复制属性指向某个对象的指针，而不复制对象本身，新旧对象还是共享同一块内存，修改对象属性会影响原对象
+- 区别于`=`: 
+  - `=`赋值操作只是复制引用，两个变量指向同一个对象。
+  - 浅拷贝创建一个新对象，但对于嵌套的引用类型仍然共享同一个引用。
 - 实现一
     ```JavaScript
     function shallowCopy(obj){
@@ -366,7 +369,16 @@ sumAll(...array)
     function shallowCopy(obj){
       return {...obj}
     }
+    ```
 
+- 实现三
+    ```JavaScript
+    let obj = {
+      a:1,
+      b:[1,2,3];
+    }
+    // Object.assign: 将源对象的可枚举属性复制到目标对象，适合合并多个对象。
+    let obj1 = Object.assign({},obj);
     ```
 
 ### 深拷贝
@@ -451,6 +463,11 @@ function find(arr, item){
     }
 }
 ```
+
+- structuredClone()
+  - creates a deep clone of a given value using the structured clone algorithm.
+  - 能保留了循环引用
+  - [Window: structuredClone() method - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/Window/structuredClone )
 
 - clone
   ```JavaScript
