@@ -202,14 +202,16 @@ wip
      - 也可以显式地返回一个 promise  
   2. 允许在该函数内使用 await。
 - Promise 前的关键字 `await`
-  -  使 JavaScript 引擎等待该 promise settle，然后：
-     1. 如果有 error，就会抛出异常 —— 就像那里调用了 throw error 一样。
-     2. 否则，就返回结果
+  - 当 JavaScript 执行到 await 时，它会等待 Promise 的结果，
+  - 但这个等待过程**不会阻塞**主线程。JavaScript 引擎会将这个等待中的任务挂起，并允许继续处理其他同步代码或事件，直到 Promise 完成（或者超时、拒绝）。
   - 这个行为不会耗费任何 CPU 资源，因为 JavaScript 引擎可以同时处理其他任务：执行其他脚本，处理事件等。
+
 ### 实现 
 wip
 
 ### 如何处理错误
+wip
+
 ### 示例
   ```JavaScript
   async function f() {
@@ -225,6 +227,7 @@ wip
 
   f();
   ```
+
   ```JavaScript
   const arr = [];
 
@@ -260,6 +263,7 @@ wip
   // arr in IIFE4 2,1,3
   // arr in setTimeout 2,1,3
   ```
+
 ### 参考
   - [async/await](https://zh.javascript.info/async-await)
 

@@ -223,6 +223,29 @@ console.log(add10(2)); // 12
   ```
 - 现在可以通过在属性名之前添加# 前缀来创建，在类的外部无法合法地引用
 
+### 输出题
+```js 
+var a = 100
+function create() {
+  var a = 200
+  return function () {
+   alert(a)
+  }
+}
+var fn = create()
+fn() //200
+
+var a = 100
+function invoke(fn) {
+  var a = 200
+  fn()
+}
+function fn() {
+  alert(a)
+}
+invoke(fn) //100
+```
+
 ### 参考
 - [闭包 - JavaScript | MDN](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Closures)
 - [私有属性 - JavaScript | MDN](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Classes/Private_properties )
@@ -295,12 +318,35 @@ console.log(add10(2)); // 12
 ---
 
 ## Var, Let, Const 
-- 参考[Var, Let, and Const – What's the Difference?](https://www.freecodecamp.org/news/var-let-and-const-whats-the-difference/)
-- **作用域**：var 声明是全局作用域或函数作用域，而 let 和 const 是块作用域。
-- **变化**：var 变量可以在其作用域内更新和重新声明；let 变量可以更新但不能重新声明；const 变量既不能更新也不能重新声明。
-- **提升**: 它们都被提升到了作用域的顶部。但是，var 变量是用 undefined 初始化的，而 let 和 const 变量不会被初始化,在代码实际执行到声明和初始化语句之前，它们的值是不可访问的。
-- **声明**: var 和 let 可以在不初始化的情况下声明，而 const 必须在声明时初始化。
-- 示例:
+### 作用域
+- var 声明是全局作用域或函数作用域
+- let 和 const 是块作用域。
+
+### 变化
+- var 变量可以在其作用域内更新和重新声明
+- let 变量可以更新但不能重新声明
+- const 变量既不能更新也不能重新声明。
+
+### 提升: 
+- 它们都被提升到了作用域的顶部。
+- var 变量是用 undefined 初始化的
+- 而 let 和 const 变量不会被初始化,在代码实际执行到声明和初始化语句之前，它们的值是不可访问的。
+
+### 声明
+- var 和 let 可以在不初始化的情况下声明，而 const 必须在声明时初始化。
+- var可以重复声明
+  - 示例
+    ```js 
+    var haha = '666';
+    var haha;
+    console.log(haha); // 666
+    ```
+  - 原因:
+    1. 编译器在对代码进行拆解的时候，遇到了var定义的变量会首先询问作用域中是否存在这个变量
+    2. 不存在就让作用域创建变量，如果存在就忽略var继续编译
+    3. 赋值时haha='666'被执行，第二个var haha被编译器忽略了。
+
+### 示例:
   ```JavaScript
   let greeting = "say Hi";
   let greeting = "say Hello instead"; // error: Identifier 'greeting' has already been declared
@@ -315,6 +361,29 @@ console.log(add10(2)); // 12
   b = 1;
   let b; // Cannot access 'b' before initialization
   ```
+
+### 输出题
+```js
+      let $body = document.getElemnetById('body')
+      let arr = [1,2,3,4,5]
+      let i, length = arr.length, domA
+      for (i = 0; i < length; i++) {
+      domA = document.createElement(<a>${i}</a> )
+      $body.append(domA)
+      domA.click(function(){
+      alert(i)
+      })
+      }
+      // 输出的都是5
+```
+- 由于 i 是在循环外定义的，这里会导致在点击时总是弹出循环结束时的值（5）
+- 可以通过使用闭包或 let 来解决这个问题。
+
+
+### 参考
+- [Var, Let, and Const – What's the Difference?](https://www.freecodecamp.org/news/var-let-and-const-whats-the-difference/)
+
+---
 
 ## Rest参数 与 Spread 语法
 - 参考[Rest 参数与 Spread 语法](https://zh.javascript.info/rest-parameters-spread)
