@@ -134,7 +134,9 @@ function f1(){
     }
 
     ```
-- `
+- `Promise.withResolvers()`
+  - returns an object containing a new Promise object and two functions to resolve or reject it
+  - [Promise.withResolvers() - JavaScript | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/withResolvers )
 
 ### 作用
   - 参考[Promise作用以及基本使用 - 掘金](https://juejin.cn/post/6844903693658259464)
@@ -183,8 +185,10 @@ setTimeout(() => {
 - 观察者模式
 wip
 
-### 问题三: 如果想要promise.all方法里所有promise的状态该怎么办
+### 问题二: Promise/A+ 规范
 wip
+
+- [Promise/A+ 规范 - JavaScript Guidebook](https://tsejx.github.io/javascript-guidebook/standard-built-in-objects/control-abstraction-objects/promise-standard/ )
 
 ### 参考
 - [Promise - JavaScript | MDN](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise)
@@ -276,6 +280,12 @@ wip
 - 方法二：**取消**: 在连续的请求过程中，每当我发出一个请求，我就将之前正在 pending 的请求的 Promise reject 掉，并且该请求的 XHR 对象执行 abort()；之前的请求 如果已经有响应的不用管它，我们当前的请求的结果会覆盖它的
 
 ### 参考:
-  - [blog/Blog/如何解决异步请求的竞态问题.md at master · YuArtian/blog](https://github.com/YuArtian/blog/blob/master/Blog/%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3%E5%BC%82%E6%AD%A5%E8%AF%B7%E6%B1%82%E7%9A%84%E7%AB%9E%E6%80%81%E9%97%AE%E9%A2%98.md)
-  - [如何解决前端常见的竞态问题-腾讯云开发者社区-腾讯云](https://cloud.tencent.com/developer/article/2193937)
-  - [Javascript异步编程的4种方法 - 阮一峰的网络日志](https://www.ruanyifeng.com/blog/2012/12/asynchronous%EF%BC%BFjavascript.html )
+- [blog/Blog/如何解决异步请求的竞态问题.md at master · YuArtian/blog](https://github.com/YuArtian/blog/blob/master/Blog/%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3%E5%BC%82%E6%AD%A5%E8%AF%B7%E6%B1%82%E7%9A%84%E7%AB%9E%E6%80%81%E9%97%AE%E9%A2%98.md)
+- [如何解决前端常见的竞态问题-腾讯云开发者社区-腾讯云](https://cloud.tencent.com/developer/article/2193937)
+- [Javascript异步编程的4种方法 - 阮一峰的网络日志](https://www.ruanyifeng.com/blog/2012/12/asynchronous%EF%BC%BFjavascript.html )
+
+---
+
+## 执行顺序
+### 参考 
+- [setTimeout+Promise+Async输出顺序？很简单呀！- 掘金](https://juejin.cn/post/7016298598883131423 )

@@ -171,6 +171,15 @@ console.log(str === false) //false
   // 依次输出 hello hello hello
   ```
 
+---
+
+## 作用域，执行上下文，词法环境
+wip
+
+### 参考
+- [彻底搞懂作用域、执行上下文、词法环境 - 掘金](https://juejin.cn/post/7043408377661095967 )
+- [变量作用域，闭包](https://zh.javascript.info/closure )
+
 ## 闭包
 ### 概念
 - 闭包是由函数以及声明该函数的词法环境组合而成的，该环境包含了这个闭包创建时作用域内的任何局部变量。
@@ -533,11 +542,6 @@ function find(arr, item){
 }
 ```
 
-- structuredClone()
-  - creates a deep clone of a given value using the structured clone algorithm.
-  - 能保留了循环引用
-  - [Window: structuredClone() method - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/Window/structuredClone )
-
 - clone
   ```JavaScript
   let clone = Object.create(
@@ -546,7 +550,20 @@ function find(arr, item){
   );
   ```
 
-- 参考 
+### `structuredClone()`
+- creates a deep clone of a given value using the structured clone algorithm.
+- 能保留循环引用
+- clone不了的
+  1. 函数不能被克隆
+  2. DOM 节点不能克隆
+  3. 属性描述符 setter和getter 不能克隆
+- 参考
+  - [Window: structuredClone() method - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/Window/structuredClone )
+  - [你还在用传统方法进行深浅拷贝？教你一种更现代的方法！-网络日志](https://blogweb.cn/article/2213672068912#heading-3 )
+
+
+
+### 参考 
   - [面试官：深拷贝浅拷贝的区别？如何实现一个深拷贝？ | web前端面试 - 面试官系列](https://vue3js.cn/interview/JavaScript/copy.html)
 
 ---
@@ -575,6 +592,21 @@ wip
 - [厄运金字塔（编程）- 维基百科 --- Pyramid of doom (programming) - Wikipedia](https://en.wikipedia.org/wiki/Pyramid_of_doom_(programming))
 
 ---
+
+## Proxy
+wip
+
+### 参考
+- [Proxy - JavaScript | MDN](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Proxy )
+- [javascript - Proxy详解 - 个人文章 - SegmentFault 思否](https://segmentfault.com/a/1190000043453516 )
+
+---
+
+## Reflect
+wip
+
+### 参考
+- [Reflect - JavaScript | MDN](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Reflect )
 
 ## 问题
 1. js到dom树的单向绑定
@@ -629,5 +661,15 @@ wip
 
      ```
    - 对象和类
+
+8. 手撕
+   - 参考
+     - [面试中的手撕代码（一）总结了一些面面试中常见的手写代码题，如有更好见解欢迎评论指正~ - 掘金](https://juejin.cn/post/7210979444760772664 )
+     - [Sunny-117/js-challenges: ✨✨✨ Challenge your JavaScript programming limits step by step](https://github.com/Sunny-117/js-challenges?tab=readme-ov-file )
+     - [JSON2DOM = react的render函数 · Issue #37 · Sunny-117/js-challenges](https://github.com/Sunny-117/js-challenges/issues/37 )
+
+9. 实现继承
+  - 参考
+    - [js中的6种继承方式 - 掘金](https://juejin.cn/post/7019185008527015949 )
 
 

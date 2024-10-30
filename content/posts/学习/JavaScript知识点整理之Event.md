@@ -198,35 +198,46 @@ setTimeout(sayHi(), 1000); //这样传入的是sayHi函数的执行结果:undefi
 ---
 
 ## 事件循环
-- 三种数据结构：
-  1. stack: 函数调用形成了一个由若干帧组成的栈
-  2. heap: 对象被分配在堆中
-  3. queue: 一个待处理消息的消息队列。每一个消息都关联着一个用以处理这个消息的回调函数
+### 三种数据结构：
+1. stack: 函数调用形成了一个由若干帧组成的栈
+2. heap: 对象被分配在堆中
+3. queue: 一个待处理消息的消息队列。每一个消息都关联着一个用以处理这个消息的回调函数
+
+### 两种任务
 - JavaScript 的异步任务根据事件分类分为两种：宏任务（MacroTask）和微任务（MicroTask）
-  1. 宏任务 
-     - I/O（Mouse Events、Keyboard Events、Network Events）
-     - setTimeout、setInterval、setImmediate
-     - UI Rendering（HTML Parsing）
-     - MessageChannel
-     - JavaScript Run
-  2. 微任务
-     - DOM mutations
-     - Promises
-  3. 优先级
-     - 宏任务的优先级高于微任务
-     - 每个宏任务执行完毕后都必须将当前的微任务队列清空
-- 安排（schedule）一个新的 宏任务：
+- 宏任务 
+  - I/O（Mouse Events、Keyboard Events、Network Events）
+  - setTimeout、setInterval、setImmediate
+  - UI Rendering（HTML Parsing）
+  - MessageChannel
+  - JavaScript Run
+- 微任务
+  - DOM mutations
+  - Promises
+
+- 优先级
+  - 宏任务的优先级高于微任务
+  - 每个宏任务执行完毕后都必须将当前的微任务队列清空
+
+- 如何安排（schedule）一个新的宏任务：
   - 可使用零延迟的 setTimeout(f)
   - 好处
     1. 将繁重的计算任务拆分成多个部分，以使浏览器能够对用户事件作出反应，并在任务的各部分之间显示任务进度。
     2. 也被用于在事件处理程序中，将一个行为（action）安排（schedule）在事件被完全处理（冒泡完成）后。
-- 安排一个新的 微任务：
+
+- 如何安排一个新的 微任务：
   - 可以使用 queueMicrotask 来在保持环境状态一致的情况下，异步地执行一个函数。
   - 如果我们想要异步执行（在当前代码之后）一个函数，但是要在更改被渲染或新事件被处理之前执行，那么我们可以使用 queueMicrotask 来对其进行安排（schedule）。
-- 参考
-  -  [事件循环 - JavaScript Guidebook](https://tsejx.github.io/javascript-guidebook/core-modules/executable-code-and-execution-contexts/concurrency-model/event-loop/)
-  -  [浅析setTimeout与Promise - 掘金](https://juejin.cn/post/6844903655473152008)
-  -  [JS Visualizer 9000](https://www.jsv9000.app/)
+
+### 浏览器中的事件循环和Node.js中事件循环的区别
+- 浏览器是一个宏任务+一个微任务队列
+- node是一个宏任务队列+一个微任务队列
+
+### 参考
+-  [事件循环 - JavaScript Guidebook](https://tsejx.github.io/javascript-guidebook/core-modules/executable-code-and-execution-contexts/concurrency-model/event-loop/)
+-  [浅析setTimeout与Promise - 掘金](https://juejin.cn/post/6844903655473152008)
+-  [JS Visualizer 9000](https://www.jsv9000.app/)
+- [浏览器中的事件循环和Node.js中事件循环的区别(经典面试题)-阿里云开发者社区](https://developer.aliyun.com/article/1312240 )
 
 ---
 

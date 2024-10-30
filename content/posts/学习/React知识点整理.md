@@ -54,6 +54,30 @@ summary: 自己学习过程中整理的关于React的知识点
 ### 参考 
 - [useEffect(fn, []) 不等于 componentDidMount() - 掘金](https://juejin.cn/post/7132786097922736164)
 - [The React lifecycle: methods and hooks explained](https://retool.com/blog/the-react-lifecycle-methods-and-hooks-explained)
+- [深入详解React生命周期 getSnapshotBe - 掘金](https://juejin.cn/post/6914112105964634119 )
+
+---
+
+## React 组件的实现
+### 函数组件
+- 概念
+  - 函数组件是一个普通的 JavaScript 函数，它接受 props 作为参数并返回 React 元素树（JSX）。
+  - React 会调用该函数并将返回的 JSX 虚拟 DOM 转换为真实的 DOM。
+  - 现代 React 推荐使用函数组件，因为它更简洁，且能够配合 Hook 使用。
+
+- 组件的生命周期
+  - 虽然函数组件没有显式的生命周期方法，但通过 React Hook 可以为它们注入类似生命周期的功能。
+  - 类似 `useEffect` 可以让函数组件在 `componentDidMount`、`componentDidUpdate` 或 `componentWillUnmount` 这类阶段执行代码。
+
+### 类组件
+- 概念
+  - 类组件是基于 `ES6 class` 的方式定义的，它继承自 `React.Component`。
+- 组件的生命周期
+  - 类组件有一系列内置的生命周期方法，如 `componentDidMount`、`componentDidUpdate`、`componentWillUnmount` 等，用于控制组件的生命周期。
+
+### Virtual DOM（虚拟 DOM）和 Reconciliation（调和）
+- React 中的每个组件返回的 JSX 会被转换为虚拟 DOM。虚拟 DOM 是实际 DOM 的轻量化表示，它的变化不会立即反映在真实的浏览器 DOM 上。
+- 当组件的状态或 props 改变时，React 会创建新的虚拟 DOM，并通过 Diff 算法与旧的虚拟 DOM 进行对比，找出差异，然后仅更新需要更新的部分，这个过程称为 Reconciliation（调和）。
 
 ---
 
@@ -248,13 +272,26 @@ summary: 自己学习过程中整理的关于React的知识点
 
 ### 参考
 - [An Introduction to React Fiber - The Algorithm Behind React](https://www.velotio.com/engineering-blog/react-fiber-algorithm)
+- [通俗易懂地理解React Fiber - 掘金](https://juejin.cn/post/7114132411499151373 )
 
 ---
 
-## useId
-- [useId – React](https://react.dev/reference/react/useId )
-- generate a unique ID
-- A component may be rendered more than once on the page—but IDs have to be unique! Instead of hardcoding an ID, generate a unique ID with useId.
+## 错误捕获
+wip
+
+### 参考
+- [使用错误边界捕获渲染错误  – React 中文文档](https://zh-hans.react.dev/reference/react/Component#catching-rendering-errors-with-an-error-boundary )
+- [bvaughn/react-error-boundary: Simple reusable React error boundary component](https://github.com/bvaughn/react-error-boundary )
+
+---
+
+## 优先级管理
+wip
+
+### 参考
+- [优先级管理](https://7km.top/main/priority )
+
+---
 
 ## 参考
 - [sudheerj/reactjs-interview-questions: List of top 500 ReactJS Interview Questions & Answers....Coding exercise questions are coming soon!!](https://github.com/sudheerj/reactjs-interview-questions)

@@ -221,3 +221,4 @@ function ChatRoom({ articleId }) {
 - [A Complete Guide to useEffect — overreacted](https://overreacted.io/a-complete-guide-to-useeffect/)
 - [Source code interpretation of React useEffect_javascript_rAc-React](https://devpress.csdn.net/react/62f64ea5c6770329307fc5f1.html)
 - [請解釋 useEffect？與 useLayoutEffect 的區別？｜ExplainThis](https://www.explainthis.io/zh-hant/swe/use-effect-vs-use-layout-effect )
+- [源码级层面角度剖析React中useEffect - 掘金](https://juejin.cn/post/7240600121208504375 )
