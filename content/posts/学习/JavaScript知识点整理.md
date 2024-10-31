@@ -13,6 +13,9 @@ summary: 自己学习过程中整理的关于JavaScript的知识点
 --- 
 **本文记录了我学习过程中整理的关于JavaScript的知识点,以摘抄为主，绝大部分非原创。未能全部都标明出处，在此致歉**
 
+## 历史
+- [JavaScript 语言的历史 - JavaScript 教程 - 网道](https://wangdoc.com/javascript/basic/history )
+
 ## 双等号和三等号和Object.is
 - `==` 只比较值是否相等。在比较数值之前，它将变量的类型转换为相互匹配
 - `===` 不执行类型转换。它将验证被比较的变量是否具有相同的值和相同的类型。
