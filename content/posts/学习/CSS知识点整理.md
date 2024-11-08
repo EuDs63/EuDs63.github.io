@@ -28,8 +28,11 @@ summary: 自己学习过程中整理的关于CSS的知识点
   - width: 相对于当前元素字体
 - rem(root em): 相对单位
   - 相对于根元素，也就是`html`
+- `<meta name="viewport" content="width=device-width">`
 
-- 参考: [CSS 中有哪些單位? 該如何使用?｜ExplainThis](https://www.explainthis.io/zh-hant/swe/css-px-em-rem-differences )
+### 参考
+- [CSS 中有哪些單位? 該如何使用?｜ExplainThis](https://www.explainthis.io/zh-hant/swe/css-px-em-rem-differences )
+- [1px 究竟是多大 - {Bison} - 博客园](https://www.cnblogs.com/kidney/p/6692312.html )
 
 ---
 

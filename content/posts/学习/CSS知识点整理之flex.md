@@ -133,6 +133,7 @@ summary: 自己学习过程中整理的关于CSS中flex的知识点
 - [flex-wrap - CSS: Cascading Style Sheets | MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-wrap )
 - [Flex 踩坑指南（文字、图片溢出问题） - Minimum Content Size In CSS Flexbox - 掘金](https://juejin.cn/post/7314507576439472169 )  
 - [使用flex 布局时，英文不自动换行 - 北极星333y - 博客园](https://www.cnblogs.com/xinyuyue/p/14371506.html )
+- [文字在一行或多行时超出显示省略号 | Evan's blog](https://xugaoyi.com/pages/42b66999cc27dc25/ )
 
 ---
 
