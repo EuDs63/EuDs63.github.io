@@ -57,3 +57,10 @@ Windows下可以在`C:\Windows:\Fonts`找到本机安装的字体。
   - 某个时候开始就输不了中文句号，测试发现只在vscode这样。
 - 解决
   - 中文输入法下按`Ctrl+.`即可
+
+### 2025年1月29日
+- 问题描述: 中文符号有黄色框
+- 过程: 
+  - 某日更新后出现
+- 解决:
+  - 启用 `Disable highlighting Of non basic ASCI | characters`
