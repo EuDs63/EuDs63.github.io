@@ -106,6 +106,7 @@ GPT-SoVITS的效果很惊艳，音色很像，甚至还能模仿参考音频的�
 接下来就是要解决长文本的问题了。最理想的情况是，我丢一本书进去，直接给我吐生成好的音频。
 
 - [用Python代码调用GPT-SoVITS | 自动老李的博客](https://zidonglaoli.com/c231.html )
+- [我改进了一下文本切分方式，这似乎能极大改善长文本生成的质量。 · Issue #1256 · RVC-Boss/GPT-SoVITS](https://github.com/RVC-Boss/GPT-SoVITS/issues/1256 )
 - [jianchang512/gptsovits-api: 适用于 GPT-SoVITS 的api调用接口](https://github.com/jianchang512/gptsovits-api )
 - [GPT-SoVITS一键配音集成包推出，srt字幕一键配音，可音频转字幕](https://www.bilibili.com/video/BV1DJF6eHE4y ) 这个把我想做的做好了，甚至功能还有溢出。
 
