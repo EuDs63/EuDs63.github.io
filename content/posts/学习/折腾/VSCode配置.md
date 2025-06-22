@@ -64,3 +64,12 @@ Windows下可以在`C:\Windows:\Fonts`找到本机安装的字体。
   - 某日更新后出现
 - 解决:
   - 启用 `Disable highlighting Of non basic ASCI | characters`
+
+### 2025年6月16日
+- 问题描述: 输入一个句号显示的是两个
+- 过程:
+  - 以为是轴有问题，导致双击了，那好办，换一个就好。但换了后还是不行。
+  - 在其他地方试了下，发现只有vscode会出现这个问题。
+  - 谷歌搜了下，只搜到[VS Code输入1个中文标点符号出来2个的解决方案_vscode 处理异常中文标点-CSDN博客](https://blog.csdn.net/qq_39710999/article/details/135947295 )，问题描述和我的很一致，但我没装这个插件。
+  - 发现似乎和我用的vim插件有关，果然找到了对应的issue，[Chinese input repeats characters when using VSCodeVim in insert mode · Issue #9668 · VSCodeVim/Vim](https://github.com/VSCodeVim/Vim/issues/9668 )，最底下有个老哥给了解决方案，写得不是太详细，[我稍微补充了下](https://github.com/VSCodeVim/Vim/issues/9668#issuecomment-2976567562 )
+  - 看[这个issue下有vscode员工的回复](https://github.com/VSCodeVim/Vim/issues/9668#issuecomment-2988598532 )。她找到了问题的根源，并用一段demo代码给出了证明。
