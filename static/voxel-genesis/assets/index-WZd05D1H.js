@@ -1,5 +1,5 @@
 (async function(){
-  const parts = ["bundle.part0.b64", "bundle.part1.b64", "bundle.part2.b64", "bundle.part3.b64", "bundle.part4.b64", "bundle.part5.b64", "bundle.part6.b64", "bundle.part7.b64", "bundle.part8.b64"];
+  const parts = ["bundle.p0s0.b64","bundle.p0s1.b64","bundle.p0s2.b64","bundle.p1s0.b64","bundle.p1s1.b64","bundle.p1s2.b64","bundle.p2s0.b64","bundle.p2s1.b64","bundle.p2s2.b64","bundle.p3s0.b64","bundle.p3s1.b64","bundle.p3s2.b64","bundle.p4s0.b64","bundle.p4s1.b64","bundle.p4s2.b64","bundle.p5s0.b64","bundle.p5s1.b64","bundle.p5s2.b64","bundle.p6s0.b64","bundle.p6s1.b64","bundle.p6s2.b64","bundle.p7s0.b64","bundle.p7s1.b64","bundle.p7s2.b64","bundle.p8s0.b64"];
   const base = new URL('.', import.meta.url);
   const chunks = await Promise.all(parts.map(async (p) => {
     const res = await fetch(new URL(p, base));
