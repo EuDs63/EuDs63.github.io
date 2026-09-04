@@ -1,5 +1,5 @@
 (async function(){
-  const parts = ['index-WZd05D1H.part0.js', 'index-WZd05D1H.part1.js', 'index-WZd05D1H.part2.js', 'index-WZd05D1H.part3.js', 'index-WZd05D1H.part4.js', 'index-WZd05D1H.part5.js', 'index-WZd05D1H.part6.js'];
+  const parts = ["index-WZd05D1H.part0.js", "index-WZd05D1H.part1.js", "index-WZd05D1H.part2.js", "index-WZd05D1H.part3.js", "index-WZd05D1H.part4.js", "index-WZd05D1H.part5.js", "index-WZd05D1H.part6.js", "index-WZd05D1H.part7.js", "index-WZd05D1H.part8.js", "index-WZd05D1H.part9.js", "index-WZd05D1H.part10.js", "index-WZd05D1H.part11.js", "index-WZd05D1H.part12.js", "index-WZd05D1H.part13.js", "index-WZd05D1H.part14.js", "index-WZd05D1H.part15.js", "index-WZd05D1H.part16.js", "index-WZd05D1H.part17.js", "index-WZd05D1H.part18.js", "index-WZd05D1H.part19.js", "index-WZd05D1H.part20.js", "index-WZd05D1H.part21.js"];
   const base = new URL('.', import.meta.url);
   const texts = await Promise.all(parts.map(async (p) => {
     const res = await fetch(new URL(p, base));
