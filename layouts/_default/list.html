@@ -1,7 +1,7 @@
 {{ define "main" }}<div class="page-shell">
 {{ $pages := where .RegularPages "Params.hidden" "!=" true }}
 {{ $title := .Title }}
-{{ if eq .Section "posts" }}{{ $title = "文章" }}{{ end }}
+{{ if eq .Section "posts" }}{{ $title = "文章目录" }}{{ end }}
 {{ partial "v3/page-heading.html" (dict "title" $title "meta" (printf "%d 篇文章" (len $pages))) }}
 <nav class="category-nav" aria-label="文章分类"><a href="{{ "posts/" | relURL }}" {{ if eq .Kind "section" }}class="active"{{ end }}>全部</a>{{ range site.Taxonomies.categories.ByCount }}<a href="{{ .Page.RelPermalink }}" {{ if eq $.RelPermalink .Page.RelPermalink }}class="active"{{ end }}>{{ .Page.Title }} <span>{{ .Count }}</span></a>{{ end }}<a class="category-archive" href="{{ "archives/" | relURL }}">时间归档 ↗</a></nav>
 {{ $paginator := .Paginate $pages.ByLastmod.Reverse 12 }}

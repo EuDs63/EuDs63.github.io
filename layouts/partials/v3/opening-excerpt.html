@@ -1,0 +1,10 @@
+{{- /* Derive the opening from the article so the writing repository stays authoritative. */ -}}
+{{- $summary := trim (.Summary | plainify | htmlUnescape) " \r\n\t" -}}
+{{- $excerpt := "" -}}
+{{- range findRE "(?s)<p(?:\\s[^>]*)?>.*?</p>" .Content 8 -}}
+  {{- $text := trim (. | plainify | htmlUnescape) " \r\n\t" -}}
+  {{- if and (not $excerpt) $text (ne $text $summary) -}}
+    {{- $excerpt = $text -}}
+  {{- end -}}
+{{- end -}}
+{{- return $excerpt -}}

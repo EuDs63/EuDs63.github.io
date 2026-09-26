@@ -14,14 +14,14 @@
 }
 
 :root {
-  --paper: #f5f3ed;
-  --surface: #ede9e0;
-  --ink: #2b2c27;
-  --muted: #686a60;
-  --line: #dcd8ce;
-  --accent: #a05d43;
-  --accent-soft: #e9ddd1;
-  --header: rgba(245,243,237,.94);
+  --paper: #f2f0e9;
+  --surface: #e8e5dc;
+  --ink: #252a28;
+  --muted: #69685f;
+  --line: #cfccc2;
+  --accent: #8a3d35;
+  --accent-soft: #eadbd4;
+  --header: rgba(242,240,233,.96);
   --display: "V3 Display", Georgia, serif;
   --header-height: 88px;
 }

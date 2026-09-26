@@ -6,7 +6,7 @@
   const seen = new WeakSet();
   const running = new Map();
   const targets = Array.from(document.querySelectorAll(
-    ".masthead-word, .front-feature, .front-recent, .companion-stories, .journal-entries, .journal-reading, " +
+    ".book-margin, .opening-page h1, .book-contents, .book-shelf, " +
     ".page-heading, .article-heading"
   ));
   let observer;
@@ -23,7 +23,7 @@
     seen.add(element);
     observer?.unobserve(element);
     if (preference.matches || document.visibilityState !== "visible" || element.contains(document.activeElement)) return;
-    const title = element.matches(".masthead-word");
+    const title = element.matches(".opening-page h1");
     const subject = element;
     const frames = [{ opacity: 0, transform: `translateY(${title ? 12 : 6}px)` }, { opacity: 1, transform: "translateY(0)" }];
     if (!subject) return;
@@ -67,7 +67,7 @@
       const bounds = element.getBoundingClientRect();
       if (bounds.top < innerHeight) {
         if (intro && bounds.bottom > 0) {
-          const delay = element.matches(".masthead-italic") ? 60 : element.matches(".front-recent") ? 80 : 0;
+          const delay = element.matches(".book-margin") ? 60 : 0;
           reveal(element, delay);
         } else seen.add(element);
       } else observer.observe(element);

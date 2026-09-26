@@ -1,66 +1,46 @@
 {{ define "main" }}
 {{ $posts := where (where site.RegularPages "Section" "posts") "Params.hidden" "!=" true }}
-{{ $recent := first 3 $posts.ByLastmod.Reverse }}
 {{ $feature := site.GetPage "posts/我自己/为什么要写博客.md" }}
-{{ $selections := slice (site.GetPage "posts/学习/Github同步两个仓库中的文件.md") (site.GetPage "posts/读书有感/读《秦妇吟》.md") }}
-<div class="home-shell editorial-home">
-  <section class="journal-masthead" aria-labelledby="journal-title">
-    <h1 id="journal-title"><span class="masthead-word">EuDs’s</span> <span class="masthead-word masthead-italic">Blog<span class="red-period">.</span></span></h1>
-    <div class="journal-dateline"><span>{{ with index $posts.ByDate 0 }}{{ .Date.Format "2006" }}{{ end }} — {{ with index $posts.ByLastmod.Reverse 0 }}{{ .Lastmod.Format "2006" }}{{ end }}</span><a href="{{ "posts/" | relURL }}">{{ len $posts }} 篇文章 {{ partial "v3/icon.html" "arrow" }}</a></div>
-  </section>
-  <nav class="journal-topics" aria-label="文章分类">
-    <a href="{{ "posts/" | relURL }}">全部文章</a>
-    {{ range site.Taxonomies.categories.ByCount }}<a href="{{ .Page.RelPermalink }}">{{ .Page.Title }}<span>{{ .Count }}</span></a>{{ end }}
-    <a class="journal-archive" href="{{ "archives/" | relURL }}">按时间归档 {{ partial "v3/icon.html" "arrow" }}</a>
-  </nav>
+<div class="book-home">
+  {{ with $feature }}
+  <article class="book-opening" aria-labelledby="opening-title">
+    <aside class="book-margin" aria-label="文章分类与日期">
+      {{ range first 1 (.GetTerms "categories") }}<a class="margin-category" href="{{ .RelPermalink }}">{{ .Title }}</a>{{ end }}
+      <time class="margin-date" datetime="{{ .Date.Format "2006-01-02" }}">{{ partial "v3/chinese-date.html" .Date }}</time>
+    </aside>
+    <div class="opening-page">
+      <span class="book-label">选读</span>
+      <h1 id="opening-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h1>
+      <p class="opening-summary">{{ .Summary | plainify | htmlUnescape }}</p>
+      {{ with partial "v3/opening-excerpt.html" . }}<p class="opening-paragraph">{{ . }}</p>{{ end }}
+      <div class="opening-footer"><span>EuDs</span><a class="text-link" href="{{ .RelPermalink }}" aria-label="继续阅读：{{ .Title }}">继续阅读 {{ partial "v3/icon.html" "arrow" }}</a></div>
+      <nav class="chapter-links" aria-label="更多选读">
+        {{ range slice "posts/读书有感/读《秦妇吟》.md" "posts/学习/Github同步两个仓库中的文件.md" }}{{ with site.GetPage . }}<a href="{{ .RelPermalink }}"><span>{{ .Title }}</span>{{ partial "v3/icon.html" "diagonal" }}</a>{{ end }}{{ end }}
+      </nav>
+    </div>
+  </article>
+  {{ end }}
 
-  <div class="front-spread">
-    <section class="front-feature" aria-labelledby="feature-title">
-      <div class="journal-section-label">选读</div>
-      {{ with $feature }}
-      <article class="feature-article">
-        <div class="feature-copy">
-          <div class="entry-meta">{{ range first 1 (.GetTerms "categories") }}<a href="{{ .RelPermalink }}">{{ .Title }}</a>{{ end }}<time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006.01.02" }}</time></div>
-          <h2 id="feature-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
-          <p>{{ .Summary | plainify | htmlUnescape }}</p>
-          <a class="feature-read text-link" href="{{ .RelPermalink }}" aria-label="阅读全文：{{ .Title }}">阅读全文 {{ partial "v3/icon.html" "arrow" }}</a>
-        </div>
-        <div class="feature-art" aria-hidden="true">{{ with resources.Get "images/v3-paper-sculpture.png" }}{{ $art := .Resize "600x webp q85" }}<img src="{{ $art.RelPermalink }}" width="{{ $art.Width }}" height="{{ $art.Height }}" alt="" loading="lazy">{{ end }}</div>
-      </article>
-      {{ end }}
-    </section>
-    <section class="front-recent" aria-labelledby="recent-title">
-      <h2 class="journal-section-label" id="recent-title">最近更新</h2>
-      {{ range $recent }}<article class="recent-entry"><time datetime="{{ .Lastmod.Format "2006-01-02" }}">{{ .Lastmod.Format "2006.01.02" }}</time><h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3></article>{{ end }}
-      <a class="text-link" href="{{ "posts/" | relURL }}">查看全部 {{ partial "v3/icon.html" "arrow" }}</a>
-    </section>
-  </div>
-
-  <section class="companion-stories" aria-label="更多选读">
-    {{ range $selections }}{{ with . }}<article class="companion-story">
-      <div class="entry-meta">{{ range first 1 (.GetTerms "categories") }}<a href="{{ .RelPermalink }}">{{ .Title }}</a>{{ end }}<time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006.01.02" }}</time></div>
-      <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
-      <p>{{ .Summary | plainify | htmlUnescape | truncate 90 }}</p>
-      <a class="companion-arrow" href="{{ .RelPermalink }}" aria-label="阅读：{{ .Title }}">{{ partial "v3/icon.html" "diagonal" }}</a>
-    </article>{{ end }}{{ end }}
-  </section>
-
-  <div class="journal-bottom">
-    <section class="journal-entries" aria-labelledby="journal-entries-title">
-      <div class="section-heading"><h2 id="journal-entries-title">更多文章</h2><a class="text-link" href="{{ "posts/" | relURL }}">全部文章 {{ partial "v3/icon.html" "arrow" }}</a></div>
-      <div class="journal-index">
-      {{ $more := $posts.ByDate.Reverse | complement $recent | complement (slice $feature) | complement $selections }}
-      {{ range first 7 $more }}<article class="index-entry">
-        <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006.01.02" }}</time>
-        <div><h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>{{ if not (.Param "hideSummary") }}{{ with .Summary }}<p>{{ . | plainify | htmlUnescape | truncate 100 }}</p>{{ end }}{{ end }}</div>
-        {{ range first 1 (.GetTerms "categories") }}<a class="index-category" href="{{ .RelPermalink }}">{{ .Title }}</a>{{ end }}
+  <section class="book-contents" aria-labelledby="contents-title">
+    <aside class="contents-margin">
+      <h2 id="contents-title">目录</h2>
+      <p>{{ len $posts }} 篇文章</p>
+      <nav aria-label="文章分类">{{ range site.Taxonomies.categories.ByCount }}<a href="{{ .Page.RelPermalink }}">{{ .Page.Title }}<span>{{ .Count }}</span></a>{{ end }}</nav>
+      <a class="contents-archive" href="{{ "archives/" | relURL }}">时间归档 {{ partial "v3/icon.html" "arrow" }}</a>
+    </aside>
+    <div class="contents-page">
+      <div class="contents-heading"><span class="book-label">最近更新</span><a class="text-link" href="{{ "posts/" | relURL }}">全部文章 {{ partial "v3/icon.html" "arrow" }}</a></div>
+      {{ range first 6 $posts.ByLastmod.Reverse }}<article class="contents-entry">
+        <time datetime="{{ .Lastmod.Format "2006-01-02" }}">{{ .Lastmod.Format "2006.01.02" }}</time>
+        <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+        {{ range first 1 (.GetTerms "categories") }}<a class="contents-category" href="{{ .RelPermalink }}">{{ .Title }}</a>{{ end }}
       </article>{{ end }}
-      </div>
-    </section>
-    <section class="journal-reading" aria-labelledby="journal-reading-title">
-      <div class="section-heading"><h2 id="journal-reading-title">在读</h2><a class="text-link" href="{{ "records/" | relURL }}">书架 {{ partial "v3/icon.html" "arrow" }}</a></div>
-      <div class="journal-books">{{ with site.Data.neodb.book_progress }}{{ range first 3 .data }}<a href="{{ printf "https://neodb.social%s" .item.url }}" target="_blank" rel="noopener noreferrer" class="journal-book"><div class="mini-book-cover"><span class="mini-cover-title" aria-hidden="true">{{ .item.title }}</span>{{ with .item.cover_image_url }}<img src="{{ . }}" alt="" loading="lazy" width="180" height="260">{{ end }}</div><span>{{ .item.title }}</span>{{ partial "v3/icon.html" "diagonal" }}</a>{{ end }}{{ end }}</div>
-    </section>
-  </div>
+    </div>
+  </section>
+
+  <section class="book-shelf" aria-labelledby="shelf-title">
+    <div class="shelf-heading"><h2 id="shelf-title">在读</h2><a class="text-link" href="{{ "records/" | relURL }}">书架 {{ partial "v3/icon.html" "arrow" }}</a></div>
+    <div class="shelf-books">{{ with site.Data.neodb.book_progress }}{{ range first 3 .data }}<a class="shelf-book" href="{{ printf "https://neodb.social%s" .item.url }}" target="_blank" rel="noopener noreferrer"><div class="mini-book-cover"><span class="mini-cover-title" aria-hidden="true">{{ .item.title }}</span>{{ with .item.cover_image_url }}<img src="{{ . }}" alt="" loading="lazy" width="180" height="260">{{ end }}</div><span>{{ .item.title }}</span></a>{{ end }}{{ end }}</div>
+  </section>
 </div>
 {{ end }}

@@ -2,7 +2,7 @@
 <div class="header-inner">
 <a class="brand" href="{{ "" | relURL }}" aria-label="EuDs 首页"><span class="brand-name">EuDs<span>.</span></span></a>
 <nav class="main-nav" id="main-nav" aria-label="主导航">
-<a href="{{ "posts/" | relURL }}" {{ if eq .Section "posts" }}aria-current="page"{{ end }}>文章</a>
+<a href="{{ "posts/" | relURL }}" {{ if eq .Section "posts" }}aria-current="page"{{ end }}>目录</a>
 <a href="{{ "records/" | relURL }}" {{ if eq .Layout "records" }}aria-current="page"{{ end }}>书架</a>
 <a href="{{ "discover/" | relURL }}" {{ if eq .Layout "search" }}aria-current="page"{{ end }}>搜索</a>
 <a href="{{ "about/" | relURL }}" {{ if eq .RelPermalink ("about/" | relURL) }}aria-current="page"{{ end }}>关于</a>
