@@ -8,7 +8,7 @@
     const dark = html.dataset.theme === "dark";
     if (themeButton) themeButton.setAttribute("aria-label", dark ? "切换到浅色模式" : "切换到深色模式");
     const meta = $('meta[name="theme-color"]');
-    if (meta) meta.content = dark ? "#1c201d" : "#f3f1eb";
+    if (meta) meta.content = dark ? "#1d211e" : "#f5f3ed";
   };
   syncTheme();
   themeButton?.addEventListener("click", () => {

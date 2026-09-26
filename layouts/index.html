@@ -2,8 +2,8 @@
 {{ $posts := where (where site.RegularPages "Section" "posts") "Params.hidden" "!=" true }}
 <div class="home-shell">
 <section class="home-hero" aria-labelledby="hero-title">
-<div class="hero-copy"><h1 id="hero-title">EuDs’s<br><span class="hero-accent">Blog</span><span class="red-period">.</span></h1><a class="solid-link" href="{{ "posts/" | relURL }}">全部文章 {{ partial "v3/icon.html" "arrow" }}</a><div class="hero-footnote"><span>{{ len $posts }} 篇文章</span></div></div>
-<figure class="hero-art">{{ with resources.Get "images/v3-paper-sculpture.png" }}{{ $large := .Resize "1000x webp q85" }}{{ $small := .Resize "600x webp q85" }}<img src="{{ $large.RelPermalink }}" srcset="{{ $small.RelPermalink }} 600w, {{ $large.RelPermalink }} 1000w" sizes="(max-width: 700px) 100vw, 48vw" width="{{ $large.Width }}" height="{{ $large.Height }}" alt="一张象牙白纸页卷成开放的环，折痕间露出朱红书签" fetchpriority="high">{{ end }}</figure>
+<div class="hero-copy"><h1 id="hero-title"><span class="hero-title-line"><span class="hero-title-word">EuDs’s</span></span><span class="hero-title-line"><span class="hero-title-word hero-title-italic">Blog<span class="red-period">.</span></span></span></h1><span class="hero-rule" aria-hidden="true"></span><a class="solid-link" href="{{ "posts/" | relURL }}">全部文章 {{ partial "v3/icon.html" "arrow" }}</a><div class="hero-footnote"><span>{{ len $posts }} 篇文章</span></div></div>
+<figure class="hero-art"><div class="hero-art-frame"><div class="hero-art-image">{{ with resources.Get "images/v3-paper-sculpture.png" }}{{ $large := .Resize "1000x webp q85" }}{{ $small := .Resize "600x webp q85" }}<img src="{{ $large.RelPermalink }}" srcset="{{ $small.RelPermalink }} 600w, {{ $large.RelPermalink }} 1000w" sizes="(max-width: 700px) 100vw, 48vw" width="{{ $large.Width }}" height="{{ $large.Height }}" alt="一张象牙白纸页卷成开放的环，折痕间露出朱红书签" fetchpriority="high">{{ end }}</div></div></figure>
 </section>
 <section class="selected-section" aria-labelledby="selected-title"><div class="section-heading"><h2 id="selected-title">选读</h2></div>
 <div class="selected-grid">
