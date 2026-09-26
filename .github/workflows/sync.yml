@@ -6,6 +6,7 @@ on:
 
 jobs:
   NeoDB:
+    if: github.repository == 'EuDs63/EuDs63.github.io' && github.ref == 'refs/heads/hugo-blog-backup'
     name: Sync NeoDB Data
     runs-on: ubuntu-latest
     steps:

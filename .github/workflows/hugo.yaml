@@ -33,6 +33,7 @@ env:
 jobs:
   # Build job
   build:
+    if: github.repository == 'EuDs63/EuDs63.github.io' && github.ref == 'refs/heads/hugo-blog-backup'
     runs-on: ubuntu-latest
     env:
       HUGO_VERSION: 0.119.0
@@ -72,6 +73,7 @@ jobs:
 
   # Deployment job
   deploy:
+    if: github.repository == 'EuDs63/EuDs63.github.io' && github.ref == 'refs/heads/hugo-blog-backup'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}

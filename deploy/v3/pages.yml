@@ -1,0 +1,135 @@
+name: Publish v3
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      force:
+        description: Rebuild even when sources have not changed
+        type: boolean
+        default: false
+  schedule:
+    - cron: '23,53 * * * *'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: v3-pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    if: github.repository == 'EuDs63/v3' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: read
+    outputs:
+      changed: ${{ steps.sources.outputs.changed }}
+    env:
+      HUGO_VERSION: 0.119.0
+      TZ: Asia/Shanghai
+    steps:
+      - name: Read this repository's Pages URL
+        id: pages
+        uses: actions/configure-pages@v5
+      - name: Pin source revisions and check for changes
+        id: sources
+        env:
+          BASE_URL: ${{ steps.pages.outputs.base_url }}/
+          PUBLISHER_SHA: ${{ github.sha }}
+          FORCE_BUILD: ${{ github.event_name == 'workflow_dispatch' && inputs.force }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          repo=https://github.com/EuDs63/EuDs63.github.io.git
+          DESIGN_SHA=$(git ls-remote --exit-code "$repo" refs/heads/codex/blog-v3 | cut -f1)
+          CONTENT_SHA=$(git ls-remote --exit-code "$repo" refs/heads/hugo-blog-backup | cut -f1)
+          [[ "$DESIGN_SHA" =~ ^[0-9a-f]{40}$ && "$CONTENT_SHA" =~ ^[0-9a-f]{40}$ ]]
+          export DESIGN_SHA CONTENT_SHA
+          echo "design=$DESIGN_SHA" >> "$GITHUB_OUTPUT"
+          echo "content=$CONTENT_SHA" >> "$GITHUB_OUTPUT"
+          curl --fail --silent --show-error --max-time 20 "${BASE_URL}build-info.json" -o previous.json || echo '{}' > previous.json
+          python3 - <<'PY'
+          import json, os
+          from urllib.parse import urlsplit
+          assert urlsplit(os.environ['BASE_URL']).path == '/v3/', 'Refusing to publish outside /v3/'
+          current = {key: os.environ[value] for key, value in {
+              'design': 'DESIGN_SHA', 'content': 'CONTENT_SHA',
+              'publisher': 'PUBLISHER_SHA', 'base_url': 'BASE_URL'
+          }.items()}
+          try:
+              with open('previous.json') as stream:
+                  previous = json.load(stream)
+          except (ValueError, OSError):
+              previous = {}
+          changed = current != previous or os.environ['FORCE_BUILD'] == 'true'
+          with open('build-info.json', 'w') as stream:
+              json.dump(current, stream, indent=2)
+          with open(os.environ['GITHUB_OUTPUT'], 'a') as stream:
+              stream.write(f'changed={str(changed).lower()}\n')
+          print('Building updated v3' if changed else 'v3 is already current')
+          PY
+      - name: Check out current articles with their history
+        if: steps.sources.outputs.changed == 'true'
+        uses: actions/checkout@v4
+        with:
+          repository: EuDs63/EuDs63.github.io
+          ref: ${{ steps.sources.outputs.content }}
+          fetch-depth: 0
+          path: site
+          persist-credentials: false
+      - name: Apply the v3 design and keep production content
+        if: steps.sources.outputs.changed == 'true'
+        working-directory: site
+        env:
+          DESIGN_SHA: ${{ steps.sources.outputs.design }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch --no-tags origin "$DESIGN_SHA"
+          git restore --source="$DESIGN_SHA" --staged --worktree -- . ':(exclude)content' ':(exclude)data'
+          git diff --exit-code HEAD -- content data
+          git submodule update --init --recursive
+      - name: Install the same Hugo version as production
+        if: steps.sources.outputs.changed == 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl --fail --location --silent --show-error \
+            "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.deb" \
+            -o "$RUNNER_TEMP/hugo.deb"
+          sudo dpkg -i "$RUNNER_TEMP/hugo.deb"
+      - name: Build and verify v3
+        if: steps.sources.outputs.changed == 'true'
+        working-directory: site
+        env:
+          BASE_URL: ${{ steps.pages.outputs.base_url }}/
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config core.quotePath false
+          hugo --config hugo.yml,config/v3.yml --environment v3 --baseURL "$BASE_URL" --minify
+          python3 scripts/verify_v3.py public "$BASE_URL"
+          cp ../build-info.json public/build-info.json
+      - name: Upload only the v3 site
+        if: steps.sources.outputs.changed == 'true'
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: site/public
+  deploy:
+    if: needs.build.outputs.changed == 'true' && github.repository == 'EuDs63/v3' && github.ref == 'refs/heads/main'
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Publish to the v3 repository's Pages site
+        id: deployment
+        uses: actions/deploy-pages@v4

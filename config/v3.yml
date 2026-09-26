@@ -1,0 +1,21 @@
+# Apply with --config hugo.yml,config/v3.yml --environment v3.
+baseURL: https://euds63.github.io/v3/
+googleAnalytics: ''
+enableRobotsTXT: false
+disableKinds: [sitemap]
+params:
+  env: v3
+  storagePrefix: 'v3-'
+menu:
+  main:
+    - identifier: archives
+      name: archives
+      url: archives/
+      weight: 30
+    - name: Discover
+      url: discover/
+      weight: 10
+    - identifier: about
+      name: about
+      url: about/
+      weight: 30

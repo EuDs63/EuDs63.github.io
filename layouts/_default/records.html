@@ -1,0 +1,76 @@
+{{- define "main" }}
+
+<!-- 引入 Style 。注意路径，放在 static 目录-->
+<link rel="stylesheet" href="{{ "css/records.css" | relURL }}">
+<link rel="icon" href="{{ "favicon.ico" | relURL }}">
+
+{{- if not .IsHome | and .Title }}
+<header class="page-header">
+    {{- partial "breadcrumbs.html" . }}
+    <h1>
+        {{/* see: https://gohugo.io/variables/taxonomy/#taxonomy-terms-page-variables */}}
+        {{- if eq .Kind "term" -}}{{- .Data.Singular }}: {{ end -}}
+        {{ .Title -}}
+    </h1>
+    {{- if .Description }}
+    <div class="post-description">
+        {{ .Description | markdownify }}
+    </div>
+    {{- end }}
+    {{- partial "inline_links.html" . -}}
+</header>
+{{- end }}
+
+<!-- 获取本地 Json 数据 -->
+{{ $books := getJSON "data/neodb/book_progress.json" }}
+
+<div class="post-content">
+    <h3>最近在读</h3>
+    <a href="https://neodb.social/developer/" target="_blank">Power by NeoDB</a>
+</div>
+
+<div>
+    {{ range $books.data }}
+    {{ $title := .item.title}}
+    {{ $book_url := .item.url }}
+    {{ $cover := .item.cover_image_url }}
+    {{ $cover_name := path.Base $cover }}
+    {{ $brief := .item.brief }}
+    {{ $comment_text := .comment_text}}
+    {{ $created_time := .created_time}}
+
+
+    <div class="post-entry">
+
+        <div class="post-info">
+            <header class="entry-header">
+                <h2>
+                    <a href="https://neodb.social{{ $book_url }}" target="_blank">{{ $title }}</a>
+                </h2>
+            </header>
+            <section class="entry-content">
+                <p>{{ $brief | plainify | htmlUnescape }}{{ if .Truncated }}...{{ end }}
+                </p>
+            </section>
+            <p class="comment-text">
+                {{ $comment_text | plainify | htmlUnescape }}{{ if .Truncated }}...{{ end }}
+            </p>
+
+        </div>
+        <div class="book-card-cover">
+            <a href="https://neodb.social{{ $book_url }}" target="_blank">
+                <div class="cover-wrapper">
+                    <img src="{{ $cover }}" alt="{{ $title }}" />
+                </div>
+            </a>
+        </div>
+    </div>
+
+
+</div>
+
+
+{{ end }}
+
+
+{{- end }}{{- /* end main */ -}}
