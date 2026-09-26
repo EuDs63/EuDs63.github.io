@@ -153,7 +153,7 @@
     const updateProgress = () => {
       const start = article.getBoundingClientRect().top + window.scrollY - 120;
       const distance = Math.max(1, article.scrollHeight - window.innerHeight + 160);
-      progress.style.width = (Math.max(0, Math.min(1, (window.scrollY - start) / distance)) * 100) + "%";
+      progress.style.transform = "scaleX(" + Math.max(0, Math.min(1, (window.scrollY - start) / distance)) + ")";
       scheduled = false;
     };
     window.addEventListener("scroll", () => { if (!scheduled) { scheduled = true; requestAnimationFrame(updateProgress); } }, { passive: true });

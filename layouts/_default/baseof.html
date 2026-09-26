@@ -7,7 +7,7 @@
 <main id="main">{{ block "main" . }}{{ end }}</main>
 {{ partial "footer.html" . }}
 {{ partial "v3/search-dialog.html" . }}
-{{ $js := resources.Get "js/v3.js" | minify | fingerprint }}
+{{ $js := slice (resources.Get "js/v3.js") (resources.Get "js/v3-motion.js") | resources.Concat "js/v3-bundle.js" | minify | fingerprint }}
 <script defer src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}"></script>
 {{ block "body_end" . }}{{ end }}
 </body></html>

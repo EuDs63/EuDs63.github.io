@@ -1,0 +1,81 @@
+/* Motion follows content and interaction; all content is visible without JS. */
+:root {
+  --motion-ease: cubic-bezier(.22, 1, .36, 1);
+}
+
+/* Reset the earlier large hover offsets, including on touch devices. */
+.selection:hover,
+.solid-link:hover,
+.mini-book:hover,
+.book-card:hover .book-cover img,
+.article-row:hover .row-arrow {
+  transform: none;
+}
+.mini-book:nth-child(2):hover { transform: translateY(-12px); }
+.reading-progress > span {
+  width: 100%;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  body, .site-header, .prose, .search-dialog, .reading-strip, .explore-rss {
+    transition: background-color 220ms ease, color 220ms ease, border-color 220ms ease;
+  }
+  .selection, .mini-book, .book-cover img, .solid-link {
+    transition: transform 240ms var(--motion-ease), background-color 200ms ease;
+  }
+  .text-link > .icon, .selection-link > .icon, .solid-link > .icon,
+  .row-arrow, .explore-topics > a > .icon, .explore-rss > .icon {
+    transition: transform 180ms var(--motion-ease), color 180ms ease;
+  }
+  .main-nav > a, .footer-nav > a, .row-body h2 a, .toc-wrap a {
+    transition: color 160ms ease;
+  }
+  .main-nav > a::after { transition: transform 180ms var(--motion-ease); }
+  .main-nav > a:focus-visible::after { transform: scale(1); }
+
+  .search-dialog[open] { animation: v3-dialog-in 180ms var(--motion-ease); }
+  .search-dialog[open]::backdrop { animation: v3-backdrop-in 180ms ease-out; }
+  .selection:focus-visible { transform: translateY(-3px); }
+  .selection:focus-visible .selection-link > .icon,
+  .explore-topics > a:focus-visible > .icon,
+  .explore-rss:focus-visible > .icon { transform: translate(2px, -2px); }
+  .text-link:focus-visible > .icon,
+  .solid-link:focus-visible > .icon { transform: translateX(3px); }
+  .article-row:focus-within .row-arrow { transform: translate(2px, -2px); }
+
+  @media (max-width: 700px) {
+    .main-nav.is-open { animation: v3-menu-in 180ms var(--motion-ease); }
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .selection:hover { transform: translateY(-3px); }
+    .solid-link:hover { transform: translateY(-1px); }
+    .mini-book:hover { transform: translateY(-3px); }
+    .mini-book:nth-child(2):hover { transform: translateY(-15px); }
+    .book-card:hover .book-cover img { transform: translateY(-3px); }
+    .text-link:hover > .icon, .solid-link:hover > .icon { transform: translateX(3px); }
+    .selection:hover .selection-link > .icon,
+    .explore-topics > a:hover > .icon,
+    .explore-rss:hover > .icon,
+    .article-row:hover .row-arrow { transform: translate(2px, -2px); }
+  }
+}
+
+@keyframes v3-dialog-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes v3-menu-in {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes v3-backdrop-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
