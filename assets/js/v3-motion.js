@@ -6,8 +6,8 @@
   const seen = new WeakSet();
   const running = new Map();
   const targets = Array.from(document.querySelectorAll(
-    ".hero-title-word, .hero-rule, .hero-copy .solid-link, .hero-copy .hero-footnote, .hero-art, " +
-    ".page-heading, .article-heading, .selected-section, .latest-section, .reading-strip"
+    ".masthead-word, .front-feature, .front-recent, .companion-stories, .journal-entries, .journal-reading, " +
+    ".page-heading, .article-heading"
   ));
   let observer;
 
@@ -23,17 +23,13 @@
     seen.add(element);
     observer?.unobserve(element);
     if (preference.matches || document.visibilityState !== "visible" || element.contains(document.activeElement)) return;
-    const title = element.matches(".hero-title-word");
-    const art = element.matches(".hero-art");
-    const rule = element.matches(".hero-rule");
-    const subject = art ? element.querySelector("img") : element;
-    const frames = art ? [{ transform: "scale(1.035)" }, { transform: "scale(1)" }] :
-      rule ? [{ transform: "scaleX(0)" }, { transform: "scaleX(1)" }] :
-      [{ opacity: 0, transform: `translateY(${title ? 24 : 8}px)` }, { opacity: 1, transform: "translateY(0)" }];
+    const title = element.matches(".masthead-word");
+    const subject = element;
+    const frames = [{ opacity: 0, transform: `translateY(${title ? 12 : 6}px)` }, { opacity: 1, transform: "translateY(0)" }];
     if (!subject) return;
     element.classList.add("is-entered");
     const animation = subject.animate(frames, {
-      duration: art ? 900 : rule ? 650 : title ? 680 : 400,
+      duration: title ? 600 : 400,
       delay,
       easing: "cubic-bezier(.22, 1, .36, 1)",
       fill: "backwards"
@@ -71,7 +67,7 @@
       const bounds = element.getBoundingClientRect();
       if (bounds.top < innerHeight) {
         if (intro && bounds.bottom > 0) {
-          const delay = element.matches(".hero-title-italic") ? 70 : element.matches(".hero-rule") ? 160 : element.matches(".hero-copy .solid-link, .hero-copy .hero-footnote") ? 120 : 0;
+          const delay = element.matches(".masthead-italic") ? 60 : element.matches(".front-recent") ? 80 : 0;
           reveal(element, delay);
         } else seen.add(element);
       } else observer.observe(element);

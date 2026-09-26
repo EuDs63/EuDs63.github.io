@@ -12,10 +12,10 @@
 <meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{ site.Params.description }}{{ end }}">
 <meta property="og:url" content="{{ .Permalink }}">
 <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
-{{ $css := slice (resources.Get "css/v3.css") (resources.Get "css/v3-motion.css") (resources.Get "css/v3-refinement.css") | resources.Concat "css/v3-bundle.css" | minify | fingerprint }}
+{{ $css := slice (resources.Get "css/v3.css") (resources.Get "css/v3-motion.css") (resources.Get "css/v3-refinement.css") (resources.Get "css/v3-home.css") | resources.Concat "css/v3-bundle.css" | minify | fingerprint }}
 <link rel="stylesheet" href="{{ "fonts/fonts.css" | relURL }}">
 <link rel="preload" as="font" type="font/woff2" href="{{ "fonts/cormorant/cormorant-garamond-latin-wght-normal.woff2" | relURL }}" crossorigin>
 {{ if .IsHome }}<link rel="preload" as="font" type="font/woff2" href="{{ "fonts/cormorant/cormorant-garamond-latin-wght-italic.woff2" | relURL }}" crossorigin>{{ end }}
 <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
 <script>try{var preference=localStorage.getItem("v3-pref-theme");document.documentElement.dataset.theme=preference||"light"}catch(e){}</script>
-{{ if .IsHome }}{{ with resources.Get "images/v3-paper-sculpture.png" }}{{ $hero := .Resize "1000x webp q85" }}<link rel="preload" as="image" href="{{ $hero.RelPermalink }}">{{ end }}{{ end }}
+{{ if .IsHome }}{{ with resources.Get "images/v3-paper-sculpture.png" }}{{ $hero := .Resize "600x webp q85" }}<link rel="preload" as="image" href="{{ $hero.RelPermalink }}" media="(min-width: 851px)">{{ end }}{{ end }}
