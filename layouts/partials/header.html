@@ -1,11 +1,11 @@
 <header class="site-header">
 <div class="header-inner">
-<a class="brand" href="{{ "" | relURL }}" aria-label="EuDs 首页"><span class="brand-name">EuDs<span>.</span></span><span class="brand-caption">A PERSONAL JOURNAL</span></a>
+<a class="brand" href="{{ "" | relURL }}" aria-label="EuDs 首页"><span class="brand-name">EuDs<span>.</span></span></a>
 <nav class="main-nav" id="main-nav" aria-label="主导航">
-<a href="{{ "posts/" | relURL }}" {{ if eq .Section "posts" }}aria-current="page"{{ end }}>文章<span>WRITING</span></a>
-<a href="{{ "records/" | relURL }}" {{ if eq .Layout "records" }}aria-current="page"{{ end }}>书架<span>READING</span></a>
-<a href="{{ "discover/" | relURL }}" {{ if eq .Layout "search" }}aria-current="page"{{ end }}>发现<span>EXPLORE</span></a>
-<a href="{{ "about/" | relURL }}" {{ if eq .RelPermalink ("about/" | relURL) }}aria-current="page"{{ end }}>关于<span>ABOUT</span></a>
+<a href="{{ "posts/" | relURL }}" {{ if eq .Section "posts" }}aria-current="page"{{ end }}>文章</a>
+<a href="{{ "records/" | relURL }}" {{ if eq .Layout "records" }}aria-current="page"{{ end }}>书架</a>
+<a href="{{ "discover/" | relURL }}" {{ if eq .Layout "search" }}aria-current="page"{{ end }}>搜索</a>
+<a href="{{ "about/" | relURL }}" {{ if eq .RelPermalink ("about/" | relURL) }}aria-current="page"{{ end }}>关于</a>
 </nav>
 <div class="header-tools">
 <a class="search-trigger" href="{{ "discover/" | relURL }}" data-open-search aria-label="搜索文章">{{ partial "v3/icon.html" "search" }}<kbd>⌘ K</kbd></a>

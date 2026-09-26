@@ -2,7 +2,7 @@
 {{- $posts := (where (where site.RegularPages "Section" "posts") "Params.hidden" "ne" true).ByDate.Reverse -}}
 {{- $years := $posts.GroupByDate "2006" -}}
 <div class="page-shell">
-  {{ partial "v3/page-heading.html" (dict "eyebrow" "THE ARCHIVE" "title" "时间里的文字" "description" "按写下的时间，翻一翻这些文字。" "meta" (printf "%d 篇文章" (len $posts))) }}
+  {{ partial "v3/page-heading.html" (dict "title" "归档" "meta" (printf "%d 篇文章" (len $posts))) }}
   <div class="archive-layout">
     <nav class="archive-year-nav" aria-label="按年份浏览">
       {{- range $years }}

@@ -4,7 +4,7 @@
 {{- $shown := len $books -}}
 {{- $total := int ($shelf.count | default $shown) -}}
 <div class="page-shell">
-  {{ partial "v3/page-heading.html" (dict "eyebrow" "READING NOTES" "title" "读到这里" "description" "正在读的书，以及读到这里的一点想法。" "meta" (printf "在读 %d 本 · 此页展示 %d 本" $total $shown)) }}
+  {{ partial "v3/page-heading.html" (dict "title" "书架" "meta" (printf "在读 %d 本 · 此页展示 %d 本" $total $shown)) }}
   <div class="books-grid">
     {{- range $index, $book := $books -}}
     {{- $item := $book.item -}}
@@ -44,6 +44,6 @@
     <p class="empty-state">书架上暂时没有在读记录。</p>
     {{- end }}
   </div>
-  <p class="page-source">书目与阅读记录来自 <a href="https://neodb.social/users/EuDs63/" target="_blank" rel="noopener noreferrer">我的 NeoDB 书架</a>。{{ if gt $total $shown }}此页显示最近同步的 {{ $shown }} 本。{{ end }}</p>
+  <p class="page-source">来源：<a href="https://neodb.social/users/EuDs63/" target="_blank" rel="noopener noreferrer">我的 NeoDB 书架</a></p>
 </div>
 {{- end -}}

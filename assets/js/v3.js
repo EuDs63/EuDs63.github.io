@@ -74,7 +74,7 @@
         return;
       }
       onEmpty?.(false);
-      status.textContent = "正在找寻…";
+      status.textContent = "搜索中…";
       try {
         const rows = await loadIndex();
         if (revision !== current) return;
@@ -84,7 +84,7 @@
           const score = tokens.reduce((sum, token) => sum + (row.searchTitle.includes(token) ? 20 : 1), 0);
           return { row, score };
         }).filter(Boolean).sort((a, b) => b.score - a.score);
-        status.textContent = results.length ? "找到 " + results.length + " 篇相关文字" + (results.length > 30 ? "，先展示前 30 篇。" : "。") : "还没有找到相关文字，试试更短的关键词。";
+        status.textContent = results.length ? "找到 " + results.length + " 篇文章" + (results.length > 30 ? "，先展示前 30 篇。" : "。") : "没有找到相关文章。";
         const fragment = document.createDocumentFragment();
         results.slice(0, 30).forEach(item => fragment.append(resultNode(item.row, query)));
         output.append(fragment);

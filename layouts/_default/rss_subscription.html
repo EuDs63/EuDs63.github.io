@@ -6,7 +6,7 @@
   {{- $meta = printf "%s · 更新于 %s" $meta . -}}
 {{- end -}}
 <div class="page-shell">
-  {{ partial "v3/page-heading.html" (dict "eyebrow" "ELSEWHERE" "title" "别处的文字" "description" "我通过订阅读到的网站，也把这些入口留在这里。" "meta" $meta) }}
+  {{ partial "v3/page-heading.html" (dict "title" "我的订阅" "meta" $meta) }}
   <div class="feed-tools">
     <input id="feed-filter" class="feed-filter" data-feed-filter type="search" placeholder="搜索订阅" aria-label="搜索订阅名称或域名" autocomplete="off" aria-controls="feed-grid">
     <p class="feed-count" data-feed-count role="status" aria-live="polite" aria-atomic="true">{{ len $feeds }} 个订阅</p>
@@ -32,6 +32,6 @@
   {{- if not $feeds }}
   <p class="empty-state">暂时没有同步到订阅列表。</p>
   {{- end }}
-  <p class="page-source">列表来自我的订阅阅读器，通过 <a href="https://github.com/EuDs63/TinyTinyRSS-OPML-to-MD-Table" target="_blank" rel="noopener noreferrer">订阅同步工具</a>更新。</p>
+
 </div>
 {{- end -}}
