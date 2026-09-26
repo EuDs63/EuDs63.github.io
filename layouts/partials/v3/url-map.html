@@ -1,0 +1,1 @@
+{{ $map := dict }}{{ $prefix := strings.TrimSuffix "/" site.Home.RelPermalink }}{{ range site.Pages }}{{ $path := strings.TrimSuffix "/" ((urls.Parse (strings.TrimPrefix $prefix .RelPermalink)).Path) }}{{ $map = merge $map (dict $path .RelPermalink) }}{{ end }}{{ return $map }}

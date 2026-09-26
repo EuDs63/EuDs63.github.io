@@ -1,0 +1,8 @@
+{{ define "main" }}<div class="page-shell discover-page">
+{{ partial "v3/page-heading.html" (dict "eyebrow" "FOLLOW YOUR CURIOSITY" "title" "偶然发现，也很好。" "description" "从一个词、一种兴趣，或者一次漫无目的的浏览开始。") }}
+<div class="explore-search">{{ partial "v3/icon.html" "search" }}<label class="sr-only" for="library-search">搜索文章</label><input type="search" id="library-search" data-library-search placeholder="你想找些什么？" autocomplete="off"><span class="mono">SEARCH THE JOURNAL</span></div>
+<p class="search-status" data-library-status aria-live="polite">搜索标题、正文与标签。</p><div class="search-results library-results" data-library-results hidden></div>
+<div data-explore-default><div class="section-heading"><div><span class="section-index mono">01 /</span><h2>几个常去的地方</h2></div></div><div class="explore-topics">{{ range site.Taxonomies.categories.ByCount }}<a href="{{ .Page.RelPermalink }}"><span class="mono">{{ printf "%02d" .Count }} ENTRIES</span><h3>{{ .Page.Title }}</h3>{{ partial "v3/icon.html" "diagonal" }}</a>{{ end }}</div>
+<div class="section-heading topic-heading"><div><span class="section-index mono">02 /</span><h2>念头的索引</h2></div><span class="label">{{ len site.Taxonomies.tags }} 个标签</span></div><div class="topic-cloud">{{ range site.Taxonomies.tags.ByCount }}<a href="{{ .Page.RelPermalink }}">{{ .Page.Title }}<sup>{{ .Count }}</sup></a>{{ end }}</div>
+<a class="explore-rss" href="{{ "rss_subscription/" | relURL }}"><span><span class="eyebrow">OUTSIDE THIS JOURNAL</span><strong>也看看，我在读谁。</strong><span>一些值得长期关注的网站与写作者。</span></span>{{ partial "v3/icon.html" "diagonal" }}</a></div>
+</div>{{ end }}

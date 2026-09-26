@@ -1,0 +1,10 @@
+{{ define "main" }}<div class="page-shell">
+{{ $pages := where .RegularPages "Params.hidden" "!=" true }}
+{{ $title := .Title }}{{ $description := "一些想清楚的事，和更多还在想的事。" }}
+{{ if eq .Section "posts" }}{{ $title = "写下，留下。" }}{{ end }}
+{{ partial "v3/page-heading.html" (dict "eyebrow" "THE WRITING ROOM" "title" $title "description" $description "meta" (printf "%d 篇文字" (len $pages))) }}
+<nav class="category-nav" aria-label="文章分类"><a href="{{ "posts/" | relURL }}" {{ if eq .Kind "section" }}class="active"{{ end }}>全部</a>{{ range site.Taxonomies.categories.ByCount }}<a href="{{ .Page.RelPermalink }}" {{ if eq $.RelPermalink .Page.RelPermalink }}class="active"{{ end }}>{{ .Page.Title }} <span>{{ .Count }}</span></a>{{ end }}<a class="category-archive" href="{{ "archives/" | relURL }}">时间归档 ↗</a></nav>
+{{ $paginator := .Paginate $pages.ByLastmod.Reverse 12 }}
+<div class="writing-list post-rows">{{ range $i, $p := $paginator.Pages }}{{ partial "v3/article-row.html" (dict "page" $p "index" (add (mul (sub $paginator.PageNumber 1) 12) (add $i 1))) }}{{ end }}</div>
+{{ if gt $paginator.TotalPages 1 }}<nav class="pagination" aria-label="分页">{{ if $paginator.HasPrev }}<a href="{{ $paginator.Prev.URL }}">← 上一页</a>{{ else }}<span></span>{{ end }}<span class="mono">{{ printf "%02d" $paginator.PageNumber }} / {{ printf "%02d" $paginator.TotalPages }}</span>{{ if $paginator.HasNext }}<a href="{{ $paginator.Next.URL }}">下一页 →</a>{{ else }}<span></span>{{ end }}</nav>{{ end }}
+</div>{{ end }}

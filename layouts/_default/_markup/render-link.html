@@ -1,0 +1,14 @@
+{{- $destination := .Destination -}}
+{{- $url := urls.Parse $destination -}}
+{{- $internal := or (and (not $url.Scheme) (strings.HasPrefix $url.Path "/")) (in (slice "ds63.eu.org" "www.ds63.eu.org" "euds63.github.io") (lower $url.Host)) -}}
+{{- $mapped := false -}}
+{{- if $internal -}}
+  {{- $routes := partialCached "v3/url-map.html" site -}}
+  {{- $path := strings.TrimSuffix "/" $url.Path -}}
+  {{- with index $routes $path -}}
+    {{- $destination = . -}}{{- $mapped = true -}}
+    {{- with $url.RawQuery -}}{{- $destination = printf "%s?%s" $destination . -}}{{- end -}}
+    {{- with $url.Fragment -}}{{- $destination = printf "%s#%s" $destination . -}}{{- end -}}
+  {{- end -}}
+{{- end -}}
+<a href="{{ $destination | safeURL }}"{{ with .Title }} title="{{ . }}"{{ end }}{{ if and (not $mapped) (strings.HasPrefix $destination "http") }} target="_blank" rel="noopener noreferrer"{{ end }}>{{ .Text | safeHTML }}</a>

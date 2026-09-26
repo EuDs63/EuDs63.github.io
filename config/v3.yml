@@ -1,5 +1,5 @@
 # Apply with --config hugo.yml,config/v3.yml --environment v3.
-baseURL: https://euds63.github.io/v3/
+baseURL: https://ds63.eu.org/v3/
 googleAnalytics: ''
 enableRobotsTXT: false
 disableKinds: [sitemap]
@@ -19,3 +19,10 @@ menu:
       name: about
       url: about/
       weight: 30
+
+languageCode: zh-cn
+hasCJKLanguage: true
+markup:
+  tableOfContents:
+    startLevel: 1
+    endLevel: 6

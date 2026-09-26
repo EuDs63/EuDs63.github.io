@@ -1,0 +1,19 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#f3f1eb">
+<meta name="robots" content="noindex, nofollow">
+<title>{{ if not .IsHome }}{{ .Title }} · {{ end }}EuDs — 有些想法，我想留住</title>
+<meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ if .IsHome }}EuDs 的个人文字空间。关于阅读、技术，和一些想留住的念头。{{ else }}{{ .Summary | plainify | truncate 150 }}{{ end }}{{ end }}">
+<link rel="canonical" href="{{ .Permalink }}">
+<link rel="icon" type="image/svg+xml" href="{{ "images/v3-mark.svg" | relURL }}">
+<link rel="alternate" type="application/rss+xml" title="EuDs 的文字" href="{{ "index.xml" | absURL }}">
+<meta property="og:title" content="{{ .Title }} · EuDs">
+<meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}有些想法，我想留住。{{ end }}">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
+{{ $css := resources.Get "css/v3.css" | minify | fingerprint }}
+<link rel="stylesheet" href="{{ "fonts/fonts.css" | relURL }}">
+<link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
+<script>try{var preference=localStorage.getItem("v3-pref-theme");document.documentElement.dataset.theme=preference||"light"}catch(e){}</script>
+{{ if .IsHome }}{{ with resources.Get "images/v3-paper-sculpture.png" }}{{ $hero := .Resize "1000x webp q85" }}<link rel="preload" as="image" href="{{ $hero.RelPermalink }}">{{ end }}{{ end }}

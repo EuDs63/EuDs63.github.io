@@ -1,0 +1,32 @@
+{{- define "main" -}}
+{{- $posts := (where (where site.RegularPages "Section" "posts") "Params.hidden" "ne" true).ByDate.Reverse -}}
+{{- $years := $posts.GroupByDate "2006" -}}
+<div class="page-shell">
+  {{ partial "v3/page-heading.html" (dict "eyebrow" "THE ARCHIVE" "title" "时间里的文字" "description" "按写下的时间，翻一翻这些文字。" "meta" (printf "%d 篇文章" (len $posts))) }}
+  <div class="archive-layout">
+    <nav class="archive-year-nav" aria-label="按年份浏览">
+      {{- range $years }}
+      <a href="#year-{{ .Key }}"><span>{{ .Key }}</span><span>{{ len .Pages }}</span></a>
+      {{- end }}
+    </nav>
+    <div class="archive-groups">
+      {{- range $years }}
+      <section class="archive-year" id="year-{{ .Key }}" aria-labelledby="heading-year-{{ .Key }}">
+        <h2 id="heading-year-{{ .Key }}">{{ .Key }}<span>{{ len .Pages }} 篇</span></h2>
+        {{- range .Pages }}
+        <article class="archive-entry">
+          <a href="{{ .RelPermalink }}">
+            <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "01.02" }}</time>
+            <span class="archive-entry-title">{{ .Title }}</span>
+            <span class="archive-entry-category">{{ with .GetTerms "categories" }}{{ range first 1 . }}{{ .LinkTitle }}{{ end }}{{ end }}</span>
+          </a>
+        </article>
+        {{- end }}
+      </section>
+      {{- else }}
+      <p class="empty-state">还没有可归档的文章。</p>
+      {{- end }}
+    </div>
+  </div>
+</div>
+{{- end -}}

@@ -1,76 +1,49 @@
-{{- define "main" }}
-
-<!-- 引入 Style 。注意路径，放在 static 目录-->
-<link rel="stylesheet" href="{{ "css/records.css" | relURL }}">
-<link rel="icon" href="{{ "favicon.ico" | relURL }}">
-
-{{- if not .IsHome | and .Title }}
-<header class="page-header">
-    {{- partial "breadcrumbs.html" . }}
-    <h1>
-        {{/* see: https://gohugo.io/variables/taxonomy/#taxonomy-terms-page-variables */}}
-        {{- if eq .Kind "term" -}}{{- .Data.Singular }}: {{ end -}}
-        {{ .Title -}}
-    </h1>
-    {{- if .Description }}
-    <div class="post-description">
-        {{ .Description | markdownify }}
-    </div>
+{{- define "main" -}}
+{{- $shelf := site.Data.neodb.book_progress -}}
+{{- $books := $shelf.data | default slice -}}
+{{- $shown := len $books -}}
+{{- $total := int ($shelf.count | default $shown) -}}
+<div class="page-shell">
+  {{ partial "v3/page-heading.html" (dict "eyebrow" "READING NOTES" "title" "读到这里" "description" "正在读的书，以及读到这里的一点想法。" "meta" (printf "在读 %d 本 · 此页展示 %d 本" $total $shown)) }}
+  <div class="books-grid">
+    {{- range $index, $book := $books -}}
+    {{- $item := $book.item -}}
+    {{- $bookURL := $item.url | default $item.id -}}
+    {{- if strings.HasPrefix $bookURL "/" -}}
+      {{- $bookURL = printf "https://neodb.social%s" $bookURL -}}
     {{- end }}
-    {{- partial "inline_links.html" . -}}
-</header>
-{{- end }}
-
-<!-- 获取本地 Json 数据 -->
-{{ $books := getJSON "data/neodb/book_progress.json" }}
-
-<div class="post-content">
-    <h3>最近在读</h3>
-    <a href="https://neodb.social/developer/" target="_blank">Power by NeoDB</a>
+    <article class="book-card">
+      <a class="book-cover{{ if not $item.cover_image_url }} is-cover-missing{{ end }}" href="{{ $bookURL }}" target="_blank" rel="noopener noreferrer" aria-label="在 NeoDB 查看《{{ $item.title }}》（新窗口）">
+        <span class="book-cover-title" aria-hidden="true">{{ $item.title }}</span>
+        {{- with $item.cover_image_url }}
+        <img src="{{ . }}" alt="《{{ $item.title }}》封面" loading="lazy" decoding="async" onerror="this.hidden=true;this.style.display='none';this.parentElement.classList.add('is-cover-missing')">
+        {{- end }}
+      </a>
+      <div class="book-info">
+        <span class="book-number" aria-hidden="true">{{ printf "%02d" (add $index 1) }}</span>
+        <h2><a href="{{ $bookURL }}" target="_blank" rel="noopener noreferrer">{{ $item.title }}</a></h2>
+        {{- with $item.credits -}}
+        {{- $authors := where . "role" "author" -}}
+        {{- with $authors }}
+        <p class="book-author">{{ range $i, $author := . }}{{ if $i }} / {{ end }}{{ $author.name }}{{ end }}</p>
+        {{- end -}}
+        {{- end }}
+        {{- with $book.comment_text }}
+        <p class="book-note">{{ . | plainify | htmlUnescape }}</p>
+        {{- else -}}
+        {{- with $item.brief }}
+        <p class="book-note book-description">{{ . | plainify | htmlUnescape | truncate 140 }}</p>
+        {{- end -}}
+        {{- end }}
+        {{- with $item.rating }}
+        <p class="book-rating"><span>NeoDB 评分</span><strong>{{ . }}</strong><span>/ 10</span></p>
+        {{- end }}
+      </div>
+    </article>
+    {{- else }}
+    <p class="empty-state">书架上暂时没有在读记录。</p>
+    {{- end }}
+  </div>
+  <p class="page-source">书目与阅读记录来自 <a href="https://neodb.social/users/EuDs63/" target="_blank" rel="noopener noreferrer">我的 NeoDB 书架</a>。{{ if gt $total $shown }}此页显示最近同步的 {{ $shown }} 本。{{ end }}</p>
 </div>
-
-<div>
-    {{ range $books.data }}
-    {{ $title := .item.title}}
-    {{ $book_url := .item.url }}
-    {{ $cover := .item.cover_image_url }}
-    {{ $cover_name := path.Base $cover }}
-    {{ $brief := .item.brief }}
-    {{ $comment_text := .comment_text}}
-    {{ $created_time := .created_time}}
-
-
-    <div class="post-entry">
-
-        <div class="post-info">
-            <header class="entry-header">
-                <h2>
-                    <a href="https://neodb.social{{ $book_url }}" target="_blank">{{ $title }}</a>
-                </h2>
-            </header>
-            <section class="entry-content">
-                <p>{{ $brief | plainify | htmlUnescape }}{{ if .Truncated }}...{{ end }}
-                </p>
-            </section>
-            <p class="comment-text">
-                {{ $comment_text | plainify | htmlUnescape }}{{ if .Truncated }}...{{ end }}
-            </p>
-
-        </div>
-        <div class="book-card-cover">
-            <a href="https://neodb.social{{ $book_url }}" target="_blank">
-                <div class="cover-wrapper">
-                    <img src="{{ $cover }}" alt="{{ $title }}" />
-                </div>
-            </a>
-        </div>
-    </div>
-
-
-</div>
-
-
-{{ end }}
-
-
-{{- end }}{{- /* end main */ -}}
+{{- end -}}

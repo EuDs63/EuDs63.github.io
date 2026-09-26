@@ -1,5 +1,6 @@
 """Verify the v3 Pages artifact without changing source articles."""
 import json
+import re
 import sys
 import xml.etree.ElementTree as ET
 from html.parser import HTMLParser
@@ -64,6 +65,7 @@ for path in pages:
     relative = path.relative_to(root).as_posix()
     page_url = urljoin(base, relative)
     source = path.read_text(encoding='utf-8')
+    assert not re.search(r'%![a-zA-Z]?\(', source), f'Template formatting error: {relative}'
     # Hugo pagination redirects have only refresh/canonical, not a themed document.
     if '<title>' not in source:
         continue
@@ -73,7 +75,7 @@ for path in pages:
         continue
     assert page.noindex, f'Missing noindex: {relative}'
     assert 'v3-pref-theme' in source, f'Theme preference not isolated: {relative}'
-    assert 'v3-menu-scroll-position' in source, f'Menu preference not isolated: {relative}'
+    assert 'data-search-index=' in source, f'Missing search index endpoint: {relative}'
     checked += 1
 
 index = json.loads((root / 'index.json').read_text(encoding='utf-8'))
@@ -86,5 +88,8 @@ for link in feed.findall('./channel/item/link'):
     local_target(link.text, base)
 
 records = (root / 'records/index.html').read_text(encoding='utf-8')
-assert '/v3/css/records.css' in records, 'Records stylesheet is not rooted in v3'
+assert 'books-grid' in records, 'Reading room not rendered'
+assert (root / 'fonts/fonts.css').is_file(), 'Missing local font styles'
+for link in feed.findall('./channel/item/link'):
+    assert link.text.startswith(base), 'RSS item left v3'
 print(f'PASS: {checked} HTML pages; {len(index)} search entries; RSS, navigation, assets, noindex and isolated preferences.')
