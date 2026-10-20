@@ -41,3 +41,10 @@ summary: 新的开始
 - [接入框架 | NapCatQQ](https://napneko.github.io/zh-CN/guide/integration )
 - [NapCat 使用教程 | NoneBot 文档](https://x.none.bot/before/install_napcat )
 - [Shell | NapCatQQ](https://napneko.github.io/guide/boot/Shell )
+
+## 后话
+最近网上刷到不少给qq bot接入deepseek的帖子，而且我正好有一台腾讯云的机器，于是心血来潮折腾了下。
+
+这次我是让grok bot自己上到我的机器上，然后部署[MaiBot 文档中心](https://docs.mai-mai.org/ )。全程很顺利，我只要扫码，提供llm调用的api key了，甚至机器人的人设都给我写好了。然后我想给bot接tts，虽然我用的minimax的api，MaiBot不支持，但Grok Bot很利索的就自己写好了适配。
+
+看两年前自己还得读文档，理解文档，手动操作，有点恍如隔世。
